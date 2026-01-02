@@ -57,11 +57,11 @@ if config.PKT_TYPE == HT
     ht_sig_sym1_bits = ht_sig_encoded(1:48);
     ht_sig_sym2_bits = ht_sig_encoded(49:96);
     
-    % 3. Puncturing & Interleaving for Symbol 1 (QPSK 1/2, index 1 = L-SIG+1)
+    % 3. Puncturing & Interleaving for Symbol 1 (BPSK 1/2, index 1 = L-SIG+1)
     ht_sig_sym1_interleaved = dot11_punc_interlv(ht_sig_sym1_bits, RATE_6MBPS, 1, HT);
     
-    % 4. Modulation Symbol 1 (QPSK -> N_BPSC = 2)
-    ht_sig_sym1_modulated = modulate_signal(ht_sig_sym1_interleaved, 2);
+    % 4. Modulation Symbol 1 (BPSK -> N_BPSC = 1)
+    ht_sig_sym1_modulated = modulate_signal(ht_sig_sym1_interleaved, 1);
     
     % 5. IFFT Symbol 1 (48 subcarriers for Legacy compatibility)
     ht_sig_sym1_ifft = perform_ifft_with_pilots(ht_sig_sym1_modulated, 48, LEGACY);
@@ -71,7 +71,7 @@ if config.PKT_TYPE == HT
     
     % Repeat for Symbol 2 (index 2)
     ht_sig_sym2_interleaved = dot11_punc_interlv(ht_sig_sym2_bits, RATE_6MBPS, 2, HT);
-    ht_sig_sym2_modulated = modulate_signal(ht_sig_sym2_interleaved, 2);
+    ht_sig_sym2_modulated = modulate_signal(ht_sig_sym2_interleaved, 1);
     ht_sig_sym2_ifft = perform_ifft_with_pilots(ht_sig_sym2_modulated, 48, LEGACY);
     ht_sig_sym2_iq = add_cyclic_prefix(ht_sig_sym2_ifft, 16);
     
@@ -165,15 +165,19 @@ function crc = calculate_crc8(bits)
     
     for i = 1:length(bits)
         feedback = xor(crc_reg(8), bits(i));
-        crc_reg(8) = crc_reg(7);
-        crc_reg(7) = crc_reg(6);
-        crc_reg(6) = crc_reg(5);
-        crc_reg(5) = crc_reg(4);
-        crc_reg(4) = crc_reg(3);
-        crc_reg(3) = crc_reg(2);
-        crc_reg(2) = xor(crc_reg(1), feedback);
-        crc_reg(1) = xor(crc_reg(0), feedback);
-        crc_reg(0) = feedback;
+        
+        % Shift register (note: MATLAB uses 1-based indexing)
+        new_reg = zeros(1, 8);
+        new_reg(8) = crc_reg(7);
+        new_reg(7) = crc_reg(6);
+        new_reg(6) = crc_reg(5);
+        new_reg(5) = crc_reg(4);
+        new_reg(4) = crc_reg(3);
+        new_reg(3) = crc_reg(2);
+        new_reg(2) = xor(crc_reg(1), feedback);
+        new_reg(1) = feedback;
+        
+        crc_reg = new_reg;
     end
     
     % Invert final CRC
@@ -256,6 +260,9 @@ function iq_samples = add_cyclic_prefix(ifft_output, cp_length)
     % Add cyclic prefix by copying last cp_length samples to the front
     % Input: ifft_output (64 samples)
     % Output: iq_samples (cp_length + 64 samples)
+    
+    % Ensure column vector
+    ifft_output = ifft_output(:);
     
     N = length(ifft_output);
     cp = ifft_output(N-cp_length+1:N);

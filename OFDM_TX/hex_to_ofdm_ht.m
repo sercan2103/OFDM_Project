@@ -83,19 +83,27 @@ fprintf('Step 4: Convolutional encoding...\n');
 % Encode with rate 1/2 (outputs 2x input length)
 encoded_data = conv_encoder_80211(scrambled_data, true);  % true = reset encoder
 
+% Ensure column vector
+encoded_data = encoded_data(:);
+
 encoded_length = length(encoded_data);
 fprintf('  Encoded length: %d bits (rate 1/2)\n', encoded_length);
 
 %% Step 5: Calculate number of OFDM symbols needed
-n_cbps = 2 * n_dbps;  % For rate 1/2 (will be adjusted by puncturing)
-bits_per_symbol = n_dbps;
+% Map MCS to rate parameter for dot11_punc_interlv
+ht_rate = mcs_to_rate(mcs);
 
-% Calculate number of symbols (round up)
-n_sym = ceil(encoded_length / n_cbps);
+% dot11_punc_interlv expects 2 * N_DBPS encoded bits (convolutional encoder is rate 1/2)
+% The puncturing happens inside dot11_punc_interlv to produce N_CBPS bits
+bits_per_symbol_encoded = 2 * n_dbps;
 
-% Pad encoded data if necessary
-if encoded_length < n_sym * n_cbps
-    pad_length = n_sym * n_cbps - encoded_length;
+% Calculate number of symbols based on encoded bits
+n_sym = ceil(encoded_length / bits_per_symbol_encoded);
+
+% Pad encoded data if necessary to fill complete symbols
+bits_needed = n_sym * bits_per_symbol_encoded;
+if encoded_length < bits_needed
+    pad_length = bits_needed - encoded_length;
     encoded_data = [encoded_data; zeros(pad_length, 1)];
     fprintf('  Padded %d bits to fit %d OFDM symbols\n', pad_length, n_sym);
 end
@@ -108,15 +116,15 @@ fprintf('Step 5-7: Processing OFDM symbols (Puncture, Modulate, IFFT)...\n');
 data_symbols_iq = [];
 
 for sym_idx = 0:(n_sym-1)
-    % Extract bits for this symbol
-    start_bit = sym_idx * n_cbps + 1;
-    end_bit = (sym_idx + 1) * n_cbps;
+    % Extract bits for this symbol (bits_per_symbol_encoded bits before puncturing)
+    start_bit = sym_idx * bits_per_symbol_encoded + 1;
+    end_bit = (sym_idx + 1) * bits_per_symbol_encoded;
     symbol_bits = encoded_data(start_bit:end_bit);
     
     % Step 5: Puncturing and Interleaving
     % Use symbol index offset by preamble length (L-SIG=0, HT-SIG1=1, HT-SIG2=2)
     % DATA starts at index 3
-    interleaved_bits = dot11_punc_interlv(symbol_bits, rate, sym_idx + 3, HT);
+    interleaved_bits = dot11_punc_interlv(symbol_bits, ht_rate, sym_idx + 3, HT);
     
     % Step 6: Modulation
     modulated_symbols = modulate_data(interleaved_bits, n_bpsc);
@@ -221,15 +229,16 @@ function modulated = modulate_data(bits, n_bpsc)
 end
 
 function ifft_out = perform_ht_ifft(modulated, n_sd)
-    % Perform IFFT using HT-SIG carrier notation
-    % HT format uses 52 data subcarriers + 4 pilots
+    % Perform IFFT using HT carrier notation
+    % HT format uses 52 data subcarriers + 4 pilots (total 56 used subcarriers)
     
     % Pilot subcarriers indices (in 802.11n): -21, -7, +7, +21
     pilot_indices = [-21, -7, 7, 21];
     pilot_values = [1, 1, 1, -1];  % Standard pilot polarities
     
-    % Data subcarrier indices (excluding pilots and DC)
-    data_indices = [-26:-22, -20:-8, -6:-1, 1:6, 8:20, 22:26];
+    % HT data subcarrier indices: ±{1-28} excluding ±{7, 21} (pilots) and DC
+    % Total: 52 data subcarriers
+    data_indices = [-28:-22, -20:-8, -6:-1, 1:6, 8:20, 22:28];
     
     % Initialize 64-point frequency domain array
     freq_domain = zeros(64, 1);
@@ -360,5 +369,44 @@ function complex_data = hex2iq(hex_array)
         
         % Create complex number
         complex_data(i) = double(i_val) + 1j * double(q_val);
+    end
+end
+
+function rate_param = mcs_to_rate(mcs)
+    % Map MCS to rate parameter for dot11_punc_interlv
+    % MCS 0-7 for single spatial stream
+    % Returns the HT rate code (16-23) for HT packets
+    
+    % HT rate codes are 16 + MCS (as defined in dot11_punc_interlv)
+    rate_param = 16 + mcs;
+    
+    if mcs < 0 || mcs > 7
+        error('Invalid MCS value: %d. Must be 0-7', mcs);
+    end
+end
+
+function coding_rate = get_coding_rate(mcs)
+    % Get the coding rate for each MCS
+    % Returns the actual coding rate (e.g., 0.5 for 1/2, 0.75 for 3/4)
+    
+    switch mcs
+        case 0  % BPSK 1/2
+            coding_rate = 0.5;
+        case 1  % QPSK 1/2
+            coding_rate = 0.5;
+        case 2  % QPSK 3/4
+            coding_rate = 0.75;
+        case 3  % 16-QAM 1/2
+            coding_rate = 0.5;
+        case 4  % 16-QAM 3/4
+            coding_rate = 0.75;
+        case 5  % 64-QAM 2/3
+            coding_rate = 2/3;
+        case 6  % 64-QAM 3/4
+            coding_rate = 0.75;
+        case 7  % 64-QAM 5/6
+            coding_rate = 5/6;
+        otherwise
+            error('Invalid MCS value: %d. Must be 0-7', mcs);
     end
 end
