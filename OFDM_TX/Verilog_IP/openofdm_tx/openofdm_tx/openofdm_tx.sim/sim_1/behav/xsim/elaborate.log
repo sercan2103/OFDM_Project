@@ -1,0 +1,101 @@
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot dot11_tx_tb_behav xil_defaultlib.dot11_tx_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'enable_a' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v:59]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v" Line 10. Module dot11_tx doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/crc32_tx.v" Line 7. Module crc32_tx doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convenc.v" Line 7. Module convenc doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v" Line 13. Module axi_fifo_bram(WIDTH=2,SIZE=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16,SHIFT=1) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16,SHIFT=1) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/bitreverse.v" Line 46. Module bitreverse(LGSIZE=6,WIDTH=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v" Line 13. Module axi_fifo_bram(SIZE=6) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v" Line 13. Module axi_fifo_bram(SIZE=8) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v" Line 10. Module dot11_tx doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/crc32_tx.v" Line 7. Module crc32_tx doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convenc.v" Line 7. Module convenc doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v" Line 13. Module axi_fifo_bram(WIDTH=2,SIZE=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16,SHIFT=1) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16,SHIFT=1) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/bitreverse.v" Line 46. Module bitreverse(LGSIZE=6,WIDTH=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v" Line 13. Module axi_fifo_bram(SIZE=6) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v" Line 13. Module axi_fifo_bram(SIZE=8) doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.l_stf_rom
+Compiling module xil_defaultlib.l_ltf_rom
+Compiling module xil_defaultlib.ht_stf_rom
+Compiling module xil_defaultlib.ht_ltf_rom
+Compiling module xil_defaultlib.crc32_tx
+Compiling module xil_defaultlib.convenc
+Compiling module xil_defaultlib.dpram(DATA_WIDTH=2,ADDRESS_WIDTH...
+Compiling module xil_defaultlib.axi_fifo_bram(WIDTH=2,SIZE=10)
+Compiling module xil_defaultlib.punc_interlv_lut
+Compiling module xil_defaultlib.ram_simo(DEPTH=52)
+Compiling module xil_defaultlib.modulation
+Compiling module xil_defaultlib.convround(IWID=37,OWID=16,SHIFT=...
+Compiling module xil_defaultlib.convround(IWID=39,OWID=16,SHIFT=...
+Compiling module xil_defaultlib.hwbfly(CWIDTH=20,OWIDTH=16,CKPCE...
+Compiling module xil_defaultlib.fftstage(OWIDTH=16,COEFFILE="icm...
+Compiling module xil_defaultlib.fftstage(OWIDTH=16,LGSPAN=4,COEF...
+Compiling module xil_defaultlib.fftstage(OWIDTH=16,LGSPAN=3,COEF...
+Compiling module xil_defaultlib.fftstage(OWIDTH=16,LGSPAN=2,COEF...
+Compiling module xil_defaultlib.convround(IWID=17,OWID=16)
+Compiling module xil_defaultlib.qtrstage(OWIDTH=16,LGWIDTH=6,INV...
+Compiling module xil_defaultlib.convround(IWID=17,OWID=16,SHIFT=...
+Compiling module xil_defaultlib.laststage(OWIDTH=16,SHIFT=1)
+Compiling module xil_defaultlib.bitreverse(LGSIZE=6,WIDTH=16)
+Compiling module xil_defaultlib.ifftmain
+Compiling module xil_defaultlib.dpram(DATA_WIDTH=32,ADDRESS_WIDT...
+Compiling module xil_defaultlib.axi_fifo_bram(SIZE=6)
+Compiling module xil_defaultlib.dpram(DATA_WIDTH=32)
+Compiling module xil_defaultlib.axi_fifo_bram(SIZE=8)
+Compiling module xil_defaultlib.dot11_tx
+Compiling module xil_defaultlib.dot11_tx_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot dot11_tx_tb_behav

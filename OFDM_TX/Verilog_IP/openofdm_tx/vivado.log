@@ -1,0 +1,526 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Mon Aug 25 16:50:32 2025
+# Process ID: 1234263
+# Current directory: /home/system0/Downloads/openwifi-hw/ip/openofdm_tx
+# Command line: vivado
+# Log file: /home/system0/Downloads/openwifi-hw/ip/openofdm_tx/vivado.log
+# Journal file: /home/system0/Downloads/openwifi-hw/ip/openofdm_tx/vivado.jou
+# Running On: system0, OS: Linux, CPU Frequency: 400.000 MHz, CPU Physical cores: 16, Host memory: 32823 MB
+#-----------------------------------------------------------
+start_gui
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /tools/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+open_project /home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.xpr
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.2/data/ip'.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'dot11_tx_tb'
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/tools/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'dot11_tx_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_64.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_8.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_16.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_32.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj dot11_tx_tb_vlog.prj
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot dot11_tx_tb_behav xil_defaultlib.dot11_tx_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot dot11_tx_tb_behav xil_defaultlib.dot11_tx_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'enable_a' [/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v:59]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "dot11_tx_tb_behav -key {Behavioral:sim_1:Functional:dot11_tx_tb} -tclbatch {dot11_tx_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source dot11_tx_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'dot11_tx_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+update_compile_order -fileset sources_1
+current_wave_config {Untitled 1}
+Untitled 1
+add_wave {{/dot11_tx_tb/dot11_tx_inst/PKT_TYPE}} 
+current_wave_config {Untitled 1}
+Untitled 1
+add_wave {{/dot11_tx_tb/dot11_tx_inst/ofdm_cnt_FSM2}} 
+current_wave_config {Untitled 1}
+Untitled 1
+add_wave {{/dot11_tx_tb/dot11_tx_inst/N_BPSC}} 
+save_wave_config {/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/dot11_tx_tb_behav.wcfg}
+add_files -fileset sim_1 -norecurse /home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/dot11_tx_tb_behav.wcfg
+set_property xsim.view /home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/dot11_tx_tb_behav.wcfg [get_filesets sim_1]
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'dot11_tx_tb'
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/tools/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'dot11_tx_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_64.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_8.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_16.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_32.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj dot11_tx_tb_vlog.prj
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '0' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot dot11_tx_tb_behav xil_defaultlib.dot11_tx_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot dot11_tx_tb_behav xil_defaultlib.dot11_tx_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'enable_a' [/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v:59]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "dot11_tx_tb_behav -key {Behavioral:sim_1:Functional:dot11_tx_tb} -tclbatch {dot11_tx_tb.tcl} -view {/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/dot11_tx_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+open_wave_config /home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/dot11_tx_tb_behav.wcfg
+source dot11_tx_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'dot11_tx_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+current_wave_config {dot11_tx_tb_behav.wcfg}
+dot11_tx_tb_behav.wcfg
+add_wave {{/dot11_tx_tb/dot11_tx_inst/N_DBPS}} 
+save_wave_config {/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/dot11_tx_tb_behav.wcfg}
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'dot11_tx_tb'
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/tools/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'dot11_tx_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_64.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_8.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_16.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_32.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj dot11_tx_tb_vlog.prj
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot dot11_tx_tb_behav xil_defaultlib.dot11_tx_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot dot11_tx_tb_behav xil_defaultlib.dot11_tx_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'enable_a' [/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v:59]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '0' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "dot11_tx_tb_behav -key {Behavioral:sim_1:Functional:dot11_tx_tb} -tclbatch {dot11_tx_tb.tcl} -view {/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/dot11_tx_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+open_wave_config /home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/dot11_tx_tb_behav.wcfg
+source dot11_tx_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'dot11_tx_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run all
+$finish called at time : 10597500 ps : File "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dot11_tx_tb.v" Line 55
+run all
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'dot11_tx_tb'
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/tools/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'dot11_tx_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_64.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_8.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_16.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_32.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj dot11_tx_tb_vlog.prj
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot dot11_tx_tb_behav xil_defaultlib.dot11_tx_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot dot11_tx_tb_behav xil_defaultlib.dot11_tx_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'enable_a' [/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v:59]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "dot11_tx_tb_behav -key {Behavioral:sim_1:Functional:dot11_tx_tb} -tclbatch {dot11_tx_tb.tcl} -view {/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/dot11_tx_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+open_wave_config /home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/dot11_tx_tb_behav.wcfg
+source dot11_tx_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'dot11_tx_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'dot11_tx_tb'
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/tools/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'dot11_tx_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_64.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_8.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_16.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_32.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj dot11_tx_tb_vlog.prj
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'dot11_tx_tb'
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot dot11_tx_tb_behav xil_defaultlib.dot11_tx_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot dot11_tx_tb_behav xil_defaultlib.dot11_tx_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'enable_a' [/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v:59]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+Time resolution is 1 ps
+run 10 us
+$finish called at time : 10597500 ps : File "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dot11_tx_tb.v" Line 55
+save_wave_config {/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/dot11_tx_tb_behav.wcfg}
+save_wave_config {/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/dot11_tx_tb_behav.wcfg}
+save_wave_config {/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/dot11_tx_tb_behav.wcfg}
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'dot11_tx_tb'
+WARNING: [Vivado 12-13277] Compiled library path does not exist: ''
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/tools/Xilinx/Vivado/2022.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'dot11_tx_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_64.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_8.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_16.mem'
+INFO: [SIM-utils-43] Exported '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim/icmem_32.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj dot11_tx_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_fifo_bram
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/bimpy.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bimpy
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/bitreverse.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bitreverse
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/butterfly.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module butterfly
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convenc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module convenc
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module convround
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/crc32_tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crc32_tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dot11_tx
+WARNING: [VRFC 10-3380] identifier 'bits_enc_fifo_iready' is used before its declaration [/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:124]
+WARNING: [VRFC 10-3380] identifier 'bits_enc_fifo_iready' is used before its declaration [/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:139]
+WARNING: [VRFC 10-3380] identifier 'bits_enc_fifo_iready' is used before its declaration [/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:195]
+WARNING: [VRFC 10-3380] identifier 'bits_enc_fifo_iready' is used before its declaration [/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:227]
+WARNING: [VRFC 10-3380] identifier 'enc_pos' is used before its declaration [/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:393]
+WARNING: [VRFC 10-3380] identifier 'pkt_fifo_space' is used before its declaration [/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:508]
+WARNING: [VRFC 10-3380] identifier 'pkt_fifo_space' is used before its declaration [/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:613]
+WARNING: [VRFC 10-3380] identifier 'fifo_turn' is used before its declaration [/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:688]
+WARNING: [VRFC 10-3380] identifier 'fifo_turn' is used before its declaration [/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:705]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dpram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dpram
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/ht_ltf_rom.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ht_ltf_rom
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/ht_stf_rom.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ht_stf_rom
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/hwbfly.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hwbfly
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/ifftmain.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ifftmain
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/ifftstage.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fftstage
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/l_ltf_rom.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module l_ltf_rom
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/l_stf_rom.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module l_stf_rom
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/laststage.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module laststage
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/longbimpy.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module longbimpy
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/modulation.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module modulation
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module punc_interlv_lut
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/qtrstage.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module qtrstage
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/ram_simo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ram_simo
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dot11_tx_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dot11_tx_tb
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot dot11_tx_tb_behav xil_defaultlib.dot11_tx_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot dot11_tx_tb_behav xil_defaultlib.dot11_tx_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'enable_a' [/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v:59]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v" Line 10. Module dot11_tx doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/crc32_tx.v" Line 7. Module crc32_tx doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convenc.v" Line 7. Module convenc doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v" Line 13. Module axi_fifo_bram(WIDTH=2,SIZE=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16,SHIFT=1) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16,SHIFT=1) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/bitreverse.v" Line 46. Module bitreverse(LGSIZE=6,WIDTH=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v" Line 13. Module axi_fifo_bram(SIZE=6) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v" Line 13. Module axi_fifo_bram(SIZE=8) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v" Line 10. Module dot11_tx doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/crc32_tx.v" Line 7. Module crc32_tx doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convenc.v" Line 7. Module convenc doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v" Line 13. Module axi_fifo_bram(WIDTH=2,SIZE=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=37,OWID=16,SHIFT=2) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=39,OWID=16,SHIFT=4) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16,SHIFT=1) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/convround.v" Line 48. Module convround(IWID=17,OWID=16,SHIFT=1) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/bitreverse.v" Line 46. Module bitreverse(LGSIZE=6,WIDTH=16) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v" Line 13. Module axi_fifo_bram(SIZE=6) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v" Line 13. Module axi_fifo_bram(SIZE=8) doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.l_stf_rom
+Compiling module xil_defaultlib.l_ltf_rom
+Compiling module xil_defaultlib.ht_stf_rom
+Compiling module xil_defaultlib.ht_ltf_rom
+Compiling module xil_defaultlib.crc32_tx
+Compiling module xil_defaultlib.convenc
+Compiling module xil_defaultlib.dpram(DATA_WIDTH=2,ADDRESS_WIDTH...
+Compiling module xil_defaultlib.axi_fifo_bram(WIDTH=2,SIZE=10)
+Compiling module xil_defaultlib.punc_interlv_lut
+Compiling module xil_defaultlib.ram_simo(DEPTH=52)
+Compiling module xil_defaultlib.modulation
+Compiling module xil_defaultlib.convround(IWID=37,OWID=16,SHIFT=...
+Compiling module xil_defaultlib.convround(IWID=39,OWID=16,SHIFT=...
+Compiling module xil_defaultlib.hwbfly(CWIDTH=20,OWIDTH=16,CKPCE...
+Compiling module xil_defaultlib.fftstage(OWIDTH=16,COEFFILE="icm...
+Compiling module xil_defaultlib.fftstage(OWIDTH=16,LGSPAN=4,COEF...
+Compiling module xil_defaultlib.fftstage(OWIDTH=16,LGSPAN=3,COEF...
+Compiling module xil_defaultlib.fftstage(OWIDTH=16,LGSPAN=2,COEF...
+Compiling module xil_defaultlib.convround(IWID=17,OWID=16)
+Compiling module xil_defaultlib.qtrstage(OWIDTH=16,LGWIDTH=6,INV...
+Compiling module xil_defaultlib.convround(IWID=17,OWID=16,SHIFT=...
+Compiling module xil_defaultlib.laststage(OWIDTH=16,SHIFT=1)
+Compiling module xil_defaultlib.bitreverse(LGSIZE=6,WIDTH=16)
+Compiling module xil_defaultlib.ifftmain
+Compiling module xil_defaultlib.dpram(DATA_WIDTH=32,ADDRESS_WIDT...
+Compiling module xil_defaultlib.axi_fifo_bram(SIZE=6)
+Compiling module xil_defaultlib.dpram(DATA_WIDTH=32)
+Compiling module xil_defaultlib.axi_fifo_bram(SIZE=8)
+Compiling module xil_defaultlib.dot11_tx
+Compiling module xil_defaultlib.dot11_tx_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot dot11_tx_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "dot11_tx_tb_behav -key {Behavioral:sim_1:Functional:dot11_tx_tb} -tclbatch {dot11_tx_tb.tcl} -view {/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/dot11_tx_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+open_wave_config /home/system0/Downloads/openwifi-hw/ip/openofdm_tx/openofdm_tx/dot11_tx_tb_behav.wcfg
+source dot11_tx_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+WARNING: Too many words specified in data file ../../../../../unit_test/test_vec/ht_tx_intf_mem_mcs7_gi1_aggr0_byte8176.mem
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'dot11_tx_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 7120.570 ; gain = 0.000 ; free physical = 4099 ; free virtual = 23370
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run all
+run 100 us
+run 100 us
+$finish called at time : 479317500 ps : File "/home/system0/Downloads/openwifi-hw/ip/openofdm_tx/src/dot11_tx_tb.v" Line 55
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Aug 25 17:43:33 2025...

@@ -1,0 +1,926 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Tue Nov 11 17:45:53 2025
+# Process ID: 16239
+# Current directory: /home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.runs/synth_1
+# Command line: vivado -log openofdm_tx.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source openofdm_tx.tcl
+# Log file: /home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.runs/synth_1/openofdm_tx.vds
+# Journal file: /home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.runs/synth_1/vivado.jou
+# Running On: kemal-EXCALIBUR-G770, OS: Linux, CPU Frequency: 800.574 MHz, CPU Physical cores: 6, Host memory: 33383 MB
+#-----------------------------------------------------------
+source openofdm_tx.tcl -notrace
+Command: synth_design -top openofdm_tx -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {17-179}  -suppress '. The existing rule will be replaced.
+INFO: [Synth 8-7075] Helper process launched with PID 16275
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+WARNING: [Synth 8-6901] identifier 'bits_enc_fifo_iready' is used before its declaration [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:124]
+WARNING: [Synth 8-6901] identifier 'bits_enc_fifo_iready' is used before its declaration [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:139]
+WARNING: [Synth 8-6901] identifier 'bits_enc_fifo_iready' is used before its declaration [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:195]
+WARNING: [Synth 8-6901] identifier 'bits_enc_fifo_iready' is used before its declaration [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:227]
+WARNING: [Synth 8-6901] identifier 'enc_pos' is used before its declaration [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:393]
+WARNING: [Synth 8-6901] identifier 'punc_info' is used before its declaration [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:393]
+WARNING: [Synth 8-6901] identifier 'pkt_fifo_space' is used before its declaration [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:508]
+WARNING: [Synth 8-6901] identifier 'CP_fifo_space' is used before its declaration [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:508]
+WARNING: [Synth 8-6901] identifier 'pkt_fifo_space' is used before its declaration [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:613]
+WARNING: [Synth 8-6901] identifier 'CP_fifo_space' is used before its declaration [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:613]
+WARNING: [Synth 8-6901] identifier 'fifo_turn' is used before its declaration [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:688]
+WARNING: [Synth 8-6901] identifier 'fifo_turn' is used before its declaration [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:705]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2439.309 ; gain = 374.738 ; free physical = 2426 ; free virtual = 26112
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.553; parent = 1617.887; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3456.406; parent = 2445.250; children = 1011.156
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'openofdm_tx' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/openofdm_tx.v:10]
+INFO: [Synth 8-6157] synthesizing module 'dot11_tx' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:10]
+INFO: [Synth 8-6157] synthesizing module 'l_stf_rom' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/l_stf_rom.v:9]
+INFO: [Synth 8-226] default block is never used [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/l_stf_rom.v:16]
+INFO: [Synth 8-6155] done synthesizing module 'l_stf_rom' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/l_stf_rom.v:9]
+INFO: [Synth 8-6157] synthesizing module 'l_ltf_rom' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/l_ltf_rom.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'l_ltf_rom' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/l_ltf_rom.v:9]
+INFO: [Synth 8-6157] synthesizing module 'ht_stf_rom' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ht_stf_rom.v:9]
+INFO: [Synth 8-226] default block is never used [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ht_stf_rom.v:16]
+INFO: [Synth 8-6155] done synthesizing module 'ht_stf_rom' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ht_stf_rom.v:9]
+INFO: [Synth 8-6157] synthesizing module 'ht_ltf_rom' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ht_ltf_rom.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'ht_ltf_rom' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ht_ltf_rom.v:9]
+INFO: [Synth 8-6157] synthesizing module 'crc32_tx' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/crc32_tx.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'crc32_tx' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/crc32_tx.v:7]
+INFO: [Synth 8-6157] synthesizing module 'convenc' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convenc.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'convenc' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convenc.v:7]
+INFO: [Synth 8-226] default block is never used [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:228]
+INFO: [Synth 8-226] default block is never used [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:282]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:313]
+INFO: [Synth 8-6157] synthesizing module 'axi_fifo_bram' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v:13]
+	Parameter WIDTH bound to: 2 - type: integer 
+	Parameter SIZE bound to: 10 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'dpram' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dpram.v:22]
+	Parameter DATA_WIDTH bound to: 2 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 10 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'dpram' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dpram.v:22]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v:84]
+INFO: [Synth 8-6155] done synthesizing module 'axi_fifo_bram' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v:13]
+INFO: [Synth 8-6157] synthesizing module 'punc_interlv_lut' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:7]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:20]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:50]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:92]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:146]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:224]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:326]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:476]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:674]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:896]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:928]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:986]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:1070]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:1180]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:1342]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:1556]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:1796]
+INFO: [Synth 8-6155] done synthesizing module 'punc_interlv_lut' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/punc_interlv_lut.v:7]
+INFO: [Synth 8-6157] synthesizing module 'ram_simo' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ram_simo.v:8]
+	Parameter DEPTH bound to: 52 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'ram_simo' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ram_simo.v:8]
+INFO: [Synth 8-6157] synthesizing module 'modulation' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/modulation.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'modulation' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/modulation.v:9]
+INFO: [Synth 8-6157] synthesizing module 'ifftmain' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ifftmain.v:77]
+INFO: [Synth 8-6157] synthesizing module 'fftstage' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ifftstage.v:64]
+	Parameter IWIDTH bound to: 16 - type: integer 
+	Parameter CWIDTH bound to: 20 - type: integer 
+	Parameter OWIDTH bound to: 16 - type: integer 
+	Parameter LGSPAN bound to: 5 - type: integer 
+	Parameter BFLYSHIFT bound to: 0 - type: integer 
+	Parameter OPT_HWMPY bound to: 1'b1 
+	Parameter CKPCE bound to: 1 - type: integer 
+	Parameter COEFFILE bound to: icmem_64.mem - type: string 
+INFO: [Synth 8-3876] $readmem data file 'icmem_64.mem' is read successfully [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ifftstage.v:118]
+INFO: [Synth 8-6157] synthesizing module 'hwbfly' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:68]
+	Parameter IWIDTH bound to: 16 - type: integer 
+	Parameter CWIDTH bound to: 20 - type: integer 
+	Parameter OWIDTH bound to: 16 - type: integer 
+	Parameter SHIFT bound to: 0 - type: integer 
+	Parameter CKPCE bound to: 1 - type: integer 
+WARNING: [Synth 8-5974] attribute "use_dsp48" has been deprecated, please use "use_dsp" instead 
+WARNING: [Synth 8-5974] attribute "use_dsp48" has been deprecated, please use "use_dsp" instead 
+INFO: [Synth 8-6157] synthesizing module 'convround' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v:48]
+	Parameter IWID bound to: 37 - type: integer 
+	Parameter OWID bound to: 16 - type: integer 
+	Parameter SHIFT bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'convround' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v:48]
+INFO: [Synth 8-6157] synthesizing module 'convround__parameterized0' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v:48]
+	Parameter IWID bound to: 39 - type: integer 
+	Parameter OWID bound to: 16 - type: integer 
+	Parameter SHIFT bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'convround__parameterized0' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v:48]
+INFO: [Synth 8-6155] done synthesizing module 'hwbfly' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:68]
+INFO: [Synth 8-6155] done synthesizing module 'fftstage' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ifftstage.v:64]
+INFO: [Synth 8-6157] synthesizing module 'fftstage__parameterized0' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ifftstage.v:64]
+	Parameter IWIDTH bound to: 16 - type: integer 
+	Parameter CWIDTH bound to: 20 - type: integer 
+	Parameter OWIDTH bound to: 16 - type: integer 
+	Parameter LGSPAN bound to: 4 - type: integer 
+	Parameter BFLYSHIFT bound to: 0 - type: integer 
+	Parameter OPT_HWMPY bound to: 1'b1 
+	Parameter CKPCE bound to: 1 - type: integer 
+	Parameter COEFFILE bound to: icmem_32.mem - type: string 
+INFO: [Synth 8-3876] $readmem data file 'icmem_32.mem' is read successfully [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ifftstage.v:118]
+INFO: [Synth 8-6155] done synthesizing module 'fftstage__parameterized0' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ifftstage.v:64]
+INFO: [Synth 8-6157] synthesizing module 'fftstage__parameterized1' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ifftstage.v:64]
+	Parameter IWIDTH bound to: 16 - type: integer 
+	Parameter CWIDTH bound to: 20 - type: integer 
+	Parameter OWIDTH bound to: 16 - type: integer 
+	Parameter LGSPAN bound to: 3 - type: integer 
+	Parameter BFLYSHIFT bound to: 0 - type: integer 
+	Parameter OPT_HWMPY bound to: 1'b1 
+	Parameter CKPCE bound to: 1 - type: integer 
+	Parameter COEFFILE bound to: icmem_16.mem - type: string 
+INFO: [Synth 8-3876] $readmem data file 'icmem_16.mem' is read successfully [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ifftstage.v:118]
+INFO: [Synth 8-6155] done synthesizing module 'fftstage__parameterized1' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ifftstage.v:64]
+INFO: [Synth 8-6157] synthesizing module 'fftstage__parameterized2' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ifftstage.v:64]
+	Parameter IWIDTH bound to: 16 - type: integer 
+	Parameter CWIDTH bound to: 20 - type: integer 
+	Parameter OWIDTH bound to: 16 - type: integer 
+	Parameter LGSPAN bound to: 2 - type: integer 
+	Parameter BFLYSHIFT bound to: 0 - type: integer 
+	Parameter OPT_HWMPY bound to: 1'b1 
+	Parameter CKPCE bound to: 1 - type: integer 
+	Parameter COEFFILE bound to: icmem_8.mem - type: string 
+INFO: [Synth 8-3876] $readmem data file 'icmem_8.mem' is read successfully [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ifftstage.v:118]
+INFO: [Synth 8-6155] done synthesizing module 'fftstage__parameterized2' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ifftstage.v:64]
+INFO: [Synth 8-6157] synthesizing module 'qtrstage' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/qtrstage.v:72]
+	Parameter IWIDTH bound to: 16 - type: integer 
+	Parameter OWIDTH bound to: 16 - type: integer 
+	Parameter LGWIDTH bound to: 6 - type: integer 
+	Parameter INVERSE bound to: 1 - type: integer 
+	Parameter SHIFT bound to: 0 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'convround__parameterized1' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v:48]
+	Parameter IWID bound to: 17 - type: integer 
+	Parameter OWID bound to: 16 - type: integer 
+	Parameter SHIFT bound to: 0 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'convround__parameterized1' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v:48]
+INFO: [Synth 8-6155] done synthesizing module 'qtrstage' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/qtrstage.v:72]
+INFO: [Synth 8-6157] synthesizing module 'laststage' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/laststage.v:45]
+	Parameter IWIDTH bound to: 16 - type: integer 
+	Parameter OWIDTH bound to: 16 - type: integer 
+	Parameter SHIFT bound to: 1 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'convround__parameterized2' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v:48]
+	Parameter IWID bound to: 17 - type: integer 
+	Parameter OWID bound to: 16 - type: integer 
+	Parameter SHIFT bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'convround__parameterized2' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/convround.v:48]
+INFO: [Synth 8-6155] done synthesizing module 'laststage' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/laststage.v:45]
+INFO: [Synth 8-6157] synthesizing module 'bitreverse' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/bitreverse.v:46]
+	Parameter LGSIZE bound to: 6 - type: integer 
+	Parameter WIDTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'bitreverse' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/bitreverse.v:46]
+INFO: [Synth 8-6155] done synthesizing module 'ifftmain' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/ifftmain.v:77]
+INFO: [Synth 8-226] default block is never used [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:506]
+INFO: [Synth 8-6157] synthesizing module 'axi_fifo_bram__parameterized0' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v:13]
+	Parameter WIDTH bound to: 32 - type: integer 
+	Parameter SIZE bound to: 6 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'dpram__parameterized0' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dpram.v:22]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 6 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'dpram__parameterized0' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dpram.v:22]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v:84]
+INFO: [Synth 8-6155] done synthesizing module 'axi_fifo_bram__parameterized0' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v:13]
+INFO: [Synth 8-6157] synthesizing module 'axi_fifo_bram__parameterized1' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v:13]
+	Parameter WIDTH bound to: 32 - type: integer 
+	Parameter SIZE bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'dpram__parameterized1' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dpram.v:22]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'dpram__parameterized1' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dpram.v:22]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v:84]
+INFO: [Synth 8-6155] done synthesizing module 'axi_fifo_bram__parameterized1' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/axi_fifo_bram.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'dot11_tx' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/dot11_tx.v:10]
+INFO: [Synth 8-6157] synthesizing module 'openofdm_tx_s_axi' [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/openofdm_tx_s_axi.v:5]
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 7 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'openofdm_tx_s_axi' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/openofdm_tx_s_axi.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'openofdm_tx' (0#1) [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/openofdm_tx.v:10]
+WARNING: [Synth 8-3848] Net slv_reg20 in module/entity openofdm_tx does not have driver. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/openofdm_tx.v:76]
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[2] in module openofdm_tx_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[1] in module openofdm_tx_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[0] in module openofdm_tx_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[2] in module openofdm_tx_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[1] in module openofdm_tx_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[0] in module openofdm_tx_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_val[16] in module convround__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_val[38] in module convround__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_val[37] in module convround__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_val[36] in module convround__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_val[35] in module convround__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_val[36] in module convround is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_val[35] in module convround is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2550.215 ; gain = 485.645 ; free physical = 2315 ; free virtual = 26011
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.553; parent = 1617.887; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3561.375; parent = 2550.219; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2565.059 ; gain = 500.488 ; free physical = 2315 ; free virtual = 26011
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.553; parent = 1617.887; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3576.219; parent = 2565.062; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2565.059 ; gain = 500.488 ; free physical = 2315 ; free virtual = 26011
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.553; parent = 1617.887; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3576.219; parent = 2565.062; children = 1011.156
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2565.059 ; gain = 0.000 ; free physical = 2315 ; free virtual = 26011
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2723.809 ; gain = 0.000 ; free physical = 2348 ; free virtual = 26057
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2723.809 ; gain = 0.000 ; free physical = 2348 ; free virtual = 26058
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2723.809 ; gain = 659.238 ; free physical = 2404 ; free virtual = 26142
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.553; parent = 1617.887; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3702.953; parent = 2691.797; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2723.809 ; gain = 659.238 ; free physical = 2404 ; free virtual = 26141
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.553; parent = 1617.887; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3702.953; parent = 2691.797; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2723.809 ; gain = 659.238 ; free physical = 2404 ; free virtual = 26141
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.553; parent = 1617.887; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3702.953; parent = 2691.797; children = 1011.156
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'read_state_reg' in module 'axi_fifo_bram'
+INFO: [Synth 8-802] inferred FSM for state register 'read_state_reg' in module 'axi_fifo_bram__parameterized0'
+INFO: [Synth 8-802] inferred FSM for state register 'read_state_reg' in module 'axi_fifo_bram__parameterized1'
+INFO: [Synth 8-802] inferred FSM for state register 'state1_reg' in module 'dot11_tx'
+INFO: [Synth 8-802] inferred FSM for state register 'state2_reg' in module 'dot11_tx'
+INFO: [Synth 8-802] inferred FSM for state register 'state3_reg' in module 'dot11_tx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                ST_EMPTY |                              001 |                               00
+                PRE_READ |                              010 |                               01
+                 READING |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'read_state_reg' using encoding 'one-hot' in module 'axi_fifo_bram'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                ST_EMPTY |                              001 |                               00
+                PRE_READ |                              010 |                               01
+                 READING |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'read_state_reg' using encoding 'one-hot' in module 'axi_fifo_bram__parameterized0'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                ST_EMPTY |                              001 |                               00
+                PRE_READ |                              010 |                               01
+                 READING |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'read_state_reg' using encoding 'one-hot' in module 'axi_fifo_bram__parameterized1'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+             S1_WAIT_PKT |                             1000 |                               00
+                S1_L_SIG |                             0100 |                               01
+               S1_HT_SIG |                             0001 |                               10
+                 S1_DATA |                             0010 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state1_reg' using encoding 'one-hot' in module 'dot11_tx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+         S2_PUNC_INTERLV |                               00 |                               00
+          S2_PILOT_DC_SB |                               01 |                               01
+       S2_MOD_IFFT_INPUT |                               10 |                               10
+                S2_RESET |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state2_reg' using encoding 'sequential' in module 'dot11_tx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+             S3_WAIT_PKT |                              111 |                              000
+                S3_L_STF |                              110 |                              001
+                S3_L_LTF |                              101 |                              010
+                S3_L_SIG |                              100 |                              011
+               S3_HT_SIG |                              011 |                              100
+               S3_HT_STF |                              010 |                              101
+               S3_HT_LTF |                              000 |                              110
+                 S3_DATA |                              001 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state3_reg' using encoding 'sequential' in module 'dot11_tx'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2723.809 ; gain = 659.238 ; free physical = 2393 ; free virtual = 26132
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.553; parent = 1617.887; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3702.953; parent = 2691.797; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   4 Input   39 Bit       Adders := 4     
+	   3 Input   39 Bit       Adders := 4     
+	   2 Input   32 Bit       Adders := 5     
+	   2 Input   22 Bit       Adders := 1     
+	   2 Input   21 Bit       Adders := 1     
+	   2 Input   20 Bit       Adders := 1     
+	   2 Input   19 Bit       Adders := 1     
+	   2 Input   18 Bit       Adders := 4     
+	   2 Input   17 Bit       Adders := 10    
+	   3 Input   17 Bit       Adders := 12    
+	   2 Input   16 Bit       Adders := 21    
+	   2 Input   10 Bit       Adders := 4     
+	   2 Input    9 Bit       Adders := 2     
+	   2 Input    8 Bit       Adders := 4     
+	   2 Input    7 Bit       Adders := 1     
+	   2 Input    6 Bit       Adders := 18    
+	   2 Input    5 Bit       Adders := 5     
+	   2 Input    4 Bit       Adders := 4     
+	   2 Input    3 Bit       Adders := 3     
+	   2 Input    2 Bit       Adders := 1     
+	   2 Input    1 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
+	   2 Input      4 Bit         XORs := 1     
+	   3 Input      1 Bit         XORs := 3     
+	   2 Input      1 Bit         XORs := 9     
++---Registers : 
+	               40 Bit    Registers := 8     
+	               39 Bit    Registers := 8     
+	               35 Bit    Registers := 12    
+	               32 Bit    Registers := 49    
+	               20 Bit    Registers := 4     
+	               19 Bit    Registers := 2     
+	               17 Bit    Registers := 32    
+	               16 Bit    Registers := 26    
+	               10 Bit    Registers := 3     
+	                9 Bit    Registers := 3     
+	                8 Bit    Registers := 4     
+	                7 Bit    Registers := 5     
+	                6 Bit    Registers := 9     
+	                5 Bit    Registers := 4     
+	                4 Bit    Registers := 5     
+	                3 Bit    Registers := 3     
+	                2 Bit    Registers := 7     
+	                1 Bit    Registers := 64    
++---RAMs : 
+	               8K Bit	(256 X 32 bit)          RAMs := 1     
+	               4K Bit	(128 X 32 bit)          RAMs := 1     
+	               2K Bit	(1024 X 2 bit)          RAMs := 1     
+	               2K Bit	(64 X 32 bit)          RAMs := 1     
+	             1024 Bit	(32 X 32 bit)          RAMs := 2     
+	              512 Bit	(16 X 32 bit)          RAMs := 2     
+	              256 Bit	(8 X 32 bit)          RAMs := 2     
+	              128 Bit	(4 X 32 bit)          RAMs := 2     
++---ROMs : 
+	                    ROMs := 1     
++---Muxes : 
+	   2 Input  416 Bit        Muxes := 1     
+	  17 Input   40 Bit        Muxes := 1     
+	   9 Input   40 Bit        Muxes := 1     
+	   5 Input   40 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 34    
+	   4 Input   32 Bit        Muxes := 4     
+	   5 Input   32 Bit        Muxes := 1     
+	   2 Input   21 Bit        Muxes := 2     
+	   7 Input   19 Bit        Muxes := 1     
+	   4 Input   19 Bit        Muxes := 1     
+	   2 Input   18 Bit        Muxes := 15    
+	   4 Input   16 Bit        Muxes := 16    
+	   3 Input   16 Bit        Muxes := 4     
+	   2 Input   16 Bit        Muxes := 4     
+	   5 Input   16 Bit        Muxes := 2     
+	   2 Input   10 Bit        Muxes := 1     
+	   4 Input   10 Bit        Muxes := 1     
+	   8 Input    9 Bit        Muxes := 1     
+	   2 Input    9 Bit        Muxes := 7     
+	   4 Input    9 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 3     
+	   8 Input    8 Bit        Muxes := 2     
+	   4 Input    8 Bit        Muxes := 1     
+	   4 Input    7 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 2     
+	   4 Input    6 Bit        Muxes := 2     
+	   4 Input    5 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 3     
+	   2 Input    4 Bit        Muxes := 2     
+	   8 Input    4 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 2     
+	   3 Input    3 Bit        Muxes := 3     
+	   2 Input    3 Bit        Muxes := 8     
+	   8 Input    3 Bit        Muxes := 3     
+	   7 Input    3 Bit        Muxes := 1     
+	   4 Input    3 Bit        Muxes := 2     
+	   5 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 16    
+	  25 Input    2 Bit        Muxes := 1     
+	  49 Input    2 Bit        Muxes := 1     
+	  27 Input    2 Bit        Muxes := 1     
+	  53 Input    2 Bit        Muxes := 1     
+	 105 Input    2 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 59    
+	   3 Input    1 Bit        Muxes := 21    
+	   4 Input    1 Bit        Muxes := 25    
+	   7 Input    1 Bit        Muxes := 5     
+	   6 Input    1 Bit        Muxes := 1     
+	   8 Input    1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/mpy_i_reg' and it is trimmed from '39' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:461]
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/CKPCE_ONE.rp_three_reg' and it is trimmed from '39' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:193]
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/mpy_r_reg' and it is trimmed from '39' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:460]
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/CKPCE_ONE.rp_one_reg' and it is trimmed from '37' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:191]
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/CKPCE_ONE.rp_two_reg' and it is trimmed from '37' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:192]
+DSP Report: Generating DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg, operation Mode is: (A''*B'')'.
+DSP Report: register HWBFLY.bfly/r_dif_r_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p1d_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: register HWBFLY.bfly/ir_coef_r_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p1c_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.rp_one_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: operator HWBFLY.bfly/CKPCE_ONE.rp_one0 is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: Generating DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg, operation Mode is: (A''*B'')'.
+DSP Report: register HWBFLY.bfly/r_dif_i_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p2d_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: register HWBFLY.bfly/ir_coef_i_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p2c_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.rp_two_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: operator HWBFLY.bfly/CKPCE_ONE.rp_two0 is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: Generating DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg, operation Mode is: ((D'+A'')*B2)'.
+DSP Report: register HWBFLY.bfly/ir_coef_r_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p3d_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/r_coef_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/ir_coef_i_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.rp_three_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p3c_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: operator HWBFLY.bfly/CKPCE_ONE.rp_three0 is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: operator HWBFLY.bfly/CKPCE_ONE.p3c_in0 is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/mpy_i_reg' and it is trimmed from '39' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:461]
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/CKPCE_ONE.rp_three_reg' and it is trimmed from '39' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:193]
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/mpy_r_reg' and it is trimmed from '39' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:460]
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/CKPCE_ONE.rp_one_reg' and it is trimmed from '37' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:191]
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/CKPCE_ONE.rp_two_reg' and it is trimmed from '37' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:192]
+DSP Report: Generating DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg, operation Mode is: (A''*B'')'.
+DSP Report: register HWBFLY.bfly/r_dif_r_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p1d_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: register HWBFLY.bfly/ir_coef_r_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p1c_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.rp_one_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: operator HWBFLY.bfly/CKPCE_ONE.rp_one0 is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: Generating DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg, operation Mode is: ((D'+A'')*B2)'.
+DSP Report: register HWBFLY.bfly/ir_coef_r_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p3d_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/r_coef_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/ir_coef_i_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.rp_three_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p3c_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: operator HWBFLY.bfly/CKPCE_ONE.rp_three0 is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: operator HWBFLY.bfly/CKPCE_ONE.p3c_in0 is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: Generating DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg, operation Mode is: (ACIN2*B'')'.
+DSP Report: register HWBFLY.bfly/r_dif_i_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p2d_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p2c_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.rp_two_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: operator HWBFLY.bfly/CKPCE_ONE.rp_two0 is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/mpy_i_reg' and it is trimmed from '39' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:461]
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/CKPCE_ONE.rp_three_reg' and it is trimmed from '39' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:193]
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/mpy_r_reg' and it is trimmed from '39' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:460]
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/CKPCE_ONE.rp_one_reg' and it is trimmed from '37' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:191]
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/CKPCE_ONE.rp_two_reg' and it is trimmed from '37' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:192]
+DSP Report: Generating DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg, operation Mode is: (A''*B'')'.
+DSP Report: register HWBFLY.bfly/r_dif_r_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p1d_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: register HWBFLY.bfly/ir_coef_r_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p1c_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.rp_one_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: operator HWBFLY.bfly/CKPCE_ONE.rp_one0 is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: Generating DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg, operation Mode is: ((D'+A'')*B2)'.
+DSP Report: register HWBFLY.bfly/ir_coef_r_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p3d_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/r_coef_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/ir_coef_i_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.rp_three_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p3c_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: operator HWBFLY.bfly/CKPCE_ONE.rp_three0 is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: operator HWBFLY.bfly/CKPCE_ONE.p3c_in0 is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: Generating DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg, operation Mode is: (ACIN2*B'')'.
+DSP Report: register HWBFLY.bfly/r_dif_i_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p2d_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p2c_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.rp_two_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: operator HWBFLY.bfly/CKPCE_ONE.rp_two0 is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/mpy_i_reg' and it is trimmed from '39' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:461]
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/CKPCE_ONE.rp_three_reg' and it is trimmed from '39' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:193]
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/mpy_r_reg' and it is trimmed from '39' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:460]
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/CKPCE_ONE.rp_one_reg' and it is trimmed from '37' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:191]
+WARNING: [Synth 8-3936] Found unconnected internal register 'HWBFLY.bfly/CKPCE_ONE.rp_two_reg' and it is trimmed from '37' to '35' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/hwbfly.v:192]
+DSP Report: Generating DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg, operation Mode is: (A''*B'')'.
+DSP Report: register HWBFLY.bfly/r_dif_r_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p1d_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: register HWBFLY.bfly/ir_coef_r_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p1c_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.rp_one_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: operator HWBFLY.bfly/CKPCE_ONE.rp_one0 is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_one_reg.
+DSP Report: Generating DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg, operation Mode is: ((D'+A'')*B2)'.
+DSP Report: register HWBFLY.bfly/ir_coef_r_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p3d_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/r_coef_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/ir_coef_i_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.rp_three_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p3c_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: operator HWBFLY.bfly/CKPCE_ONE.rp_three0 is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: operator HWBFLY.bfly/CKPCE_ONE.p3c_in0 is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_three_reg.
+DSP Report: Generating DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg, operation Mode is: (ACIN2*B'')'.
+DSP Report: register HWBFLY.bfly/r_dif_i_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p2d_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.p2c_in_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: register HWBFLY.bfly/CKPCE_ONE.rp_two_reg is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+DSP Report: operator HWBFLY.bfly/CKPCE_ONE.rp_two0 is absorbed into DSP HWBFLY.bfly/CKPCE_ONE.rp_two_reg.
+WARNING: [Synth 8-3936] Found unconnected internal register 'rnd_r_reg' and it is trimmed from '17' to '16' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/laststage.v:104]
+WARNING: [Synth 8-3936] Found unconnected internal register 'rnd_i_reg' and it is trimmed from '17' to '16' bits. [/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/src/laststage.v:105]
+WARNING: [Synth 8-7129] Port s00_axi_awprot[2] in module openofdm_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_awprot[1] in module openofdm_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_awprot[0] in module openofdm_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_arprot[2] in module openofdm_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_arprot[1] in module openofdm_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s00_axi_arprot[0] in module openofdm_tx is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 2723.809 ; gain = 659.238 ; free physical = 2552 ; free virtual = 26302
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1842.654; parent = 1660.053; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3702.953; parent = 2691.797; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++-----------------+------------+---------------+----------------+
+|Module Name      | RTL Object | Depth x Width | Implemented As | 
++-----------------+------------+---------------+----------------+
+|l_ltf_rom        | dout       | 256x28        | LUT            | 
+|ht_ltf_rom       | dout       | 128x28        | LUT            | 
+|punc_interlv_lut | idx_o      | 64x14         | LUT            | 
+|punc_interlv_lut | idx_o      | 64x14         | LUT            | 
+|punc_interlv_lut | idx_o      | 128x16        | LUT            | 
+|punc_interlv_lut | idx_o      | 128x16        | LUT            | 
+|punc_interlv_lut | idx_o      | 256x18        | LUT            | 
+|punc_interlv_lut | idx_o      | 256x18        | LUT            | 
+|punc_interlv_lut | idx_o      | 256x18        | LUT            | 
+|punc_interlv_lut | idx_o      | 64x12         | LUT            | 
+|punc_interlv_lut | idx_o      | 128x15        | LUT            | 
+|punc_interlv_lut | idx_o      | 128x13        | LUT            | 
+|punc_interlv_lut | idx_o      | 256x17        | LUT            | 
+|punc_interlv_lut | idx_o      | 256x18        | LUT            | 
+|punc_interlv_lut | idx_o      | 256x18        | LUT            | 
+|punc_interlv_lut | idx_o      | 512x18        | LUT            | 
+|punc_interlv_lut | punc_o     | 64x2          | LUT            | 
+|punc_interlv_lut | punc_o     | 128x2         | LUT            | 
+|punc_interlv_lut | punc_o     | 256x2         | LUT            | 
+|punc_interlv_lut | punc_o     | 256x2         | LUT            | 
+|punc_interlv_lut | punc_o     | 256x2         | LUT            | 
+|punc_interlv_lut | punc_o     | 128x2         | LUT            | 
+|punc_interlv_lut | punc_o     | 256x2         | LUT            | 
+|punc_interlv_lut | punc_o     | 256x2         | LUT            | 
+|punc_interlv_lut | punc_o     | 256x2         | LUT            | 
+|punc_interlv_lut | punc_o     | 512x2         | LUT            | 
+|modulation       | IQ         | 64x18         | LUT            | 
+|punc_interlv_lut | idx_o      | 32x18         | LUT            | 
+|punc_interlv_lut | idx_o      | 64x14         | LUT            | 
+|punc_interlv_lut | idx_o      | 64x14         | LUT            | 
+|punc_interlv_lut | idx_o      | 128x16        | LUT            | 
+|punc_interlv_lut | idx_o      | 128x16        | LUT            | 
+|punc_interlv_lut | idx_o      | 256x18        | LUT            | 
+|punc_interlv_lut | idx_o      | 256x18        | LUT            | 
+|punc_interlv_lut | idx_o      | 256x18        | LUT            | 
+|punc_interlv_lut | idx_o      | 32x18         | LUT            | 
+|punc_interlv_lut | idx_o      | 64x12         | LUT            | 
+|punc_interlv_lut | idx_o      | 128x15        | LUT            | 
+|punc_interlv_lut | idx_o      | 128x13        | LUT            | 
+|punc_interlv_lut | idx_o      | 256x18        | LUT            | 
+|punc_interlv_lut | idx_o      | 256x18        | LUT            | 
+|punc_interlv_lut | idx_o      | 512x18        | LUT            | 
+|punc_interlv_lut | punc_o     | 64x2          | LUT            | 
+|punc_interlv_lut | punc_o     | 128x2         | LUT            | 
+|punc_interlv_lut | punc_o     | 256x2         | LUT            | 
+|punc_interlv_lut | punc_o     | 256x2         | LUT            | 
+|punc_interlv_lut | punc_o     | 256x2         | LUT            | 
+|punc_interlv_lut | punc_o     | 128x2         | LUT            | 
+|punc_interlv_lut | punc_o     | 256x2         | LUT            | 
+|punc_interlv_lut | punc_o     | 256x2         | LUT            | 
+|punc_interlv_lut | punc_o     | 256x2         | LUT            | 
+|punc_interlv_lut | punc_o     | 512x2         | LUT            | 
+|modulation       | IQ         | 64x18         | LUT            | 
+|fftstage         | ib_c_reg   | 32x40         | Block RAM      | 
++-----------------+------------+---------------+----------------+
+
+
+Block RAM: Preliminary Mapping Report (see note below)
++-----------------------+--------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name            | RTL Object         | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++-----------------------+--------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|dot11_tx/bits_enc_fifo | ram/memory_reg     | 1 K x 2(READ_FIRST)    | W |   | 1 K x 2(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|dot11_tx/ifft64        | stage_64/omem_reg  | 32 x 32(READ_FIRST)    | W |   | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|dot11_tx/ifft64        | stage_64/imem_reg  | 32 x 32(READ_FIRST)    | W | R |                        |   |   | Port A           | 1      | 0      | 
+|dot11_tx/ifft64        | revstage/brmem_reg | 128 x 32(READ_FIRST)   | W |   | 128 x 32(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|dot11_tx/CP_fifo       | ram/memory_reg     | 64 x 32(READ_FIRST)    | W |   | 64 x 32(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|dot11_tx/pkt_fifo      | ram/memory_reg     | 256 x 32(READ_FIRST)   | W |   | 256 x 32(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
++-----------------------+--------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++----------------+-------------------+-----------+----------------------+----------------+
+|Module Name     | RTL Object        | Inference | Size (Depth x Width) | Primitives     | 
++----------------+-------------------+-----------+----------------------+----------------+
+|dot11_tx/ifft64 | stage_32/imem_reg | Implied   | 16 x 32              | RAM16X1S x 32  | 
+|dot11_tx/ifft64 | stage_32/omem_reg | Implied   | 16 x 32              | RAM32M x 6     | 
+|dot11_tx/ifft64 | stage_16/imem_reg | Implied   | 8 x 32               | RAM16X1S x 32  | 
+|dot11_tx/ifft64 | stage_16/omem_reg | Implied   | 8 x 32               | RAM32M x 6     | 
+|dot11_tx/ifft64 | stage_8/imem_reg  | Implied   | 4 x 32               | RAM16X1S x 32  | 
+|dot11_tx/ifft64 | stage_8/omem_reg  | Implied   | 4 x 32               | RAM32M x 6     | 
++----------------+-------------------+-----------+----------------------+----------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|hwbfly      | (A''*B'')'     | 20     | 17     | -      | -      | 37     | 2    | 2    | -    | -    | -     | 1    | 0    | 
+|hwbfly      | (A''*B'')'     | 20     | 17     | -      | -      | 37     | 2    | 2    | -    | -    | -     | 1    | 0    | 
+|hwbfly      | ((D'+A'')*B2)' | 20     | 18     | -      | 20     | 39     | 2    | 1    | -    | 1    | 1     | 1    | 0    | 
+|hwbfly      | (A''*B'')'     | 20     | 17     | -      | -      | 37     | 2    | 2    | -    | -    | -     | 1    | 0    | 
+|hwbfly      | ((D'+A'')*B2)' | 20     | 18     | -      | 20     | 39     | 2    | 1    | -    | 1    | 1     | 1    | 0    | 
+|hwbfly      | (ACIN2*B'')'   | 20     | 17     | -      | -      | 37     | 1    | 2    | -    | -    | -     | 1    | 0    | 
+|hwbfly      | (A''*B'')'     | 20     | 17     | -      | -      | 37     | 2    | 2    | -    | -    | -     | 1    | 0    | 
+|hwbfly      | ((D'+A'')*B2)' | 20     | 18     | -      | 20     | 39     | 2    | 1    | -    | 1    | 1     | 1    | 0    | 
+|hwbfly      | (ACIN2*B'')'   | 20     | 17     | -      | -      | 37     | 1    | 2    | -    | -    | -     | 1    | 0    | 
+|hwbfly      | (A''*B'')'     | 20     | 17     | -      | -      | 37     | 2    | 2    | -    | -    | -     | 1    | 0    | 
+|hwbfly      | ((D'+A'')*B2)' | 20     | 18     | -      | 20     | 39     | 2    | 1    | -    | 1    | 1     | 1    | 0    | 
+|hwbfly      | (ACIN2*B'')'   | 20     | 17     | -      | -      | 37     | 1    | 2    | -    | -    | -     | 1    | 0    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 2723.809 ; gain = 659.238 ; free physical = 2480 ; free virtual = 26203
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1971.474; parent = 1788.870; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3702.953; parent = 2691.797; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 2723.809 ; gain = 659.238 ; free physical = 2480 ; free virtual = 26203
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1974.923; parent = 1792.319; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3702.953; parent = 2691.797; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++-----------------------+--------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name            | RTL Object         | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++-----------------------+--------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|dot11_tx/bits_enc_fifo | ram/memory_reg     | 1 K x 2(READ_FIRST)    | W |   | 1 K x 2(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|dot11_tx/ifft64        | stage_64/omem_reg  | 32 x 32(READ_FIRST)    | W |   | 32 x 32(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|dot11_tx/ifft64        | stage_64/imem_reg  | 32 x 32(READ_FIRST)    | W | R |                        |   |   | Port A           | 1      | 0      | 
+|dot11_tx/ifft64        | revstage/brmem_reg | 128 x 32(READ_FIRST)   | W |   | 128 x 32(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|dot11_tx/CP_fifo       | ram/memory_reg     | 64 x 32(READ_FIRST)    | W |   | 64 x 32(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|dot11_tx/pkt_fifo      | ram/memory_reg     | 256 x 32(READ_FIRST)   | W |   | 256 x 32(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
++-----------------------+--------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping Report
++----------------+-------------------+-----------+----------------------+----------------+
+|Module Name     | RTL Object        | Inference | Size (Depth x Width) | Primitives     | 
++----------------+-------------------+-----------+----------------------+----------------+
+|dot11_tx/ifft64 | stage_32/imem_reg | Implied   | 16 x 32              | RAM16X1S x 32  | 
+|dot11_tx/ifft64 | stage_32/omem_reg | Implied   | 16 x 32              | RAM32M x 6     | 
+|dot11_tx/ifft64 | stage_16/imem_reg | Implied   | 8 x 32               | RAM16X1S x 32  | 
+|dot11_tx/ifft64 | stage_16/omem_reg | Implied   | 8 x 32               | RAM32M x 6     | 
+|dot11_tx/ifft64 | stage_8/imem_reg  | Implied   | 4 x 32               | RAM16X1S x 32  | 
+|dot11_tx/ifft64 | stage_8/omem_reg  | Implied   | 4 x 32               | RAM32M x 6     | 
++----------------+-------------------+-----------+----------------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance dot11_tx/ifft64/stage_64/omem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dot11_tx/ifft64/stage_64/ib_c_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance dot11_tx/ifft64/stage_64/ib_c_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 2723.809 ; gain = 659.238 ; free physical = 2404 ; free virtual = 26158
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1992.892; parent = 1810.288; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3702.953; parent = 2691.797; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 2723.809 ; gain = 659.238 ; free physical = 2388 ; free virtual = 26140
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1993.704; parent = 1811.101; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3702.953; parent = 2691.797; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 2723.809 ; gain = 659.238 ; free physical = 2388 ; free virtual = 26140
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1993.720; parent = 1811.116; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3702.953; parent = 2691.797; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 2723.809 ; gain = 659.238 ; free physical = 2388 ; free virtual = 26140
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1994.235; parent = 1811.632; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3702.953; parent = 2691.797; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 2723.809 ; gain = 659.238 ; free physical = 2388 ; free virtual = 26140
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1994.298; parent = 1811.694; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3702.953; parent = 2691.797; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 2723.809 ; gain = 659.238 ; free physical = 2370 ; free virtual = 26132
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1995.034; parent = 1812.432; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3702.953; parent = 2691.797; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 2723.809 ; gain = 659.238 ; free physical = 2370 ; free virtual = 26132
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1995.034; parent = 1812.432; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3702.953; parent = 2691.797; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name                                       | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|openofdm_tx | dot11_tx/ifft64/stage_4/omem_reg[1][31]        | 3      | 32    | NO           | NO                 | YES               | 32     | 0       | 
+|openofdm_tx | dot11_tx/ifft64/stage_64/HWBFLY.bfly/o_aux_reg | 7      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|openofdm_tx | dot11_tx/ifft64/stage_32/HWBFLY.bfly/o_aux_reg | 7      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|openofdm_tx | dot11_tx/ifft64/stage_16/HWBFLY.bfly/o_aux_reg | 7      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|openofdm_tx | dot11_tx/ifft64/stage_8/HWBFLY.bfly/o_aux_reg  | 7      | 1     | YES          | NO                 | YES               | 1      | 0       | 
++------------+------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping     | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|hwbfly      | (A''*B'')'      | 30     | 18     | -      | -      | 35     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|hwbfly      | ((D'+A'')'*B')' | 19     | 18     | -      | 25     | 35     | 2    | 1    | -    | 1    | 1     | 0    | 1    | 
+|hwbfly      | (A'*B'')'       | 0      | 18     | -      | -      | 35     | 1    | 2    | -    | -    | -     | 0    | 1    | 
+|hwbfly      | (A''*B'')'      | 30     | 18     | -      | -      | 35     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|hwbfly      | ((D'+A'')'*B')' | 19     | 18     | -      | 25     | 35     | 2    | 1    | -    | 1    | 1     | 0    | 1    | 
+|hwbfly      | (A'*B'')'       | 0      | 18     | -      | -      | 35     | 1    | 2    | -    | -    | -     | 0    | 1    | 
+|hwbfly      | (A''*B'')'      | 30     | 18     | -      | -      | 35     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|hwbfly      | (A''*B'')'      | 30     | 18     | -      | -      | 35     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|hwbfly      | ((D'+A')'*B')'  | 30     | 18     | -      | 25     | 35     | 1    | 1    | -    | 1    | 1     | 0    | 1    | 
+|hwbfly      | (A''*B'')'      | 30     | 18     | -      | -      | 35     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|hwbfly      | ((D'+A'')'*B')' | 19     | 18     | -      | 25     | 35     | 2    | 1    | -    | 1    | 1     | 0    | 1    | 
+|hwbfly      | (A'*B'')'       | 0      | 18     | -      | -      | 35     | 1    | 2    | -    | -    | -     | 0    | 1    | 
++------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     2|
+|2     |CARRY4   |   378|
+|3     |DSP48E1  |    12|
+|7     |LUT1     |   107|
+|8     |LUT2     |   766|
+|9     |LUT3     |   501|
+|10    |LUT4     |   507|
+|11    |LUT5     |   327|
+|12    |LUT6     |  1563|
+|13    |MUXF7    |   230|
+|14    |MUXF8    |    40|
+|15    |RAM16X1S |    96|
+|16    |RAM32M   |    15|
+|17    |RAM32X1D |     6|
+|18    |RAMB18E1 |     8|
+|24    |SRL16E   |    36|
+|25    |FDRE     |  3458|
+|26    |FDSE     |    23|
+|27    |IBUF     |   121|
+|28    |OBUF     |    86|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 2723.809 ; gain = 659.238 ; free physical = 2370 ; free virtual = 26132
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1995.097; parent = 1812.494; children = 182.666
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3702.953; parent = 2691.797; children = 1011.156
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 29 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 2723.809 ; gain = 500.488 ; free physical = 2378 ; free virtual = 26141
+Synthesis Optimization Complete : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 2723.809 ; gain = 659.238 ; free physical = 2378 ; free virtual = 26141
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2723.809 ; gain = 0.000 ; free physical = 2495 ; free virtual = 26260
+INFO: [Netlist 29-17] Analyzing 785 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2723.809 ; gain = 0.000 ; free physical = 2501 ; free virtual = 26258
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 117 instances were transformed.
+  RAM16X1S => RAM32X1S (RAMS32): 96 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 15 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 6 instances
+
+Synth Design complete, checksum: 6120eaa7
+INFO: [Common 17-83] Releasing license: Synthesis
+122 Infos, 58 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:49 . Memory (MB): peak = 2723.809 ; gain = 1018.613 ; free physical = 2678 ; free virtual = 26435
+INFO: [Common 17-1381] The checkpoint '/home/kemal/Desktop/New Folder/openwifi-hw/ip/openofdm_tx/openofdm_tx/openofdm_tx.runs/synth_1/openofdm_tx.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file openofdm_tx_utilization_synth.rpt -pb openofdm_tx_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Nov 11 17:46:48 2025...

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>dot11_tx_analizi</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+</head>
+<body>
+<h1 id="dot11_tx.v-modülünün-detaylı-analizi">dot11_tx.v Modülünün Detaylı Analizi</h1>
+<p>Bu doküman, <code>dot11_tx.v</code> Verilog modülünün işlevselliğini, mimarisini ve içindeki ana bileşenleri adım adım açıklamaktadır.</p>
+<h2 id="modül-tanımı-ve-gç-portları">1. Modül Tanımı ve G/Ç Portları</h2>
+<p>Modül, bir 802.11 (Wi-Fi) vericisinin dijital temel bant (baseband) işlemcisinin çekirdeğini oluşturur. Görevi, üst katmandan (MAC) gelen paket verilerini alıp, standartlara uygun olarak işleyerek bir DAC (Dijital-Analog Çevirici) tarafından gönderilebilecek I/Q (In-phase ve Quadrature) sinyal örneklerine dönüştürmektir.</p>
+<ul>
+<li><strong>Girişler</strong>:
+<ul>
+<li><code>clk</code>, <code>phy_tx_arest</code>: Temel saat ve reset sinyalleri.</li>
+<li><code>phy_tx_start</code>: Veri gönderme işlemini başlatan tetikleyici.</li>
+<li><code>init_pilot_scram_state</code>, <code>init_data_scram_state</code>: Scrambler (karıştırıcı) devrelerinin başlangıç durumları.</li>
+<li><code>bram_din</code>: Gönderilecek paketin verilerini içeren Blok RAM’den gelen veri.</li>
+<li><code>result_iq_ready</code>: Bir sonraki modülün (DAC arayüzü) yeni bir I/Q örneği almaya hazır olduğunu belirtir.</li>
+</ul></li>
+<li><strong>Çıkışlar</strong>:
+<ul>
+<li><code>phy_tx_done</code>, <code>phy_tx_started</code>: Gönderme işleminin başladığını ve bittiğini bildiren durum sinyalleri.</li>
+<li><code>bram_addr</code>: Blok RAM’den veri okumak için kullanılan adres.</li>
+<li><code>result_iq_valid</code>: Çıkıştaki I/Q örneğinin geçerli olduğunu belirtir.</li>
+<li><code>result_i</code>, <code>result_q</code>: Üretilen 16-bit’lik I ve Q sinyal örnekleri.</li>
+</ul></li>
+</ul>
+<h2 id="genel-mimarisi-ve-sonlu-durum-makineleri-fsm">2. Genel Mimarisi ve Sonlu Durum Makineleri (FSM)</h2>
+<p>Modül, karmaşık gönderme sürecini yönetmek için üç ana Sonlu Durum Makinesi (FSM) üzerine kurulu bir boru hattı (pipeline) mimarisi kullanır:</p>
+<ul>
+<li><strong>FSM1 (Veri Hazırlama)</strong>: BRAM’den ham veriyi okur, paketin başlığını (PLCP header) analiz eder, hız ve uzunluk gibi parametreleri belirler ve standartlara uygun olarak SERVICE, PSDU (asıl veri), CRC, TAIL ve PAD bitlerinden oluşan sıralı bir bit akışı oluşturur.</li>
+<li><strong>FSM2 (IQ Örneği Üretimi)</strong>: FSM1’den gelen bit akışını alır ve bir OFDM sembolünü oluşturmak için gereken tüm işlemleri (Puncturing, Interleaving, Modülasyon, Pilot Ekleme, IFFT) yönetir.</li>
+<li><strong>FSM3 (IQ Örneği İletimi)</strong>: Üretilen I/Q örneklerini ve preample (ön ek) sinyallerini doğru sırada birleştirerek modülün çıkışına gönderir.</li>
+</ul>
+<p>Bu FSM’ler arasındaki veri akışı, FIFO’lar (First-In, First-Out tampon bellekler) aracılığıyla yönetilir, bu da her bir FSM’nin kendi hızında çalışmasına olanak tanıyarak sistemin verimliliğini artırır.</p>
+<h2 id="adım-adım-veri-akışı-ve-işlemler">3. Adım Adım Veri Akışı ve İşlemler</h2>
+<h3 id="adım-1-preample-ön-ek-üretimi">Adım 1: Preample (Ön Ek) Üretimi</h3>
+<ul>
+<li><strong>Amaç</strong>: Alıcının sinyali algılaması, senkronize olması ve kanal durumunu tahmin etmesi için gerekli olan standart sinyalleri üretmek.</li>
+<li><strong>Yöntem</strong>: Legacy (L-STF, L-LTF) ve High Throughput (HT-STF, HT-LTF) preample’ları için gereken sabit I/Q değerleri, verimlilik için önceden hesaplanıp ROM’larda (Read-Only Memory) saklanır. FSM3, paket türüne göre doğru ROM’u seçer ve bu sinyalleri paketin en başına ekler.</li>
+</ul>
+<h3 id="adım-2-crc32fcs-hesaplama">Adım 2: CRC32/FCS Hesaplama</h3>
+<ul>
+<li><strong>Amaç</strong>: Veri bütünlüğünü sağlamak.</li>
+<li><strong>Yöntem</strong>: FSM1, BRAM’den okunan kullanıcı verisi (PSDU) üzerinden 32-bit’lik bir Döngüsel Artıklık Kontrolü (CRC) değeri hesaplar. Bu değere Çerçeve Kontrol Dizisi (FCS) denir ve veri bloğunun sonuna eklenir. Alıcı, aynı hesaplamayı yaparak verinin iletim sırasında bozulup bozulmadığını kontrol eder.</li>
+</ul>
+<h3 id="adım-3-scrambling-karıştırma">Adım 3: Scrambling (Karıştırma)</h3>
+<ul>
+<li><strong>Amaç</strong>: Veri akışındaki uzun ‘0’ veya ‘1’ dizilerini ortadan kaldırarak sinyalin istatistiksel özelliklerini iyileştirmek.</li>
+<li><strong>Yöntem</strong>: Veri bitleri (SERVICE, PSDU, CRC, PAD), standartta tanımlanmış bir LFSR (Doğrusal Geri Beslemeli Kaydırmalı Yazmaç) devresinden geçirilir. Bu işlem, her biti LFSR’nin o anki çıkışıyla XOR’layarak bitlerin sırasını “karıştırır”. PLCP başlık alanları ve TAIL bitleri bu işleme tabi tutulmaz.</li>
+</ul>
+<h3 id="adım-4-konvolüsyonel-kodlama">Adım 4: Konvolüsyonel Kodlama</h3>
+<ul>
+<li><strong>Amaç</strong>: İletim sırasındaki hataları düzeltebilmek için veriye fazlalık (redundancy) eklemek (İleri Hata Düzeltme - FEC).</li>
+<li><strong>Yöntem</strong>: Karıştırılmış bitler, 1/2 oranında çalışan bir konvolüsyonel kodlayıcıya beslenir. Yani her bir giriş biti için iki çıkış biti üretilir. Bu, kablosuz kanalın gürültülü doğasına karşı sinyali daha dayanıklı hale getirir.</li>
+</ul>
+<h3 id="adım-5-puncturing-delme-ve-interleaving-serpiştirme">Adım 5: Puncturing (Delme) ve Interleaving (Serpiştirme)</h3>
+<ul>
+<li><strong>Amaç</strong>: Veri hızını ayarlamak ve kanal hatalarına karşı dayanıklılığı artırmak.</li>
+<li><strong>Yöntem</strong>:
+<ul>
+<li><strong>Puncturing</strong>: 1/2’den daha yüksek kodlama oranları (örn. 3/4) elde etmek için, konvolüsyonel kodlayıcıdan çıkan bazı bitler sistematik olarak atılır.</li>
+<li><strong>Interleaving</strong>: Kanaldaki ardışık hataların etkisini dağıtmak için, bitlerin sırası belirli bir kalıba göre karıştırılır. Bu, alıcıdaki kod çözücünün performansını artırır.</li>
+</ul></li>
+<li>Bu iki işlem, veri hızına bağlı olarak bir Arama Tablosu (LUT) tarafından kontrol edilir.</li>
+</ul>
+<h3 id="adım-6-modülasyon">Adım 6: Modülasyon</h3>
+<ul>
+<li><strong>Amaç</strong>: Dijital bit gruplarını, OFDM alt taşıyıcılarına yüklenecek analog I/Q sembollerine dönüştürmek.</li>
+<li><strong>Yöntem</strong>: Puncturing ve Interleaving sonrası elde edilen bitler, <code>N_BPSC</code> (alt taşıyıcı başına bit sayısı) parametresine göre gruplanır. Bu gruplar, BPSK, QPSK, 16-QAM veya 64-QAM gibi modülasyon şemaları kullanılarak I/Q takımyıldız diyagramındaki bir noktaya haritalanır.</li>
+</ul>
+<h3 id="adım-7-alt-taşıyıcı-ataması-pilot-dc-yan-bant-ekleme">Adım 7: Alt Taşıyıcı Ataması (Pilot, DC, Yan Bant Ekleme)</h3>
+<ul>
+<li><strong>Amaç</strong>: IFFT’ye giriş olarak verilecek olan tam bir OFDM sembolünü (64 alt taşıyıcı) oluşturmak.</li>
+<li><strong>Yöntem</strong>: Modüle edilmiş veri taşıyıcılarına ek olarak:
+<ul>
+<li><strong>Pilot Taşıyıcılar</strong>: Alıcının kanal takibi yapması için bilinen referans sinyalleri eklenir.</li>
+<li><strong>DC Taşıyıcı</strong>: Merkez frekans (0 Hz) boş bırakılır.</li>
+<li><strong>Yan Bant (Guard) Taşıyıcıları</strong>: Kanalın kenarlarındaki taşıyıcılar, komşu kanallara paraziti önlemek için boş bırakılır.</li>
+</ul></li>
+</ul>
+<h3 id="adım-8-ters-hızlı-fourier-dönüşümü-ifft">Adım 8: Ters Hızlı Fourier Dönüşümü (IFFT)</h3>
+<ul>
+<li><strong>Amaç</strong>: OFDM’in temelini oluşturan işlem; frekans domenindeki 64 alt taşıyıcıyı, zaman domenindeki 64 I/Q örneğine dönüştürmek.</li>
+<li><strong>Yöntem</strong>: 64 noktalı bir IFFT donanım bloğu, hazırlanan alt taşıyıcıları alarak zaman domeni sinyalini üretir. Bu 64 örnek, bir OFDM sembolünün “gövdesini” oluşturur.</li>
+</ul>
+<h3 id="adım-9-döngüsel-ön-ek-cyclic-prefix---cp-ekleme">Adım 9: Döngüsel Ön Ek (Cyclic Prefix - CP) Ekleme</h3>
+<ul>
+<li><strong>Amaç</strong>: Semboller arası girişimi (ISI) önlemek.</li>
+<li><strong>Yöntem</strong>: IFFT’den çıkan 64 örneklik sembol gövdesinin son 16 örneği (veya kısa koruma aralığı için 8) kopyalanarak sembolün başına eklenir. Bu işlem, iki ayrı FIFO kullanılarak akıllıca ve verimli bir şekilde gerçekleştirilir.</li>
+</ul>
+<h3 id="adım-10-çıkış-yönetimi">Adım 10: Çıkış Yönetimi</h3>
+<ul>
+<li><strong>Amaç</strong>: Tüm paket bileşenlerini doğru sırada birleştirip çıkışa göndermek.</li>
+<li><strong>Yöntem</strong>: FSM3, orkestra şefi olarak görev yapar. <code>phy_tx_start</code> ile başlayarak, önce Preample ROM’larından okuma yapar. Ardından, FSM2 tarafından üretilip FIFO’larda depolanan L-SIG, HT-SIG ve DATA sembollerini (CP + gövde) sırayla okuyarak <code>result_i</code> ve <code>result_q</code> çıkışlarına yönlendirir. Tüm paket gönderildiğinde <code>phy_tx_done</code> sinyalini üretir.</li>
+</ul>
+<h2 id="sonuç">4. Sonuç</h2>
+<p><code>dot11_tx.v</code> modülü, modern bir 802.11 vericisinin dijital temel bant işlemlerini gerçekleştiren, iyi yapılandırılmış ve oldukça karmaşık bir donanım tasarımıdır. Üç ana FSM’nin yönettiği boru hattı mimarisi, ham veriden I/Q sinyallerine kadar olan tüm dönüşüm sürecini verimli bir şekilde yönetir. Her bir alt blok (CRC, Scrambler, Kodlayıcı, IFFT vb.), Wi-Fi standardının fiziksel katman (PHY) gereksinimlerini karşılamak üzere dikkatlice tasarlanmıştır.</p>
+</body>
+</html>
