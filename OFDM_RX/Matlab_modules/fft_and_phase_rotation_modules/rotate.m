@@ -80,8 +80,8 @@ state.phase_pipeline = [double(quadrant), double(actual_phase), double(phase_abs
 % Cycle 3: ROM lookup with delayed phase
 rot_addr = bitand(uint32(state.phase_pipeline(end, 2)), 2^ATAN_LUT_SCALE_SHIFT - 1);
 rot_data = rot_lut(rot_addr);
-raw_rot_i = int16(bitshift(rot_data, -16));
-raw_rot_q = int16(bitand(rot_data, 0xFFFF));
+raw_rot_i = int16(bitshift(int32(rot_data), -16));
+raw_rot_q = int16(bitand(uint32(rot_data), uint32(0xFFFF)));
 
 % Cycle 4: Reconstruct from quadrant (using oldest pipeline value)
 quadrant_delayed = state.phase_pipeline(end, 1);

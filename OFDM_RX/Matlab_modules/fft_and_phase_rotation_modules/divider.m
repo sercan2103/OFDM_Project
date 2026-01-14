@@ -31,7 +31,18 @@ end
 
 % Convert to signed integers
 dividend = int32(dividend);
-divisor = int32(int32(divisor) * sign(bitand(divisor, 2^23))); % Sign extend 24-bit
+
+% Sign extend 24-bit divisor
+if divisor < 0
+    divisor_int = int32(divisor);
+else
+    % Check if bit 23 is set (negative in 24-bit representation)
+    divisor_int = int32(divisor);
+    if divisor_int >= 2^23
+        divisor_int = divisor_int - 2^24;  % Convert to negative
+    end
+end
+divisor = divisor_int;
 
 % Perform division (avoid division by zero)
 if divisor == 0
