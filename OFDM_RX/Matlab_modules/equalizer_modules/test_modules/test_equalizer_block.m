@@ -12,7 +12,7 @@ fprintf('  (Complete CSI + Equalization)\n');
 fprintf('========================================\n');
 
 % Add paths
-addpath('../part2_equalizer');
+addpath('../equalizer_modules');
 addpath('.');
 
 NUM_SUBCARRIERS = 64;

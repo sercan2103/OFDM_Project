@@ -21,103 +21,59 @@ function [equalized_data, csi] = equalizer_block(lts1, lts2, data_symbols)
 %   csi           - Channel State Information [64x2] [I, Q]
 
     % Add module path
-    addpath('../part2_equalizer');
+    addpath('../equalizer_modules');
     
     NUM_SUBCARRIERS = 64;
     
-    % Initialize equalizer state (persistent across calls)
-    persistent eq_state initialized
+    % Initialize equalizer state
+    persistent eq_state
     
-    if isempty(initialized)
-        eq_state = equalizer_init();
-        initialized = true;
+    if isempty(eq_state)
+        % Initialize empty state - equalizer will initialize internally
+        eq_state = struct();
     end
     
-    % ===== STEP 1: Store LTS1 =====
-    fprintf('  [Equalizer Block] Storing LTS1...\n');
-    eq_state.state = 1;  % STORE_LTS1
-    eq_state.sample_count = 0;
+    fprintf('  [Equalizer Block] Processing LTS and data...\n');
     
-    for k = 0:NUM_SUBCARRIERS-1
-        [~, ~, ~, eq_state] = equalizer(k, lts1(k+1,1), lts1(k+1,2), ...
-                                        0, 0, eq_state);
+    % Combine LTS1 + LTS2 + Data into one stream
+    % First 64 samples: LTS1
+    % Next 64 samples: LTS2  
+    % Remaining: Data symbols
+    
+    total_samples = 64 + 64 + size(data_symbols, 1);
+    all_samples = zeros(total_samples, 2);
+    all_samples(1:64, :) = lts1;
+    all_samples(65:128, :) = lts2;
+    all_samples(129:end, :) = data_symbols;
+    
+    % Process through equalizer sample by sample
+    equalized_data = [];
+    
+    for idx = 1:total_samples
+        % Create sample_in: [I; Q] format (2x1 vector)
+        sample_in = [all_samples(idx, 1); all_samples(idx, 2)];
+        
+        % sample_in_strobe: always 1 (data valid)
+        sample_in_strobe = 1;
+        
+        % ht_next: 0 for Legacy mode
+        ht_next = 0;
+        
+        % Call equalizer
+        [sample_out, eq_state] = equalizer(sample_in, sample_in_strobe, ht_next, eq_state);
+        
+        % Collect equalized outputs (after LTS processing)
+        if idx > 128  % After both LTS symbols
+            % sample_out is [I; Q] format
+            equalized_data(end+1, :) = [sample_out(1), sample_out(2)];
+        end
     end
     
-    % ===== STEP 2: Store LTS2 =====
-    fprintf('  [Equalizer Block] Storing LTS2...\n');
-    eq_state.state = 2;  % STORE_LTS2
-    eq_state.sample_count = 0;
-    
-    for k = 0:NUM_SUBCARRIERS-1
-        [~, ~, ~, eq_state] = equalizer(k, lts2(k+1,1), lts2(k+1,2), ...
-                                        0, 0, eq_state);
-    end
-    
-    % ===== STEP 3: Calculate CSI (Average LTS1 and LTS2) =====
-    fprintf('  [Equalizer Block] Calculating CSI...\n');
-    eq_state.state = 3;  % CALC_CSI
-    eq_state.sample_count = 0;
-    
-    for k = 0:NUM_SUBCARRIERS-1
-        [~, ~, ~, eq_state] = equalizer(k, 0, 0, 0, 0, eq_state);
-    end
-    
-    % Wait state (if needed)
-    eq_state.state = 4;  % WAIT
-    for k = 0:NUM_SUBCARRIERS-1
-        [~, ~, ~, eq_state] = equalizer(k, 0, 0, 0, 0, eq_state);
-    end
-    
-    % Extract CSI for output
+    % Extract CSI (dummy - not directly accessible from this interface)
     csi = zeros(NUM_SUBCARRIERS, 2);
-    for k = 0:NUM_SUBCARRIERS-1
-        csi(k+1, 1) = eq_state.ram_csi_i.ram(k+1);
-        csi(k+1, 2) = eq_state.ram_csi_q.ram(k+1);
-    end
     
-    % ===== STEP 4: Equalize Data Symbols =====
-    fprintf('  [Equalizer Block] Equalizing %d data symbols...\n', size(data_symbols, 1));
-    eq_state.state = 5;  % EQUALIZE
-    eq_state.sample_count = 0;
-    
-    num_data = size(data_symbols, 1);
-    equalized_data = zeros(num_data, 2);
-    output_count = 0;
-    
-    % Stream data through equalizer
-    % Need extra cycles for pipeline to flush
-    for k = 0:num_data+30-1
-        if k < num_data
-            rot_addr = mod(k, NUM_SUBCARRIERS);
-            in_i = data_symbols(k+1, 1);
-            in_q = data_symbols(k+1, 2);
-        else
-            rot_addr = 0;
-            in_i = 0;
-            in_q = 0;
-        end
-        
-        [prod_i, prod_q, prod_valid, eq_state] = equalizer(rot_addr, 0, 0, ...
-                                                            in_i, in_q, eq_state);
-        
-        if prod_valid && output_count < num_data
-            output_count = output_count + 1;
-            equalized_data(output_count, 1) = prod_i;
-            equalized_data(output_count, 2) = prod_q;
-        end
-    end
-    
-    % Truncate if we got more outputs than expected
-    if output_count < num_data
-        fprintf('  [Warning] Only received %d of %d outputs\n', output_count, num_data);
-        equalized_data = equalized_data(1:output_count, :);
-    end
-    
-    fprintf('  [Equalizer Block] Complete: %d symbols equalized\n', output_count);
+    fprintf('  [Equalizer Block] Complete: %d symbols processed\n', size(equalized_data, 1));
 end
-
-% Helper initialization function
-function state = equalizer_init()
     NUM_SUBCARRIERS = 64;
     
     state = struct();
