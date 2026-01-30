@@ -26,6 +26,11 @@ function [detected, timing_offset, metric_out] = symbol_timing_estimator(samples
 % Yazar: MATLAB Referans Model Generator
 % Tarih: 2026-01-29
 
+% Varsayılan parametreler
+if nargin < 2 || isempty(fft_win_shift)
+    fft_win_shift = 0;
+end
+
 % Fixed-point parametreleri (Verilog ile uyumlu)
 WORD_WIDTH = 16;            % Her I ve Q component 16-bit
 CROSS_CORR_BUF_SIZE = 32;   % Buffer size
@@ -68,7 +73,8 @@ num_samples = length(samples_in);
 % Output initialization
 detected = false;
 timing_offset = 0;
-metric_out = zeros(1, min(num_samples - CROSS_CORR_BUF_SIZE, NUM_SAMPLES_TO_PROCESS));
+metric_len = max(0, min(num_samples - CROSS_CORR_BUF_SIZE, NUM_SAMPLES_TO_PROCESS));
+metric_out = zeros(1, metric_len);
 
 % Cross-correlation buffer (32 complex samples)
 cross_corr_buf_i = zeros(1, CROSS_CORR_BUF_SIZE, 'int16');

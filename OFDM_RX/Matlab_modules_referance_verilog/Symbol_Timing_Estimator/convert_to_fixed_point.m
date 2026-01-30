@@ -34,6 +34,6 @@ real_saturated = max(min(real_scaled, max_val), min_val);
 imag_saturated = max(min(imag_scaled, max_val), min_val);
 
 % int16'ya çevir ve complex olarak birleştir
-samples_fp = int16(real_saturated) + 1i * int16(imag_saturated);
+samples_fp = complex(int16(real_saturated), int16(imag_saturated));
 
 end

@@ -11,6 +11,8 @@ Bu klasör, OpenWiFi projesindeki `sync_long.v` Verilog modülünün MATLAB refe
 
 ### Test ve Doğrulama
 - **`test_symbol_timing_estimator.m`** - Test script ve performans analizi
+- **`Simulink_test/compare_testers.m`** - Fine Packet Offset vs Symbol Timing Estimator karşılaştırması
+- **`Simulink_test/fine_packet_offset_tester.m`** - Fine Packet Offset test (symbol timing estimator tarzı)
 - **`README.md`** - Bu dosya
 - **`ALGORITHM_DETAILS.md`** - Detaylı algoritma açıklaması
 
@@ -51,6 +53,11 @@ test_symbol_timing_estimator
 % - SNR_dB: 0 ile 30 dB arası
 % - timing_offset_samples: 0 ile 100 arası
 % - fft_win_shift: 0 ile 15 arası (genellikle 0)
+
+% Fine Packet Offset'in symbol timing estimator'a benzer şekilde çalışıp
+% çalışmadığını doğrulamak için:
+cd Simulink_test
+compare_testers  % Her iki algoritma karşılaştırmasını göster
 ```
 
 ## 📊 Algoritma Özeti
