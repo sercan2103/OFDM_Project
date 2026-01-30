@@ -21,7 +21,7 @@ function [equalized_data, csi] = equalizer_block(lts1, lts2, data_symbols)
 %   csi           - Channel State Information [64x2] [I, Q]
 
     % Add module path
-    addpath('../equalizer_modules');
+    addpath('../');
     
     NUM_SUBCARRIERS = 64;
     
@@ -29,8 +29,9 @@ function [equalized_data, csi] = equalizer_block(lts1, lts2, data_symbols)
     persistent eq_state
     
     if isempty(eq_state)
-        % Initialize empty state - equalizer will initialize internally
-        eq_state = struct();
+        % Properly initialize the equalizer state by calling with only 3 args
+        % When equalizer is called with nargin < 4, it auto-initializes
+        [~, eq_state] = equalizer(zeros(2,1), 0, 0);
     end
     
     fprintf('  [Equalizer Block] Processing LTS and data...\n');
@@ -73,35 +74,4 @@ function [equalized_data, csi] = equalizer_block(lts1, lts2, data_symbols)
     csi = zeros(NUM_SUBCARRIERS, 2);
     
     fprintf('  [Equalizer Block] Complete: %d symbols processed\n', size(equalized_data, 1));
-end
-    NUM_SUBCARRIERS = 64;
-    
-    state = struct();
-    state.state = 0;  % IDLE
-    state.sample_count = 0;
-    state.do_csi = 0;
-    state.do_mean = 0;
-    state.do_equalize = 0;
-    state.do_pilot = 0;
-    state.input_i_buf = 0;
-    state.input_q_buf = 0;
-    state.addr_buf = 0;
-    state.rot_addr_buf = 0;
-    state.rot_addr_out = 0;
-    state.prod_i_buf = 0;
-    state.prod_q_buf = 0;
-    state.csi_buf_i = 0;
-    state.csi_buf_q = 0;
-    state.pilot_buf_i = 0;
-    state.pilot_buf_q = 0;
-    state.csi_i_p1 = 0;
-    state.csi_q_p1 = 0;
-    state.csi_mag_sq_p1 = 0;
-    state.mean_state.pipeline = zeros(3, 1);
-    state.ram_lts1_i.ram = zeros(NUM_SUBCARRIERS, 1, 'int32');
-    state.ram_lts1_q.ram = zeros(NUM_SUBCARRIERS, 1, 'int32');
-    state.ram_lts2_i.ram = zeros(NUM_SUBCARRIERS, 1, 'int32');
-    state.ram_lts2_q.ram = zeros(NUM_SUBCARRIERS, 1, 'int32');
-    state.ram_csi_i.ram = zeros(NUM_SUBCARRIERS, 1, 'int32');
-    state.ram_csi_q.ram = zeros(NUM_SUBCARRIERS, 1, 'int32');
 end

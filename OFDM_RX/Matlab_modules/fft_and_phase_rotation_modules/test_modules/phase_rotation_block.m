@@ -21,15 +21,15 @@ function [corrected_data, phase_offset] = phase_rotation_block(ofdm_symbol, pilo
 %   phase_offset    - Detected phase offset (in scaled units)
 
     % Add module path
-    addpath('../part1_phase_rotation');
+    addpath('../');
     
     % Initialize module states (persistent for continuous operation)
-    persistent phase_state rotate_state initialized
+    persistent phase_state rotate_state
     
-    if isempty(initialized)
-        phase_state = phase_init();
-        rotate_state = rotate_init();
-        initialized = true;
+    if isempty(phase_state)
+        % Initialize empty state - modules will auto-initialize on first call
+        phase_state = struct();
+        rotate_state = struct();
     end
     
     % Default expected pilots (BPSK: ±1)
@@ -70,18 +70,4 @@ function [corrected_data, phase_offset] = phase_rotation_block(ofdm_symbol, pilo
         corrected_data(k, :) = [corr_i, corr_q];
     end
     
-end
-
-% Helper initialization functions
-function state = phase_init()
-    state = struct();
-    state.div_state.pipeline = zeros(36, 1);
-    state.pipeline = zeros(40, 4);
-end
-
-function state = rotate_init()
-    state = struct();
-    state.mult_state.pipeline = zeros(5, 2);
-    state.in_delay = zeros(4, 2);
-    state.phase_pipeline = zeros(4, 3);
 end

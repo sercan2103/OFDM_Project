@@ -36,7 +36,7 @@ end
 
 % Initialize state
 if ~isfield(state, 'mult_state')
-    state.mult_state = complex_mult_init();
+    state.mult_state = struct();
     state.in_delay = zeros(4, 2);     % Delay I,Q by 4 cycles
     state.phase_pipeline = zeros(4, 3); % [quadrant, actual_phase, phase_abs]
 end

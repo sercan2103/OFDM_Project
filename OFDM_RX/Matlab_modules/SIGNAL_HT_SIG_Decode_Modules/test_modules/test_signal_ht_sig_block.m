@@ -12,7 +12,7 @@ fprintf('  (Complete decoding pipeline)\n');
 fprintf('========================================\n');
 
 % Add paths
-addpath('../part3_signal_decode');
+addpath('../');
 addpath('.');
 
 %% Test 1: SIGNAL Field Decoding - 6 Mbps, 100 bytes
@@ -61,7 +61,7 @@ fprintf('========================================\n');
 test_rates = [6, 12, 24, 54];
 test_lengths = [50, 100, 500, 1500];
 
-for i = 1:length(test_rates)
+for i = 1:numel(test_rates)
     fprintf('\n--- Test Rate=%d Mbps, Length=%d bytes ---\n', ...
             test_rates(i), test_lengths(i));
     
@@ -120,7 +120,7 @@ test_mcs = [0, 7, 15, 23];
 test_bw = [20, 20, 40, 40];
 test_ht_len = [100, 500, 1000, 2000];
 
-for i = 1:length(test_mcs)
+for i = 1:numel(test_mcs)
     fprintf('\n--- Test MCS=%d, BW=%d MHz, Length=%d bytes ---\n', ...
             test_mcs(i), test_bw(i), test_ht_len(i));
     
@@ -257,7 +257,11 @@ function ht_sig_bits = create_ht_sig_field(mcs, bw_mhz, ht_length)
     ht_sig_bits(25:34) = 0;  % Smoothing, sounding, etc.
     
     % CRC-8 on HT-SIG1 (bits 34-41)
-    crc = ht_sig_crc(ht_sig_bits(1:24));
+    crc_state = struct();
+    crc_state.C = zeros(1, 8);
+    for bit_idx = 1:24
+        [crc, crc_state] = ht_sig_crc(ht_sig_bits(bit_idx), crc_state);
+    end
     crc_bits = de2bi(crc, 8, 'left-msb');
     ht_sig_bits(35:42) = crc_bits;
     

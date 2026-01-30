@@ -262,11 +262,4 @@ test_hex_to_ofdm_ht  % For testing and visualization
 
 ---
 
-## License
-
-This project is for educational and research purposes.
-
-## Contact
-
-For questions or contributions, please open an issue on the repository.
 

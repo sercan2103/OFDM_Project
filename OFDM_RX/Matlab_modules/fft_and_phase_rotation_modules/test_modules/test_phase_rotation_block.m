@@ -12,8 +12,8 @@ fprintf('  (Combines phase.m + rotate.m)\n');
 fprintf('========================================\n');
 
 % Add paths
-addpath('../fft_and_phase_rotation_modules');
-addpath('../fft_and_phase_rotation_modules');
+addpath('../');
+addpath('.');
 
 %% Test 1: Simple Phase Offset Correction
 fprintf('\nTest 1: Correcting 30-degree phase offset...\n');

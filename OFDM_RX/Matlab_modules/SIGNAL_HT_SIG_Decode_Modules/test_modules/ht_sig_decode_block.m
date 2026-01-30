@@ -94,7 +94,11 @@ function [mcs, length, bw, valid] = ht_sig_decode_block(qbpsk_symbols)
     crc_received = bi2de(crc_bits, 'left-msb');
     
     % ===== STEP 7: Calculate CRC on HT-SIG1 =====
-    crc_calculated = ht_sig_crc(sig1_decoded);
+    crc_state = struct();
+    crc_state.C = zeros(1, 8);
+    for bit_idx = 1:24
+        [crc_calculated, crc_state] = ht_sig_crc(sig1_decoded(bit_idx), crc_state);
+    end
     
     % ===== STEP 8: Validate =====
     crc_valid = (crc_calculated == crc_received);

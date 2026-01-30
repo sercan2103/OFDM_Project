@@ -35,7 +35,7 @@ end
 
 % Initialize state if needed
 if ~isfield(state, 'div_state')
-    state.div_state = divider_init();
+    state.div_state = struct();
     state.pipeline = zeros(40, 4); % [quadrant, atan_val, valid, reserved]
 end
 
@@ -68,7 +68,7 @@ end
 % Stage 3-38: Division (36 cycles)
 if max_val == 0
     quotient = 0;
-    state.div_state = divider_init();
+    state.div_state = struct();
 else
     % Divide min by (max >> ATAN_LUT_LEN_SHIFT) to get ratio in [0, 255]
     divisor = bitshift(max_val, -ATAN_LUT_LEN_SHIFT);
