@@ -1,0 +1,166 @@
+================================================================================
+                    FINE CFO MODÜLLER - GENEL BAKIŞ
+================================================================================
+
+İKİ AYRI MODÜL:
+
+1. Fine_CFO_Estimator     → CFO TAHMİNİ yapar
+2. Fine_CFO_Correction    → CFO DÜZELTMESİ yapar
+
+================================================================================
+MODÜL 1: Fine_CFO_Estimator (TAHMİN)
+================================================================================
+
+AMAÇ: İki LTS sembolü arasındaki faz farkından CFO hesapla
+
+GİRİŞ:
+  - lts1_samples (64x1 kompleks) : İlk LTS 
+  - lts2_samples (64x1 kompleks) : İkinci LTS
+
+ÇIKIŞ:
+  - phase_offset_fine (int16)    : CFO tahmini
+
+ALGORİTMA:
+  1. prod = LTS2 * conj(LTS1)
+  2. sum_prod = Σ prod[k]
+  3. Δφ = angle(sum_prod)
+  4. phase_offset = Δφ / 64
+
+DOSYALAR:
+  - fine_cfo_estimator.m         : Ana fonksiyon (5 KB)
+  - test_fine_cfo_estimator.m    : Test script (7 KB)
+  - README.md                    : Dokümantasyon
+
+VERILOG REFERANSI:
+  - sync_long.v (channel estimation kısmı)
+  - equalizer.v (pilot tracking)
+
+================================================================================
+MODÜL 2: Fine_CFO_Correction (DÜZELTME)
+================================================================================
+
+AMAÇ: Her örneği tahmin edilen CFO ile döndür (rotate)
+
+GİRİŞ:
+  - samples_in (Nx2 [I,Q])      : Ham örnekler
+  - phase_offset (int16)        : Estimator'dan gelen tahmin
+  - short_gi (bool)             : GI tipi
+  - num_ofdm_symbol (uint16)    : State
+  - phase_correction (int32)    : State
+
+ÇIKIŞ:
+  - samples_out (Nx2 [I,Q])     : Düzeltilmiş örnekler
+  - phase_correction_out        : Güncellenmiş state
+  - num_ofdm_symbol_out         : Güncellenmiş state
+
+ALGORİTMA:
+  1. Her örnek için: phase_corr += phase_offset
+  2. Faz wrapping ([-PI, PI])
+  3. Rotation: sample_out = sample_in * exp(j*phase_corr)
+  4. GI sonrası ekstra düzeltme
+
+DOSYALAR:
+  - fine_cfo_correction.m        : Ana fonksiyon (13 KB)
+  - rotate_fixed_point.m         : Rotation yardımcı (7 KB)
+  - test_fine_cfo_estimator.m    : Test script (11 KB)
+  - example_usage.m              : Örnek kullanım (7 KB)
+  - INTEGRATION_GUIDE.m          : Entegrasyon (9 KB)
+  - README.md                    : Dokümantasyon
+
+VERILOG REFERANSI:
+  - sync_long.v (S_FFT state, satır 382-427)
+  - rotate.v (faz rotation)
+  - complex_mult.v (kompleks çarpım)
+
+================================================================================
+MODÜLLER ARASI İLİŞKİ
+================================================================================
+
+              ┌──────────────────┐
+              │   Sync Short     │
+              │ (Coarse CFO Est) │
+              └────────┬─────────┘
+                       │
+                ┌──────▼──────┐
+                │   LTS FFT   │
+                └──────┬──────┘
+                       │
+           ┌───────────┴───────────┐
+           │                       │
+      ┌────▼─────┐            ┌───▼────┐
+      │   LTS1   │            │  LTS2  │
+      └────┬─────┘            └───┬────┘
+           │                      │
+           └──────────┬───────────┘
+                      │
+          ┌───────────▼──────────────┐
+          │  Fine_CFO_Estimator      │
+          │  (TAHMİN YAPAR)          │
+          └───────────┬──────────────┘
+                      │
+              ┌───────▼────────┐
+              │ phase_offset   │ (int16)
+              └───────┬────────┘
+                      │
+          ┌───────────▼──────────────┐
+          │  Fine_CFO_Correction     │
+          │  (DÜZELTME YAPAR)        │
+          └───────────┬──────────────┘
+                      │
+              ┌───────▼────────┐
+              │ samples_out    │
+              │ (Düzeltilmiş)  │
+              └────────────────┘
+
+================================================================================
+KULLANIM ÖRNEĞİ
+================================================================================
+
+% 1. LTS sembollerini al (FFT sonrası)
+lts1 = fft_output(:, 1);
+lts2 = fft_output(:, 2);
+
+% 2. CFO TAHMİN ET (Estimator)
+phase_offset = fine_cfo_estimator(lts1, lts2);
+
+% 3. DATA sembolleri için DÜZELT (Correction)
+persistent phase_corr num_sym;
+if isempty(phase_corr)
+    phase_corr = int32(0);
+    num_sym = uint16(0);
+end
+
+for i = 1:num_data_symbols
+    [data_symbols(i,:), phase_corr, num_sym] = fine_cfo_correction(...
+        raw_symbols(i,:), phase_offset, short_gi, num_sym, phase_corr);
+end
+
+================================================================================
+FARKLAR
+================================================================================
+
+| Özellik         | Estimator          | Correction              |
+|-----------------|--------------------|-------------------------|
+| İşlev           | Tahmin             | Düzeltme                |
+| Giriş           | 2 LTS              | Örnekler + phase_offset |
+| Çıkış           | phase_offset       | Düzeltilmiş örnekler    |
+| Çağrı Sayısı    | 1 kez (paket başı) | Her OFDM sembolü için   |
+| State           | Yok                | Var (phase_correction)  |
+| Verilog         | sync_long start    | sync_long S_FFT         |
+| Komplekslik     | Basit              | Karmaşık (rotation)     |
+
+================================================================================
+TEST
+================================================================================
+
+Estimator Test:
+  cd Fine_CFO_Estimator
+  matlab -r "test_fine_cfo_estimator"
+
+Correction Test:
+  cd Fine_CFO_Correction
+  matlab -r "test_fine_cfo_estimator"  (eski dosya adı, düzeltilmeli)
+
+================================================================================
+SON GÜNCELLEme: 2026-01-31
+================================================================================

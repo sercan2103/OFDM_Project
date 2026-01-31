@@ -1,0 +1,232 @@
+================================================================================
+   CHANNEL ESTIMATOR - MATLAB REFERANS MODELİ
+   Verilog equalizer.v için Golden Reference
+================================================================================
+
+📅 Oluşturulma Tarihi: 2026-01-31
+📂 Dizin: ~/Desktop/MATLAB/OFDM_Project/OFDM_RX/Matlab_modules_referance_verilog/Channel_Estimator
+
+================================================================================
+📦 OLUŞTURULAN DOSYALAR
+================================================================================
+
+1. channel_estimator_fixed.m (16 KB)
+   ✓ Ana channel estimator fonksiyonu
+   ✓ Fixed-point aritmetik
+   ✓ Verilog equalizer.v ile birebir uyumlu
+   ✓ Kanal tahmini, CPE/LVPE düzeltme, eşitleme
+
+2. test_channel_estimator.m (5.2 KB)
+   ✓ Hızlı test scripti
+   ✓ LTS test verisi oluşturur
+   ✓ Channel estimator'ı çalıştırır
+   ✓ Sonuçları görselleştirir
+
+3. generate_test_data.m (6.3 KB)
+   ✓ Detaylı test verisi üretimi
+   ✓ 3-path multipath kanal modeli
+   ✓ test_input.mat, test_expected.mat oluşturur
+   ✓ Grafik çizimi
+
+4. compare_with_verilog.m (8.2 KB)
+   ✓ Verilog çıkışı ile karşılaştırma
+   ✓ Bit-accuracy kontrolü
+   ✓ Fark analizi ve grafikleri
+   ✓ Golden reference doğrulama
+
+5. KULLANIM_KILAVUZU.m (7.9 KB)
+   ✓ Adım adım kullanım rehberi
+   ✓ Örnek senaryolar
+   ✓ Sorun giderme
+   ✓ Manuel kullanım örnekleri
+
+6. README.md (4.5 KB)
+   ✓ Proje dokümantasyonu
+   ✓ Özellikler ve kullanım
+   ✓ Fixed-point formatlar
+   ✓ Referanslar
+
+================================================================================
+✨ ÖZELLİKLER
+================================================================================
+
+KANAL TAHMİNİ (Channel Estimation):
+  ✓ İki LTS ortalaması ile kanal katsayıları
+  ✓ Smoothing (DC ve LTS bölgeleri)
+  ✓ CSI (Channel State Information) çıkışı
+  ✓ Legacy ve HT modu desteği
+
+FAZ HATASI DÜZELTMESİ:
+  ✓ CPE (Common Phase Error): RFO kompanzasyonu
+  ✓ LVPE (Linear Varying Phase Error): SFO düzeltmesi
+  ✓ 4 pilot alt-taşıyıcı ile tracking
+  ✓ Phase error gradient hesabı
+
+KANAL EŞİTLEME (Equalization):
+  ✓ Zero-forcing (Y/H) eşitleme
+  ✓ Phase rotation (LUT tabanlı)
+  ✓ Complex multiplication & division
+  ✓ 48/52 veri alt-taşıyıcı çıkışı
+
+FIXED-POINT:
+  ✓ Input/Output: int16 (signed 16-bit)
+  ✓ İç hesaplamalar: int32 (signed 32-bit)
+  ✓ Phase: int16 (-π to π, scaled by 512)
+  ✓ Rotation LUT: 512 entry, scale 2048
+
+================================================================================
+🚀 HIZLI BAŞLANGIÇ
+================================================================================
+
+MATLAB'da şu komutları çalıştırın:
+
+    cd ~/Desktop/MATLAB/OFDM_Project/OFDM_RX/Matlab_modules_referance_verilog/Channel_Estimator
+    run test_channel_estimator.m
+
+Bu komut:
+  ✓ Test verisi oluşturur
+  ✓ Channel estimator'ı çalıştırır
+  ✓ Sonuçları gösterir
+  ✓ Grafikleri çizer
+
+================================================================================
+�� KULLANIM SENARYOLARI
+================================================================================
+
+SENARYO 1: Legacy (Non-HT) Paket
+  - 48 veri alt-taşıyıcı
+  - Smoothing aktif
+  - Standart IEEE 802.11a/g
+
+SENARYO 2: HT (802.11n) Paket
+  - 52 veri alt-taşıyıcı
+  - HT-LTS kullanımı
+  - Opsiyonel smoothing
+
+SENARYO 3: Hızlı Mod
+  - Smoothing kapalı
+  - Düşük gecikme
+  - Hızlı kanal tahmini
+
+================================================================================
+🔧 VERILOG İLE KARŞILAŞTIRMA
+================================================================================
+
+1. Verilog testbench'i çalıştırın
+2. Output'ları verilog_output.mat olarak kaydedin
+3. compare_with_verilog.m scriptini çalıştırın
+4. Bit-level farkları kontrol edin
+
+Tolerans: ±2 LSB (bit-accurate için yeterli)
+
+================================================================================
+📐 FIXED-POINT FORMATLAR
+================================================================================
+
+Değişken               | Format | Açıklama
+-----------------------|--------|----------------------------------
+Input/Output Samples   | int16  | Signed 16-bit integer
+LTS Buffer             | int16  | Channel coefficients
+Pilot Accumulator      | int32  | 32-bit signed accumulator
+Phase (CPE)            | int16  | -π to π, scaled by 512
+Phase Error (LVPE)     | int32  | Phase error gradient
+Rotation LUT           | int16  | 512 entries, scale 2048
+Magnitude Squared      | int32  | For normalization
+
+================================================================================
+⚠️ GEREKSINIMLER
+================================================================================
+
+✓ MATLAB R2018b veya üzeri
+✓ Fixed-Point Designer Toolbox
+✓ Signal Processing Toolbox (opsiyonel, grafik için)
+
+Toolbox kontrolü:
+  >> ver
+
+================================================================================
+📚 REFERANSLAR
+================================================================================
+
+1. Verilog Kaynak Kod:
+   /home/kemal/Desktop/New_Folder/openwifi-hw/ip/openofdm_rx/verilog/equalizer.v
+
+2. IEEE 802.11-2012:
+   Section 20.3.9.4.3 - Channel estimation and smoothing
+
+3. OpenOFDM Project:
+   https://github.com/open-sdr/openwifi
+
+4. Alt Modüller (Verilog):
+   - complex_mult.v: Kompleks çarpma
+   - divider.v: Sabit noktalı bölme
+   - calc_mean.v: LTS ortalaması
+   - rotate.v: Faz rotasyonu
+   - phase.v: ATAN2 hesaplama
+
+================================================================================
+✅ DOĞRULAMA DURUMU
+================================================================================
+
+☐ Unit testler tamamlandı
+☐ Verilog ile karşılaştırma yapıldı
+☐ Bit-accuracy doğrulandı
+☐ Performans testleri yapıldı
+☐ Dokümantasyon tamamlandı
+
+Not: Bu checklistler kullanıcı tarafından test edildikten sonra 
+     işaretlenmelidir.
+
+================================================================================
+🎯 KULLANIM AMACI
+================================================================================
+
+Bu model şu amaçlarla kullanılabilir:
+
+1. GOLDEN REFERENCE: Verilog implementasyonu doğrulama
+2. ALGORITHM DEVELOPMENT: Yeni kanal tahmin algoritmaları
+3. PERFORMANCE ANALYSIS: Kanal eşitleme performansı
+4. DEBUGGING: Verilog kodundaki hataları bulma
+5. EDUCATION: OFDM channel estimation öğrenimi
+
+================================================================================
+📧 DESTEK VE KATKIDA BULUNMA
+================================================================================
+
+Bu model OpenWiFi projesinin bir parçasıdır.
+Sorular, hatalar veya iyileştirmeler için:
+
+- GitHub: https://github.com/open-sdr/openwifi
+- Issues: Proje GitHub sayfasında issue açın
+- Dokümantasyon: README.md ve KULLANIM_KILAVUZU.m
+
+================================================================================
+📝 SÜRÜM GEÇMİŞİ
+================================================================================
+
+v1.0 - 2026-01-31
+  ✓ İlk sürüm oluşturuldu
+  ✓ Verilog equalizer.v'den türetildi
+  ✓ Ana fonksiyon: channel_estimator_fixed.m
+  ✓ Test scriptleri eklendi
+  ✓ Dokümantasyon hazırlandı
+
+================================================================================
+🔐 LİSANS
+================================================================================
+
+Bu kod OpenWiFi projesinin lisansına tabidir.
+Detaylar için OpenWiFi proje deposuna bakın.
+
+================================================================================
+✨ TEŞEKKÜRLER
+================================================================================
+
+Bu model, OpenWiFi projesindeki Verilog equalizer.v implementasyonuna
+dayanarak oluşturulmuştur.
+
+OpenWiFi geliştiricilerine teşekkürler!
+
+================================================================================
+FIN
+================================================================================
