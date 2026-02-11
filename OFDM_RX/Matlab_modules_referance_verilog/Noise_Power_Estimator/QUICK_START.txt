@@ -1,0 +1,113 @@
+================================================================================
+NOISE POWER ESTIMATOR - HIZLI BAŞLANGIÇ REHBERİ
+================================================================================
+
+Bu klasör, OpenOFDM RX Verilog projesindeki Noise Power Estimator modülünün
+MATLAB golden reference implementasyonunu içerir.
+
+📁 DOSYALAR:
+------------
+✓ noise_power_estimator.m      - Ana fonksiyon (calc_mean.v referansı)
+✓ test_noise_power_estimator.m - Kapsamlı test scripti
+✓ example_usage.m               - Kullanım örneği ve görselleştirme
+✓ README.md                     - Detaylı dokümantasyon
+✓ QUICK_START.txt              - Bu dosya
+
+🚀 HIZLI BAŞLANGIÇ:
+------------------
+
+1. MATLAB'ı açın ve bu dizine gidin:
+   >> cd ~/Desktop/MATLAB/OFDM_Project/OFDM_RX/Matlab_modules_referance_verilog/Noise_Power_Estimator
+
+2. Test scriptini çalıştırın:
+   >> test_noise_power_estimator
+   
+   Bu, 8 farklı test senaryosunu çalıştırır ve sonuçları gösterir.
+
+3. Örnek kullanımı çalıştırın:
+   >> example_usage
+   
+   Bu, gerçekçi bir OFDM alıcı senaryosunu simüle eder ve görselleştirir.
+
+4. Kendi kodunuzda kullanın:
+   >> [noise_power, np_valid, mean_i, mean_q, m_valid] = ...
+         noise_power_estimator(lts1_i, lts1_q, lts2_i, lts2_q, sign_vec, 1);
+
+💡 ÖNEMLİ NOTLAR:
+----------------
+
+✓ FIXED-POINT: Tüm girişler int16 tipinde olmalı (Q15 format)
+  Örnek: lts1_i = int16(randn(64,1) * 5000);
+
+✓ LTS UZUNLUĞU: Genellikle 64 örnek (IEEE 802.11a/g/n)
+  LTS1 ve LTS2 aynı uzunlukta olmalı
+
+✓ SIGN VEKTÖRÜ: LTS referans sekansından gelir
+  sign_vec = (lts_freq == -1)'
+
+✓ PIPELINE DELAY: İlk 2-3 çıkış invalid olacaktır
+  np_valid ve m_valid çıkışlarını kontrol edin
+
+✓ VERILOG UYUMLULUĞU: Bu kod, calc_mean.v modülünün birebir kopyasıdır
+  Bit-exact sonuçlar verir
+
+📊 TEMEL KULLANIM ÖRNEĞİ:
+-------------------------
+
+% 64 LTS örneği oluştur
+N = 64;
+lts1_i = int16(randn(N,1) * 5000);
+lts1_q = int16(randn(N,1) * 5000);
+lts2_i = lts1_i + int16(randn(N,1) * 500);  % + gürültü
+lts2_q = lts1_q + int16(randn(N,1) * 500);
+sign_vec = zeros(N, 1);
+
+% Fonksiyonu çağır
+[noise_power, np_valid, mean_i, mean_q, m_valid] = ...
+    noise_power_estimator(lts1_i, lts1_q, lts2_i, lts2_q, sign_vec, 1);
+
+% Ortalama gürültü gücü
+avg_noise_power = mean(double(noise_power(np_valid)));
+fprintf('Ortalama Gürültü Gücü: %.2f\n', avg_noise_power);
+
+🔍 VERILOG REFERANSI:
+--------------------
+
+Bu MATLAB kodu, şu Verilog dosyalarının referansıdır:
+- openwifi-hw/ip/openofdm_rx/verilog/calc_mean.v
+- openwifi-hw/ip/openofdm_rx/verilog/equalizer.v (S_SECOND_LTS state)
+
+Verilog ile karşılaştırma için:
+1. Verilog testbench'i aynı girişlerle çalıştırın
+2. Her clock cycle'da çıkışları karşılaştırın
+3. Pipeline delay'i (3 cycle) dikkate alın
+
+📚 DAHA FAZLA BİLGİ:
+-------------------
+
+- README.md dosyasını okuyun (detaylı açıklamalar)
+- example_usage.m scriptini inceleyin (görselleştirme)
+- test_noise_power_estimator.m'i çalıştırın (doğrulama)
+
+🆘 SORUN GİDERME:
+-----------------
+
+Problem: "lts1_i int16 tipinde olmalı" hatası
+Çözüm: lts1_i = int16(lts1_i);
+
+Problem: Noise power çok yüksek/düşük
+Çözüm: Girişleri [-32768, 32767] aralığına ölçekleyin
+
+Problem: Valid çıkışları yok
+Çözüm: clk_enable = 1 olmalı, N >= 3 olmalı
+
+�� DESTEK:
+----------
+
+Bu modül hakkında sorularınız için OpenOFDM RX proje yöneticisine başvurun.
+
+================================================================================
+Son Güncelleme: 31 Ocak 2026
+Versiyon: 1.0
+Yazar: MATLAB Referans Model Generator
+================================================================================
