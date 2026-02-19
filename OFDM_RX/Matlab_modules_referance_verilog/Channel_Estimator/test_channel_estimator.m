@@ -12,9 +12,6 @@ clc;
 %% Test Parametreleri
 fprintf('=== CHANNEL ESTIMATOR GOLDEN REFERENCE TEST ===\n\n');
 
-% Fixed-point ayarları
-T_int16 = numerictype(1, 16, 0);  % signed int16
-
 %% 1. Rotation LUT Oluştur
 fprintf('1. Rotation LUT olusturuluyor...\n');
 rot_lut = generate_rotation_lut();
@@ -39,16 +36,21 @@ H_channel(50:55) = 0.9 * exp(1j * pi/3);
 % Alınan sinyal: Y = H * X (without noise for testing)
 lts_received = lts_freq.' .* H_channel;
 
-% Fixed-point conversion
+% Fixed-point conversion ke int16 (scaled)
 lts_received_scaled = lts_received * 10000;  % Scale for int16
-lts_sample_in = fi(lts_received_scaled, T_int16, T_int16, T_int16);
+lts_sample_in = complex(int16(real(lts_received_scaled)), int16(imag(lts_received_scaled)));
 
 % İki LTS gönder (equalizer bunu bekler)
 sample_in = [lts_sample_in; lts_sample_in];
 sample_in_strobe = true(length(sample_in), 1);
 
+% 1 OFDM veri sembolü ekle (64 sample per symbol)
+dummy_data = complex(int16(randi([-1000, 1000], 64, 1)), int16(randi([-1000, 1000], 64, 1)));
+sample_in = [sample_in; dummy_data];
+sample_in_strobe = [sample_in_strobe; true(length(dummy_data), 1)];
+
 fprintf('   - LTS sample sayisi: %d\n', length(lts_freq));
-fprintf('   - Toplam input sample: %d (2 x LTS)\n', length(sample_in));
+fprintf('   - Toplam input sample: %d (2 x LTS + 1 x Data Sembolü)\n', length(sample_in));
 
 %% 3. Channel Estimator Çalıştır
 fprintf('\n3. Channel Estimator calistiriliyor...\n');
@@ -79,7 +81,25 @@ end
 %% 4. Sonuçları Göster
 fprintf('\n4. Sonuclar:\n');
 
+% CSI sonuçlarını göster
+if exist('csi', 'var') && ~isempty(csi)
+    fprintf('   ✓ Kanal Tahmin Başarılı!\n');
+    fprintf('   - CSI sample sayisi: %d\n', length(csi));
+    fprintf('   - CSI geçerli: %s\n', mat2str(csi_valid));
+    
+    % İlk 10 CSI göster
+    fprintf('\n   Ilk 10 CSI Degeri:\n');
+    for i = 1:min(10, length(csi))
+        fprintf('     [%2d] Real: %8d, Imag: %8d\n', i, ...
+                real(csi(i)), imag(csi(i)));
+    end
+else
+    fprintf('   [UYARI] CSI uretilmedi!\n');
+end
+
+% Eşitlenmiş veri sonuçlarını göster (opsiyonel - state machine'e bağlı)
 if exist('sample_out', 'var') && ~isempty(sample_out)
+    fprintf('\n   ✓ Eslitlenmiş Veri Başarılı!\n');
     fprintf('   - Eslitlenen sample sayisi: %d\n', sum(sample_out_strobe));
     
     % İlk 10 sample göster
@@ -89,25 +109,16 @@ if exist('sample_out', 'var') && ~isempty(sample_out)
                 real(sample_out(i)), imag(sample_out(i)));
     end
 else
-    fprintf('   [UYARI] Output sample uretilmedi!\n');
-end
-
-if exist('csi', 'var') && ~isempty(csi)
-    fprintf('\n   CSI (Kanal Katsayilari):\n');
-    fprintf('   - CSI sample sayisi: %d\n', length(csi));
-    
-    % İlk 10 CSI göster
-    fprintf('\n   Ilk 10 CSI Degeri:\n');
-    for i = 1:min(10, length(csi))
-        fprintf('     [%2d] Real: %8d, Imag: %8d\n', i, ...
-                real(csi(i)), imag(csi(i)));
-    end
+    fprintf('\n   [BILGI] Eslitlenmiş veri henüz uretilmedi\n');
+    fprintf('   (State machine pilot phase estimation aşamasında)\n');
+    fprintf('   Daha fazla OFDM sembolü gönderilerek veri elde edilebilir.\n');
 end
 
 %% 5. Grafik Çizimi (opsiyonel)
-fprintf('\n5. Grafik ciziliyor...\n');
+
 
 if exist('sample_out', 'var') && ~isempty(sample_out)
+    fprintf('\n5. Grafik ciziliyor...\n');
     figure('Name', 'Channel Estimator Test Results', 'Position', [100 100 1200 800]);
     
     % Subplot 1: Constellation

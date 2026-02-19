@@ -157,9 +157,16 @@ for i = 1:N
     end
     
     % Sample'ı fixed-point'e çevir
-    sample_complex = fi(complex(double(bitand(uint32(sample_in(i)), uint32(hex2dec('FFFF0000')))) / 65536, ...
-                                 double(bitand(uint32(sample_in(i)), uint32(hex2dec('0000FFFF'))))), ...
-                        T_int16, T_int16, T_int16);
+    % Input kompleks int16 veya uint32 formatında olabilir
+    if isreal(sample_in(i))
+        % uint32 formatında (packed I/Q)
+        sample_complex = fi(complex(double(bitand(uint32(sample_in(i)), uint32(hex2dec('FFFF0000')))) / 65536, ...
+                                     double(bitand(uint32(sample_in(i)), uint32(hex2dec('0000FFFF'))))), ...
+                            T_int16, T_int16, T_int16);
+    else
+        % Kompleks formatında (I + 1j*Q)
+        sample_complex = fi(sample_in(i), T_int16, T_int16, T_int16);
+    end
     
     % State machine
     switch state
@@ -255,8 +262,9 @@ for i = 1:N
             in_buf(in_waddr + 1) = sample_complex;
             in_waddr = in_waddr + 1;
             
-            % Pilot kontrolü
-            if pilot_mask(lts_raddr + 1)
+            % Pilot kontrolü (circular buffer için modulo kullan)
+            lts_idx = mod(lts_raddr, 64) + 1;
+            if pilot_mask(lts_idx)
                 pilot_count1 = pilot_count1 + 1;
                 % Pilot conjugate hesapla
                 if current_polarity(pilot_count1) == 0
@@ -265,7 +273,7 @@ for i = 1:N
                     pilot_conj = -conj(sample_complex);
                 end
                 % LTS ile çarp (complex multiplication)
-                lts_val = lts_buf(lts_raddr + 1);
+                lts_val = lts_buf(lts_idx);
                 prod = complex_mult_fixed(pilot_conj, lts_val);
                 pilot_sum_i = pilot_sum_i + real(prod);
                 pilot_sum_q = pilot_sum_q + imag(prod);

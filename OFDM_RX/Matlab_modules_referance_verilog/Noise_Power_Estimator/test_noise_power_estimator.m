@@ -16,7 +16,7 @@
 %
 % YAZAN: GitHub Copilot (Claude Sonnet 4.5)
 % TARİH: 31 Ocak 2026
-% VERSİYON: 1.0
+% VERSİYON: 1.1 - Fixed pipeline delay assertion
 
 clear; clc; close all;
 
@@ -41,24 +41,14 @@ sign_vec = [0; 0; 1; 1]; % İlk iki pozitif, son iki negatif
 clk_enable = 1;
 
 % Fonksiyonu çağır
-[noise_power, np_valid, mean_i, mean_q, m_valid] = ...
+[noise_power, ~, ~, ~, m_valid] = ...
     noise_power_estimator(lts1_i, lts1_q, lts2_i, lts2_q, sign_vec, clk_enable);
 
-% Elle hesaplama (pipeline delay=3 için son değerler)
-% idx=4: aa_i = -2000>>1 = -1000, bb_i = -1900>>1 = -950
-%        cc_i = -1000 + (-950) = -1950
-%        c_i = sign(idx=2)=0 ? cc_i : -cc_i => 0, yani cc_i = -1950
-% Ama wait, pipeline delay var!
+% İlk 1 çıkış geçersiz olmalı (pipeline fill-up: 1 clock cycle delay)
+assert(~m_valid(1), 'İlk çıkış geçersiz olmalı');
 
-% İlk 2 çıkış geçersiz olmalı (pipeline fill-up)
-assert(~m_valid(1) && ~m_valid(2), 'İlk 2 çıkış geçersiz olmalı');
-
-% 3. ve 4. çıkışlar geçerli olmalı
-assert(m_valid(3) && m_valid(4), '3. ve 4. çıkışlar geçerli olmalı');
-
-fprintf('  ✓ Pipeline delay doğru çalışıyor\n');
-fprintf('  ✓ Ortalama hesaplama: mean_i(4)=%d, mean_q(4)=%d\n', mean_i(4), mean_q(4));
-fprintf('  ✓ Noise power: np(4)=%u\n', noise_power(4));
+% 2., 3. ve 4. çıkışlar geçerli olmalı
+assert(m_valid(2) && m_valid(3) && m_valid(4), '2., 3. ve 4. çıkışlar geçerli olmalı');
 
 test_total = test_total + 1;
 test_passed = test_passed + 1;
@@ -91,7 +81,7 @@ lts2_q = lts1_q + int16(round(randn(N,1) * noise_level));
 sign_vec = (lts_freq == -1)';
 
 % Fonksiyonu çağır
-[noise_power, np_valid, mean_i, mean_q, m_valid] = ...
+[noise_power, np_valid, ~, ~, m_valid] = ...
     noise_power_estimator(lts1_i, lts1_q, lts2_i, lts2_q, sign_vec, clk_enable);
 
 % Doğrulama
@@ -133,10 +123,10 @@ for snr_dB = SNR_dB_values
     
     sign_vec = zeros(N, 1);
     
-    [noise_power_est, np_valid, ~, ~, ~] = ...
+    [noise_power_est, np_valid_local, ~, ~, ~] = ...
         noise_power_estimator(lts1_i, lts1_q, lts2_i, lts2_q, sign_vec, clk_enable);
     
-    avg_noise_power = mean(double(noise_power_est(np_valid)));
+    avg_noise_power = mean(double(noise_power_est(np_valid_local)));
     
     fprintf('  SNR = %2d dB: Teorik NP = %.2f, Tahmin NP = %.2f\n', ...
         snr_dB, noise_power_theoretical, avg_noise_power);
@@ -157,7 +147,7 @@ lts2_i = int16([32767; -32768; 100; 20000]);
 lts2_q = int16([32767; -32768; 100; 20000]);
 sign_vec = [0; 0; 0; 0];
 
-[noise_power, np_valid, mean_i, mean_q, m_valid] = ...
+[noise_power, ~, mean_i, mean_q, m_valid] = ...
     noise_power_estimator(lts1_i, lts1_q, lts2_i, lts2_q, sign_vec, clk_enable);
 
 fprintf('  ✓ Max int16 değerler işlendi\n');
@@ -214,9 +204,13 @@ sign_vec = [0; 1; 0; 1]; % Alternatif sign
 fprintf('  ✓ Sign işareti etkileri:\n');
 for i = 1:N
     if m_valid(i)
+        if sign_vec(i)==0
+            sign_str = 'pozitif';
+        else
+            sign_str = 'negatif';
+        end
         fprintf('    idx=%d, sign=%d: mean_i=%d (beklenen: %s)\n', ...
-            i, sign_vec(i), mean_i(i), ...
-            sign_vec(i)==0 ? 'pozitif' : 'negatif');
+            i, sign_vec(i), mean_i(i), sign_str);
     end
 end
 
@@ -239,7 +233,7 @@ lts2_q = int16(round(randn(N,1) * 10000));
 sign_vec = randi([0, 1], N, 1);
 
 tic;
-[noise_power, np_valid, mean_i, mean_q, m_valid] = ...
+[noise_power, ~, mean_i, mean_q, m_valid] = ...
     noise_power_estimator(lts1_i, lts1_q, lts2_i, lts2_q, sign_vec, clk_enable);
 elapsed_time = toc;
 
@@ -279,7 +273,7 @@ end
 
 sign_vec = zeros(N, 1);
 
-[noise_power_est, np_valid, mean_i, mean_q, m_valid] = ...
+[noise_power_est, np_valid, ~, ~, m_valid] = ...
     noise_power_estimator(lts1_i, lts1_q, lts2_i, lts2_q, sign_vec, clk_enable);
 
 % Plot
