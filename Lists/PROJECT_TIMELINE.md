@@ -4,6 +4,10 @@
 
 ### Mehmet
 
+- I took the example from the MATLAB Simulink project given for Packet Detection, removed it from the WLAN toolbox, rewrote it as floating point, and tested it with the test data.
+- I took the example from the MATLAB Simulink project given for Coarse CFO Estimator, removed it from the WLAN toolbox, rewrote it as floating point, and tested it with the test data.
+- I took the example from the MATLAB Simulink project given for Coarse CFO Correction, removed it from the WLAN toolbox, rewrote it as floating point, and tested it with the test data. 
+
 ### Kemal & Fatih Şenal
 
 - Developed MATLAB simulations for Symbol Timing Estimator with both floating-point and fixed-point implementations.
