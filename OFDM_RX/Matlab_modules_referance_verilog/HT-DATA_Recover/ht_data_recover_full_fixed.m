@@ -123,8 +123,11 @@ pilotIdx = [8, 22, 44, 58];  % FFT bin indices for pilots
 pilotValues = [1, 1, 1, -1];  % Known pilot pattern (+ polarity scrambling)
 
 % Extract data subcarriers (remove pilots and DC)
-% Data subcarrier indices: [-26:-22,-20:-8,-6:-1,1:6,8:20,22:26]
-dataIdx = [39:42, 44:56, 58:63, 2:7, 9:21, 23:26];  % 52 data subcarriers
+% 802.11n HT: 52 data subcarriers out of 64 FFT bins
+% DC at bin 33, Pilots at bins 8, 22, 44, 58
+% Data subcarriers: all except DC (33) and pilots
+allIdx = 1:64;
+dataIdx = setdiff(allIdx, [1, 33, 8, 22, 44, 58]);  % Remove DC and pilots (52 data subcarriers)
 
 %% Step 5: Equalization
 % Verilog: equalizer.v - channel equalization with pilot tracking
