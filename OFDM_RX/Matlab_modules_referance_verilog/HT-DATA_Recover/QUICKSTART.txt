@@ -1,0 +1,247 @@
+========================================================================
+HT-DATA RECOVER - FIXED-POINT MATLAB REFERENCE MODEL
+========================================================================
+
+PROJE BİLGİLERİ
+--------------
+Tarih         : 2026-02-25
+Kaynak        : OpenWiFi Verilog Implementation
+Konum         : ~/Desktop/MATLAB/OFDM_Project/OFDM_RX/Matlab_modules_referance_verilog/HT-DATA_Recover
+Amaç          : Verilog HT-DATA recovery pipeline için golden reference
+
+
+DOSYA YAPISI
+-----------
+📁 HT-DATA_Recover/
+  📄 ht_data_recover_fixed.m    - Ana modül (15 KB)
+  📄 test_ht_data_recover.m     - Test suite (7.5 KB)
+  📄 example_usage.m            - Kullanım örnekleri (7.5 KB)
+  📄 README.m                   - Detaylı dokümantasyon (8.8 KB)
+  📄 MODULE_INFO.md             - Modül bilgileri (4 KB)
+  📄 QUICKSTART.txt             - Bu dosya
+
+
+VERİLOG KARŞILAŞTIRMASI
+----------------------
+Bu model şu Verilog modüllerinin fonksiyonalitesini içerir:
+
+1. ofdm_decoder.v      - Ana decoder pipeline orchestration
+2. demodulate.v        - Constellation demapping (BPSK/QPSK/QAM16/QAM64)
+3. deinterleave.v      - IEEE 802.11 bit deinterleaving
+4. viterbi.v           - Convolutional decoder wrapper
+5. descramble.v        - Data descrambling (x^7 + x^4 + 1)
+6. bits_to_bytes.v     - Serial-to-parallel conversion
+
+
+HIZLI BAŞLANGIÇ
+--------------
+
+1. MATLAB'ı açın ve klasöre gidin:
+   >> cd ~/Desktop/MATLAB/OFDM_Project/OFDM_RX/Matlab_modules_referance_verilog/HT-DATA_Recover
+
+2. Test suite'i çalıştırın:
+   >> test_ht_data_recover
+   
+3. Örneklere bakın:
+   >> example_usage
+   
+4. Yardım:
+   >> help ht_data_recover_fixed
+
+
+TEMEL KULLANIM
+-------------
+
+% Equalizer çıkışı (int16 complex, 52 subcarrier x 10 symbol)
+eq_symbols = complex(int16(randn(52,10)*512), int16(randn(52,10)*512));
+
+% HT-MCS 1 (QPSK) ile decode
+rate = hex2dec('91');              % HT-MCS 1
+num_bits = 1040;                   % Toplam bit sayısı
+do_descramble = 1;                 % Descrambling aktif
+soft_decoding = 1;                 % Soft decision aktif
+
+% Decode et
+[bytes, count] = ht_data_recover_fixed(eq_symbols, rate, ...
+    num_bits, do_descramble, soft_decoding);
+
+% Sonuçları göster
+fprintf('Decoded %d bytes\n', count);
+
+
+GİRİŞ PARAMETRELERİ
+------------------
+
+eq_symbols      : [Nsc x Nsym] int16 complex
+                  Nsc = 48 (Legacy) veya 52 (HT)
+                  
+rate            : uint8 [bit 7: HT flag, bit 3:0: MCS/rate]
+                  Legacy: 0x0B, 0x0F, 0x0A, 0x0E, 0x09, 0x0D, 0x08, 0x0C
+                  HT:     0x90-0x97 (MCS 0-7)
+                  
+num_bits        : Total bits to decode (service bits dahil)
+
+do_descramble   : 0 = No descramble (SIGNAL field)
+                  1 = Descramble (DATA field)
+                  
+soft_decoding   : 0 = Hard decision
+                  1 = Soft decision (daha iyi performans)
+
+
+ÇIKIŞ PARAMETRELERİ
+------------------
+
+bytes           : [N x 1] uint8 array
+                  Decode edilmiş byte dizisi
+                  
+count           : uint32
+                  Geçerli byte sayısı
+
+
+RATE KODLARI
+-----------
+
+LEGACY (802.11a):
+  0x0B - BPSK  1/2   6 Mbps
+  0x0F - BPSK  3/4   9 Mbps
+  0x0A - QPSK  1/2  12 Mbps
+  0x0E - QPSK  3/4  18 Mbps
+  0x09 - QAM16 1/2  24 Mbps
+  0x0D - QAM16 3/4  36 Mbps
+  0x08 - QAM64 2/3  48 Mbps
+  0x0C - QAM64 3/4  54 Mbps
+
+HT (802.11n):
+  0x90 - MCS 0: BPSK  1/2   6.5 Mbps
+  0x91 - MCS 1: QPSK  1/2  13.0 Mbps
+  0x92 - MCS 2: QPSK  3/4  19.5 Mbps
+  0x93 - MCS 3: QAM16 1/2  26.0 Mbps
+  0x94 - MCS 4: QAM16 3/4  39.0 Mbps
+  0x95 - MCS 5: QAM64 2/3  52.0 Mbps
+  0x96 - MCS 6: QAM64 3/4  58.5 Mbps
+  0x97 - MCS 7: QAM64 5/6  65.0 Mbps
+
+
+FİXED-POINT DETAYLARI
+--------------------
+
+Constellation Scale:
+  - CONS_SCALE_SHIFT = 10
+  - MAX = 1024
+  - Tipik değerler: -1024 ile +1024 arası
+
+Soft Decision:
+  - 3-bit quantization (0-7)
+  - 0 = strong zero, 7 = strong one
+  - 3-4 arası nötr
+
+Viterbi:
+  - Constraint length: 7
+  - Code rate: 1/2
+  - Polynomials: [133, 171] octal
+
+
+ÖRNEK SENARYOLAR
+---------------
+
+1. SIGNAL Field Decode:
+   >> eq = complex(int16(randn(48,1)*512), int16(zeros(48,1)));
+   >> [b,c] = ht_data_recover_fixed(eq, hex2dec('0B'), 24, 0, 0);
+
+2. DATA Field with Soft Decision:
+   >> eq = complex(int16(randn(52,10)*512), int16(randn(52,10)*512));
+   >> [b,c] = ht_data_recover_fixed(eq, hex2dec('93'), 2080, 1, 1);
+
+3. Maximum Rate (HT-MCS 7):
+   >> eq = complex(int16(randn(52,20)*512), int16(randn(52,20)*512));
+   >> [b,c] = ht_data_recover_fixed(eq, hex2dec('97'), 6240, 1, 1);
+
+
+PERFORMANS BEKLENTİLERİ
+----------------------
+
+MATLAB ortamında:
+  - 10 symbol: ~10-50 ms
+  - Throughput: ~20-100 decodes/sec
+  - Memory: Minimal (~MB seviyesinde)
+
+NOT: Hardware implementasyonu çok daha hızlıdır (μs seviyesinde)
+
+
+DOĞRULAMA
+---------
+
+Model şu şekilde doğrulanabilir:
+
+1. Test suite ile:
+   >> test_ht_data_recover
+
+2. Known patterns ile:
+   >> example_usage
+
+3. Verilog simulation ile karşılaştırma:
+   - Aynı input symbols
+   - Aynı parameters
+   - Output bytes karşılaştırma
+
+
+BİLİNEN KISITLAMALAR
+-------------------
+
+1. Deinterleaving LUT basitleştirilmiş
+   → Tam accuracy için LUT port edilmeli
+
+2. Viterbi decoder MATLAB vitdec kullanır
+   → Xilinx IP ile minor farklılıklar olabilir
+
+3. Timing simulation yok
+   → Functional model, clock-accurate değil
+
+
+SORUN GİDERME
+------------
+
+Problem: Boş çıkış
+Çözüm: - num_bits parametresini kontrol et
+       - Input scale doğru mu? (-1024 ile +1024)
+       - rate parametresi geçerli mi?
+
+Problem: Yanlış decode
+Çözüm: - soft_decoding = 1 dene
+       - Input constellation kalitesini kontrol et
+       - SNR yeterli mi?
+
+Problem: MATLAB hatası
+Çözüm: - Input boyutları: [Nsc x Nsym]
+       - Data tipleri: int16 complex
+       - Communication Toolbox yüklü mü?
+
+
+DAHA FAZLA BİLGİ
+---------------
+
+Detaylı dokümantasyon:
+  >> README.m
+
+Modül bilgileri:
+  >> MODULE_INFO.md
+
+Örnek kullanımlar:
+  >> example_usage.m
+
+Verilog kaynak:
+  ~/Desktop/New_Folder/openwifi-hw/ip/openofdm_rx/verilog/
+
+
+İLETİŞİM VE DESTEK
+-----------------
+
+Bu model OpenWiFi Verilog implementasyonunu referans alır.
+Verilog ile tam uyum için test vectors ile doğrulama önerilir.
+
+OpenWiFi: https://github.com/open-sdr/openwifi
+
+
+========================================================================
+Son güncelleme: 2026-02-25
+========================================================================
