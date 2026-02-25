@@ -160,11 +160,21 @@ for idx = 1:N
         diff_i = int32(lts2_i(idx)) - int32(lts1_i(idx));
         diff_q = int32(lts2_q(idx)) - int32(lts1_q(idx));
         
-        % noise_sq = diff_i^2 + diff_q^2 (32-bit sonuç)
-        noise_sq = uint32(diff_i * diff_i + diff_q * diff_q);
+        % noise_sq = diff_i^2 + diff_q^2 (64-bit hesaplama, overflow önleme)
+        noise_sq_i = int64(diff_i) * int64(diff_i);
+        noise_sq_q = int64(diff_q) * int64(diff_q);
+        noise_sq_total = noise_sq_i + noise_sq_q;
+        
+        % 32-bit'e dönüştür (saturate)
+        if noise_sq_total > double(intmax('uint32'))
+            noise_sq = uint32(intmax('uint32'));
+        else
+            noise_sq = uint32(noise_sq_total);
+        end
         
         % noise_power = noise_sq / 2 (right shift)
-        noise_power(idx) = bitshift(noise_sq, -1);
+        % Minimum değer kontrolü (spike önleme için)
+        noise_power(idx) = max(uint32(1), bitshift(noise_sq, -1));
         noise_power_valid(idx) = delay_reg(2);
     end
 end
