@@ -49,6 +49,16 @@ try
     fprintf('  Time: %.2f ms\n', elapsed*1000);
     fprintf('  rxPSDU size: [%d x 1] (expected: %d bits)\n', length(rxPSDU), simParams.psduLength*8);
     fprintf('  eqSym size: [%d x %d x %d]\n', size(eqSym,1), size(eqSym,2), size(eqSym,3));
+
+    % Plot equalized symbols (first spatial stream)
+    eqSymPlot = eqSym(:,:,1);
+    figure('Name','Equalized Symbols','NumberTitle','off');
+    plot(real(eqSymPlot(:)), imag(eqSymPlot(:)), 'o');
+    grid on;
+    axis equal;
+    xlabel('In-Phase');
+    ylabel('Quadrature');
+    title('Equalized Symbols (eqSym)');
     
     if length(rxPSDU) == simParams.psduLength*8
         fprintf('  ✓ Output size correct\n');
@@ -103,7 +113,7 @@ if exist('wlanHTConfig', 'file') && exist('wlanWaveformGenerator', 'file')
     simParams2.numSTS = 1;
     simParams2.numSS = 1;
     simParams2.Nsd = 52;
-    simParams2.numSym = ofdmInfo.NumSymbols;
+    simParams2.numSym = ofdmInfo.NumDataSymbols;
     
     % Mock channel estimate (ideal)
     chanEst2 = ones(64, 1);

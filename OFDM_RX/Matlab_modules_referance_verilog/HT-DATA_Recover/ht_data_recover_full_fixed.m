@@ -81,11 +81,13 @@ for ss = 1:numSS
 end
 
 %% Step 3: Equalization (equalizer.v)
-% Data subcarriers: [-26:-22, -20:-8, -6:-1, 1:6, 8:20, 22:26] = 52 total
-% FFT bins: [39:42, 44:56, 58:63, 2:7, 9:21, 23:26]
-dataIdx = [39:42, 44:56, 58:63, 2:7, 9:21, 23:26];
+% Data subcarriers: 52 out of 64 FFT bins
+% Remove DC (bin 33) and pilots (bins 8, 22, 44, 58)
+allIdx = 1:64;
+pilotIdx = [8, 22, 44, 58];
+dataIdx = setdiff(allIdx, [1, 33, pilotIdx]);  % 52 data subcarriers
 
-eqSym = complex(zeros(Nsd, numSym, numSS));
+eqSym = complex(zeros(length(dataIdx), numSym, numSS));
 
 for ss = 1:numSS
     % Channel estimate for this stream
@@ -112,7 +114,8 @@ end
 % Convert to fixed-point and call decoder
 SCALE = 1024;
 eqSymScaled = eqSym * SCALE / max(abs(eqSym(:)));
-eqSymFixed = int16(real(eqSymScaled)) + 1i*int16(imag(eqSymScaled));
+% Create complex first, then convert to int16 (must be double complex)
+eqSymFixed = eqSymScaled;  % Keep as double complex for operations
 
 % Rate field
 rate = bitshift(uint8(1), 7) + uint8(mcs);  % HT flag + MCS
@@ -185,6 +188,8 @@ end
 
 %% Helper: Demodulation
 function bits = demodulate_verilog(symbols, rate, soft_dec)
+    % Ensure symbols are double complex (not int16)
+    symbols = double(symbols);
     [Nsc, Nsym, Nss] = size(symbols);
     
     % Determine modulation
