@@ -265,7 +265,7 @@ fprintf('\n6. TEST 5: Entegrasyon Testi\n');
 fprintf('   Fine CFO Estimation modülü ile birlikte çalışma testi\n');
 
 % Fine CFO Estimation modülünün varlığını kontrol et
-if exist('fine_cfo_estimation', 'file') == 2
+if exist('fine_cfo_estimator', 'file') == 2
     fprintf('   Fine CFO Estimation modülü bulundu, entegrasyon testi yapılıyor...\n');
     
     % Örnek: LTS sembolleri ve CFO tahmini

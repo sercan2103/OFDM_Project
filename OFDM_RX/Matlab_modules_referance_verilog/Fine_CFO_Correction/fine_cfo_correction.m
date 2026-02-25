@@ -204,8 +204,9 @@ for idx = 1:num_samples
     % Ölçekleme: ROTATE_LUT_SCALE_SHIFT kadar sağa kaydır
     % Verilog: out_i = p_i[ROTATE_LUT_SCALE_SHIFT+15:ROTATE_LUT_SCALE_SHIFT];
     % Bu 32-bit'ten 16-bit'e dönüşüm yapıyor
-    out_i(idx) = fi(bitshift(double(p_i_full), -ROTATE_LUT_SCALE_SHIFT), T_16bit);
-    out_q(idx) = fi(bitshift(double(p_q_full), -ROTATE_LUT_SCALE_SHIFT), T_16bit);
+    % FIXED: Cast to int64 for bitshift compatibility
+    out_i(idx) = fi(bitshift(int64(round(double(p_i_full))), -ROTATE_LUT_SCALE_SHIFT), T_16bit);
+    out_q(idx) = fi(bitshift(int64(round(double(p_q_full))), -ROTATE_LUT_SCALE_SHIFT), T_16bit);
     
     % Debug bilgilerini kaydet
     debug_info.phase_abs(idx) = double(phase_abs);
