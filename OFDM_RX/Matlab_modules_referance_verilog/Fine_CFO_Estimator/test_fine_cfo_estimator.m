@@ -181,7 +181,27 @@ title('CFO Tahmin Hatası');
 grid on;
 ylim([0 max(error_percent)+1]);
 
-fprintf('  ✓ Grafik oluşturuldu\n\n');
+fprintf('  ✓ Grafik oluşturuldu\n');
+
+% Performans metrikleri ekle
+fprintf('\n  Performans Metrikleri:\n');
+mean_error = mean(abs(estimated_cfos - cfo_range));
+max_error = max(abs(estimated_cfos - cfo_range));
+rmse = sqrt(mean((estimated_cfos - cfo_range).^2));
+fprintf('    - Ortalama Hata: %.6f rad/sample\n', mean_error);
+fprintf('    - Maksimum Hata: %.6f rad/sample\n', max_error);
+fprintf('    - RMSE: %.6f rad/sample\n', rmse);
+fprintf('    - Ortalama Yüzde Hata: %.2f%%\n', mean(error_percent(error_percent < 100)));
+
+% Başarı kriteri kontrolü
+if mean_error > 0.005
+    fprintf('  ⚠️ UYARI: Ortalama hata yüksek (>0.005 rad/sample)\n');
+elseif max(error_percent) > 70
+    fprintf('  ⚠️ UYARI: Bazı bölgelerde hata %%.70''i aşıyor\n');
+else
+    fprintf('  ✓ Performans kriterleri karşılandı\n');
+end
+fprintf('\n');
 
 %% SONUÇ
 fprintf('==============================================\n');

@@ -173,8 +173,12 @@ for idx = 1:N
         end
         
         % noise_power = noise_sq / 2 (right shift)
-        % Minimum değer kontrolü (spike önleme için)
-        noise_power(idx) = max(uint32(1), bitshift(noise_sq, -1));
+        % Adaptif minimum noise floor (spike önleme için)
+        % Tipik signal_power = 10000 → min_noise = 100 (SNR_max = 20 dB)
+        % Bu, çok temiz sinyallerde bile gerçekçi bir noise floor sağlar
+        min_noise_floor = uint32(100);  % Signal_power'ın ~%1'i
+        noise_power_raw = bitshift(noise_sq, -1);
+        noise_power(idx) = max(min_noise_floor, noise_power_raw);
         noise_power_valid(idx) = delay_reg(2);
     end
 end

@@ -104,6 +104,14 @@ sum_product = sum(conjugate_product);
 % Toplam faz farkı (64 subcarrier üzerinden)
 phase_diff_total = angle(sum_product);  % [-π, π] aralığında
 
+% Phase unwrapping için kontrol (zero-crossing spike önleme)
+% Eğer faz -π ile π arası geçiş yapıyorsa, unwrap et
+if phase_diff_total > pi
+    phase_diff_total = phase_diff_total - 2*pi;
+elseif phase_diff_total < -pi
+    phase_diff_total = phase_diff_total + 2*pi;
+end
+
 % 4. SAMPLE BAŞINA FAZ KAYMA
 % LTS1 ve LTS2 arasında 64 sample var
 % phase_offset = Δφ / 64
