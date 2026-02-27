@@ -10,4 +10,4 @@
 | Kemal & Fatih Şenal  | Fine CFO Correction       |                | ✓           |
 | Kemal & Fatih Şenal  | Channel Estimator         |                | ✓           |
 | Kemal & Fatih Şenal  | Noise Power Estimator     |                | ✓           |
-| Fatih Durak          | HT-Data Recover           |                |             |
+| Fatih Durak          | HT-Data Recover           |                | ✓            |
