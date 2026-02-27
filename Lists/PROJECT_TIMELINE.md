@@ -25,5 +25,6 @@
 ### Mehmet
 
 ### Kemal & Fatih Şenal
-
+- Developed MATLAB simulations for HT-DATA Recover with fixed-point implementations.
+- Taken results for previously developed MATLAB simulations:
 ### Fatih Durak
