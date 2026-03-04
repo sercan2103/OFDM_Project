@@ -6,7 +6,10 @@ function [soft_bits, output_strobe] = demodulate(cons_i, cons_q, rate, input_str
 %
 % Inputs:
 %   cons_i, cons_q: Constellation point (16-bit signed, Q0.15)
-%   rate: Modulation rate (4-bit)
+%   rate: Modulation rate (8-bit)
+%         Bit[7]: 0=Legacy, 1=HT
+%         Legacy (bit[7]=0): bits[3:0] = rate field
+%         HT (bit[7]=1): bits[6:0] = MCS
 %   input_strobe: Valid signal
 %   reset: Reset signal (optional)
 %
@@ -15,14 +18,20 @@ function [soft_bits, output_strobe] = demodulate(cons_i, cons_q, rate, input_str
 %   output_strobe: Output valid signal
 %
 % Rate encoding:
-%   11 (0x0B): BPSK (1 bit/symbol)
-%   15 (0x0F): BPSK (1 bit/symbol)
-%   10 (0x0A): QPSK (2 bits/symbol)
-%   14 (0x0E): QPSK (2 bits/symbol)
-%   9  (0x09): QAM-16 (4 bits/symbol)
-%   13 (0x0D): QAM-16 (4 bits/symbol)
-%   8  (0x08): QAM-64 (6 bits/symbol)
-%   12 (0x0C): QAM-64 (6 bits/symbol)
+%   Legacy rates (bit[7]=0):
+%     11 (0x0B): BPSK (1 bit/symbol)
+%     15 (0x0F): BPSK (1 bit/symbol)
+%     10 (0x0A): QPSK (2 bits/symbol)
+%     14 (0x0E): QPSK (2 bits/symbol)
+%     9  (0x09): QAM-16 (4 bits/symbol)
+%     13 (0x0D): QAM-16 (4 bits/symbol)
+%     8  (0x08): QAM-64 (6 bits/symbol)
+%     12 (0x0C): QAM-64 (6 bits/symbol)
+%   HT rates (bit[7]=1):
+%     MCS 0-1: BPSK
+%     MCS 2-3: QPSK
+%     MCS 4-5: QAM-16
+%     MCS 6-7: QAM-64
 
     persistent pipeline
     
@@ -46,39 +55,81 @@ function [soft_bits, output_strobe] = demodulate(cons_i, cons_q, rate, input_str
     abs_i = abs(cons_i);
     abs_q = abs(cons_q);
     
+    % Check if HT format (bit 7 = 1)
+    is_ht = bitget(rate, 8);
+    
     % Determine modulation type from rate
     bits_out = 0;
     
-    if rate == 11 || rate == 15  % BPSK
-        % 1 bit: sign of I
-        if cons_i >= 0
-            bits_out = 7; % Strong 1
-        else
-            bits_out = 0; % Strong 0
+    if is_ht
+        % HT MCS encoding
+        mcs = bitand(rate, 127); % Extract MCS [6:0]
+        
+        if mcs <= 1  % MCS 0-1: BPSK
+            % 1 bit: sign of I
+            if cons_i >= 0
+                bits_out = 7; % Strong 1
+            else
+                bits_out = 0; % Strong 0
+            end
+            
+        elseif mcs <= 3  % MCS 2-3: QPSK
+            % 2 bits: sign of I, sign of Q
+            bit0 = 0;
+            bit1 = 0;
+            
+            if cons_i >= 0
+                bit0 = 7;
+            end
+            if cons_q >= 0
+                bit1 = 7;
+            end
+            
+            bits_out = bitshift(bit1, 3) + bit0;
+            
+        elseif mcs <= 5  % MCS 4-5: QAM-16
+            % 4 bits
+            bits_out = demodulate_qam16(cons_i, cons_q, abs_i, abs_q, QAM_16_DIV);
+            
+        elseif mcs <= 7  % MCS 6-7: QAM-64
+            % 6 bits
+            bits_out = demodulate_qam64(cons_i, cons_q, abs_i, abs_q, ...
+                                       QAM_64_DIV_0, QAM_64_DIV_1, QAM_64_DIV_2);
         end
         
-    elseif rate == 10 || rate == 14  % QPSK
-        % 2 bits: sign of I, sign of Q
-        bit0 = 0;
-        bit1 = 0;
-        
-        if cons_i >= 0
-            bit0 = 7;
+    else
+        % Legacy rate encoding
+        if rate == 11 || rate == 15  % BPSK
+            % 1 bit: sign of I
+            if cons_i >= 0
+                bits_out = 7; % Strong 1
+            else
+                bits_out = 0; % Strong 0
+            end
+            
+        elseif rate == 10 || rate == 14  % QPSK
+            % 2 bits: sign of I, sign of Q
+            bit0 = 0;
+            bit1 = 0;
+            
+            if cons_i >= 0
+                bit0 = 7;
+            end
+            if cons_q >= 0
+                bit1 = 7;
+            end
+            
+            bits_out = bitshift(bit1, 3) + bit0; % Combine into 6 bits
+            
+        elseif rate == 9 || rate == 13  % QAM-16
+            % 4 bits
+            bits_out = demodulate_qam16(cons_i, cons_q, abs_i, abs_q, QAM_16_DIV);
+            
+        elseif rate == 8 || rate == 12  % QAM-64
+            % 6 bits
+            bits_out = demodulate_qam64(cons_i, cons_q, abs_i, abs_q, ...
+                                         QAM_64_DIV_0, QAM_64_DIV_1, QAM_64_DIV_2);
         end
-        if cons_q >= 0
-            bit1 = 7;
-        end
-        
-        bits_out = bitshift(bit1, 3) + bit0; % Combine into 6 bits
-        
-    elseif rate == 9 || rate == 13  % QAM-16
-        % 4 bits
-        bits_out = demodulate_qam16(cons_i, cons_q, abs_i, abs_q, QAM_16_DIV);
-        
-    elseif rate == 8 || rate == 12  % QAM-64
-        % 6 bits
-        bits_out = demodulate_qam64(cons_i, cons_q, abs_i, abs_q, ...
-                                     QAM_64_DIV_0, QAM_64_DIV_1, QAM_64_DIV_2);
     end
     
     % Pipeline stages
