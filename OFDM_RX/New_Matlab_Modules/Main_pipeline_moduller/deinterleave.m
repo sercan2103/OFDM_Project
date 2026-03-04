@@ -36,10 +36,12 @@ function [out_bits, erase, output_strobe] = deinterleave(in_bits, rate, input_st
     ht = bitget(rate, 8); % MSB indicates HT
     
     % Number of data carriers
+    % Legacy (802.11a/g): 48 data subcarriers
+    % HT (802.11n): 52 data subcarriers
     if ht
-        num_carriers = 52;
+        num_carriers = 52; % HT format
     else
-        num_carriers = 48;
+        num_carriers = 48; % Legacy format
     end
     
     % Default outputs

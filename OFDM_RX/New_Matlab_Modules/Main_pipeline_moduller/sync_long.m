@@ -1,18 +1,20 @@
 function [fft_out_i, fft_out_q, sync_long_out, sync_long_out_strobe, sto_out] = ...
-    sync_long(sample_i, sample_q, demod_is_ongoing, short_preamble_detected, reset)
+    sync_long(sample_i, sample_q, demod_is_ongoing, short_preamble_detected, ht_mode, short_gi, reset)
 % SYNC_LONG Long preamble synchronization and FFT
 %
-% IEEE 802.11 long preamble detection and channel estimation
+% IEEE 802.11a/g/n long preamble detection and channel estimation
 % Uses 64-point FFT and cross-correlation with known preamble
 %
 % Inputs:
 %   sample_i, sample_q: 16-bit signed I/Q samples
 %   demod_is_ongoing: High when demodulation active
 %   short_preamble_detected: Trigger from sync_short
+%   ht_mode: 1=HT format, 0=Legacy format
+%   short_gi: Short guard interval flag (HT only)
 %   reset: Reset state
 %
 % Outputs:
-%   fft_out_i, fft_out_q: FFT output (52 subcarriers)
+%   fft_out_i, fft_out_q: FFT output (52 for Legacy, 56 for HT)
 %   sync_long_out: Detection flag (starts symbol processing)
 %   sync_long_out_strobe: Valid signal for outputs
 %   sto_out: Sample timing offset
@@ -33,6 +35,8 @@ function [fft_out_i, fft_out_q, sync_long_out, sync_long_out_strobe, sto_out] = 
     persistent fft_buffer_i fft_buffer_q;
     persistent symbol_count;
     persistent sto;
+    persistent ht; % HT mode flag
+    persistent gi_samples; % Guard interval samples
     
     if isempty(state) || reset
         state = 0;
@@ -43,11 +47,28 @@ function [fft_out_i, fft_out_q, sync_long_out, sync_long_out_strobe, sto_out] = 
         fft_buffer_q = zeros(64, 1);
         symbol_count = 0;
         sto = 0;
+        ht = 0;
+        gi_samples = 16; % Default GI
+    end
+    
+    % Determine subcarrier count and GI based on mode
+    if short_preamble_detected
+        ht = ht_mode;
+        if ht && short_gi
+            gi_samples = 8; % Short GI for HT
+        else
+            gi_samples = 16; % Normal GI
+        end
+    end
+    
+    num_subcarriers = 52; % Legacy
+    if ht
+        num_subcarriers = 56; % HT
     end
     
     % Default outputs
-    fft_out_i = zeros(52, 1);
-    fft_out_q = zeros(52, 1);
+    fft_out_i = zeros(num_subcarriers, 1);
+    fft_out_q = zeros(num_subcarriers, 1);
     sync_long_out = 0;
     sync_long_out_strobe = 0;
     sto_out = sto;
@@ -85,9 +106,14 @@ function [fft_out_i, fft_out_q, sync_long_out, sync_long_out_strobe, sto_out] = 
             % 64-point FFT
             fft_result = fft(fft_in, 64);
             
-            % Extract used subcarriers (802.11 uses -26:26, excluding 0)
-            % Mapping: DC at index 1, -26:-1 at indices 39:64, 1:26 at indices 2:27
-            used_indices = [39:64, 2:27]; % 52 subcarriers
+            % Extract used subcarriers (802.11 uses -26:26 for Legacy, -28:28 for HT)
+            % Legacy (52): DC at index 1, -26:-1 at 39:64, 1:26 at 2:27
+            % HT (56): DC at index 1, -28:-1 at 37:64, 1:28 at 2:29
+            if ht
+                used_indices = [37:64, 2:29]; % HT: 56 subcarriers
+            else
+                used_indices = [39:64, 2:27]; % Legacy: 52 subcarriers
+            end
             fft_used = fft_result(used_indices);
             
             % Convert back to fixed-point I/Q
@@ -123,18 +149,22 @@ function [fft_out_i, fft_out_q, sync_long_out, sync_long_out_strobe, sto_out] = 
             end
             
         case 4 % OFDM_SYMBOL
-            % Process OFDM symbols (80 samples: 16 CP + 64 FFT)
+            % Process OFDM symbols
+            % Legacy: 80 samples (16 CP + 64 FFT)
+            % HT with short GI: 72 samples (8 CP + 64 FFT)
+            symbol_len = gi_samples + 64;
+            
             if demod_is_ongoing
                 % Collect samples for next symbol
                 sample_count = sample_count + 1;
                 
-                % Skip cyclic prefix (16 samples)
-                if sample_count > 16 && sample_count <= 80
-                    idx = sample_count - 16;
+                % Skip cyclic prefix
+                if sample_count > gi_samples && sample_count <= symbol_len
+                    idx = sample_count - gi_samples;
                     sample_buffer(idx, :) = [double(sample_i), double(sample_q)];
                 end
                 
-                if sample_count >= 80
+                if sample_count >= symbol_len
                     % Process symbol
                     fft_in = (sample_buffer(:,1) + 1j*sample_buffer(:,2)) / 32768;
                     fft_result = fft(fft_in, 64);
