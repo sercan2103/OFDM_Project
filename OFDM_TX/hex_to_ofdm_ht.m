@@ -132,6 +132,9 @@ for sym_idx = 0:(n_sym-1)
     % Step 7: IFFT with HT carrier mapping
     ifft_output = perform_ht_ifft(modulated_symbols, N_SD);
     
+    % Scale by 1/64 to match preamble amplitude (ifft64_model doesn't auto-scale)
+    ifft_output = ifft_output / 64;
+    
     % Step 8: Add Cyclic Prefix (16 samples)
     symbol_with_cp = add_cyclic_prefix(ifft_output, CP_LENGTH);
     
@@ -289,6 +292,7 @@ end
 function [l_stf, l_ltf, ht_stf, ht_ltf] = load_preambles()
     % Load preamble IQ data from hex values
     % These values are from the repository's plot_preambles.m
+    % NOTE: HT-STF and HT-LTF require amplitude scaling per 802.11n spec
     
     % L-STF (16 samples, repeated 10 times = 160 total)
     l_stf_hex = [
@@ -335,20 +339,26 @@ function [l_stf, l_ltf, ht_stf, ht_ltf] = load_preambles()
         "08000400"; "0F430285"; "FD1FEC0B"; "0782FE9C"; "03220D06"; "EE7DFF47"; "00201579"; "06D4FA1F";
         "0C7C0624"; "FB180DF6"; "F1430374"; "07A81176"; "02B4F4BC"; "0C65FD14"; "05170813"; "FF5812D1";
         "14000000"; "FF58ED2F"; "0517F7ED"; "0C6502EC"; "02B40B44"; "07A8EE8A"; "F143FC8C"; "FB18F20A";
-        "0C7CF9DC"; "06D405E1"; "0020EA87"; "EE7D00B9"; "0322F2FA"; "0782016C"; "FD1F13F5"; "0F43FA86";
-        "0800FC00"; "04BA0369"; "F8ADFAF8"; "EF33F7A7"; "0A86F42E"; "08E7FE31"; "F848F598"; "F8C602CA";
-        "FB841350"; "F066021F"; "EFB402A0"; "099C097A"; "FFA4F91E"; "F43DF143"; "0BBDF273"; "0193F382";
-        "EC000000"; "0193F382"; "0BBDF273"; "F43DF143"; "FFA4F91E"; "099C097A"; "EFB402A0"; "F066021F";
-        "FB841350"; "F8C602CA"; "F848F598"; "08E7FE31"; "0A86F42E"; "EF33F7A7"; "F8ADFAF8"; "04BAF369";
-        "08000800"; "0F430086"; "FD1FEB70"; "078201EA"; "0322077E"; "EE7D0611"; "00200EB8"; "06D4FF7A";
-        "0C7C0350"; "FB180D97"; "F1430710"; "07A80B3A"; "02B4FC6E"; "0C65F567"; "05170E3A"; "FF580F67"
+        "0C7CF9DC"; "06D405E1"; "0020EA87"; "EE7D00B9"; "0322F2FA"; "07820164"; "FD1F13F5"; "0F43FD7B";
+        "0800FC00"; "04BA0788"; "F8AD0A15"; "EF330443"; "0A860E4A"; "08E70134"; "F848094F"; "F8C6FF82";
+        "FB84E9DC"; "F0660092"; "EFB4FB54"; "099CF7AE"; "FFA40694"; "F43D0E74"; "0BBD0E0D"; "01930C23";
+        "EC000000"; "0193F3DD"; "0BBDF1F3"; "F43DF18C"; "FFA4F96C"; "099C0852"; "EFB404AC"; "F066FF6E";
+        "FB841624"; "F8C6007E"; "F848F6B1"; "08E7FECC"; "0A86F1B6"; "EF33FBBD"; "F8ADF5EB"; "04BAF878";
+        "08000400"; "0F430285"; "FD1FEC0B"; "0782FE9C"; "03220D06"; "EE7DFF47"; "00201579"; "06D4FA1F";
+        "0C7C0624"; "FB180DF6"; "F1430374"; "07A81176"; "02B4F4BC"; "0C65FD14"; "05170813"; "FF5812D1"
     ];
     
     % Convert hex to complex IQ
     l_stf = repmat(hex2iq(l_stf_hex), 10, 1);
     l_ltf = hex2iq(l_ltf_hex);
-    ht_stf = repmat(hex2iq(ht_stf_hex), 5, 1);
-    ht_ltf = hex2iq(ht_ltf_hex);
+    ht_stf_raw = repmat(hex2iq(ht_stf_hex), 5, 1);
+    ht_ltf_raw = hex2iq(ht_ltf_hex);
+    
+    % Apply 802.11n amplitude scaling for HT fields
+    % HT-STF should be √2 (~1.414x) higher power than the ROM values
+    % to match legacy preamble power after AGC adjustment
+    ht_stf = ht_stf_raw * sqrt(2);
+    ht_ltf = ht_ltf_raw * sqrt(2);
 end
 
 function complex_data = hex2iq(hex_array)

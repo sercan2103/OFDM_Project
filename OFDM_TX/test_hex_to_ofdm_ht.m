@@ -68,6 +68,7 @@ fprintf('Total IQ samples generated: %d\n\n', length(iq_samples_3));
 fprintf('Generating visualization plots...\n');
 
 figure('Name', '802.11n HT-Mixed OFDM Symbol Generation', 'Position', [50, 50, 1400, 900]);
+drawnow;
 
 % Test Case 1 Visualization
 subplot(3, 3, 1);
@@ -159,6 +160,9 @@ ylabel('Power (dB)');
 grid on;
 xlim([-10, 10]);
 
+fprintf('  Main visualization figure complete\n');
+drawnow;  % Force figure to display
+
 %% Detailed Analysis
 fprintf('\n========================================\n');
 fprintf('Detailed Analysis\n');
@@ -191,6 +195,208 @@ fprintf('  Case 3 Avg Power: %.2f dB\n', 10*log10(mean(abs(iq_samples_3).^2)));
 
 fprintf('\n========================================\n');
 fprintf('All tests completed successfully!\n');
+fprintf('========================================\n');
+
+%% Compare with MATLAB WLAN Toolbox Reference
+fprintf('\n========================================\n');
+fprintf('Validating Against WLAN Toolbox Reference\n');
+fprintf('========================================\n\n');
+
+if license('test', 'WLAN_System_Toolbox')
+    try
+        % Generate reference waveform using WLAN Toolbox
+        fprintf('Generating reference 802.11n HT waveform...\n');
+        
+        % Configure HT format
+        cfgHT = wlanHTConfig;
+        cfgHT.ChannelBandwidth = 'CBW20';
+        cfgHT.NumTransmitAntennas = 1;
+        cfgHT.NumSpaceTimeStreams = 1;
+        cfgHT.MCS = mcs;  % Use same MCS as test case 1
+        cfgHT.PSDULength = psdu_length_bytes;
+        
+        % Generate random PSDU data (binary bits, not bytes)
+        % wlanWaveformGenerator expects binary bit stream
+        psduBits = randi([0 1], psdu_length_bytes * 8, 1);
+        
+        % Generate complete 802.11n waveform
+        txWaveform = wlanWaveformGenerator(psduBits, cfgHT);
+        
+        % Compare waveform characteristics
+        fprintf('\nWaveform Comparison:\n');
+        fprintf('  Our implementation:   %d samples\n', length(iq_samples_1));
+        fprintf('  WLAN Toolbox:         %d samples\n', length(txWaveform));
+        
+        % Compare preamble structure
+        preamble_len = 720;  % Expected preamble length
+        if length(iq_samples_1) >= preamble_len && length(txWaveform) >= preamble_len
+            our_preamble = iq_samples_1(1:preamble_len);
+            ref_preamble = txWaveform(1:preamble_len);
+            
+            % Normalize for comparison
+            our_preamble_norm = our_preamble / max(abs(our_preamble));
+            ref_preamble_norm = ref_preamble / max(abs(ref_preamble));
+            
+            % Calculate correlation
+            correlation = abs(sum(our_preamble_norm .* conj(ref_preamble_norm))) / length(our_preamble_norm);
+            
+            fprintf('  Preamble correlation: %.4f (1.0 = perfect match)\n', correlation);
+            
+            % Plot full waveform comparison
+            fprintf('  Creating full waveform comparison plots...\n');
+            figure('Name', 'Full Waveform Comparison', 'Position', [50, 50, 1400, 800]);
+            drawnow;
+            
+            % Plot 1: Our complete waveform
+            subplot(3,2,1);
+            plot(real(iq_samples_1), 'b', 'LineWidth', 0.8);
+            hold on;
+            plot(imag(iq_samples_1), 'r', 'LineWidth', 0.8);
+            title('Our Implementation - Full Waveform');
+            xlabel('Sample Index');
+            ylabel('Amplitude');
+            legend('I', 'Q');
+            grid on;
+            
+            % Plot 2: WLAN Toolbox reference waveform
+            subplot(3,2,2);
+            plot(real(txWaveform), 'b', 'LineWidth', 0.8);
+            hold on;
+            plot(imag(txWaveform), 'r', 'LineWidth', 0.8);
+            title('WLAN Toolbox Reference - Full Waveform');
+            xlabel('Sample Index');
+            ylabel('Amplitude');
+            legend('I', 'Q');
+            grid on;
+            
+            % Plot 3: Amplitude envelope comparison
+            subplot(3,2,3);
+            plot(abs(iq_samples_1), 'b', 'LineWidth', 1.2);
+            hold on;
+            if length(txWaveform) >= length(iq_samples_1)
+                plot(abs(txWaveform(1:length(iq_samples_1))), 'r--', 'LineWidth', 1.2);
+            else
+                plot(abs(txWaveform), 'r--', 'LineWidth', 1.2);
+            end
+            title('Amplitude Envelope - Full Packet');
+            xlabel('Sample Index');
+            ylabel('Magnitude');
+            legend('Our Implementation', 'WLAN Toolbox', 'Location', 'best');
+            grid on;
+            
+            % Plot 4: Constellation diagram comparison
+            subplot(3,2,4);
+            scatter(real(iq_samples_1), imag(iq_samples_1), 3, 'b', 'filled', 'MarkerFaceAlpha', 0.3);
+            hold on;
+            scatter(real(txWaveform), imag(txWaveform), 3, 'r', 'filled', 'MarkerFaceAlpha', 0.3);
+            title('Constellation Comparison');
+            xlabel('I (In-phase)');
+            ylabel('Q (Quadrature)');
+            legend('Our Implementation', 'WLAN Toolbox', 'Location', 'best');
+            grid on;
+            axis equal;
+            
+            % Plot 5: Power spectral density
+            subplot(3,2,5);
+            [psd_ours, f_ours] = pwelch(iq_samples_1, 256, 128, 512, 20e6, 'centered');
+            plot(f_ours/1e6, 10*log10(psd_ours), 'b', 'LineWidth', 1.5);
+            hold on;
+            [psd_ref, f_ref] = pwelch(txWaveform, 256, 128, 512, 20e6, 'centered');
+            plot(f_ref/1e6, 10*log10(psd_ref), 'r--', 'LineWidth', 1.5);
+            title('Power Spectral Density');
+            xlabel('Frequency (MHz)');
+            ylabel('Power (dB/Hz)');
+            legend('Our Implementation', 'WLAN Toolbox');
+            grid on;
+            xlim([-10 10]);
+            
+            % Plot 6: Zoomed preamble comparison
+            subplot(3,2,6);
+            zoom_samples = min(720, min(length(iq_samples_1), length(txWaveform)));
+            plot(abs(iq_samples_1(1:zoom_samples)), 'b', 'LineWidth', 1.5);
+            hold on;
+            plot(abs(txWaveform(1:zoom_samples)), 'r--', 'LineWidth', 1.5);
+            title('Preamble Region (First 720 samples)');
+            xlabel('Sample Index');
+            ylabel('Magnitude');
+            legend('Our Implementation', 'WLAN Toolbox');
+            fprintf('  Full waveform comparison complete\n');
+            drawnow;  % Force figure to display
+            
+            % Plot detailed preamble comparison
+            fprintf('  Creating preamble detail comparison plots...\n');
+            figure('Name', 'Preamble Detail Comparison', 'Position', [100, 100, 1400, 600]);
+            drawnow
+            % Plot detailed preamble comparison
+            figure('Name', 'Preamble Detail Comparison', 'Position', [100, 100, 1400, 600]);
+            
+            subplot(2,2,1);
+            plot(real(our_preamble), 'b', 'LineWidth', 1);
+            title('Our Preamble - Real Part');
+            xlabel('Sample Index');
+            ylabel('Amplitude');
+            grid on;
+            
+            subplot(2,2,2);
+            plot(real(ref_preamble), 'r', 'LineWidth', 1);
+            title('WLAN Toolbox Preamble - Real Part');
+            xlabel('Sample Index');
+            ylabel('Amplitude');
+            grid on;
+            
+            subplot(2,2,3);
+            plot(abs(our_preamble), 'b', 'LineWidth', 1);
+            hold on;
+            plot(abs(ref_preamble), 'r--', 'LineWidth', 1);
+            title('Amplitude Comparison');
+            xlabel('Sample Index');
+            ylabel('Magnitude');
+            legend('Our Implementation', 'WLAN Toolbox');
+            grid on;
+            
+            subplot(2,2,4);
+            error_mag = abs(our_preamble_norm - ref_preamble_norm);
+            plot(error_mag, 'k', 'LineWidth', 1);
+            title('Normalized Error Magnitude');
+            xlabel('Sample Index');
+            ylabel('Error');
+            grid on;
+            ylim([0, max(0.5, max(error_mag))]);
+            
+            fprintf('  Preamble detail comparison complete\n');
+            drawnow;  % Force figure to display
+            
+            fprintf('  Mean error: %.4f\n', mean(error_mag));
+            ylim([0, max(0.5, max(error_mag))]);
+            
+            fprintf('  Mean error: %.4f\n', mean(error_mag));
+            fprintf('  Max error:  %.4f\n', max(error_mag));
+            
+            if correlation > 0.9
+                fprintf('\n  ✓ Validation PASSED: Good correlation with reference\n');
+            elseif correlation > 0.7
+                fprintf('\n  ⚠ Validation WARNING: Moderate correlation (check scaling)\n');
+            else
+                fprintf('\n  ✗ Validation FAILED: Low correlation with reference\n');
+            end
+        end
+        
+    catch ME
+        fprintf('Warning: Could not generate reference waveform\n');
+        fprintf('Error: %s\n', ME.message);
+        fprintf('Stack trace:\n');
+        for k = 1:length(ME.stack)
+            fprintf('  File: %s, Line: %d, Function: %s\n', ...
+                ME.stack(k).file, ME.stack(k).line, ME.stack(k).name);
+        end
+    end
+else
+    fprintf('WLAN System Toolbox not available - skipping validation\n');
+    fprintf('To use this feature, please install WLAN System Toolbox\n');
+end
+
+fprintf('\n========================================\n');
+fprintf('Testing Complete - All Figures Generated\n');
 fprintf('========================================\n');
 
 %% Save results (optional)

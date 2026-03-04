@@ -205,9 +205,9 @@ function modulated = modulate_signal(interleaved_bits, N_BPSC)
         % Call modulation_model
         [I_val, Q_val] = modulation_model(N_BPSC, bits_int);
         
-        % Convert int16 to complex double (normalize to [-1, 1] range)
-        % Verilog uses 16384 as unity (0x4000)
-        modulated(i) = double(I_val)/16384 + 1j*double(Q_val)/16384;
+        % Convert int16 to complex double (keep hardware scaling)
+        % Don't normalize here - IFFT scaling will be applied later
+        modulated(i) = double(I_val) + 1j*double(Q_val);
     end
 end
 
@@ -252,8 +252,9 @@ function ifft_out = perform_ifft_with_pilots(modulated, num_data_subcarriers, pk
     % Use existing ifft64_model
     ifft_out = ifft64_model.run(freq_input_hw);
     
-    % The model output is already in time domain
-    % Note: Hardware may have different scaling, adjust if needed
+    % Apply 1/64 scaling to match preamble and data symbol amplitude
+    % (ifft64_model doesn't automatically scale)
+    ifft_out = ifft_out / 64;
 end
 
 function iq_samples = add_cyclic_prefix(ifft_output, cp_length)
