@@ -32,6 +32,9 @@
 ## 27th February - 06th March 2026
 
 ### Mehmet
+-I created fixed-point models in MATLAB for the `power_trigger` and `sync_short` submodules in the RX section of the existing Verilog code.
+-I tested the power_trigger and sync_short modules, for which I created the Matlab model.
+-Next week I will compare these fixed-point MATLAB modules with the modules in Verilog to find the exact correct solution.
 
 ### Kemal & Fatih Şenal
 
