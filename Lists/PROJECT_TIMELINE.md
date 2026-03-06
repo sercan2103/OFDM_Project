@@ -37,5 +37,7 @@
 - Next week I will compare these fixed-point MATLAB modules with the modules in Verilog to find the exact correct solution.
 
 ### Kemal & Fatih Şenal
+- Developed necessary MATLAB models for OpenOFDM's submodules for equalizer, sync_long and OFDM_decoder such as phase, rotate, divider, complex multiplier, complex to magnitude est.
+- Developed MATLAB models for OpenOFDM equalizer, sync_long and OFDM_decoder modules.
 
 ### Fatih Durak
