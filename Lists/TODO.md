@@ -16,8 +16,8 @@
 
 | Person(s)            | Project Part                          | Module | Test |
 |----------------------|---------------------------------------|--------|------|
-| Mehmet               | Power Trigger                         |        |      |
-| Mehmet               | Sync_Short                            |        |      |
+| Mehmet               | Power Trigger                         |✓       |      |
+| Mehmet               | Sync_Short                            |✓       |      |
 | Kemal & Fatih Şenal  | Sync_Long                             | ✓      |      |
 | Kemal & Fatih Şenal  | Equilizer                             | ✓      |      |
 | Kemal & Fatih Şenal  | OFDM Decoder                          | ✓      |      |
