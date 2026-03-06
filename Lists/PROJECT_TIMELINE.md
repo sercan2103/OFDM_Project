@@ -28,3 +28,11 @@
 - Developed MATLAB simulations for HT-DATA Recover with fixed-point implementations.
 - Taken results for previously developed MATLAB simulations (Symbol Timing Estimator, Fine CFO Estimator , Fine CFO Correction, Channel Estimator , Noise Power Estimator) uploaded in results folder.
 ### Fatih Durak
+
+## 27th February - 06th March 2026
+
+### Mehmet
+
+### Kemal & Fatih Şenal
+
+### Fatih Durak
