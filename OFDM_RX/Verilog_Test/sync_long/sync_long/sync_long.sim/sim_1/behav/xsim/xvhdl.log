@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/tmp_edit_project.gen/sources_1/ip/xfft_v9/sim/xfft_v9.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'xfft_v9'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/tmp_edit_project.gen/sources_1/ip/complex_multiplier/sim/complex_multiplier.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'complex_multiplier'

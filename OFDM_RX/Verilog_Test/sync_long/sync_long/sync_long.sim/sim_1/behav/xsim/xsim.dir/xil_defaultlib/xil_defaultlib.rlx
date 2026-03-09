@@ -1,0 +1,20 @@
+0.7
+2020.2
+Oct 14 2022
+05:07:14
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/common_defs.v,1773065057,verilog,,,,,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/common_params.v,1773064839,verilog,,,,,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/complex_mult.v,1773064831,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/complex_to_mag.v,,complex_mult,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/complex_to_mag.v,1773064831,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/delayT.v,,complex_to_mag,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/delayT.v,1773064831,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/dpram.v,,delayT,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/dpram.v,1773064831,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/fifo_sample_delay.v,,dpram,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/fifo_sample_delay.v,1773065307,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/mv_avg_dual_ch.v,,fifo_sample_delay,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/mv_avg_dual_ch.v,1773065307,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/rotate.v,,mv_avg_dual_ch,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/openofdm_rx_pre_def.v,1773064839,verilog,,,,,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/rotate.v,1773064831,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/stage_mult.v,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/common_defs.v;/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/common_params.v,rotate,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/stage_mult.v,1773064831,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/sync_long.v,,stage_mult,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/sync_long.v,1773064831,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/sync_long_tb.v,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/openofdm_rx_pre_def.v;/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/common_params.v,sync_long,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/sync_long_tb.v,1773064979,verilog,,,,sync_long_tb,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/tmp_edit_project.gen/sources_1/ip/complex_multiplier/sim/complex_multiplier.vhd,1773065021,vhdl,,,,complex_multiplier,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/tmp_edit_project.gen/sources_1/ip/xfft_v9/sim/xfft_v9.vhd,1773065020,vhdl,,,,xfft_v9,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/sync_long/sync_long.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,,,,,,,

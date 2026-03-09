@@ -1,0 +1,26 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/complex_mult.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module complex_mult
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/complex_to_mag.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module complex_to_mag
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/delayT.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module delayT
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/dpram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dpram
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/fifo_sample_delay.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_sample_delay
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/mv_avg_dual_ch.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mv_avg_dual_ch
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/rotate.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module rotate
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/stage_mult.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module stage_mult
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/sync_long.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sync_long
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/sync_long_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sync_long_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/sync_long/sync_long.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/tmp_edit_project.gen/sources_1/ip/xfft_v9/sim/xfft_v9.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'xfft_v9'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/tmp_edit_project.gen/sources_1/ip/complex_multiplier/sim/complex_multiplier.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'complex_multiplier'

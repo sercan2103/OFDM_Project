@@ -1,0 +1,19 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../src/tmp_edit_project.gen/sources_1/ip/deinter_lut/sim/deinter_lut.v" \
+"../../../../../src/bits_to_bytes.v" \
+"../../../../../src/complex_mult.v" \
+"../../../../../src/complex_to_mag_sq.v" \
+"../../../../../src/deinterleave.v" \
+"../../../../../src/delayT.v" \
+"../../../../../src/demodulate.v" \
+"../../../../../src/descramble.v" \
+"../../../../../src/dpram.v" \
+"../../../../../src/ofdm_decoder.v" \
+"../../../../../src/ofdm_decoder_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

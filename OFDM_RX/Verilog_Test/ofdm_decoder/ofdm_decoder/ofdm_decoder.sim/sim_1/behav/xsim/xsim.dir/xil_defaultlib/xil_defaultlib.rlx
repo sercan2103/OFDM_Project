@@ -1,0 +1,22 @@
+0.7
+2020.2
+Oct 14 2022
+05:07:14
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/ofdm_decoder/ofdm_decoder.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/bits_to_bytes.v,1773065769,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/complex_mult.v,,bits_to_bytes,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/common_defs.v,1773065769,verilog,,,,,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/common_params.v,1773065769,verilog,,,,,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/complex_mult.v,1773090479,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/complex_to_mag_sq.v,,complex_mult,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/complex_to_mag_sq.v,1773065769,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/deinterleave.v,,complex_to_mag_sq,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/deinterleave.v,1773065769,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/delayT.v,,deinterleave,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/delayT.v,1773090479,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/demodulate.v,,delayT,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/demodulate.v,1773065769,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/descramble.v,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/openofdm_rx_pre_def.v;/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/common_defs.v,demodulate,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/descramble.v,1773065769,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/dpram.v,,descramble,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/dpram.v,1773065769,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/ofdm_decoder.v,,dpram,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/ofdm_decoder.v,1773065769,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/ofdm_decoder_tb.v,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/common_params.v,ofdm_decoder,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/ofdm_decoder_tb.v,1773090410,verilog,,,,ofdm_decoder_tb,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/openofdm_rx_pre_def.v,1773065769,verilog,,,,,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/tmp_edit_project.gen/sources_1/ip/complex_multiplier/sim/complex_multiplier.vhd,1773090591,vhdl,,,,complex_multiplier,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/tmp_edit_project.gen/sources_1/ip/deinter_lut/sim/deinter_lut.v,1773091013,verilog,,/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/bits_to_bytes.v,,deinter_lut,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/tmp_edit_project.gen/sources_1/ip/div_gen_csi_over_nova/sim/div_gen_csi_over_nova.vhd,1773090590,vhdl,,,,div_gen_csi_over_nova,,,,,,,,
+/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/tmp_edit_project.gen/sources_1/ip/viterbi_v7_0/sim/viterbi_v7_0.vhd,1773090362,vhdl,,,,viterbi_v7_0,,,,,,,,

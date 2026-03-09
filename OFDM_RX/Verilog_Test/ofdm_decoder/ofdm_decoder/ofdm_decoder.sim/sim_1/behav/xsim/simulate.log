@@ -1,0 +1,1183 @@
+Time resolution is 1 ps
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module ofdm_decoder_tb.uut.deinterleave_inst.lut_inst.inst.\native_mem_module.blk_mem_gen_v8_4_5_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Note: file_written romlifo is true
+Time: 0 ps  Iteration: 0  Process: /ofdm_decoder_tb/uut/viterbi_inst/U0/a1/a1/viterbi_main_i/ntm/A1_NT_I/par_dec/DPAR_I/tbr/TRACE_LAT_I/bk1/line__17391  File: /tools/Xilinx/Vivado/2022.2/data/ip/xilinx/viterbi_v9_1/hdl/viterbi_v9_1_vh_rfs.vhd
+Note: file_written romwe is true
+Time: 0 ps  Iteration: 0  Process: /ofdm_decoder_tb/uut/viterbi_inst/U0/a1/a1/viterbi_main_i/ntm/A1_NT_I/par_dec/DPAR_I/tbr/TRACE_LAT_I/bk1/line__17387  File: /tools/Xilinx/Vivado/2022.2/data/ip/xilinx/viterbi_v9_1/hdl/viterbi_v9_1_vh_rfs.vhd
+Note: file_written rombram is true
+Time: 0 ps  Iteration: 0  Process: /ofdm_decoder_tb/uut/viterbi_inst/U0/a1/a1/viterbi_main_i/ntm/A1_NT_I/par_dec/DPAR_I/tbr/TRACE_LAT_I/bk1/line__17383  File: /tools/Xilinx/Vivado/2022.2/data/ip/xilinx/viterbi_v9_1/hdl/viterbi_v9_1_vh_rfs.vhd
+Time               465000: Demod output=011000, soft_bits=00000
+Time               475000: Demod output=011001, soft_bits=00000
+Time               485000: Demod output=011001, soft_bits=00000
+Time               495000: Demod output=011001, soft_bits=00000
+Time               505000: Demod output=011001, soft_bits=00000
+Time               515000: Demod output=011001, soft_bits=00000
+Time               525000: Demod output=011001, soft_bits=00000
+Time               535000: Demod output=011000, soft_bits=00000
+Time               545000: Demod output=011001, soft_bits=00000
+Time               555000: Demod output=011001, soft_bits=00000
+Time               565000: Demod output=011000, soft_bits=00000
+Time               575000: Demod output=011001, soft_bits=00000
+Time               585000: Demod output=011001, soft_bits=00000
+Time               595000: Demod output=011000, soft_bits=00000
+Time               605000: Demod output=011001, soft_bits=00000
+Time               615000: Demod output=011000, soft_bits=00000
+Time               625000: Demod output=011001, soft_bits=00000
+Time               635000: Demod output=011000, soft_bits=00000
+Time               645000: Demod output=011001, soft_bits=00000
+Time               655000: Demod output=011001, soft_bits=00000
+Time               665000: Demod output=011000, soft_bits=00000
+Time               675000: Demod output=011001, soft_bits=00000
+Time               685000: Demod output=011000, soft_bits=00000
+Time               695000: Demod output=011000, soft_bits=00000
+Time               705000: Demod output=011000, soft_bits=00000
+Time               715000: Demod output=011001, soft_bits=00000
+Time               725000: Demod output=011000, soft_bits=00000
+Time               735000: Demod output=011001, soft_bits=00000
+Time               745000: Demod output=011001, soft_bits=00000
+Time               755000: Demod output=011001, soft_bits=00000
+Time               765000: Demod output=011001, soft_bits=00000
+Time               775000: Demod output=011000, soft_bits=00000
+Time               785000: Demod output=011000, soft_bits=00000
+Time               795000: Demod output=011000, soft_bits=00000
+Time               805000: Demod output=011000, soft_bits=00000
+Time               815000: Demod output=011001, soft_bits=00000
+Time               825000: Demod output=011000, soft_bits=00000
+Time               835000: Demod output=011001, soft_bits=00000
+Time               845000: Demod output=011001, soft_bits=00000
+Time               855000: Demod output=011001, soft_bits=00000
+Time               865000: Demod output=011001, soft_bits=00000
+Time               875000: Demod output=011001, soft_bits=00000
+Time               885000: Demod output=011000, soft_bits=00000
+Time               895000: Demod output=011000, soft_bits=00000
+Time               905000: Demod output=011001, soft_bits=00000
+Time               915000: Demod output=011001, soft_bits=00000
+Time               925000: Demod output=011001, soft_bits=00000
+Time               935000: Demod output=011000, soft_bits=00000
+Time               995000: Deinterleave output=00000000
+Time              1005000: Deinterleave output=10000000
+Time              1015000: Deinterleave output=01000000
+Time              1025000: Deinterleave output=00000000
+Time              1035000: Deinterleave output=10000000
+Time              1045000: Deinterleave output=01000000
+Time              1055000: Deinterleave output=00000000
+Time              1065000: Deinterleave output=10000000
+Time              1075000: Deinterleave output=01000000
+Time              1085000: Deinterleave output=00000000
+Time              1095000: Deinterleave output=10000000
+Time              1105000: Deinterleave output=01000000
+Time              1115000: Deinterleave output=00000000
+Time              1125000: Deinterleave output=10000000
+Time              1135000: Deinterleave output=01000000
+Time              1145000: Deinterleave output=00000000
+Time              1155000: Deinterleave output=10000000
+Time              1165000: Deinterleave output=01000000
+Time              1175000: Deinterleave output=00000000
+Time              1185000: Deinterleave output=10000000
+Time              1195000: Deinterleave output=01000000
+Time              1205000: Deinterleave output=00000000
+Time              1215000: Deinterleave output=10000000
+Time              1225000: Deinterleave output=01000000
+Time              1235000: Deinterleave output=00000000
+Time              1245000: Deinterleave output=10000000
+Time              1255000: Deinterleave output=01000000
+Time              1265000: Deinterleave output=00000000
+Time              1275000: Deinterleave output=10000000
+Time              1285000: Deinterleave output=01000000
+Time              1295000: Deinterleave output=00000000
+Time              1305000: Deinterleave output=10000000
+Time              1315000: Deinterleave output=01000000
+Time              1325000: Deinterleave output=00000000
+Time              1335000: Deinterleave output=10000000
+Time              1345000: Deinterleave output=01000000
+Time              1355000: Deinterleave output=00000000
+Time              1365000: Deinterleave output=10000000
+Time              1375000: Deinterleave output=01000000
+Time              1385000: Deinterleave output=00000000
+Time              1395000: Deinterleave output=10000000
+Time              1405000: Deinterleave output=01000000
+Time              1415000: Deinterleave output=00000000
+Time              1425000: Deinterleave output=10000000
+Time              1435000: Deinterleave output=01000000
+Time              1445000: Deinterleave output=00000000
+Time              1455000: Deinterleave output=10000000
+Time              1465000: Deinterleave output=01000000
+Time              1475000: Deinterleave output=00000000
+Time              1485000: Deinterleave output=10000000
+Time              1495000: Deinterleave output=01000000
+Time              1505000: Deinterleave output=00000000
+Time              1515000: Deinterleave output=10000000
+Time              1525000: Deinterleave output=01000000
+Time              1535000: Deinterleave output=00000000
+Time              1545000: Deinterleave output=10000000
+Time              1555000: Deinterleave output=01000000
+Time              1565000: Deinterleave output=00000000
+Time              1575000: Deinterleave output=10000000
+Time              1585000: Deinterleave output=01000000
+Time              1595000: Deinterleave output=00000000
+Time              1605000: Deinterleave output=10000000
+Time              1615000: Deinterleave output=01000000
+Time              1625000: Deinterleave output=00000000
+Time              1635000: Deinterleave output=10000000
+Time              1645000: Deinterleave output=01000000
+Time              1655000: Deinterleave output=00000000
+Time              1665000: Deinterleave output=10000000
+Time              1675000: Deinterleave output=01000000
+Time              1685000: Deinterleave output=00000000
+Time              1695000: Deinterleave output=10000000
+Time              1705000: Deinterleave output=01000000
+Time              1715000: Deinterleave output=00000000
+Time              1725000: Deinterleave output=10000000
+Time              1735000: Deinterleave output=01000000
+Time              1745000: Deinterleave output=00000000
+Time              1755000: Deinterleave output=10000000
+Time              1765000: Deinterleave output=01000000
+Time              1775000: Deinterleave output=00000000
+Time              1785000: Deinterleave output=10000000
+Time              1795000: Deinterleave output=01000000
+Time              1805000: Deinterleave output=00000000
+Time              1815000: Deinterleave output=10000000
+Time              1825000: Deinterleave output=01000000
+Time              1835000: Deinterleave output=00000000
+Time              1845000: Deinterleave output=10000000
+Time              1855000: Deinterleave output=01000000
+Time              1865000: Deinterleave output=00000000
+Time              1875000: Deinterleave output=10000000
+Time              1885000: Deinterleave output=01000000
+Time              1895000: Deinterleave output=00000000
+Time              1905000: Deinterleave output=10000000
+Time              1915000: Deinterleave output=01000000
+Time              1925000: Deinterleave output=00000000
+Time              1935000: Deinterleave output=10000000
+Time              1945000: Demod output=001000, soft_bits=00e00
+Time              1945000: Deinterleave output=01000000
+Time              1955000: Demod output=001000, soft_bits=00000
+Time              1955000: Deinterleave output=00000000
+Time              1965000: Demod output=000001, soft_bits=00000
+Time              1965000: Deinterleave output=10000000
+Time              1975000: Demod output=001001, soft_bits=00000
+Time              1975000: Deinterleave output=01000000
+Time              1985000: Demod output=000001, soft_bits=00000
+Time              1985000: Deinterleave output=00000000
+Time              1995000: Demod output=001000, soft_bits=00000
+Time              1995000: Deinterleave output=10000000
+Time              2005000: Demod output=000001, soft_bits=00000
+Time              2005000: Deinterleave output=01000000
+Time              2015000: Demod output=001000, soft_bits=00000
+Time              2015000: Deinterleave output=00000000
+Time              2025000: Demod output=001001, soft_bits=00000
+Time              2025000: Deinterleave output=10000000
+Time              2035000: Demod output=001001, soft_bits=00000
+Time              2035000: Deinterleave output=01000000
+Time              2045000: Demod output=000001, soft_bits=00000
+Time              2045000: Deinterleave output=00000000
+Time              2055000: Demod output=001001, soft_bits=00000
+Time              2055000: Deinterleave output=10000000
+Time              2065000: Demod output=101000, soft_bits=00000
+Time              2065000: Deinterleave output=01000000
+Time              2075000: Demod output=000001, soft_bits=00000
+Time              2075000: Deinterleave output=00000111
+Time              2085000: Demod output=000000, soft_bits=00000
+Time              2085000: Deinterleave output=10000000
+Time              2095000: Demod output=000000, soft_bits=00000
+Time              2095000: Deinterleave output=01000000
+Time              2105000: Demod output=001001, soft_bits=00000
+Time              2105000: Deinterleave output=00000000
+Time              2115000: Demod output=001001, soft_bits=00000
+Time              2115000: Deinterleave output=10000000
+Time              2125000: Demod output=001000, soft_bits=00000
+Time              2125000: Deinterleave output=01000000
+Time              2135000: Demod output=001001, soft_bits=00000
+Time              2135000: Deinterleave output=00000000
+Time              2145000: Demod output=001000, soft_bits=00000
+Time              2145000: Deinterleave output=10000000
+Time              2155000: Demod output=001001, soft_bits=00000
+Time              2155000: Deinterleave output=01000000
+Time              2165000: Demod output=000001, soft_bits=00000
+Time              2165000: Deinterleave output=00000000
+Time              2175000: Demod output=001001, soft_bits=00000
+Time              2175000: Deinterleave output=10000000
+Time              2185000: Demod output=001001, soft_bits=00000
+Time              2185000: Deinterleave output=01000000
+Time              2195000: Demod output=000001, soft_bits=00000
+Time              2195000: Deinterleave output=00000000
+Time              2205000: Demod output=001001, soft_bits=00000
+Time              2205000: Deinterleave output=10000000
+Time              2215000: Demod output=000001, soft_bits=00000
+Time              2215000: Deinterleave output=01000000
+Time              2225000: Demod output=000001, soft_bits=00000
+Time              2225000: Deinterleave output=00000000
+Time              2235000: Demod output=001000, soft_bits=00000
+Time              2235000: Deinterleave output=10000000
+Time              2245000: Demod output=001000, soft_bits=00000
+Time              2245000: Deinterleave output=01000000
+Time              2255000: Demod output=000000, soft_bits=00000
+Time              2255000: Deinterleave output=00000000
+Time              2265000: Demod output=000000, soft_bits=00000
+Time              2265000: Deinterleave output=10000000
+Time              2275000: Demod output=001001, soft_bits=00000
+Time              2275000: Deinterleave output=01000000
+Time              2285000: Demod output=001000, soft_bits=00000
+Time              2285000: Deinterleave output=00000000
+Time              2295000: Demod output=001000, soft_bits=00000
+Time              2295000: Deinterleave output=10000000
+Time              2305000: Demod output=000000, soft_bits=00000
+Time              2305000: Deinterleave output=01000000
+Time              2315000: Demod output=100000, soft_bits=00000
+Time              2315000: Deinterleave output=00000000
+Time              2325000: Demod output=001001, soft_bits=00000
+Time              2325000: Deinterleave output=10000000
+Time              2335000: Demod output=001001, soft_bits=00000
+Time              2335000: Deinterleave output=01000000
+Time              2345000: Demod output=000000, soft_bits=00000
+Time              2345000: Deinterleave output=00000000
+Time              2355000: Demod output=000001, soft_bits=00000
+Time              2355000: Deinterleave output=10000000
+Time              2365000: Demod output=001000, soft_bits=00000
+Time              2365000: Deinterleave output=01000000
+Time              2375000: Demod output=000001, soft_bits=00000
+Time              2375000: Deinterleave output=00000000
+Time              2385000: Demod output=000001, soft_bits=00000
+Time              2385000: Deinterleave output=10000000
+Time              2395000: Demod output=011000, soft_bits=00000
+Time              2395000: Deinterleave output=01000000
+Time              2405000: Demod output=000001, soft_bits=00000
+Time              2405000: Deinterleave output=00000000
+Time              2415000: Demod output=000001, soft_bits=00000
+Time              2415000: Deinterleave output=10000000
+Time              2425000: Demod output=000001, soft_bits=00007
+Time              2425000: Deinterleave output=01000000
+Time              2435000: Demod output=000000, soft_bits=00000
+Time              2435000: Deinterleave output=00000000
+Time              2445000: Demod output=001001, soft_bits=00000
+Time              2445000: Deinterleave output=10000000
+Time              2455000: Demod output=000000, soft_bits=00000
+Time              2455000: Deinterleave output=01000000
+Time              2465000: Demod output=001001, soft_bits=00000
+Time              2465000: Deinterleave output=00000000
+Time              2475000: Demod output=001001, soft_bits=00000
+Time              2475000: Deinterleave output=10000000
+Time              2485000: Demod output=000000, soft_bits=00000
+Time              2485000: Deinterleave output=01000000
+Time              2495000: Demod output=000001, soft_bits=00000
+Time              2495000: Deinterleave output=00000000
+Time              2505000: Demod output=001001, soft_bits=00000
+Time              2505000: Deinterleave output=10000000
+Time              2515000: Demod output=001000, soft_bits=00000
+Time              2515000: Deinterleave output=01000000
+Time              2525000: Demod output=001000, soft_bits=00000
+Time              2525000: Deinterleave output=00000000
+Time              2535000: Demod output=000000, soft_bits=00000
+Time              2535000: Deinterleave output=10000000
+Time              2545000: Demod output=000001, soft_bits=00000
+Time              2545000: Deinterleave output=01000000
+Time              2555000: Demod output=000000, soft_bits=00000
+Time              2555000: Deinterleave output=00000000
+Time              2565000: Demod output=001001, soft_bits=00000
+Time              2565000: Deinterleave output=10000000
+Time              2575000: Demod output=000000, soft_bits=00000
+Time              2575000: Deinterleave output=01000000
+Time              2585000: Demod output=000000, soft_bits=00000
+Time              2585000: Deinterleave output=00000000
+Time              2595000: Demod output=000000, soft_bits=00000
+Time              2595000: Deinterleave output=10000000
+Time              2605000: Demod output=001000, soft_bits=00000
+Time              2605000: Deinterleave output=01000000
+Time              2615000: Demod output=001001, soft_bits=00000
+Time              2615000: Deinterleave output=00000000
+Time              2625000: Demod output=110001, soft_bits=00000
+Time              2625000: Deinterleave output=10000000
+Time              2635000: Demod output=001000, soft_bits=00000
+Time              2635000: Deinterleave output=01000000
+Time              2645000: Demod output=001000, soft_bits=00000
+Time              2645000: Deinterleave output=00000000
+Time              2655000: Demod output=000001, soft_bits=00000
+Time              2655000: Deinterleave output=10000000
+Time              2665000: Demod output=000001, soft_bits=00000
+Time              2665000: Deinterleave output=01000000
+Time              2675000: Demod output=000000, soft_bits=00000
+Time              2675000: Deinterleave output=00000000
+Time              2685000: Demod output=001000, soft_bits=00000
+Time              2685000: Deinterleave output=10000000
+Time              2695000: Demod output=000000, soft_bits=00000
+Time              2695000: Deinterleave output=01000000
+Time              2705000: Demod output=000000, soft_bits=00000
+Time              2705000: Deinterleave output=00000000
+Time              2715000: Demod output=000000, soft_bits=00000
+Time              2715000: Deinterleave output=10000000
+Time              2725000: Demod output=001001, soft_bits=00000
+Time              2725000: Deinterleave output=01000000
+Time              2735000: Demod output=010001, soft_bits=00000
+Time              2735000: Deinterleave output=00000000
+Time              2745000: Demod output=001000, soft_bits=00000
+Time              2745000: Deinterleave output=10000000
+Time              2755000: Demod output=001001, soft_bits=00000
+Time              2755000: Deinterleave output=01000000
+Time              2765000: Demod output=000001, soft_bits=00000
+Time              2765000: Deinterleave output=00000000
+Time              2775000: Demod output=000001, soft_bits=00000
+Time              2775000: Deinterleave output=10000000
+Time              2785000: Demod output=000001, soft_bits=00000
+Time              2785000: Deinterleave output=01000000
+Time              2795000: Demod output=000000, soft_bits=00000
+Time              2795000: Deinterleave output=00000000
+Time              2805000: Demod output=001010, soft_bits=00000
+Time              2805000: Deinterleave output=10000000
+Time              2815000: Demod output=101000, soft_bits=00000
+Time              2815000: Deinterleave output=01000000
+Time              2825000: Demod output=000001, soft_bits=00000
+Time              2825000: Deinterleave output=00000000
+Time              2835000: Demod output=000001, soft_bits=00000
+Time              2835000: Deinterleave output=10000000
+Time              2845000: Demod output=001000, soft_bits=00000
+Time              2845000: Deinterleave output=01000000
+Time              2855000: Demod output=001000, soft_bits=00000
+Time              2855000: Deinterleave output=00000000
+Time              2865000: Demod output=000001, soft_bits=00000
+Time              2865000: Deinterleave output=10000000
+Time              2875000: Demod output=000000, soft_bits=00000
+Time              2875000: Deinterleave output=01000000
+Time              2885000: Demod output=000001, soft_bits=00000
+Time              2885000: Deinterleave output=00000000
+Time              2895000: Demod output=000000, soft_bits=00000
+Time              2895000: Deinterleave output=10000000
+Time              2895000: Viterbi decoder output=0
+Time              2905000: Demod output=000001, soft_bits=00007
+Time              2905000: Deinterleave output=01000000
+Time              2905000: Viterbi decoder output=0
+Time              2915000: Demod output=001001, soft_bits=00000
+Time              2915000: Deinterleave output=00000000
+Time              2915000: Viterbi decoder output=0
+Time              2925000: Demod output=001000, soft_bits=00000
+Time              2925000: Deinterleave output=10000000
+Time              2925000: Viterbi decoder output=0
+Time              2935000: Demod output=000000, soft_bits=00000
+Time              2935000: Deinterleave output=01000000
+Time              2935000: Viterbi decoder output=0
+Time              2945000: Demod output=001001, soft_bits=00000
+Time              2945000: Deinterleave output=00000000
+Time              2945000: Viterbi decoder output=0
+Time              2955000: Demod output=000000, soft_bits=00000
+Time              2955000: Deinterleave output=10000000
+Time              2955000: Viterbi decoder output=0
+Time              2965000: Demod output=000001, soft_bits=00000
+Time              2965000: Deinterleave output=01000000
+Time              2965000: Viterbi decoder output=0
+Time              2975000: Demod output=001000, soft_bits=00000
+Time              2975000: Deinterleave output=00000000
+Time              2975000: Viterbi decoder output=0
+Time              2975000: Descrambler output=0
+Time              2985000: Demod output=000000, soft_bits=00000
+Time              2985000: Deinterleave output=10000000
+Time              2985000: Viterbi decoder output=0
+Time              2985000: Descrambler output=0
+Time              2995000: Demod output=001001, soft_bits=00000
+Time              2995000: Deinterleave output=01000000
+Time              2995000: Viterbi decoder output=0
+Time              2995000: Descrambler output=0
+Time              3005000: Demod output=001001, soft_bits=00000
+Time              3005000: Deinterleave output=00000000
+Time              3005000: Viterbi decoder output=0
+Time              3005000: Descrambler output=0
+Time              3015000: Demod output=001001, soft_bits=00000
+Time              3015000: Deinterleave output=10000000
+Time              3015000: Viterbi decoder output=0
+Time              3015000: Descrambler output=0
+Time              3025000: Demod output=001000, soft_bits=00000
+Time              3025000: Deinterleave output=01000000
+Time              3025000: Viterbi decoder output=0
+Time              3025000: Descrambler output=0
+Time              3035000: Demod output=000111, soft_bits=00000
+Time              3035000: Deinterleave output=00000000
+Time              3035000: Viterbi decoder output=0
+Time              3035000: Descrambler output=0
+Time              3045000: Demod output=001001, soft_bits=00000
+Time              3045000: Deinterleave output=10000000
+Time              3045000: Viterbi decoder output=0
+Time              3045000: Descrambler output=0
+Time              3055000: Demod output=001001, soft_bits=00000
+Time              3055000: Deinterleave output=01000000
+Time              3055000: Viterbi decoder output=0
+Time              3055000: Descrambler output=0
+Time              3065000: Demod output=000000, soft_bits=00000
+Time              3065000: Deinterleave output=00000000
+Time              3065000: Viterbi decoder output=0
+Time              3065000: Descrambler output=0
+Time              3075000: Demod output=000001, soft_bits=00000
+Time              3075000: Deinterleave output=10000000
+Time              3075000: Viterbi decoder output=0
+Time              3075000: Descrambler output=0
+Time              3085000: Demod output=000001, soft_bits=00000
+Time              3085000: Deinterleave output=01000000
+Time              3085000: Viterbi decoder output=0
+Time              3085000: Descrambler output=0
+Time              3095000: Demod output=001000, soft_bits=00000
+Time              3095000: Deinterleave output=00000000
+Time              3095000: Viterbi decoder output=0
+Time              3095000: Descrambler output=0
+Time              3105000: Demod output=001000, soft_bits=00000
+Time              3105000: Deinterleave output=10000000
+Time              3105000: Viterbi decoder output=0
+Time              3105000: Descrambler output=0
+Time              3115000: Demod output=000000, soft_bits=00000
+Time              3115000: Deinterleave output=01000000
+Time              3115000: Viterbi decoder output=0
+Time              3115000: Descrambler output=0
+Time              3125000: Demod output=000000, soft_bits=00000
+Time              3125000: Deinterleave output=00000000
+Time              3125000: Viterbi decoder output=0
+Time              3125000: Descrambler output=0
+Time              3135000: Demod output=001001, soft_bits=00000
+Time              3135000: Deinterleave output=10000000
+Time              3135000: Viterbi decoder output=0
+Time              3135000: Descrambler output=0
+Time              3145000: Demod output=000110, soft_bits=00000
+Time              3145000: Deinterleave output=01000000
+Time              3145000: Viterbi decoder output=0
+Time              3145000: Descrambler output=0
+Time              3155000: Demod output=001001, soft_bits=00000
+Time              3155000: Viterbi decoder output=0
+Time              3155000: Descrambler output=0
+Time              3155000: Byte output=00
+Time              3165000: Demod output=000000, soft_bits=00000
+Time              3165000: Viterbi decoder output=0
+Time              3165000: Descrambler output=0
+Time              3175000: Demod output=001001, soft_bits=00000
+Time              3175000: Descrambler output=0
+Time              3185000: Demod output=001000, soft_bits=00000
+Time              3195000: Demod output=000000, soft_bits=00000
+Time              3205000: Demod output=000001, soft_bits=00000
+Time              3215000: Demod output=000000, soft_bits=00000
+Time              3225000: Demod output=001000, soft_bits=00000
+Time              3235000: Demod output=000001, soft_bits=00000
+Time              3245000: Demod output=000001, soft_bits=00000
+Time              3255000: Demod output=001001, soft_bits=00000
+Time              3265000: Demod output=001001, soft_bits=00000
+Time              3275000: Demod output=000000, soft_bits=00000
+Time              3285000: Demod output=011000, soft_bits=00000
+Time              3295000: Demod output=001001, soft_bits=00000
+Time              3305000: Demod output=001001, soft_bits=00000
+Time              3315000: Demod output=001001, soft_bits=00000
+Time              3325000: Demod output=000001, soft_bits=00000
+Time              3335000: Demod output=001000, soft_bits=00000
+Time              3345000: Demod output=000001, soft_bits=00000
+Time              3355000: Demod output=001001, soft_bits=00000
+Time              3365000: Demod output=001001, soft_bits=00000
+Time              3375000: Demod output=010001, soft_bits=00000
+Time              3385000: Demod output=000001, soft_bits=00007
+Time              3395000: Demod output=000000, soft_bits=00000
+Time              3405000: Demod output=000000, soft_bits=00000
+Time              3415000: Demod output=001001, soft_bits=00000
+Time              3425000: Demod output=000100, soft_bits=00000
+Time              3435000: Demod output=000000, soft_bits=00000
+Time              3445000: Demod output=001001, soft_bits=00000
+Time              3455000: Demod output=001000, soft_bits=00000
+Time              3465000: Demod output=000001, soft_bits=00000
+Time              3475000: Demod output=000000, soft_bits=00000
+Time              3485000: Demod output=001001, soft_bits=00000
+Time              3495000: Demod output=000000, soft_bits=00000
+Time              3505000: Demod output=000000, soft_bits=00000
+Time              3515000: Demod output=001001, soft_bits=00000
+Time              3525000: Demod output=001000, soft_bits=00000
+Time              3535000: Demod output=000000, soft_bits=00000
+Time              3545000: Demod output=001001, soft_bits=00000
+Time              3555000: Demod output=001000, soft_bits=00000
+Time              3565000: Demod output=000000, soft_bits=00000
+Time              3575000: Demod output=001000, soft_bits=00000
+Time              3585000: Demod output=000001, soft_bits=00000
+Time              3595000: Demod output=000000, soft_bits=00000
+Time              3605000: Demod output=110001, soft_bits=00000
+Time              3615000: Demod output=000000, soft_bits=00000
+Time              3625000: Demod output=000001, soft_bits=00000
+Time              3635000: Demod output=001000, soft_bits=00000
+Time              3645000: Demod output=000000, soft_bits=00000
+Time              3655000: Demod output=000001, soft_bits=00000
+Time              3665000: Demod output=001001, soft_bits=00000
+Time              3675000: Demod output=000000, soft_bits=00000
+Time              3675000: Deinterleave output=00000111
+Time              3685000: Demod output=010001, soft_bits=00000
+Time              3685000: Deinterleave output=10000000
+Time              3695000: Demod output=000000, soft_bits=00000
+Time              3695000: Deinterleave output=01000000
+Time              3695000: Viterbi decoder output=0
+Time              3705000: Demod output=000000, soft_bits=00000
+Time              3705000: Deinterleave output=00000000
+Time              3705000: Viterbi decoder output=0
+Time              3705000: Descrambler output=0
+Time              3715000: Demod output=000001, soft_bits=00000
+Time              3715000: Deinterleave output=10000000
+Time              3715000: Viterbi decoder output=0
+Time              3715000: Descrambler output=0
+Time              3725000: Demod output=001001, soft_bits=00000
+Time              3725000: Deinterleave output=01000000
+Time              3725000: Viterbi decoder output=0
+Time              3725000: Descrambler output=0
+Time              3735000: Demod output=001001, soft_bits=00000
+Time              3735000: Deinterleave output=00000000
+Time              3735000: Viterbi decoder output=0
+Time              3735000: Descrambler output=0
+Time              3745000: Demod output=000001, soft_bits=00000
+Time              3745000: Deinterleave output=10000000
+Time              3745000: Viterbi decoder output=0
+Time              3745000: Descrambler output=0
+Time              3755000: Demod output=000000, soft_bits=00000
+Time              3755000: Deinterleave output=01000000
+Time              3755000: Viterbi decoder output=0
+Time              3755000: Descrambler output=0
+Time              3755000: Byte output=00
+Time              3765000: Demod output=000001, soft_bits=00000
+Time              3765000: Deinterleave output=00000000
+Time              3765000: Viterbi decoder output=0
+Time              3765000: Descrambler output=0
+Time              3775000: Demod output=000001, soft_bits=00000
+Time              3775000: Deinterleave output=10000000
+Time              3775000: Viterbi decoder output=0
+Time              3775000: Descrambler output=0
+Time              3785000: Demod output=000001, soft_bits=00000
+Time              3785000: Deinterleave output=01000000
+Time              3785000: Viterbi decoder output=0
+Time              3785000: Descrambler output=0
+Time              3795000: Demod output=000001, soft_bits=00000
+Time              3795000: Deinterleave output=00000000
+Time              3795000: Viterbi decoder output=0
+Time              3795000: Descrambler output=0
+Time              3805000: Demod output=000001, soft_bits=00000
+Time              3805000: Deinterleave output=10000000
+Time              3805000: Viterbi decoder output=0
+Time              3805000: Descrambler output=0
+Time              3815000: Demod output=000000, soft_bits=00000
+Time              3815000: Deinterleave output=01000000
+Time              3815000: Viterbi decoder output=0
+Time              3815000: Descrambler output=0
+Time              3825000: Demod output=001001, soft_bits=00000
+Time              3825000: Deinterleave output=00000000
+Time              3825000: Viterbi decoder output=0
+Time              3825000: Descrambler output=0
+Time              3835000: Demod output=000000, soft_bits=00000
+Time              3835000: Deinterleave output=10000000
+Time              3835000: Viterbi decoder output=0
+Time              3835000: Descrambler output=0
+Time              3835000: Byte output=00
+Time              3845000: Demod output=000001, soft_bits=00000
+Time              3845000: Deinterleave output=01000000
+Time              3845000: Viterbi decoder output=0
+Time              3845000: Descrambler output=0
+Time              3855000: Demod output=000000, soft_bits=00000
+Time              3855000: Deinterleave output=00000000
+Time              3855000: Viterbi decoder output=0
+Time              3855000: Descrambler output=0
+Time              3865000: Demod output=001001, soft_bits=00e07
+Time              3865000: Deinterleave output=10000000
+Time              3865000: Viterbi decoder output=0
+Time              3865000: Descrambler output=0
+Time              3875000: Demod output=001000, soft_bits=00000
+Time              3875000: Deinterleave output=01000000
+Time              3875000: Viterbi decoder output=0
+Time              3875000: Descrambler output=0
+Time              3885000: Demod output=000001, soft_bits=00000
+Time              3885000: Deinterleave output=00000000
+Time              3885000: Viterbi decoder output=0
+Time              3885000: Descrambler output=0
+Time              3895000: Demod output=000000, soft_bits=00000
+Time              3895000: Deinterleave output=10000000
+Time              3895000: Viterbi decoder output=0
+Time              3895000: Descrambler output=0
+Time              3905000: Demod output=000001, soft_bits=00000
+Time              3905000: Deinterleave output=01000000
+Time              3905000: Viterbi decoder output=0
+Time              3905000: Descrambler output=0
+Time              3915000: Demod output=001001, soft_bits=00000
+Time              3915000: Deinterleave output=00000000
+Time              3915000: Viterbi decoder output=0
+Time              3915000: Descrambler output=0
+Time              3915000: Byte output=00
+Time              3925000: Demod output=000000, soft_bits=00000
+Time              3925000: Deinterleave output=10000000
+Time              3925000: Viterbi decoder output=0
+Time              3925000: Descrambler output=0
+Time              3935000: Demod output=000001, soft_bits=00000
+Time              3935000: Deinterleave output=01000000
+Time              3935000: Viterbi decoder output=0
+Time              3935000: Descrambler output=0
+Time              3945000: Deinterleave output=00000000
+Time              3945000: Viterbi decoder output=0
+Time              3945000: Descrambler output=0
+Time              3955000: Deinterleave output=10000000
+Time              3955000: Viterbi decoder output=0
+Time              3955000: Descrambler output=0
+Time              3965000: Deinterleave output=01000000
+Time              3965000: Viterbi decoder output=0
+Time              3965000: Descrambler output=0
+Time              3975000: Deinterleave output=00000000
+Time              3975000: Viterbi decoder output=0
+Time              3975000: Descrambler output=0
+Time              3985000: Deinterleave output=10000000
+Time              3985000: Viterbi decoder output=0
+Time              3985000: Descrambler output=0
+Time              3995000: Deinterleave output=01000000
+Time              3995000: Viterbi decoder output=0
+Time              3995000: Descrambler output=0
+Time              3995000: Byte output=00
+Time              4005000: Deinterleave output=00000000
+Time              4005000: Viterbi decoder output=0
+Time              4005000: Descrambler output=0
+Time              4015000: Deinterleave output=10000000
+Time              4015000: Viterbi decoder output=0
+Time              4015000: Descrambler output=0
+Time              4025000: Deinterleave output=01000000
+Time              4025000: Viterbi decoder output=0
+Time              4025000: Descrambler output=0
+Time              4035000: Deinterleave output=00000000
+Time              4035000: Viterbi decoder output=0
+Time              4035000: Descrambler output=0
+Time              4045000: Deinterleave output=10000000
+Time              4045000: Viterbi decoder output=0
+Time              4045000: Descrambler output=0
+Time              4055000: Deinterleave output=01000000
+Time              4055000: Viterbi decoder output=0
+Time              4055000: Descrambler output=0
+Time              4065000: Deinterleave output=00000000
+Time              4065000: Viterbi decoder output=0
+Time              4065000: Descrambler output=0
+Time              4075000: Deinterleave output=10000000
+Time              4075000: Viterbi decoder output=0
+Time              4075000: Descrambler output=0
+Time              4075000: Byte output=00
+Time              4085000: Deinterleave output=01000000
+Time              4085000: Viterbi decoder output=0
+Time              4085000: Descrambler output=0
+Time              4095000: Deinterleave output=00000000
+Time              4095000: Viterbi decoder output=0
+Time              4095000: Descrambler output=0
+Time              4105000: Deinterleave output=10000000
+Time              4105000: Viterbi decoder output=0
+Time              4105000: Descrambler output=0
+Time              4115000: Deinterleave output=01000000
+Time              4115000: Viterbi decoder output=0
+Time              4115000: Descrambler output=0
+Time              4125000: Deinterleave output=00000000
+Time              4125000: Viterbi decoder output=0
+Time              4125000: Descrambler output=0
+Time              4135000: Deinterleave output=10000000
+Time              4135000: Viterbi decoder output=0
+Time              4135000: Descrambler output=0
+Time              4145000: Deinterleave output=01000000
+Time              4145000: Viterbi decoder output=0
+Time              4145000: Descrambler output=0
+Time              4155000: Deinterleave output=00000000
+Time              4155000: Viterbi decoder output=0
+Time              4155000: Descrambler output=0
+Time              4155000: Byte output=00
+Time              4165000: Deinterleave output=10000000
+Time              4165000: Viterbi decoder output=0
+Time              4165000: Descrambler output=0
+Time              4175000: Deinterleave output=01000000
+Time              4175000: Viterbi decoder output=0
+Time              4175000: Descrambler output=0
+Time              4185000: Deinterleave output=00000000
+Time              4185000: Viterbi decoder output=0
+Time              4185000: Descrambler output=0
+Time              4195000: Deinterleave output=10000000
+Time              4195000: Viterbi decoder output=0
+Time              4195000: Descrambler output=0
+Time              4205000: Deinterleave output=01000000
+Time              4205000: Viterbi decoder output=0
+Time              4205000: Descrambler output=0
+Time              4215000: Deinterleave output=00000000
+Time              4215000: Viterbi decoder output=0
+Time              4215000: Descrambler output=0
+Time              4225000: Deinterleave output=10000111
+Time              4225000: Viterbi decoder output=0
+Time              4225000: Descrambler output=0
+Time              4235000: Deinterleave output=01000111
+Time              4235000: Viterbi decoder output=0
+Time              4235000: Descrambler output=0
+Time              4235000: Byte output=00
+Time              4245000: Deinterleave output=00000000
+Time              4245000: Viterbi decoder output=0
+Time              4245000: Descrambler output=0
+Time              4255000: Deinterleave output=10000000
+Time              4255000: Viterbi decoder output=0
+Time              4255000: Descrambler output=0
+Time              4265000: Deinterleave output=01000000
+Time              4265000: Viterbi decoder output=0
+Time              4265000: Descrambler output=0
+Time              4275000: Deinterleave output=00000000
+Time              4275000: Viterbi decoder output=0
+Time              4275000: Descrambler output=0
+Time              4285000: Deinterleave output=10000000
+Time              4285000: Viterbi decoder output=0
+Time              4285000: Descrambler output=0
+Time              4295000: Deinterleave output=01000000
+Time              4295000: Viterbi decoder output=0
+Time              4295000: Descrambler output=0
+Time              4305000: Deinterleave output=00000000
+Time              4305000: Viterbi decoder output=0
+Time              4305000: Descrambler output=0
+Time              4315000: Deinterleave output=10000000
+Time              4315000: Viterbi decoder output=0
+Time              4315000: Descrambler output=0
+Time              4315000: Byte output=00
+Time              4325000: Deinterleave output=01000000
+Time              4325000: Viterbi decoder output=0
+Time              4325000: Descrambler output=0
+Time              4335000: Deinterleave output=00000000
+Time              4335000: Viterbi decoder output=0
+Time              4335000: Descrambler output=0
+Time              4345000: Deinterleave output=10000000
+Time              4345000: Viterbi decoder output=0
+Time              4345000: Descrambler output=0
+Time              4355000: Deinterleave output=01000000
+Time              4355000: Viterbi decoder output=0
+Time              4355000: Descrambler output=0
+Time              4365000: Deinterleave output=00000000
+Time              4365000: Viterbi decoder output=0
+Time              4365000: Descrambler output=0
+Time              4375000: Deinterleave output=10000000
+Time              4375000: Viterbi decoder output=0
+Time              4375000: Descrambler output=0
+Time              4385000: Deinterleave output=01000000
+Time              4385000: Viterbi decoder output=0
+Time              4385000: Descrambler output=0
+Time              4395000: Deinterleave output=00000000
+Time              4395000: Viterbi decoder output=0
+Time              4395000: Descrambler output=0
+Time              4395000: Byte output=00
+Time              4405000: Deinterleave output=10000000
+Time              4405000: Viterbi decoder output=0
+Time              4405000: Descrambler output=0
+Time              4415000: Deinterleave output=01000000
+Time              4415000: Viterbi decoder output=0
+Time              4415000: Descrambler output=0
+Time              4425000: Deinterleave output=00000000
+Time              4425000: Viterbi decoder output=0
+Time              4425000: Descrambler output=0
+Time              4435000: Deinterleave output=10000000
+Time              4435000: Viterbi decoder output=0
+Time              4435000: Descrambler output=0
+Time              4445000: Deinterleave output=01000000
+Time              4445000: Viterbi decoder output=0
+Time              4445000: Descrambler output=0
+Time              4455000: Deinterleave output=00000000
+Time              4455000: Viterbi decoder output=0
+Time              4455000: Descrambler output=0
+Time              4465000: Deinterleave output=10000000
+Time              4465000: Viterbi decoder output=0
+Time              4465000: Descrambler output=0
+Time              4475000: Deinterleave output=01000000
+Time              4475000: Viterbi decoder output=0
+Time              4475000: Descrambler output=0
+Time              4475000: Byte output=00
+Time              4485000: Deinterleave output=00000000
+Time              4485000: Viterbi decoder output=0
+Time              4485000: Descrambler output=0
+Time              4495000: Deinterleave output=10000000
+Time              4495000: Viterbi decoder output=0
+Time              4495000: Descrambler output=0
+Time              4505000: Deinterleave output=01000000
+Time              4505000: Viterbi decoder output=0
+Time              4505000: Descrambler output=0
+Time              4515000: Deinterleave output=00000000
+Time              4515000: Viterbi decoder output=0
+Time              4515000: Descrambler output=0
+Time              4525000: Deinterleave output=10000000
+Time              4525000: Viterbi decoder output=0
+Time              4525000: Descrambler output=0
+Time              4535000: Deinterleave output=01000000
+Time              4535000: Viterbi decoder output=0
+Time              4535000: Descrambler output=0
+Time              4545000: Deinterleave output=00000000
+Time              4545000: Viterbi decoder output=0
+Time              4545000: Descrambler output=0
+Time              4555000: Deinterleave output=10000000
+Time              4555000: Viterbi decoder output=0
+Time              4555000: Descrambler output=0
+Time              4555000: Byte output=00
+Time              4565000: Deinterleave output=01000000
+Time              4565000: Viterbi decoder output=0
+Time              4565000: Descrambler output=0
+Time              4575000: Deinterleave output=00000000
+Time              4575000: Viterbi decoder output=0
+Time              4575000: Descrambler output=0
+Time              4585000: Deinterleave output=10000000
+Time              4585000: Viterbi decoder output=0
+Time              4585000: Descrambler output=0
+Time              4595000: Deinterleave output=01000000
+Time              4595000: Viterbi decoder output=0
+Time              4595000: Descrambler output=0
+Time              4605000: Deinterleave output=00000000
+Time              4605000: Viterbi decoder output=0
+Time              4605000: Descrambler output=0
+Time              4615000: Deinterleave output=10000000
+Time              4615000: Viterbi decoder output=0
+Time              4615000: Descrambler output=0
+Time              4625000: Deinterleave output=01000000
+Time              4625000: Viterbi decoder output=0
+Time              4625000: Descrambler output=0
+Time              4635000: Deinterleave output=00000000
+Time              4635000: Viterbi decoder output=0
+Time              4635000: Descrambler output=0
+Time              4635000: Byte output=00
+Time              4645000: Deinterleave output=10000000
+Time              4645000: Viterbi decoder output=0
+Time              4645000: Descrambler output=0
+Time              4655000: Deinterleave output=01000000
+Time              4655000: Viterbi decoder output=0
+Time              4655000: Descrambler output=0
+Time              4665000: Deinterleave output=00000000
+Time              4665000: Viterbi decoder output=0
+Time              4665000: Descrambler output=0
+Time              4675000: Deinterleave output=10000000
+Time              4675000: Viterbi decoder output=0
+Time              4675000: Descrambler output=0
+Time              4685000: Deinterleave output=01000000
+Time              4685000: Viterbi decoder output=0
+Time              4685000: Descrambler output=0
+Time              4695000: Deinterleave output=00000000
+Time              4695000: Viterbi decoder output=0
+Time              4695000: Descrambler output=0
+Time              4705000: Deinterleave output=10000000
+Time              4705000: Viterbi decoder output=0
+Time              4705000: Descrambler output=0
+Time              4715000: Deinterleave output=01000000
+Time              4715000: Viterbi decoder output=0
+Time              4715000: Descrambler output=0
+Time              4715000: Byte output=00
+Time              4725000: Deinterleave output=00000000
+Time              4725000: Viterbi decoder output=0
+Time              4725000: Descrambler output=0
+Time              4735000: Deinterleave output=10000000
+Time              4735000: Viterbi decoder output=0
+Time              4735000: Descrambler output=0
+Time              4745000: Deinterleave output=01000000
+Time              4745000: Viterbi decoder output=0
+Time              4745000: Descrambler output=0
+Time              4755000: Deinterleave output=00000000
+Time              4755000: Viterbi decoder output=0
+Time              4755000: Descrambler output=0
+Time              4765000: Deinterleave output=10000000
+Time              4765000: Viterbi decoder output=0
+Time              4765000: Descrambler output=0
+Time              4775000: Deinterleave output=01000000
+Time              4775000: Viterbi decoder output=0
+Time              4775000: Descrambler output=0
+Time              4785000: Deinterleave output=00000000
+Time              4785000: Viterbi decoder output=0
+Time              4785000: Descrambler output=0
+Time              4795000: Deinterleave output=10000000
+Time              4795000: Viterbi decoder output=0
+Time              4795000: Descrambler output=0
+Time              4795000: Byte output=00
+Time              4805000: Deinterleave output=01000000
+Time              4805000: Viterbi decoder output=0
+Time              4805000: Descrambler output=0
+Time              4815000: Deinterleave output=00000000
+Time              4815000: Viterbi decoder output=0
+Time              4815000: Descrambler output=0
+Time              4825000: Deinterleave output=10000000
+Time              4825000: Viterbi decoder output=0
+Time              4825000: Descrambler output=0
+Time              4835000: Deinterleave output=01000000
+Time              4835000: Viterbi decoder output=0
+Time              4835000: Descrambler output=0
+Time              4845000: Deinterleave output=00000000
+Time              4845000: Viterbi decoder output=0
+Time              4845000: Descrambler output=0
+Time              4855000: Deinterleave output=10000000
+Time              4855000: Viterbi decoder output=0
+Time              4855000: Descrambler output=0
+Time              4865000: Deinterleave output=01000000
+Time              4865000: Viterbi decoder output=0
+Time              4865000: Descrambler output=0
+Time              4875000: Deinterleave output=00000000
+Time              4875000: Viterbi decoder output=0
+Time              4875000: Descrambler output=0
+Time              4875000: Byte output=00
+Time              4885000: Deinterleave output=10000000
+Time              4885000: Viterbi decoder output=0
+Time              4885000: Descrambler output=0
+Time              4895000: Deinterleave output=01000000
+Time              4895000: Viterbi decoder output=0
+Time              4895000: Descrambler output=0
+Time              4905000: Deinterleave output=00000000
+Time              4905000: Viterbi decoder output=0
+Time              4905000: Descrambler output=0
+Time              4915000: Deinterleave output=10000000
+Time              4915000: Viterbi decoder output=0
+Time              4915000: Descrambler output=0
+Time              4925000: Deinterleave output=01000000
+Time              4925000: Viterbi decoder output=0
+Time              4925000: Descrambler output=0
+Time              4935000: Deinterleave output=00000000
+Time              4935000: Viterbi decoder output=0
+Time              4935000: Descrambler output=0
+Time              4945000: Deinterleave output=10000000
+Time              4945000: Viterbi decoder output=0
+Time              4945000: Descrambler output=0
+Time              4955000: Deinterleave output=01000000
+Time              4955000: Viterbi decoder output=0
+Time              4955000: Descrambler output=0
+Time              4955000: Byte output=00
+Time              4965000: Deinterleave output=00000000
+Time              4965000: Viterbi decoder output=0
+Time              4965000: Descrambler output=0
+Time              4975000: Deinterleave output=10000000
+Time              4975000: Viterbi decoder output=0
+Time              4975000: Descrambler output=0
+Time              4985000: Deinterleave output=01000000
+Time              4985000: Viterbi decoder output=0
+Time              4985000: Descrambler output=0
+Time              4995000: Deinterleave output=00000000
+Time              4995000: Viterbi decoder output=0
+Time              4995000: Descrambler output=0
+Time              5005000: Deinterleave output=10000000
+Time              5005000: Viterbi decoder output=0
+Time              5005000: Descrambler output=0
+Time              5015000: Deinterleave output=01000000
+Time              5015000: Viterbi decoder output=0
+Time              5015000: Descrambler output=0
+Time              5025000: Deinterleave output=00000000
+Time              5025000: Viterbi decoder output=0
+Time              5025000: Descrambler output=0
+Time              5035000: Deinterleave output=10000000
+Time              5035000: Viterbi decoder output=0
+Time              5035000: Descrambler output=0
+Time              5035000: Byte output=00
+Time              5045000: Deinterleave output=01000000
+Time              5045000: Viterbi decoder output=0
+Time              5045000: Descrambler output=0
+Time              5055000: Deinterleave output=00000000
+Time              5055000: Viterbi decoder output=0
+Time              5055000: Descrambler output=0
+Time              5065000: Deinterleave output=10000000
+Time              5065000: Viterbi decoder output=0
+Time              5065000: Descrambler output=0
+Time              5075000: Deinterleave output=01000000
+Time              5075000: Viterbi decoder output=0
+Time              5075000: Descrambler output=0
+Time              5085000: Deinterleave output=00000000
+Time              5085000: Viterbi decoder output=0
+Time              5085000: Descrambler output=0
+Time              5095000: Deinterleave output=10000000
+Time              5095000: Viterbi decoder output=0
+Time              5095000: Descrambler output=0
+Time              5105000: Deinterleave output=01000000
+Time              5105000: Viterbi decoder output=0
+Time              5105000: Descrambler output=0
+Time              5115000: Deinterleave output=00000000
+Time              5115000: Viterbi decoder output=0
+Time              5115000: Descrambler output=0
+Time              5115000: Byte output=00
+Time              5125000: Deinterleave output=10000000
+Time              5125000: Viterbi decoder output=0
+Time              5125000: Descrambler output=0
+Time              5135000: Deinterleave output=01000000
+Time              5135000: Viterbi decoder output=0
+Time              5135000: Descrambler output=0
+Time              5145000: Deinterleave output=00000000
+Time              5145000: Viterbi decoder output=0
+Time              5145000: Descrambler output=0
+Time              5155000: Deinterleave output=10000000
+Time              5155000: Viterbi decoder output=0
+Time              5155000: Descrambler output=0
+Time              5165000: Deinterleave output=01000000
+Time              5165000: Viterbi decoder output=0
+Time              5165000: Descrambler output=0
+Time              5175000: Deinterleave output=00000000
+Time              5175000: Viterbi decoder output=0
+Time              5175000: Descrambler output=0
+Time              5185000: Deinterleave output=10000000
+Time              5185000: Viterbi decoder output=0
+Time              5185000: Descrambler output=0
+Time              5195000: Deinterleave output=01000000
+Time              5195000: Viterbi decoder output=0
+Time              5195000: Descrambler output=0
+Time              5195000: Byte output=00
+Time              5205000: Deinterleave output=00000000
+Time              5205000: Viterbi decoder output=0
+Time              5205000: Descrambler output=0
+Time              5215000: Deinterleave output=10000000
+Time              5215000: Viterbi decoder output=0
+Time              5215000: Descrambler output=0
+Time              5225000: Deinterleave output=01000000
+Time              5225000: Viterbi decoder output=0
+Time              5225000: Descrambler output=0
+Time              5235000: Deinterleave output=00000000
+Time              5235000: Viterbi decoder output=0
+Time              5235000: Descrambler output=0
+Time              5245000: Deinterleave output=10000000
+Time              5245000: Viterbi decoder output=0
+Time              5245000: Descrambler output=0
+Time              5255000: Deinterleave output=01000000
+Time              5255000: Viterbi decoder output=0
+Time              5255000: Descrambler output=0
+Time              5265000: Deinterleave output=00000000
+Time              5265000: Viterbi decoder output=0
+Time              5265000: Descrambler output=0
+Time              5275000: Deinterleave output=10000000
+Time              5275000: Viterbi decoder output=0
+Time              5275000: Descrambler output=0
+Time              5275000: Byte output=00
+Time              5285000: Deinterleave output=01000000
+Time              5285000: Viterbi decoder output=0
+Time              5285000: Descrambler output=0
+Time              5295000: Deinterleave output=00000000
+Time              5295000: Viterbi decoder output=0
+Time              5295000: Descrambler output=0
+Time              5305000: Deinterleave output=10000000
+Time              5305000: Viterbi decoder output=0
+Time              5305000: Descrambler output=0
+Time              5315000: Deinterleave output=01000000
+Time              5315000: Viterbi decoder output=0
+Time              5315000: Descrambler output=0
+Time              5325000: Deinterleave output=00000000
+Time              5325000: Viterbi decoder output=0
+Time              5325000: Descrambler output=0
+Time              5335000: Deinterleave output=10000000
+Time              5335000: Viterbi decoder output=0
+Time              5335000: Descrambler output=0
+Time              5345000: Deinterleave output=01000000
+Time              5345000: Viterbi decoder output=0
+Time              5345000: Descrambler output=0
+Time              5355000: Deinterleave output=00000000
+Time              5355000: Viterbi decoder output=0
+Time              5355000: Descrambler output=0
+Time              5355000: Byte output=00
+Time              5365000: Deinterleave output=10000000
+Time              5365000: Viterbi decoder output=0
+Time              5365000: Descrambler output=0
+Time              5375000: Deinterleave output=01000000
+Time              5375000: Viterbi decoder output=0
+Time              5375000: Descrambler output=0
+Time              5385000: Deinterleave output=00000000
+Time              5385000: Viterbi decoder output=0
+Time              5385000: Descrambler output=0
+Time              5395000: Deinterleave output=10000000
+Time              5395000: Viterbi decoder output=0
+Time              5395000: Descrambler output=0
+Time              5405000: Deinterleave output=01000000
+Time              5405000: Viterbi decoder output=0
+Time              5405000: Descrambler output=0
+Time              5415000: Deinterleave output=00000000
+Time              5415000: Viterbi decoder output=0
+Time              5415000: Descrambler output=0
+Time              5425000: Deinterleave output=10000000
+Time              5425000: Viterbi decoder output=0
+Time              5425000: Descrambler output=0
+Time              5435000: Deinterleave output=01000000
+Time              5435000: Viterbi decoder output=0
+Time              5435000: Descrambler output=0
+Time              5435000: Byte output=00
+Time              5445000: Deinterleave output=00000000
+Time              5445000: Viterbi decoder output=0
+Time              5445000: Descrambler output=0
+Time              5455000: Deinterleave output=10000000
+Time              5455000: Viterbi decoder output=0
+Time              5455000: Descrambler output=0
+Time              5465000: Deinterleave output=01000000
+Time              5465000: Viterbi decoder output=0
+Time              5465000: Descrambler output=0
+Time              5475000: Deinterleave output=00000000
+Time              5475000: Viterbi decoder output=0
+Time              5475000: Descrambler output=0
+Time              5485000: Deinterleave output=10000000
+Time              5485000: Viterbi decoder output=0
+Time              5485000: Descrambler output=0
+Time              5495000: Deinterleave output=01000000
+Time              5495000: Viterbi decoder output=0
+Time              5495000: Descrambler output=0
+Time              5505000: Deinterleave output=00000000
+Time              5505000: Viterbi decoder output=0
+Time              5505000: Descrambler output=0
+Time              5515000: Deinterleave output=10000000
+Time              5515000: Viterbi decoder output=0
+Time              5515000: Descrambler output=0
+Time              5515000: Byte output=00
+Time              5525000: Deinterleave output=01000000
+Time              5525000: Viterbi decoder output=0
+Time              5525000: Descrambler output=0
+Time              5535000: Deinterleave output=00000000
+Time              5535000: Viterbi decoder output=0
+Time              5535000: Descrambler output=0
+Time              5545000: Deinterleave output=10000000
+Time              5545000: Viterbi decoder output=0
+Time              5545000: Descrambler output=0
+Time              5555000: Deinterleave output=01000000
+Time              5555000: Viterbi decoder output=0
+Time              5555000: Descrambler output=0
+Time              5565000: Deinterleave output=00000000
+Time              5565000: Viterbi decoder output=0
+Time              5565000: Descrambler output=0
+Time              5575000: Deinterleave output=10000000
+Time              5575000: Viterbi decoder output=0
+Time              5575000: Descrambler output=0
+Time              5585000: Deinterleave output=01000000
+Time              5585000: Viterbi decoder output=0
+Time              5585000: Descrambler output=0
+Time              5595000: Deinterleave output=00000000
+Time              5595000: Viterbi decoder output=0
+Time              5595000: Descrambler output=0
+Time              5595000: Byte output=00
+Time              5605000: Deinterleave output=10000000
+Time              5605000: Viterbi decoder output=0
+Time              5605000: Descrambler output=0
+Time              5615000: Deinterleave output=01000000
+Time              5615000: Viterbi decoder output=0
+Time              5615000: Descrambler output=0
+Time              5625000: Deinterleave output=00000000
+Time              5625000: Viterbi decoder output=0
+Time              5625000: Descrambler output=0
+Time              5635000: Deinterleave output=10000000
+Time              5635000: Viterbi decoder output=0
+Time              5635000: Descrambler output=0
+Time              5645000: Deinterleave output=01000000
+Time              5645000: Viterbi decoder output=0
+Time              5645000: Descrambler output=0
+Time              5655000: Deinterleave output=00000000
+Time              5655000: Viterbi decoder output=0
+Time              5655000: Descrambler output=0
+Time              5665000: Deinterleave output=10000000
+Time              5665000: Viterbi decoder output=0
+Time              5665000: Descrambler output=0
+Time              5675000: Deinterleave output=01000000
+Time              5675000: Viterbi decoder output=0
+Time              5675000: Descrambler output=0
+Time              5675000: Byte output=00
+Time              5685000: Deinterleave output=00000000
+Time              5685000: Viterbi decoder output=0
+Time              5685000: Descrambler output=0
+Time              5695000: Deinterleave output=10000000
+Time              5695000: Viterbi decoder output=0
+Time              5695000: Descrambler output=0
+Time              5705000: Deinterleave output=01000000
+Time              5705000: Viterbi decoder output=0
+Time              5705000: Descrambler output=0
+Time              5715000: Deinterleave output=00000000
+Time              5715000: Viterbi decoder output=0
+Time              5715000: Descrambler output=0
+Time              5725000: Deinterleave output=10000000
+Time              5725000: Viterbi decoder output=0
+Time              5725000: Descrambler output=0
+Time              5735000: Deinterleave output=01000000
+Time              5735000: Viterbi decoder output=0
+Time              5735000: Descrambler output=0
+Time              5745000: Deinterleave output=00000000
+Time              5745000: Viterbi decoder output=0
+Time              5745000: Descrambler output=0
+Time              5755000: Deinterleave output=10000000
+Time              5755000: Viterbi decoder output=0
+Time              5755000: Descrambler output=0
+Time              5755000: Byte output=00
+Time              5765000: Deinterleave output=01000000
+Time              5765000: Viterbi decoder output=0
+Time              5765000: Descrambler output=0
+Time              5775000: Deinterleave output=00000000
+Time              5775000: Viterbi decoder output=0
+Time              5775000: Descrambler output=0
+Time              5785000: Deinterleave output=10000000
+Time              5785000: Viterbi decoder output=0
+Time              5785000: Descrambler output=0
+Time              5795000: Deinterleave output=01000000
+Time              5795000: Viterbi decoder output=0

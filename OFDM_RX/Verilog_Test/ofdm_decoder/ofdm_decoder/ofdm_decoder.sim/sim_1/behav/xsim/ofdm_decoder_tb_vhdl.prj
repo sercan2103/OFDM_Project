@@ -1,0 +1,8 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../src/tmp_edit_project.gen/sources_1/ip/viterbi_v7_0/sim/viterbi_v7_0.vhd" \
+"../../../../../src/tmp_edit_project.gen/sources_1/ip/div_gen_csi_over_nova/sim/div_gen_csi_over_nova.vhd" \
+"../../../../../src/tmp_edit_project.gen/sources_1/ip/complex_multiplier/sim/complex_multiplier.vhd" \
+
+# Do not sort compile order
+nosort

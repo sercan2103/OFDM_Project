@@ -1,0 +1,86 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Mon Mar  9 17:08:50 2026
+# Process ID: 30628
+# Current directory: /home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long
+# Command line: vivado -mode batch -source sync_long.tcl -tclargs zed_fmcs2 100
+# Log file: /home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/vivado.log
+# Journal file: /home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/vivado.jou
+# Running On: kemal-EXCALIBUR-G770, OS: Linux, CPU Frequency: 3126.826 MHz, CPU Physical cores: 6, Host memory: 33383 MB
+#-----------------------------------------------------------
+source sync_long.tcl
+# set ARGUMENT1 [lindex $argv 0]
+# set ARGUMENT2 [lindex $argv 1]
+# if {$ARGUMENT1 == ""} {
+#     set BOARD_NAME "zed_fmcs2"
+# } else {
+#     set BOARD_NAME $ARGUMENT1
+# }
+# if {$ARGUMENT2 == ""} {
+#     set NUM_CLK_PER_US 100
+# } else {
+#     set NUM_CLK_PER_US $ARGUMENT2
+# }
+# puts "BOARD_NAME: $BOARD_NAME"
+BOARD_NAME: zed_fmcs2
+# puts "NUM_CLK_PER_US: $NUM_CLK_PER_US"
+NUM_CLK_PER_US: 100
+# set project_name "sync_long"
+# create_project $project_name ./$project_name -part xc7z020clg484-1 -force
+# set obj [get_projects $project_name]
+# set_property "default_lib" "xil_defaultlib" $obj
+# set_property "part" "xc7z020clg484-1" $obj
+# set_property "simulator_language" "Mixed" $obj
+# set_property "target_language" "Verilog" $obj
+# if {[string equal [get_filesets -quiet sources_1] ""]} {
+#   create_fileset -srcset sources_1
+# }
+# set obj [get_filesets sources_1]
+# add_files -norecurse -fileset $obj [glob ./src/*.v]
+# set ip_files [list]
+# if {[file exists ./src/ip_cores/complex_multiplier/complex_multiplier.xci]} {
+#     lappend ip_files ./src/ip_cores/complex_multiplier/complex_multiplier.xci
+#     puts "Adding complex_multiplier IP core"
+# }
+Adding complex_multiplier IP core
+# if {[file exists ./src/ip_cores/xfft_v9/xfft_v9.xci]} {
+#     lappend ip_files ./src/ip_cores/xfft_v9/xfft_v9.xci
+#     puts "Adding xfft_v9 IP core"
+# }
+Adding xfft_v9 IP core
+# if {[llength $ip_files] > 0} {
+#     add_files -fileset $obj $ip_files
+#     puts "Added [llength $ip_files] IP core(s) to project"
+# }
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.2/data/ip'.
+WARNING: [Vivado 12-13650] The IP file '/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/ip_cores/complex_multiplier/complex_multiplier.xci' has been moved from its original location, as a result the outputs for this IP will now be generated in '/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/tmp_edit_project.gen/sources_1/ip/complex_multiplier'. Alternatively a copy of the IP can be imported into the project using one of the 'import_ip' or 'import_files' commands.
+WARNING: [Vivado 12-13650] The IP file '/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/ip_cores/xfft_v9/xfft_v9.xci' has been moved from its original location, as a result the outputs for this IP will now be generated in '/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/sync_long/src/tmp_edit_project.gen/sources_1/ip/xfft_v9'. Alternatively a copy of the IP can be imported into the project using one of the 'import_ip' or 'import_files' commands.
+Added 2 IP core(s) to project
+# set_property "top" "sync_long" $obj
+# if {[string equal [get_filesets -quiet sim_1] ""]} {
+#   create_fileset -simset sim_1
+# }
+# set obj [get_filesets sim_1]
+# set_property "top" "sync_long_tb" $obj
+# set_property "xsim.simulate.runtime" "100us" $obj
+# update_compile_order -fileset sources_1
+# update_compile_order -fileset sim_1
+update_compile_order: Time (s): cpu = 00:02:04 ; elapsed = 00:01:57 . Memory (MB): peak = 1769.781 ; gain = 10.973 ; free physical = 19640 ; free virtual = 26986
+# puts "Project $project_name created successfully!"
+Project sync_long created successfully!
+# puts "Location: ./$project_name/$project_name.xpr"
+Location: ./sync_long/sync_long.xpr
+# puts ""
+
+# puts "To open the project, run:"
+To open the project, run:
+# puts "  vivado ./$project_name/$project_name.xpr"
+  vivado ./sync_long/sync_long.xpr
+# if {[info exists ::env(VIVADO_BATCH_MODE)]} {
+#     exit
+# }
+INFO: [Common 17-206] Exiting Vivado at Mon Mar  9 17:10:54 2026...

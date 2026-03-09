@@ -1,0 +1,18 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../src/complex_mult.v" \
+"../../../../../src/complex_to_mag.v" \
+"../../../../../src/delayT.v" \
+"../../../../../src/dpram.v" \
+"../../../../../src/fifo_sample_delay.v" \
+"../../../../../src/mv_avg_dual_ch.v" \
+"../../../../../src/rotate.v" \
+"../../../../../src/stage_mult.v" \
+"../../../../../src/sync_long.v" \
+"../../../../../src/sync_long_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

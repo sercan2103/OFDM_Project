@@ -1,0 +1,24 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/tmp_edit_project.gen/sources_1/ip/deinter_lut/sim/deinter_lut.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module deinter_lut
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/bits_to_bytes.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bits_to_bytes
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/complex_mult.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module complex_mult
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/complex_to_mag_sq.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module complex_to_mag_sq
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/deinterleave.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module deinterleave
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/delayT.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module delayT
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/demodulate.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module demodulate
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/descramble.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module descramble
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/dpram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dpram
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/ofdm_decoder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ofdm_decoder
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/ofdm_decoder_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ofdm_decoder_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/ofdm_decoder/ofdm_decoder.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

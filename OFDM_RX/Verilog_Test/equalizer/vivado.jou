@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Mon Mar  9 16:55:03 2026
+# Process ID: 26326
+# Current directory: /home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/equalizer
+# Command line: vivado -mode batch -source equalizer.tcl -tclargs zed_fmcs2 100
+# Log file: /home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/equalizer/vivado.log
+# Journal file: /home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/equalizer/vivado.jou
+# Running On: kemal-EXCALIBUR-G770, OS: Linux, CPU Frequency: 800.000 MHz, CPU Physical cores: 6, Host memory: 33383 MB
+#-----------------------------------------------------------
+source equalizer.tcl

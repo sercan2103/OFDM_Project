@@ -1,0 +1,6 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/tmp_edit_project.gen/sources_1/ip/viterbi_v7_0/sim/viterbi_v7_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'viterbi_v7_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/tmp_edit_project.gen/sources_1/ip/div_gen_csi_over_nova/sim/div_gen_csi_over_nova.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'div_gen_csi_over_nova'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/kemal/Desktop/ofdmhdl/openwifi-hw/ip/ofdm_decoder/src/tmp_edit_project.gen/sources_1/ip/complex_multiplier/sim/complex_multiplier.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'complex_multiplier'
