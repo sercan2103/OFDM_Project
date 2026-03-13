@@ -49,6 +49,7 @@
 
 ### Kemal & Fatih Şenal
 -Developed 802.11n Reciver MATLAB model using previusly developed  MATLAB Models.
+
 -Sepereted necessary HDL modules from 802.11n openofdm_rx for testing and verifying the MATLAB models by comperasion. Seperated Modules are: Equalizer , OFDM Decoder , Sync_long
 
 ### Fatih Durak
