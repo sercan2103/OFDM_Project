@@ -23,7 +23,7 @@
 | Kemal & Fatih Şenal  | OFDM Decoder                          | ✓      |      |
 | Kemal & Fatih Şenal  | crc32                                 | ✓      |      |
 | Kemal & Fatih Şenal  | ht_sig_crc                            | ✓      |      |
-| All                  | Dot11 Main Module With all submodules |        |      |
+| All                  | Dot11 Main Module With all submodules |✓       |      |
 
 
 
