@@ -1,0 +1,27 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Wed Mar 25 19:27:28 2026
+# Process ID: 96661
+# Current directory: /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/vivado
+# Command line: vivado -mode tcl
+# Log file: /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/vivado/vivado.log
+# Journal file: /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/vivado/vivado.jou
+# Running On: kemal-EXCALIBUR-G770, OS: Linux, CPU Frequency: 2652.535 MHz, CPU Physical cores: 6, Host memory: 33383 MB
+#-----------------------------------------------------------
+cd vivado
+ll
+ls
+source create_project.tcl 
+  launch_runs synth_1 -jobs 4
+launch_runs synth_1 -jobs 4
+launch_runs synth_1 -jobs 4
+cd vivado
+ls
+exec
+source create_project.tcl 
+source create_project.tcl 
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+source package_ip.tcl
