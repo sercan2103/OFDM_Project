@@ -44,7 +44,7 @@ function [samples_i, samples_q, packet_info] = generate_80211a_packet(config)
     sts_time = sts_time * sqrt(13/6);  % Normalization
     
     % Repeat 10 times
-    short_training = repmat(sts_time, 10, 1);
+    short_training = repmat(sts_time(:), 10, 1);  % Force column vector
     
     fprintf('[TX] Short training: %d samples\n', length(short_training));
     packet_info.preamble_start = 1;
@@ -60,11 +60,16 @@ function [samples_i, samples_q, packet_info] = generate_80211a_packet(config)
     
     % 64-point IFFT
     lts_freq_64 = zeros(1, 64);
-    lts_freq_64([39:64, 2:27]) = lts_freq;  % Place at correct indices
+    % Map 52 subcarriers (skip DC at position 27)
+    % Negative freqs: indices 39-64 (26 subcarriers)
+    % Positive freqs: indices 2-27 (26 subcarriers)
+    lts_freq_64(39:64) = lts_freq(1:26);   % First 26 (negative freqs)
+    lts_freq_64(2:27) = lts_freq(28:53);   % Last 26 (positive freqs), skip DC at 27
     lts_time = ifft(lts_freq_64, 64);
     
     % Add cyclic prefix (32 samples) + 2 symbols
     long_training = [lts_time(end-31:end), lts_time, lts_time];
+    long_training = long_training(:);  % Force column vector
     
     fprintf('[TX] Long training: %d samples\n', length(long_training));
     packet_info.long_training_len = length(long_training);
@@ -86,9 +91,11 @@ function [samples_i, samples_q, packet_info] = generate_80211a_packet(config)
     
     % SIGNAL bits
     signal_bits = zeros(24, 1);
-    signal_bits(1:4) = de2bi(rate_field, 4, 'left-msb');
+    rate_bits = de2bi(rate_field, 4, 'left-msb');
+    signal_bits(1:4) = rate_bits(:);
     signal_bits(5) = 0;  % Reserved
-    signal_bits(6:17) = de2bi(config.payload_bytes, 12, 'left-msb');
+    length_bits = de2bi(config.payload_bytes, 12, 'left-msb');
+    signal_bits(6:17) = length_bits(:);
     signal_bits(18) = mod(sum(signal_bits(1:17)), 2);  % Parity
     signal_bits(19:24) = 0;  % Tail
     
@@ -98,6 +105,7 @@ function [samples_i, samples_q, packet_info] = generate_80211a_packet(config)
     
     % OFDM symbol (48 data + 4 pilots)
     signal_ofdm = generate_ofdm_symbol(signal_symbols, 'legacy');
+    signal_ofdm = signal_ofdm(:);  % Force column vector
     
     fprintf('[TX] SIGNAL field: %d samples\n', length(signal_ofdm));
     packet_info.signal_len = length(signal_ofdm);
@@ -153,6 +161,7 @@ function [samples_i, samples_q, packet_info] = generate_80211a_packet(config)
         end
         
         ofdm_sym = generate_ofdm_symbol(sym_data, 'legacy');
+        ofdm_sym = ofdm_sym(:);  % Force column vector
         data_ofdm = [data_ofdm; ofdm_sym];
     end
     
@@ -208,13 +217,33 @@ function ofdm_sym = generate_ofdm_symbol(data_symbols, mode)
     % Generate 80-sample OFDM symbol (16 CP + 64 FFT)
     % 48 data + 4 pilots → 52 subcarriers
     
-    % Add pilots (all +1 for simplicity)
-    pilot_indices = [6, 20, 34, 48];  % Legacy pilot positions
-    full_symbols = data_symbols;  % Simplified
+    % Ensure data_symbols is column vector
+    data_symbols = data_symbols(:);
+    num_data = length(data_symbols);
     
     % Map to 64-point FFT indices
+    % IEEE 802.11: subcarriers -26 to -1, +1 to +26 (skip DC=0)
+    % MATLAB indices: 39-64 (negative), 2-27 (positive), 1 (DC)
     freq_domain = zeros(64, 1);
-    freq_domain([39:64, 2:27]) = full_symbols;  % Simplified mapping
+    
+    if num_data >= 48
+        % Simple mapping: first 24 to negative, last 24 to positive
+        freq_domain(41:64) = data_symbols(1:24);   % Negative freqs (24 symbols)
+        freq_domain(2:25) = data_symbols(25:48);   % Positive freqs (24 symbols)
+    else
+        % For smaller symbol counts, just place sequentially
+        num_per_side = ceil(num_data / 2);
+        
+        % Negative freqs
+        neg_count = min(num_per_side, 26);
+        freq_domain(39:38+neg_count) = data_symbols(1:neg_count);
+        
+        % Positive freqs
+        if num_data > neg_count
+            pos_count = min(num_data - neg_count, 26);
+            freq_domain(2:1+pos_count) = data_symbols(neg_count+1:neg_count+pos_count);
+        end
+    end
     
     % IFFT
     time_domain = ifft(freq_domain, 64);
