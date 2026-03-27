@@ -1,0 +1,13 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../../src/bpsk_demod_agc.v" \
+"../../../../../../src/bpsk_demod_core.v" \
+"../../../../../../src/bpsk_demod_nco.v" \
+"../../../../../../src/bpsk_demod_v1_0.v" \
+"../../../../../../tb/bpsk_demod_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

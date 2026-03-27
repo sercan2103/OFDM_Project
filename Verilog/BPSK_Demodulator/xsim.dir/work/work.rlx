@@ -1,0 +1,9 @@
+0.7
+2020.2
+Oct 14 2022
+05:07:14
+/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_agc.v,1774523234,verilog,,/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_core.v,,bpsk_demod_agc,,,,,,,,
+/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_core.v,1774523307,verilog,,/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_v1_0.v,,bpsk_demod_core,,,,,,,,
+/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_nco.v,1774523201,verilog,,/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_agc.v,,bpsk_demod_nco,,,,,,,,
+/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_v1_0.v,1774523545,verilog,,,,bpsk_demod_v1_0,,,,,,,,
+/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/tb/bpsk_demod_tb.v,1774523632,verilog,,,,bpsk_demod_tb,,,,,,,,
