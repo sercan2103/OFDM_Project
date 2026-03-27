@@ -57,5 +57,7 @@
 ## 13th March - 27th March 2026
 
 -Created BPSK modulator and BPSK Demodulator as HDL IP.
+
 -Tested the BPSK modulator and BPSK Demodulator IPs.
+
 -Integrated IPs in AD9361 Referance Project.
