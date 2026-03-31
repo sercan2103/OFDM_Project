@@ -1,0 +1,378 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Wed Mar 25 18:28:32 2026
+# Process ID: 10822
+# Current directory: /home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.runs/system_util_ad9361_dac_upack_0_synth_1
+# Command line: vivado -log system_util_ad9361_dac_upack_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_util_ad9361_dac_upack_0.tcl
+# Log file: /home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.runs/system_util_ad9361_dac_upack_0_synth_1/system_util_ad9361_dac_upack_0.vds
+# Journal file: /home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.runs/system_util_ad9361_dac_upack_0_synth_1/vivado.jou
+# Running On: kemal-EXCALIBUR-G770, OS: Linux, CPU Frequency: 1868.882 MHz, CPU Physical cores: 6, Host memory: 33383 MB
+#-----------------------------------------------------------
+source system_util_ad9361_dac_upack_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/kemal/Desktop/FMCOMM2andos/hdl/library'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: system_util_ad9361_dac_upack_0
+Command: synth_design -top system_util_ad9361_dac_upack_0 -part xc7z020clg484-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 11010
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2446.980 ; gain = 371.770 ; free physical = 18618 ; free virtual = 24714
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1745.008; parent = 1586.026; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3464.082; parent = 2452.922; children = 1011.160
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'system_util_ad9361_dac_upack_0' [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_util_ad9361_dac_upack_0/synth/system_util_ad9361_dac_upack_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'util_upack2' [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/85da/util_upack2.v:38]
+INFO: [Synth 8-6157] synthesizing module 'util_upack2_impl' [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/85da/util_upack2_impl.v:38]
+INFO: [Synth 8-6157] synthesizing module 'pack_shell' [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/util_pack_common/pack_shell.v:38]
+INFO: [Synth 8-6157] synthesizing module 'pack_network' [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/util_pack_common/pack_network.v:38]
+INFO: [Synth 8-6157] synthesizing module 'pack_ctrl' [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/util_pack_common/pack_ctrl.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'pack_ctrl' (0#1) [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/util_pack_common/pack_ctrl.v:38]
+INFO: [Synth 8-6157] synthesizing module 'pack_interconnect' [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/util_pack_common/pack_interconnect.v:38]
+INFO: [Synth 8-6157] synthesizing module 'ad_perfect_shuffle' [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/common/ad_perfect_shuffle.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'ad_perfect_shuffle' (0#1) [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/common/ad_perfect_shuffle.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'pack_interconnect' (0#1) [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/util_pack_common/pack_interconnect.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'pack_network' (0#1) [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/util_pack_common/pack_network.v:38]
+INFO: [Synth 8-6157] synthesizing module 'ad_perfect_shuffle__parameterized0' [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/common/ad_perfect_shuffle.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'ad_perfect_shuffle__parameterized0' (0#1) [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/common/ad_perfect_shuffle.v:26]
+INFO: [Synth 8-6157] synthesizing module 'pack_network__parameterized0' [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/util_pack_common/pack_network.v:38]
+INFO: [Synth 8-6157] synthesizing module 'pack_ctrl__parameterized0' [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/util_pack_common/pack_ctrl.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'pack_ctrl__parameterized0' (0#1) [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/util_pack_common/pack_ctrl.v:38]
+INFO: [Synth 8-6157] synthesizing module 'pack_interconnect__parameterized0' [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/util_pack_common/pack_interconnect.v:38]
+INFO: [Synth 8-6157] synthesizing module 'ad_perfect_shuffle__parameterized1' [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/common/ad_perfect_shuffle.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'ad_perfect_shuffle__parameterized1' (0#1) [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/common/ad_perfect_shuffle.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'pack_interconnect__parameterized0' (0#1) [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/util_pack_common/pack_interconnect.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'pack_network__parameterized0' (0#1) [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/util_pack_common/pack_network.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'pack_shell' (0#1) [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/util_pack_common/pack_shell.v:38]
+INFO: [Synth 8-6157] synthesizing module 'ad_perfect_shuffle__parameterized2' [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/common/ad_perfect_shuffle.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'ad_perfect_shuffle__parameterized2' (0#1) [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/common/ad_perfect_shuffle.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'util_upack2_impl' (0#1) [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/85da/util_upack2_impl.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'util_upack2' (0#1) [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/85da/util_upack2.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'system_util_ad9361_dac_upack_0' (0#1) [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_util_ad9361_dac_upack_0/synth/system_util_ad9361_dac_upack_0.v:53]
+WARNING: [Synth 8-7129] Port rotate[1] in module pack_ctrl__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[7] in module pack_ctrl__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[5] in module pack_ctrl__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[4] in module pack_ctrl__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[3] in module pack_ctrl__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[1] in module pack_ctrl__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[0] in module pack_ctrl__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[23] in module pack_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[22] in module pack_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[21] in module pack_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[17] in module pack_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[16] in module pack_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[15] in module pack_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[11] in module pack_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[10] in module pack_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[9] in module pack_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[5] in module pack_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[4] in module pack_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prefix_count[3] in module pack_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fifo_rd_en[3] in module util_upack2_impl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fifo_rd_en[2] in module util_upack2_impl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fifo_rd_en[1] in module util_upack2_impl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_4 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_5 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_6 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_7 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_8 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_9 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_10 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_11 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_12 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_13 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_14 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_15 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_16 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_17 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_18 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_19 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_20 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_21 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_22 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_23 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_24 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_25 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_26 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_27 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_28 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_29 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_30 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_31 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_32 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_33 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_34 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_35 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_36 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_37 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_38 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_39 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_40 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_41 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_42 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_43 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_44 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_45 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_46 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_47 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_48 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_49 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_50 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_51 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_52 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_53 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_54 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_55 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_56 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_57 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_58 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_59 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_60 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_61 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_62 in module util_upack2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enable_63 in module util_upack2 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2521.887 ; gain = 446.676 ; free physical = 18520 ; free virtual = 24617
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1745.008; parent = 1586.026; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3533.051; parent = 2521.891; children = 1011.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2539.699 ; gain = 464.488 ; free physical = 18520 ; free virtual = 24617
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1745.008; parent = 1586.026; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3550.863; parent = 2539.703; children = 1011.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2539.699 ; gain = 464.488 ; free physical = 18520 ; free virtual = 24617
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1745.008; parent = 1586.026; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3550.863; parent = 2539.703; children = 1011.160
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2539.699 ; gain = 0.000 ; free physical = 18520 ; free virtual = 24617
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2697.449 ; gain = 0.000 ; free physical = 18538 ; free virtual = 24636
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2697.449 ; gain = 0.000 ; free physical = 18538 ; free virtual = 24635
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2697.449 ; gain = 622.238 ; free physical = 17741 ; free virtual = 23838
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1745.008; parent = 1586.026; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3676.598; parent = 2665.438; children = 1011.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2697.449 ; gain = 622.238 ; free physical = 17729 ; free virtual = 23827
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1745.008; parent = 1586.026; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3676.598; parent = 2665.438; children = 1011.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2697.449 ; gain = 622.238 ; free physical = 17729 ; free virtual = 23826
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1745.008; parent = 1586.026; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3676.598; parent = 2665.438; children = 1011.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2697.449 ; gain = 622.238 ; free physical = 17682 ; free virtual = 23781
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1745.008; parent = 1586.026; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3676.598; parent = 2665.438; children = 1011.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   32 Bit       Adders := 8     
+	   3 Input    3 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 3     
+	   2 Input    2 Bit       Adders := 5     
+	   4 Input    2 Bit       Adders := 1     
+	   3 Input    2 Bit       Adders := 1     
+	   3 Input    1 Bit       Adders := 2     
++---Registers : 
+	               64 Bit    Registers := 1     
+	               32 Bit    Registers := 1     
+	               16 Bit    Registers := 1     
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 8     
++---Muxes : 
+	   4 Input   16 Bit        Muxes := 8     
+	   2 Input   16 Bit        Muxes := 4     
+	   2 Input    1 Bit        Muxes := 5     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+INFO: [Synth 8-3936] Found unconnected internal register 'inst/i_upack/i_pack_shell/gen_prefix_count[3].prefix_count_reg' and it is trimmed from '2' to '1' bits. [/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/util_pack_common/pack_shell.v:218]
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2697.449 ; gain = 622.238 ; free physical = 17630 ; free virtual = 23732
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1745.008; parent = 1586.026; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3676.598; parent = 2665.438; children = 1011.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2697.449 ; gain = 622.238 ; free physical = 16802 ; free virtual = 22901
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1806.245; parent = 1653.826; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3676.598; parent = 2665.438; children = 1011.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2697.449 ; gain = 622.238 ; free physical = 16813 ; free virtual = 22912
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1806.245; parent = 1653.826; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3676.598; parent = 2665.438; children = 1011.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2697.449 ; gain = 622.238 ; free physical = 16775 ; free virtual = 22873
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1806.245; parent = 1653.826; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3676.598; parent = 2665.438; children = 1011.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2697.449 ; gain = 622.238 ; free physical = 17738 ; free virtual = 23837
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1815.465; parent = 1664.758; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3676.598; parent = 2665.438; children = 1011.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2697.449 ; gain = 622.238 ; free physical = 17738 ; free virtual = 23837
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1815.465; parent = 1664.758; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3676.598; parent = 2665.438; children = 1011.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2697.449 ; gain = 622.238 ; free physical = 17737 ; free virtual = 23836
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1815.465; parent = 1664.758; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3676.598; parent = 2665.438; children = 1011.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2697.449 ; gain = 622.238 ; free physical = 17746 ; free virtual = 23845
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1815.465; parent = 1664.758; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3676.598; parent = 2665.438; children = 1011.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2697.449 ; gain = 622.238 ; free physical = 17745 ; free virtual = 23844
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1815.465; parent = 1664.758; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3676.598; parent = 2665.438; children = 1011.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2697.449 ; gain = 622.238 ; free physical = 17745 ; free virtual = 23844
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1815.465; parent = 1664.758; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3676.598; parent = 2665.438; children = 1011.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT2 |     6|
+|2     |LUT3 |    72|
+|3     |LUT4 |     8|
+|4     |LUT5 |    69|
+|5     |LUT6 |     3|
+|6     |FDRE |   128|
++------+-----+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2697.449 ; gain = 622.238 ; free physical = 17745 ; free virtual = 23844
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1815.465; parent = 1664.758; children = 158.981
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3676.598; parent = 2665.438; children = 1011.160
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2697.449 ; gain = 464.488 ; free physical = 17751 ; free virtual = 23850
+Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2697.449 ; gain = 622.238 ; free physical = 17751 ; free virtual = 23850
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2697.449 ; gain = 0.000 ; free physical = 17833 ; free virtual = 23932
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2697.449 ; gain = 0.000 ; free physical = 17796 ; free virtual = 23895
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: d6efd345
+INFO: [Common 17-83] Releasing license: Synthesis
+48 Infos, 83 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:21 . Memory (MB): peak = 2697.449 ; gain = 953.832 ; free physical = 17906 ; free virtual = 24005
+INFO: [Common 17-1381] The checkpoint '/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.runs/system_util_ad9361_dac_upack_0_synth_1/system_util_ad9361_dac_upack_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_util_ad9361_dac_upack_0, cache-ID = cbfc2853989e6350
+INFO: [Coretcl 2-1174] Renamed 5 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/kemal/Desktop/FMCOMM2andos/hdl/projects/fmcomms2/zed/fmcomms2_zed.runs/system_util_ad9361_dac_upack_0_synth_1/system_util_ad9361_dac_upack_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file system_util_ad9361_dac_upack_0_utilization_synth.rpt -pb system_util_ad9361_dac_upack_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Mar 25 18:29:02 2026...
