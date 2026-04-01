@@ -61,3 +61,5 @@
 -Tested the BPSK modulator and BPSK Demodulator IPs.
 
 -Integrated IPs in AD9361 Referance Project.
+
+-Work was done to correct the errors that occurred during the testing of the modules that we converted from Verilog code to MATLAB code.
