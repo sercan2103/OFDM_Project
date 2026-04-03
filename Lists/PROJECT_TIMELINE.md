@@ -63,3 +63,13 @@
 -Integrated IPs in AD9361 Referance Project.
 
 -Work was done to correct the errors that occurred during the testing of the modules that we converted from Verilog code to MATLAB code.
+
+## 3th March - 3rd April 2026
+- Added extra DMA controller for controlling BPSK IPs
+  
+- Integrated both BPSK modulator and demodulator and exported the HDL file. 
+
+- Installed Embedded file for AD9361 with modified HDL.
+
+- Writen Loopback test code for BPSK modulation. 
+  
