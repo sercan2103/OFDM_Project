@@ -27,7 +27,6 @@ function result = test_stage8_descramble(decoded_bits, params, expected)
     fprintf('[Stage 8] Processing %d decoded bits\n', num_bits);
     
     % Initialize module state
-    enable = true;
     reset = true;  % Reset scrambler state
     
     descrambled_vec = [];
@@ -38,14 +37,14 @@ function result = test_stage8_descramble(decoded_bits, params, expected)
         in_bit = decoded_bits(n);
         input_strobe = true;
         
-        % Call descramble (3 parameters as defined)
-        [descram_bit, descram_strobe, ~] = ...
+        % Call descramble with correct signature
+        [descram_bit, output_strobe] = ...
             descramble(in_bit, input_strobe, reset);
         
         reset = false;  % Only reset on first call
         
         % Store outputs
-        if descram_strobe
+        if output_strobe
             descrambled_vec = [descrambled_vec; descram_bit];
             descram_out_strobe_vec = [descram_out_strobe_vec; true];
         end

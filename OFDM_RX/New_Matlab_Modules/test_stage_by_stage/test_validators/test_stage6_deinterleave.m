@@ -29,8 +29,7 @@ function result = test_stage6_deinterleave(soft_bits, rate, params, expected)
     fprintf('[Stage 6] Rate: %d\n', rate);
     
     % Initialize module state
-    enable = true;
-    reset = false;
+    reset = true;  % Reset on first call
     
     deinterleaved_vec = [];
     deint_out_strobe_vec = [];
@@ -38,17 +37,19 @@ function result = test_stage6_deinterleave(soft_bits, rate, params, expected)
     % Process soft bits
     for n = 1:num_bits
         bit_val = soft_bits(n);
-        bit_strobe = true;
+        input_strobe = true;
         
-        % Call deinterleave (placeholder)
-        [deint_bit, deint_strobe, ~] = ...
-            deinterleave(bit_val, rate, bit_strobe, enable, reset);
+        % Call deinterleave with correct signature
+        [deint_bit, erase, output_strobe] = ...
+            deinterleave(bit_val, rate, input_strobe, reset);
         
         % Store outputs
-        if deint_strobe
+        if output_strobe
             deinterleaved_vec = [deinterleaved_vec; deint_bit];
             deint_out_strobe_vec = [deint_out_strobe_vec; true];
         end
+        
+        reset = false;  % Only reset on first call
     end
     
     %% Validate result
@@ -70,10 +71,22 @@ function result = test_stage6_deinterleave(soft_bits, rate, params, expected)
                                     num_bits, num_deint);
         end
         
-        % Validate soft bit range preserved
-        max_deint = max(abs(deinterleaved_vec));
-        max_input = max(abs(soft_bits));
-        fprintf('[Stage 6] Max magnitude: input=%d, output=%d\n', max_input, max_deint);
+        % Validate soft bit range preserved (0-7)
+        max_deint = max(deinterleaved_vec(:));
+        min_deint = min(deinterleaved_vec(:));
+        max_input = max(soft_bits);
+        min_input = min(soft_bits);
+        fprintf('[Stage 6] Soft bit range: input=[%d, %d], output=[%.2f, %.2f]\n', ...
+                min_input, max_input, min_deint, max_deint);
+        
+        % Soft bits should be in 0-7 range (not hardened to 0-1)
+        if max_deint <= 7 && min_deint >= 0
+            fprintf('[Stage 6] Soft bits preserved correctly (0-7 range)\n');
+        else
+            result.pass = false;
+            fprintf('[Stage 6] WARNING: Soft bits corrupted (out of 0-7 range)\n');
+            result.message = [result.message, ' | Soft bits out of range'];
+        end
         
         % Check against expected
         if nargin >= 4 && ~isempty(expected) && isfield(expected, 'deinterleaved')

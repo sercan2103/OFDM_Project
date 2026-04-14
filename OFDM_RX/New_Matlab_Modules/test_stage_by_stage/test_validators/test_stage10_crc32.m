@@ -22,7 +22,12 @@ function result = test_stage10_crc32(bytes, params, expected)
     fprintf('\n=== STAGE 10: CRC32 ===\n');
     
     %% Initialize module
-    addpath('../');
+    % Add path to crc32 module
+    crc32_path = fullfile(fileparts(mfilename('fullpath')), '..', 'Main_pipeline_moduller');
+    if ~isdir(crc32_path)
+        crc32_path = fullfile(fileparts(mfilename('fullpath')), '..', '..', 'Main_pipeline_moduller');
+    end
+    addpath(crc32_path);
     
     %% Run CRC32 check
     num_bytes = length(bytes);
@@ -44,53 +49,72 @@ function result = test_stage10_crc32(bytes, params, expected)
     fprintf('[Stage 10] FCS (hex): %02X %02X %02X %02X\n', ...
             fcs_bytes(1), fcs_bytes(2), fcs_bytes(3), fcs_bytes(4));
     
+    % DEBUG: Print all bytes to analyze pattern
+    fprintf('[Stage 10] All bytes (hex): ');
+    for i = 1:min(30, num_bytes)
+        fprintf('%02X ', bytes(i));
+    end
+    fprintf('\n');
+    
+    % DEBUG: Echo payload bytes for verification
+    fprintf('[Stage 10] Payload bytes (hex): ');
+    for i = 1:length(payload_bytes)
+        fprintf('%02X ', payload_bytes(i));
+        if mod(i, 16) == 0 && i < length(payload_bytes)
+            fprintf('\n[Stage 10]                     ');
+        end
+    end
+    fprintf('\n');
+    
     %% Calculate CRC32
     % Initialize module state
-    enable = true;
-    reset = true;
-    
-    crc_state = uint32(hex2dec('FFFFFFFF'));  % Initial CRC
+    state = struct();
+    state.crc = uint32(hex2dec('FFFFFFFF'));
     
     % Process payload bytes
     for n = 1:length(payload_bytes)
         byte_val = payload_bytes(n);
-        byte_strobe = true;
-        
-        % Call crc32
-        [crc_out, crc_strobe, ~] = ...
-            crc32(byte_val, byte_strobe, reset);
-        
-        reset = false;  % Only reset on first call
-        
-        if crc_strobe
-            crc_state = crc_out;
-        end
+        [crc_out, state] = crc32(byte_val, state);
     end
     
-    % Final CRC value
-    fprintf('[Stage 10] Calculated CRC: 0x%08X\n', crc_state);
+    % Get final CRC (already complemented by crc32 module)
+    crc_final = crc_out;
+    crc_state = bitcmp(crc_final, 'uint32');  % Get un-complemented version
     
-    % Convert FCS bytes to uint32
+    fprintf('[Stage 10] Calculated CRC (un-complemented): 0x%08X\n', crc_state);
+    fprintf('[Stage 10] Calculated CRC (final): 0x%08X\n', crc_final);
+    
+    % Convert FCS bytes to uint32 (LSB first - bits_to_bytes çıkışı)
     fcs_value = uint32(fcs_bytes(1)) + ...
                 bitshift(uint32(fcs_bytes(2)), 8) + ...
                 bitshift(uint32(fcs_bytes(3)), 16) + ...
                 bitshift(uint32(fcs_bytes(4)), 24);
     
-    fprintf('[Stage 10] Received FCS: 0x%08X\n', fcs_value);
+    fprintf('[Stage 10] Received FCS: 0x%08X (bytes: %02X %02X %02X %02X)\n', ...
+            fcs_value, fcs_bytes(1), fcs_bytes(2), fcs_bytes(3), fcs_bytes(4));
+    
+    % Check if calculated CRC matches any byte interpretation
+    fprintf('[Stage 10] CRC comparison:\n');
+    if crc_final == fcs_value
+        fprintf('[Stage 10]   Calc vs LSB:     0x%08X vs 0x%08X ✓ MATCH\n', crc_final, fcs_value);
+    else
+        fprintf('[Stage 10]   Calc vs LSB:     0x%08X vs 0x%08X ✗\n', crc_final, fcs_value);
+    end
     
     %% Validate CRC
-    % Check if CRC matches FCS
-    if crc_state == fcs_value
+    % crc32() module returns complemented (final XOR'd) value
+    % Compare directly with FCS bytes
+    if crc_final == fcs_value
         result.crc_ok = true;
         result.pass = true;
-        result.message = sprintf('PASS: CRC correct (0x%08X)', crc_state);
-        fprintf('[Stage 10] CRC CHECK PASSED!\n');
+        result.message = sprintf('PASS: CRC correct (0x%08X)', crc_final);
+        fprintf('[Stage 10] ✓ CRC CHECK PASSED!\n');
     else
         result.crc_ok = false;
         result.pass = false;
         result.message = sprintf('FAIL: CRC mismatch (calc: 0x%08X, recv: 0x%08X)', ...
-                                crc_state, fcs_value);
-        fprintf('[Stage 10] CRC CHECK FAILED!\n');
+                                crc_final, fcs_value);
+        fprintf('[Stage 10] ✗ CRC CHECK FAILED!\n');
     end
     
     result.payload = payload_bytes;

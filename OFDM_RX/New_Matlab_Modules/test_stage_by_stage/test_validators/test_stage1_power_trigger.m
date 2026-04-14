@@ -107,8 +107,8 @@ function result = test_stage1_power_trigger(samples_i, samples_q, params, expect
         fprintf('[Stage 1] %s\n', result.message);
     end
     
-    %% Generate diagnostic plot
-    if params.plot
+    %% Generate diagnostic plot (optional)
+    if isfield(params, 'plot') && params.plot
         figure('Name', 'Stage 1: Power Trigger');
         plot(power_profile);
         hold on;

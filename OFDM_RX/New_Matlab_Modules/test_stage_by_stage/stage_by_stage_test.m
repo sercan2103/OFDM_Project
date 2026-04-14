@@ -41,6 +41,9 @@ report.total_stages = 10;
 report.passed_stages = 0;
 report.failed_stages = 0;
 
+% Structured test_results for HTML report
+test_results = struct();
+
 %% STAGE 0: Generate TX Data
 fprintf('========================================\n');
 fprintf('STAGE 0: TX Data Generation\n');
@@ -64,6 +67,11 @@ try
     
     % Save for later analysis
     save('test_data/tx_samples.mat', 'samples_i', 'samples_q', 'packet_info');
+    % Populate test_results for reporting
+    test_results = struct();
+    test_results.tx_generation = struct();
+    test_results.tx_generation.packet_info = packet_info;
+    test_results.tx_generation.pass = true;
     
 catch ME
     fprintf('✗ TX data generation FAILED\n');
@@ -83,11 +91,24 @@ try
     
     if stage1_result.pass
         fprintf('✓ STAGE 1 PASSED\n');
-        fprintf('  Trigger detected at sample: %d\n', stage1_result.trigger_idx);
+        % Support multiple possible field names from validator
+        if isfield(stage1_result, 'trigger_idx')
+            trig_sample = stage1_result.trigger_idx;
+        elseif isfield(stage1_result, 'trigger_sample')
+            trig_sample = stage1_result.trigger_sample;
+        else
+            trig_sample = -1;
+        end
+        fprintf('  Trigger detected at sample: %d\n', trig_sample);
         fprintf('  Expected range: %d-%d samples\n', ...
                 packet_info.preamble_start-10, packet_info.preamble_start+10);
         report.stages{end+1} = struct('name', 'Power Trigger', 'status', 'PASS');
         report.passed_stages = report.passed_stages + 1;
+        % Update test_results
+        test_results.stage1_power_trigger = struct();
+        test_results.stage1_power_trigger.pass = true;
+        test_results.stage1_power_trigger.trigger_sample = trig_sample;
+        test_results.stage1_power_trigger.message = stage1_result.message;
     else
         fprintf('✗ STAGE 1 FAILED\n');
         fprintf('  Reason: %s\n', stage1_result.reason);
@@ -113,20 +134,41 @@ fprintf('STAGE 2: Sync Short (CFO Estimation)\n');
 fprintf('========================================\n');
 
 try
-    stage2_result = test_stage2_sync_short(samples_i, samples_q, stage1_result, config);
+    % Pass numeric trigger offset to stage2 validator
+    stage2_result = test_stage2_sync_short(samples_i, samples_q, trig_sample, config);
     
-    if stage2_result.pass
+    if isstruct(stage2_result) && isfield(stage2_result,'pass') && stage2_result.pass
         fprintf('✓ STAGE 2 PASSED\n');
-        fprintf('  Short preamble detected at: %d\n', stage2_result.detection_idx);
-        fprintf('  CFO phase: %.4f rad\n', stage2_result.cfo_phase);
-        fprintf('  Metric peak: %.2f\n', stage2_result.metric_peak);
+        % populate test_results (guard fields)
+        test_results.stage2_sync_short = struct();
+        test_results.stage2_sync_short.pass = true;
+        if isfield(stage2_result,'phase_out')
+            test_results.stage2_sync_short.phase_out = stage2_result.phase_out;
+        end
+        if isfield(stage2_result,'metric')
+            test_results.stage2_sync_short.metric = stage2_result.metric;
+        end
         report.stages{end+1} = struct('name', 'Sync Short', 'status', 'PASS');
         report.passed_stages = report.passed_stages + 1;
     else
         fprintf('✗ STAGE 2 FAILED\n');
-        fprintf('  Reason: %s\n', stage2_result.reason);
-        report.stages{end+1} = struct('name', 'Sync Short', 'status', 'FAIL', 'reason', stage2_result.reason);
+        % Determine a safe reason string regardless of validator return type
+        if isstruct(stage2_result) && isfield(stage2_result,'reason')
+            reason_str = stage2_result.reason;
+        elseif ischar(stage2_result)
+            reason_str = stage2_result;
+        elseif isstring(stage2_result)
+            reason_str = char(stage2_result);
+        else
+            reason_str = 'Short preamble not detected';
+        end
+        fprintf('  Reason: %s\n', reason_str);
+        report.stages{end+1} = struct('name', 'Sync Short', 'status', 'FAIL', 'reason', reason_str);
         report.failed_stages = report.failed_stages + 1;
+        % populate test_results for report
+        test_results.stage2_sync_short = struct();
+        test_results.stage2_sync_short.pass = false;
+        test_results.stage2_sync_short.reason = reason_str;
         return;
     end
     
@@ -150,15 +192,24 @@ try
     
     if stage3_result.pass
         fprintf('✓ STAGE 3 PASSED\n');
-        fprintf('  Long preamble detected at: %d\n', stage3_result.detection_idx);
-        fprintf('  FFT symbols extracted: %d\n', stage3_result.num_symbols);
-        fprintf('  Channel estimate valid: %d\n', stage3_result.channel_valid);
+        % Use available fields from validator
+        if isfield(stage3_result, 'freq_est')
+            num_subcarriers = length(stage3_result.freq_est);
+            fprintf('  Channel subcarriers: %d\n', num_subcarriers);
+        end
+        if isfield(stage3_result, 'fft_out')
+            num_fft_samples = length(stage3_result.fft_out);
+            fprintf('  FFT symbols extracted: %d\n', floor(num_fft_samples / 64));
+        end
         report.stages{end+1} = struct('name', 'Sync Long', 'status', 'PASS');
         report.passed_stages = report.passed_stages + 1;
     else
         fprintf('✗ STAGE 3 FAILED\n');
-        fprintf('  Reason: %s\n', stage3_result.reason);
-        report.stages{end+1} = struct('name', 'Sync Long', 'status', 'FAIL', 'reason', stage3_result.reason);
+        if isfield(stage3_result, 'message')
+            fprintf('  Reason: %s\n', stage3_result.message);
+        end
+        report.stages{end+1} = struct('name', 'Sync Long', 'status', 'FAIL', ...
+                                    'reason', getfield(stage3_result, 'message', 'Unknown error'));
         report.failed_stages = report.failed_stages + 1;
         return;
     end
@@ -179,19 +230,36 @@ fprintf('STAGE 4: Equalizer (Channel Correction)\n');
 fprintf('========================================\n');
 
 try
-    stage4_result = test_stage4_equalizer(stage3_result, config);
+    % Extract FFT outputs and channel estimates from Stage 3 result
+    if isfield(stage3_result, 'fft_out') && isfield(stage3_result, 'freq_est')
+        fft_out = stage3_result.fft_out;
+        % Split complex FFT output into I/Q
+        fft_i = real(fft_out);
+        fft_q = imag(fft_out);
+        channel_est = stage3_result.freq_est;
+    else
+        error('Stage 3 output missing fft_out or freq_est fields');
+    end
+    
+    % Call Stage 4 equalizer validator
+    stage4_result = test_stage4_equalizer(fft_i, fft_q, channel_est, config, []);
     
     if stage4_result.pass
         fprintf('✓ STAGE 4 PASSED\n');
-        fprintf('  Equalized symbols: %d\n', stage4_result.num_symbols);
-        fprintf('  Data carriers per symbol: %d\n', stage4_result.num_carriers);
-        fprintf('  SNR estimate: %.2f dB\n', stage4_result.snr_db);
+        if isfield(stage4_result, 'equalized')
+            fprintf('  Equalized symbols: %d\n', length(stage4_result.equalized));
+        end
+        if isfield(stage4_result, 'message')
+            fprintf('  Message: %s\n', stage4_result.message);
+        end
         report.stages{end+1} = struct('name', 'Equalizer', 'status', 'PASS');
         report.passed_stages = report.passed_stages + 1;
     else
         fprintf('✗ STAGE 4 FAILED\n');
-        fprintf('  Reason: %s\n', stage4_result.reason);
-        report.stages{end+1} = struct('name', 'Equalizer', 'status', 'FAIL', 'reason', stage4_result.reason);
+        if isfield(stage4_result, 'message')
+            fprintf('  Reason: %s\n', stage4_result.message);
+        end
+        report.stages{end+1} = struct('name', 'Equalizer', 'status', 'FAIL');
         report.failed_stages = report.failed_stages + 1;
         return;
     end
@@ -212,19 +280,37 @@ fprintf('STAGE 5: Demodulate (Soft Decision)\n');
 fprintf('========================================\n');
 
 try
-    stage5_result = test_stage5_demodulate(stage4_result, config);
+    % Extract equalized symbols from Stage 4 result
+    if isfield(stage4_result, 'equalized')
+        equalized = stage4_result.equalized;
+        equalized_i = real(equalized);
+        equalized_q = imag(equalized);
+    else
+        error('Stage 4 output missing equalized field');
+    end
+    
+    % Determine modulation type from SIGNAL field (hardcoded to BPSK for now)
+    modulation_type = 0;  % 0=BPSK
+    
+    % Call Stage 5 demodulate validator
+    stage5_result = test_stage5_demodulate(equalized_i, equalized_q, modulation_type, config, []);
     
     if stage5_result.pass
         fprintf('✓ STAGE 5 PASSED\n');
-        fprintf('  Demodulated symbols: %d\n', stage5_result.num_symbols);
-        fprintf('  Total soft bits: %d\n', stage5_result.total_bits);
-        fprintf('  Modulation: %s\n', stage5_result.modulation);
+        if isfield(stage5_result, 'message')
+            fprintf('  Message: %s\n', stage5_result.message);
+        end
+        if isfield(stage5_result, 'soft_bits')
+            fprintf('  Soft bits generated: %d\n', length(stage5_result.soft_bits));
+        end
         report.stages{end+1} = struct('name', 'Demodulate', 'status', 'PASS');
         report.passed_stages = report.passed_stages + 1;
     else
         fprintf('✗ STAGE 5 FAILED\n');
-        fprintf('  Reason: %s\n', stage5_result.reason);
-        report.stages{end+1} = struct('name', 'Demodulate', 'status', 'FAIL', 'reason', stage5_result.reason);
+        if isfield(stage5_result, 'message')
+            fprintf('  Reason: %s\n', stage5_result.message);
+        end
+        report.stages{end+1} = struct('name', 'Demodulate', 'status', 'FAIL');
         report.failed_stages = report.failed_stages + 1;
         return;
     end
@@ -245,18 +331,35 @@ fprintf('STAGE 6: Deinterleave (Bit Reordering)\n');
 fprintf('========================================\n');
 
 try
-    stage6_result = test_stage6_deinterleave(stage5_result, config);
+    % Extract soft bits from Stage 5 result
+    if isfield(stage5_result, 'soft_bits')
+        soft_bits = stage5_result.soft_bits;
+    else
+        error('Stage 5 output missing soft_bits field');
+    end
+    
+    % Data rate (from SIGNAL field, hardcoded to rate 1 for now)
+    rate = 1;
+    
+    % Call Stage 6 deinterleave validator
+    stage6_result = test_stage6_deinterleave(soft_bits, rate, config, []);
     
     if stage6_result.pass
         fprintf('✓ STAGE 6 PASSED\n');
-        fprintf('  Deinterleaved bits: %d\n', stage6_result.total_bits);
-        fprintf('  Erasure count: %d\n', stage6_result.erasure_count);
+        if isfield(stage6_result, 'message')
+            fprintf('  Message: %s\n', stage6_result.message);
+        end
+        if isfield(stage6_result, 'deinterleaved')
+            fprintf('  Deinterleaved bits: %d\n', length(stage6_result.deinterleaved));
+        end
         report.stages{end+1} = struct('name', 'Deinterleave', 'status', 'PASS');
         report.passed_stages = report.passed_stages + 1;
     else
         fprintf('✗ STAGE 6 FAILED\n');
-        fprintf('  Reason: %s\n', stage6_result.reason);
-        report.stages{end+1} = struct('name', 'Deinterleave', 'status', 'FAIL', 'reason', stage6_result.reason);
+        if isfield(stage6_result, 'message')
+            fprintf('  Reason: %s\n', stage6_result.message);
+        end
+        report.stages{end+1} = struct('name', 'Deinterleave', 'status', 'FAIL');
         report.failed_stages = report.failed_stages + 1;
         return;
     end
@@ -277,18 +380,32 @@ fprintf('STAGE 7: Viterbi Decode (FEC)\n');
 fprintf('========================================\n');
 
 try
-    stage7_result = test_stage7_viterbi(stage6_result, config);
+    % Extract deinterleaved bits from Stage 6 result
+    if isfield(stage6_result, 'deinterleaved')
+        deinterleaved_bits = stage6_result.deinterleaved;
+    else
+        error('Stage 6 output missing deinterleaved field');
+    end
+    
+    % Call Stage 7 Viterbi validator
+    stage7_result = test_stage7_viterbi(deinterleaved_bits, config, []);
     
     if stage7_result.pass
         fprintf('✓ STAGE 7 PASSED\n');
-        fprintf('  Decoded bits: %d\n', stage7_result.decoded_bits);
-        fprintf('  BER estimate: %.2e\n', stage7_result.ber_estimate);
+        if isfield(stage7_result, 'message')
+            fprintf('  Message: %s\n', stage7_result.message);
+        end
+        if isfield(stage7_result, 'decoded_bits')
+            fprintf('  Decoded bits: %d\n', length(stage7_result.decoded_bits));
+        end
         report.stages{end+1} = struct('name', 'Viterbi', 'status', 'PASS');
         report.passed_stages = report.passed_stages + 1;
     else
         fprintf('✗ STAGE 7 FAILED\n');
-        fprintf('  Reason: %s\n', stage7_result.reason);
-        report.stages{end+1} = struct('name', 'Viterbi', 'status', 'FAIL', 'reason', stage7_result.reason);
+        if isfield(stage7_result, 'message')
+            fprintf('  Reason: %s\n', stage7_result.message);
+        end
+        report.stages{end+1} = struct('name', 'Viterbi', 'status', 'FAIL');
         report.failed_stages = report.failed_stages + 1;
         return;
     end
@@ -309,18 +426,32 @@ fprintf('STAGE 8: Descramble (LFSR)\n');
 fprintf('========================================\n');
 
 try
-    stage8_result = test_stage8_descramble(stage7_result, config);
+    % Extract decoded bits from Stage 7 result
+    if isfield(stage7_result, 'decoded_bits')
+        decoded_bits = stage7_result.decoded_bits;
+    else
+        error('Stage 7 output missing decoded_bits field');
+    end
+    
+    % Call Stage 8 descramble validator
+    stage8_result = test_stage8_descramble(decoded_bits, config, []);
     
     if stage8_result.pass
         fprintf('✓ STAGE 8 PASSED\n');
-        fprintf('  Descrambled bits: %d\n', stage8_result.total_bits);
-        fprintf('  Scrambler initialized: %d\n', stage8_result.init_success);
+        if isfield(stage8_result, 'message')
+            fprintf('  Message: %s\n', stage8_result.message);
+        end
+        if isfield(stage8_result, 'descrambled')
+            fprintf('  Descrambled bits: %d\n', length(stage8_result.descrambled));
+        end
         report.stages{end+1} = struct('name', 'Descramble', 'status', 'PASS');
         report.passed_stages = report.passed_stages + 1;
     else
         fprintf('✗ STAGE 8 FAILED\n');
-        fprintf('  Reason: %s\n', stage8_result.reason);
-        report.stages{end+1} = struct('name', 'Descramble', 'status', 'FAIL', 'reason', stage8_result.reason);
+        if isfield(stage8_result, 'message')
+            fprintf('  Reason: %s\n', stage8_result.message);
+        end
+        report.stages{end+1} = struct('name', 'Descramble', 'status', 'FAIL');
         report.failed_stages = report.failed_stages + 1;
         return;
     end
@@ -341,19 +472,32 @@ fprintf('STAGE 9: Bits to Bytes\n');
 fprintf('========================================\n');
 
 try
-    stage9_result = test_stage9_bits_to_bytes(stage8_result, config);
+    % Extract descrambled bits from Stage 8 result
+    if isfield(stage8_result, 'descrambled')
+        descrambled_bits = stage8_result.descrambled;
+    else
+        error('Stage 8 output missing descrambled field');
+    end
+    
+    % Call Stage 9 bits_to_bytes validator
+    stage9_result = test_stage9_bits_to_bytes(descrambled_bits, config, []);
     
     if stage9_result.pass
         fprintf('✓ STAGE 9 PASSED\n');
-        fprintf('  Total bytes: %d\n', stage9_result.total_bytes);
-        fprintf('  Payload bytes: %d (expected: %d)\n', ...
-                stage9_result.payload_bytes, config.payload_bytes);
+        if isfield(stage9_result, 'message')
+            fprintf('  Message: %s\n', stage9_result.message);
+        end
+        if isfield(stage9_result, 'bytes')
+            fprintf('  Total bytes: %d\n', length(stage9_result.bytes));
+        end
         report.stages{end+1} = struct('name', 'Bits to Bytes', 'status', 'PASS');
         report.passed_stages = report.passed_stages + 1;
     else
         fprintf('✗ STAGE 9 FAILED\n');
-        fprintf('  Reason: %s\n', stage9_result.reason);
-        report.stages{end+1} = struct('name', 'Bits to Bytes', 'status', 'FAIL', 'reason', stage9_result.reason);
+        if isfield(stage9_result, 'message')
+            fprintf('  Reason: %s\n', stage9_result.message);
+        end
+        report.stages{end+1} = struct('name', 'Bits to Bytes', 'status', 'FAIL');
         report.failed_stages = report.failed_stages + 1;
         return;
     end
@@ -374,19 +518,32 @@ fprintf('STAGE 10: CRC32 Validation\n');
 fprintf('========================================\n');
 
 try
-    stage10_result = test_stage10_crc32(stage9_result, config);
+    % Extract bytes from Stage 9 result
+    if isfield(stage9_result, 'bytes')
+        output_bytes = stage9_result.bytes;
+    else
+        error('Stage 9 output missing bytes field');
+    end
+    
+    % Call Stage 10 CRC32 validator
+    stage10_result = test_stage10_crc32(output_bytes, config, []);
     
     if stage10_result.pass
         fprintf('✓ STAGE 10 PASSED\n');
-        fprintf('  FCS check: %s\n', stage10_result.fcs_status);
-        fprintf('  CRC computed: 0x%08X\n', stage10_result.crc_computed);
-        fprintf('  CRC received: 0x%08X\n', stage10_result.crc_received);
+        if isfield(stage10_result, 'message')
+            fprintf('  Message: %s\n', stage10_result.message);
+        end
+        if isfield(stage10_result, 'payload')
+            fprintf('  Payload bytes: %d\n', length(stage10_result.payload));
+        end
         report.stages{end+1} = struct('name', 'CRC32', 'status', 'PASS');
         report.passed_stages = report.passed_stages + 1;
     else
         fprintf('✗ STAGE 10 FAILED\n');
-        fprintf('  Reason: %s\n', stage10_result.reason);
-        report.stages{end+1} = struct('name', 'CRC32', 'status', 'FAIL', 'reason', stage10_result.reason);
+        if isfield(stage10_result, 'message')
+            fprintf('  Reason: %s\n', stage10_result.message);
+        end
+        report.stages{end+1} = struct('name', 'CRC32', 'status', 'FAIL');
         report.failed_stages = report.failed_stages + 1;
         return;
     end
@@ -436,6 +593,10 @@ end
 
 % Save final report
 save('test_data/final_report.mat', 'report');
-generate_html_report(report, 'test_reports/stage_by_stage_report.html');
-
-fprintf('\nReport saved to: test_reports/stage_by_stage_report.html\n');
+% Generate HTML report from structured test_results
+try
+    generate_html_report(test_results, 'test_reports/stage_by_stage_report.html');
+    fprintf('\nReport saved to: test_reports/stage_by_stage_report.html\n');
+catch ME
+    fprintf('Failed to generate HTML report: %s\n', ME.message);
+end

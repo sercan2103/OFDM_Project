@@ -38,7 +38,6 @@ function result = test_stage9_bits_to_bytes(bits, params, expected)
     end
     
     % Initialize module state
-    enable = true;
     reset = true;
     
     bytes_vec = [];
@@ -47,16 +46,16 @@ function result = test_stage9_bits_to_bytes(bits, params, expected)
     % Process bits
     for n = 1:length(data_bits)
         in_bit = data_bits(n);
-        bit_strobe = true;
+        input_strobe = true;
         
-        % Call bits_to_bytes
-        [byte_out, byte_strobe, ~] = ...
-            bits_to_bytes(in_bit, bit_strobe, reset);
+        % Call bits_to_bytes with correct signature
+        [byte_out, output_strobe] = ...
+            bits_to_bytes(in_bit, input_strobe, reset);
         
         reset = false;  % Only reset on first call
         
         % Store outputs
-        if byte_strobe
+        if output_strobe
             bytes_vec = [bytes_vec; byte_out];
             byte_out_strobe_vec = [byte_out_strobe_vec; true];
         end

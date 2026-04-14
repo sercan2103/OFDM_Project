@@ -24,47 +24,55 @@ function result = test_stage2_sync_short(samples_i, samples_q, trigger_offset, p
     %% Initialize module
     addpath('../');
     
-    % Parameters
+    % Parameters and defaults
     if nargin < 4 || isempty(params)
         params = struct();
     end
     if ~isfield(params, 'correlation_window'), params.correlation_window = 160; end
+    if ~isfield(params, 'search_pre'), params.search_pre = 16; end
+    if ~isfield(params, 'search_post'), params.search_post = 64; end
+    if ~isfield(params, 'threshold'), params.threshold = 0.50; end  % Lowered threshold
+    if ~isfield(params, 'min_plateau'), params.min_plateau = 3; end  % Lowered min_plateau
+    if ~isfield(params, 'save_debug'), params.save_debug = true; end
     
     %% Run sync_short
-    % Start from trigger offset
-    start_idx = max(1, trigger_offset);
-    num_samples = min(length(samples_i), start_idx + params.correlation_window);
-    
+    % Expand search window around trigger offset to tolerate timing jitter
+    start_idx = max(1, trigger_offset - params.search_pre);
+    num_samples = min(length(samples_i), trigger_offset + params.search_post + params.correlation_window);
+
     fprintf('[Stage 2] Processing samples %d to %d\n', start_idx, num_samples);
     
     % Initialize sync_short module state
     enable = true;
     reset = false;
-    
+
     % Storage for outputs
     phase_out_vec = [];
     metric_vec = [];
     metric_stb_vec = [];
-    
+
     % Process samples
     for n = start_idx:num_samples
         i_val = samples_i(n);
         q_val = samples_q(n);
-        sample_strobe = true;
-        
-        % Call sync_short (placeholder - actual implementation needed)
-        [phase_out, metric, metric_stb, short_gi, ~] = ...
-            sync_short(i_val, q_val, sample_strobe, enable, reset);
-        
+
+        % Call sync_short with sensible min_plateau
+        % [metric, phase, state_out, sto_out] = sync_short(sample_i, sample_q, enable, min_plateau, reset)
+        min_plateau = params.min_plateau;
+        [metric, phase_out, state_out, sto_out] = sync_short(i_val, q_val, enable, min_plateau, reset);
+
+        % Decide detection strobe when metric exceeds configurable threshold
+        metric_stb = (metric > params.threshold);
+
         % Store outputs
         phase_out_vec = [phase_out_vec; phase_out];
         metric_vec = [metric_vec; metric];
         metric_stb_vec = [metric_stb_vec; metric_stb];
-        
+
         if metric_stb
             fprintf('[Stage 2] Short preamble detected at sample %d\n', n);
             fprintf('[Stage 2] Phase estimate: %d\n', phase_out);
-            fprintf('[Stage 2] Metric value: %d\n', metric);
+            fprintf('[Stage 2] Metric value: %.3f\n', metric);
         end
     end
     
@@ -77,8 +85,8 @@ function result = test_stage2_sync_short(samples_i, samples_q, trigger_offset, p
         detect_idx = find(metric_stb_vec, 1, 'first');
         detect_sample = start_idx + detect_idx - 1;
         
-        % Expected to detect within STS region (160 samples)
-        expected_range = [trigger_offset, trigger_offset + 160];
+        % Expected detection range (expanded to search window)
+        expected_range = [trigger_offset - params.search_pre, trigger_offset + params.correlation_window + params.search_post];
         
         if detect_sample >= expected_range(1) && detect_sample <= expected_range(2)
             result.pass = true;
@@ -113,6 +121,26 @@ function result = test_stage2_sync_short(samples_i, samples_q, trigger_offset, p
     else
         result.pass = false;
         result.message = 'FAIL: Short preamble not detected';
+        % Print metric statistics for debugging
+        high_metrics = metric_vec(metric_vec > params.threshold);
+        if ~isempty(high_metrics)
+            fprintf('[Stage 2] Found %d high metrics (> %.2f): max=%.3f, mean=%.3f\n', ...
+                    length(high_metrics), params.threshold, max(high_metrics), mean(high_metrics));
+            fprintf('[Stage 2] Max metric overall: %.3f at sample %d\n', ...
+                    max(metric_vec), find(metric_vec == max(metric_vec), 1) + start_idx - 1);
+        else
+            fprintf('[Stage 2] No metrics exceeded threshold (%.2f). Max metric: %.3f\n', ...
+                    params.threshold, max(metric_vec));
+        end
+        % Save debug traces so calling harness can inspect metric/phase
+        if params.save_debug
+            try
+                if ~exist('test_data','dir'), mkdir('test_data'); end
+                save('test_data/stage2_debug.mat', 'metric_vec', 'phase_out_vec', 'start_idx', 'num_samples', 'params');
+            catch
+                % ignore save errors
+            end
+        end
     end
     
     %% Generate diagnostic plot

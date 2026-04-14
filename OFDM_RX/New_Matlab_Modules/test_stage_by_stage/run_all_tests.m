@@ -8,13 +8,20 @@ try
     fprintf('Running tests in %s\n', cwd);
     cd(cwd);
 
-    fprintf('1) Generating TX samples...\n');
+    fprintf('1) Ensuring test folders exist...\n');
+    if ~exist(fullfile(cwd,'test_data'),'dir')
+        mkdir(fullfile(cwd,'test_data'));
+    end
+    if ~exist(fullfile(cwd,'test_reports'),'dir')
+        mkdir(fullfile(cwd,'test_reports'));
+    end
+    fprintf('2) Generating TX samples...\n');
     generate_80211a_packet();
 
-    fprintf('2) Running stage-by-stage test...\n');
+    fprintf('3) Running stage-by-stage test...\n');
     stage_by_stage_test();
 
-    fprintf('3) Generating HTML report...\n');
+    fprintf('4) Generating HTML report...\n');
     generate_html_report();
 
     fprintf('All steps completed successfully.\n');

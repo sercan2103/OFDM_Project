@@ -49,23 +49,25 @@ function result = test_stage3_sync_long(samples_i, samples_q, phase_correction, 
     for n = 1:num_samples
         i_val = samples_i(n);
         q_val = samples_q(n);
-        sample_strobe = true;
         
-        % Call sync_long (placeholder)
-        [freq_est_i, freq_est_q, freq_est_sample, fft_out_i, fft_out_q, fft_out_strobe, ~] = ...
-            sync_long(i_val, q_val, phase_correction, sample_strobe, enable, reset);
+        % Call sync_long with correct signature:
+        % [fft_out_i, fft_out_q, sync_long_out, sync_long_out_strobe, sto_out] = 
+        %   sync_long(sample_i, sample_q, demod_is_ongoing, short_preamble_detected, ht_mode, short_gi, reset)
         
-        % Store frequency estimates
-        if freq_est_sample
-            freq_est_i_vec = [freq_est_i_vec; freq_est_i];
-            freq_est_q_vec = [freq_est_q_vec; freq_est_q];
-            freq_est_sample_vec = [freq_est_sample_vec; n];
-        end
+        demod_is_ongoing = 1;  % Always active during processing
+        short_preamble_detected = (n <= 320);  % Trigger only during preamble region
+        ht_mode = 0;  % Legacy mode for now
+        short_gi = 0;
         
-        % Store FFT outputs
-        if fft_out_strobe
+        [fft_out_i, fft_out_q, sync_long_out, sync_long_out_strobe, sto_out] = ...
+            sync_long(i_val, q_val, demod_is_ongoing, short_preamble_detected, ht_mode, short_gi, false);
+        
+        % Store FFT outputs when valid
+        if sync_long_out_strobe
             fft_out_i_vec = [fft_out_i_vec; fft_out_i];
             fft_out_q_vec = [fft_out_q_vec; fft_out_q];
+            freq_est_i_vec = [freq_est_i_vec; fft_out_i];  % Use FFT as freq estimate
+            freq_est_q_vec = [freq_est_q_vec; fft_out_q];
         end
         
         % Exit after capturing enough symbols
@@ -75,8 +77,8 @@ function result = test_stage3_sync_long(samples_i, samples_q, phase_correction, 
     end
     
     %% Validate result
-    result.freq_est = complex(freq_est_i_vec, freq_est_q_vec);
-    result.fft_out = complex(fft_out_i_vec, fft_out_q_vec);
+    result.freq_est = complex(double(freq_est_i_vec), double(freq_est_q_vec));
+    result.fft_out = complex(double(fft_out_i_vec), double(fft_out_q_vec));
     
     % Check if channel estimation completed
     if ~isempty(freq_est_i_vec)
@@ -168,6 +170,13 @@ function result = test_stage3_sync_long(samples_i, samples_q, phase_correction, 
             grid on;
         end
     end
+    
+    % DEBUG OUTPUT
+    fprintf('[DEBUG] fft_out length: %d\n', length(result.fft_out));
+    fprintf('[DEBUG] fft_out type: %s\n', class(result.fft_out));
+    fprintf('[DEBUG] fft_out size: ');
+    disp(size(result.fft_out));
+    fprintf('[DEBUG] freq_est length: %d\n', length(result.freq_est));
     
     fprintf('[Stage 3] Test complete: %s\n', result.message);
 end

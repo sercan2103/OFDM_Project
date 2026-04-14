@@ -29,28 +29,44 @@ function result = test_stage5_demodulate(equalized_i, equalized_q, modulation_ty
     fprintf('[Stage 5] Processing %d equalized symbols\n', num_symbols);
     fprintf('[Stage 5] Modulation type: %d\n', modulation_type);
     
+    % Map modulation type to rate encoding
+    % Legacy rates (bit 7 = 0):
+    %   BPSK:  0x0B (11 decimal)
+    %   QPSK:  0x0A (10 decimal)
+    %   16QAM: 0x09 (9 decimal)
+    %   64QAM: 0x08 (8 decimal)
+    rate_map = [0x0B, 0x0A, 0x09, 0x08];  % BPSK, QPSK, 16QAM, 64QAM
+    rate = rate_map(modulation_type + 1);
+    fprintf('[Stage 5] Rate encoding: 0x%02X\n', rate);
+    
     % Initialize module state
-    enable = true;
-    reset = false;
+    reset = true;  % Reset on first call
     
     soft_bits_vec = [];
     demod_out_strobe_vec = [];
     
-    % Process equalized symbols
+    % Process equalized symbols (demodulate expects single symbol per call)
     for n = 1:num_symbols
         i_val = equalized_i(n);
         q_val = equalized_q(n);
-        symbol_strobe = true;
+        input_strobe = true;
         
-        % Call demodulate (placeholder)
-        [soft_bits, demod_strobe, ~] = ...
-            demodulate(i_val, q_val, modulation_type, symbol_strobe, enable, reset);
+        % Call demodulate with rate encoding (not modulation_type)
+        [soft_bits, output_strobe] = ...
+            demodulate(i_val, q_val, rate, input_strobe, reset);
         
         % Store outputs
-        if demod_strobe
-            soft_bits_vec = [soft_bits_vec; soft_bits];
+        if output_strobe
+            % soft_bits may be a vector for multi-bit modulations
+            if isscalar(soft_bits)
+                soft_bits_vec = [soft_bits_vec; soft_bits];
+            else
+                soft_bits_vec = [soft_bits_vec; soft_bits(:)];
+            end
             demod_out_strobe_vec = [demod_out_strobe_vec; true];
         end
+        
+        reset = false;  % Only reset on first call
     end
     
     %% Validate result
@@ -62,11 +78,13 @@ function result = test_stage5_demodulate(equalized_i, equalized_q, modulation_ty
         fprintf('[Stage 5] Soft bits: %d\n', num_bits);
         
         % Validate soft bits are in reasonable range
-        % Soft bits typically range [-127, 127] for int8
+        % Soft bits typically range [0, 7] for confidence levels (3-bit)
         max_soft = max(abs(soft_bits_vec));
-        fprintf('[Stage 5] Max soft bit magnitude: %d\n', max_soft);
+        min_soft = min(soft_bits_vec);
+        fprintf('[Stage 5] Max soft bit magnitude: %d, Min: %d\n', max_soft, min_soft);
         
-        if max_soft > 0 && max_soft <= 127
+        % Check if we got valid soft bits (not all zeros)
+        if max_soft > 0 && max_soft <= 7
             result.pass = true;
             result.message = sprintf('PASS: Generated %d soft bits, max=%d', ...
                                     num_bits, max_soft);

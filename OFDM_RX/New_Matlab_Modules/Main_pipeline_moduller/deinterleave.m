@@ -78,10 +78,10 @@ function [out_bits, erase, output_strobe] = deinterleave(in_bits, rate, input_st
         addr_b = 0;
     end
     
-    % Convert soft values (3-bit) to hard bits (1-bit) for output
-    % Threshold at 4 (weak/strong boundary)
-    bit_a = double(soft_a >= 4);
-    bit_b = double(soft_b >= 4);
+    % Output soft values (keep soft bits for Viterbi decoder)
+    % Do NOT hard-threshold - pass soft values through
+    soft_out_a = soft_a;
+    soft_out_b = soft_b;
     
     % Update carrier count
     carrier_count = carrier_count + 1;
@@ -90,7 +90,7 @@ function [out_bits, erase, output_strobe] = deinterleave(in_bits, rate, input_st
     end
     
     % Pipeline stages
-    pipeline.bits(1, :) = [bit_a, bit_b];
+    pipeline.bits(1, :) = [soft_out_a, soft_out_b];
     pipeline.erase(1, :) = [erase_a, erase_b];
     pipeline.valid(1) = 1;
     
@@ -100,7 +100,7 @@ function [out_bits, erase, output_strobe] = deinterleave(in_bits, rate, input_st
         pipeline.valid(k) = pipeline.valid(k-1);
     end
     
-    % Output from stage 4
+    % Output from stage 4 (soft bits, not hard bits)
     out_bits = pipeline.bits(4, :);
     erase = pipeline.erase(4, :);
     output_strobe = pipeline.valid(4);

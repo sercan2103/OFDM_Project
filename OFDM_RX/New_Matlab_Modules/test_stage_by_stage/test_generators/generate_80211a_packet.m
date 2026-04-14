@@ -116,9 +116,25 @@ function [samples_i, samples_q, packet_info] = generate_80211a_packet(config)
     % Generate random payload
     payload_bits = randi([0,1], config.payload_bytes*8, 1);
     
+    % Calculate FCS for payload (IEEE 802.11 CRC32)
+    fcs_bytes = calculate_fcs(payload_bits);
+    fprintf('[TX] FCS calculated: %02X %02X %02X %02X\n', ...
+            fcs_bytes(1), fcs_bytes(2), fcs_bytes(3), fcs_bytes(4));
+    
+    % Convert FCS bytes to bits (MSB first bit order for serial transmission)
+    % bits_to_bytes expects bits in order: MSB(bit7) -> LSB(bit0)
+    % So we output bits from MSB to LSB
+    fcs_bits = zeros(32, 1);
+    for i = 1:4
+        byte_val = fcs_bytes(i);
+        for j = 8:-1:1  % Go from bit 8 (MSB) down to bit 1 (LSB)
+            fcs_bits((i-1)*8 + (9-j)) = bitget(byte_val, j);
+        end
+    end
+    
     % Add SERVICE field (16 bits, all zeros)
     service_bits = zeros(16, 1);
-    data_bits = [service_bits; payload_bits];
+    data_bits = [service_bits; payload_bits; fcs_bits];
     
     % Add TAIL (6 bits) and PAD to symbol boundary
     tail_bits = zeros(6, 1);
@@ -279,4 +295,69 @@ function punctured = puncture_data(bits, rate)
     % Puncturing for rates > 1/2
     % Simplified
     punctured = bits;
+end
+
+function fcs_bytes = calculate_fcs(payload_bits)
+    % IEEE 802.11 CRC32 calculation for payload
+    % Converts bit array to bytes and calculates CRC
+    
+    % Convert bits to bytes (MSB first for CRC calculation)
+    num_bytes = ceil(length(payload_bits) / 8);
+    payload_bytes = zeros(num_bytes, 1, 'uint8');
+    
+    for i = 1:num_bytes
+        byte_val = 0;
+        for j = 1:8
+            idx = (i-1)*8 + j;
+            if idx <= length(payload_bits)
+                byte_val = bitor(byte_val, bitshift(uint8(payload_bits(idx)), 8-j));
+            end
+        end
+        payload_bytes(i) = byte_val;
+    end
+    
+    % Calculate CRC32
+    crc = uint32(hex2dec('FFFFFFFF'));
+    for i = 1:length(payload_bytes)
+        crc = crc32_step(crc, payload_bytes(i));
+    end
+    
+    % Final XOR
+    crc = bitxor(crc, uint32(hex2dec('FFFFFFFF')));
+    
+    % Convert to bytes (LSB first as per 802.11)
+    fcs_bytes = zeros(4, 1, 'uint8');
+    fcs_bytes(1) = uint8(bitand(crc, 255));
+    fcs_bytes(2) = uint8(bitand(bitshift(crc, -8), 255));
+    fcs_bytes(3) = uint8(bitand(bitshift(crc, -16), 255));
+    fcs_bytes(4) = uint8(bitand(bitshift(crc, -24), 255));
+end
+
+function crc = crc32_step(crc, byte_val)
+    % Single step of CRC32 with one byte
+    % Using polynomial 0x04C11DB7 (IEEE 802.11)
+    
+    % Reverse bits in byte
+    byte_reversed = 0;
+    for k = 0:7
+        if bitget(byte_val, k+1)
+            byte_reversed = bitset(byte_reversed, 8-k);
+        end
+    end
+    
+    % Process 8 bits
+    for k = 1:8
+        bit = bitget(byte_reversed, k);
+        feedback = bitxor(bit, bitget(crc, 32));
+        
+        % Shift and apply polynomial
+        crc = bitshift(crc, 1);
+        
+        if feedback
+            crc = bitxor(crc, uint32(hex2dec('04C11DB7')));
+        end
+        
+        % Keep 32 bits
+        crc = bitand(crc, uint32(hex2dec('FFFFFFFF')));
+    end
 end

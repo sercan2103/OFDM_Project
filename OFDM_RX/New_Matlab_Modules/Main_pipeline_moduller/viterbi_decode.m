@@ -20,7 +20,7 @@ function [data_out, output_strobe] = viterbi_decode(data_in0, data_in1, erase, i
 %   Soft decision: 3-bit quantization
 %   Traceback depth: 36
 
-    persistent pipeline state bit_count
+    persistent pipeline state bit_count debug_count
     
     if nargin < 5
         reset = 0;
@@ -34,6 +34,7 @@ function [data_out, output_strobe] = viterbi_decode(data_in0, data_in1, erase, i
         pipeline = struct('bits', zeros(TRACEBACK_DEPTH, 1), 'valid', zeros(TRACEBACK_DEPTH, 1));
         state = zeros(NUM_STATES, 1); % State metrics
         bit_count = 0;
+        debug_count = 0;
     end
     
     % Default outputs
@@ -69,7 +70,8 @@ function [data_out, output_strobe] = viterbi_decode(data_in0, data_in1, erase, i
     
     % For now, use MATLAB's vitdec if available (optional)
     % Or simple majority voting as approximation
-    decoded_bit = round((data_in0 + data_in1) / 2) >= 4;
+    bit_avg = (data_in0 + data_in1) / 2;
+    decoded_bit = round(bit_avg) >= 4;
     
     % Pipeline stages (TRACEBACK_DEPTH stages)
     pipeline.bits(1) = decoded_bit;

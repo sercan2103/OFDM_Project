@@ -36,9 +36,8 @@ function result = test_stage7_viterbi(soft_bits, params, expected)
     num_pairs = num_bits / 2;
     
     % Initialize module state
-    enable = true;
     reset = true;  % Reset first
-    erase = false;  % No puncturing initially
+    erase = [false, false];  % No puncturing initially (2-element array for 2 streams)
     
     decoded_vec = [];
     decoded_out_strobe_vec = [];
@@ -49,14 +48,23 @@ function result = test_stage7_viterbi(soft_bits, params, expected)
         data_in1 = soft_bits(2*n);
         input_strobe = true;
         
-        % Call viterbi_decode (5 parameters as defined)
-        [decoded_bit, decoded_strobe, ~] = ...
-            viterbi_decode(data_in0, data_in1, erase, input_strobe, reset);
+        % Call viterbi_decode with correct signature
+        try
+            [decoded_bit, output_strobe] = ...
+                viterbi_decode(data_in0, data_in1, erase, input_strobe, reset);
+        catch ME
+            fprintf('[Stage 7] ERROR in viterbi_decode call:\n');
+            fprintf('[Stage 7] data_in0: %g (type: %s)\n', data_in0, class(data_in0));
+            fprintf('[Stage 7] data_in1: %g (type: %s)\n', data_in1, class(data_in1));
+            fprintf('[Stage 7] erase: %s (type: %s)\n', mat2str(erase), class(erase));
+            fprintf('[Stage 7] Message: %s\n', ME.message);
+            rethrow(ME);
+        end
         
         reset = false;  % Only reset on first call
         
         % Store outputs
-        if decoded_strobe
+        if output_strobe
             decoded_vec = [decoded_vec; decoded_bit];
             decoded_out_strobe_vec = [decoded_out_strobe_vec; true];
         end
