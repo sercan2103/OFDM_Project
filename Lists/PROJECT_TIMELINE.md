@@ -74,4 +74,4 @@
 - Writen Loopback test code for BPSK modulation. 
   
 ## 17th April 2026
-- The incompatibility issue encountered in the sync_short and power_trigger MATLAB codes has been resolved.
+- The incompatibility issue encountered in the sync_short and power_trigger MATLAB code has been resolved and the code has been replaced. New test data has been loaded.
