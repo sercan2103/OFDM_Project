@@ -1,13 +1,21 @@
 # Project To-Do list 17th of April
   Mehmet Özdemir
+  
 Adalm- Pluto transmitter
+
 Will check Open OFDM phyton codes
+
   Fatih Şenal
+  
 MATLAB Tx-Rx codes will be tested on AWGN and Multipath Channels. Performance curve must be obtained.
+
   Fatih Durak
+  
 Adalm-Pluto Reciver
+
   Kemal Sercan İlhan
-  AD9361 BPSK data loopback will be done
+  
+AD9361 BPSK data loopback will be done
 
 
 # Project To-Do List
