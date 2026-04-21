@@ -1,0 +1,8 @@
+0.7
+2020.2
+Oct 14 2022
+05:07:14
+/home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/src/bpsk_core.v,1774455419,verilog,,/home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/src/bpsk_modulator_v1_0.v,,bpsk_core,,,,,,,,
+/home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/src/bpsk_modulator_v1_0.v,1774455779,verilog,,/home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/tb/bpsk_tb.v,,bpsk_modulator_v1_0,,,,,,,,
+/home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/tb/bpsk_tb.v,1774455578,verilog,,,,bpsk_tb,,,,,,,,
+/home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/vivado/project/bpsk_modulator.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,,,,,,,

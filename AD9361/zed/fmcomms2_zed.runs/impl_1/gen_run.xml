@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1774959613">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1776776286">
   <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="system_top_postroute_physopted.rqs"/>
@@ -149,7 +149,9 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+      <Desc>Default settings for Implementation.</Desc>
+    </StratHandle>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
@@ -160,9 +162,9 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="system_axi_dmac_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_bpsk_demodulator_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_bpsk_modulator_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_axi_dmac_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_util_ad9361_dac_upack_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axi_ad9361_dac_fifo_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axi_ad9361_adc_dma_0"/>

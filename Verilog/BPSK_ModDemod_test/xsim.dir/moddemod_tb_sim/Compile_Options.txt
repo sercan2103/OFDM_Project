@@ -1,0 +1,1 @@
+-debug "typical" "moddemod_tb" -s "moddemod_tb_sim" 

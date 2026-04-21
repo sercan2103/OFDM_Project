@@ -27,6 +27,20 @@ set ip_root      "$project_root/ip_repo/bpsk_modulator_v1_0"
 puts "INFO: Packaging BPSK Modulator IP..."
 puts "INFO: Output directory: $ip_root"
 
+# ---------------------------------------------------------------------------
+# 0. Create a temporary project so ipx::package_project has a context
+# ---------------------------------------------------------------------------
+set tmp_proj_dir [file join /tmp bpsk_mod_pkg_tmp]
+file delete -force $tmp_proj_dir
+create_project -force bpsk_mod_pkg $tmp_proj_dir -part xc7z020clg484-1
+
+add_files -norecurse [list \
+    "$project_root/src/bpsk_core.v" \
+    "$project_root/src/bpsk_modulator_v1_0.v" \
+]
+set_property top bpsk_modulator_v1_0 [current_fileset]
+update_compile_order -fileset sources_1
+
 # Remove stale IP output directory
 if {[file exists $ip_root]} {
     puts "INFO: Removing existing IP directory"
@@ -156,6 +170,8 @@ if {$check_result == 0} {
 }
 
 ipx::save_core $core
+close_project
+file delete -force $tmp_proj_dir
 
 puts ""
 puts "============================================================"

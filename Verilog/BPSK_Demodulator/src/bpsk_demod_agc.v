@@ -43,32 +43,10 @@ module bpsk_demod_agc (
     output reg         settled             // amplitude within 12.5% of target
 );
 
-    // ---- Absolute values (magnitude) ----------------------------------------
-    wire [15:0] abs_i = i_in[15] ? (~i_in + 16'd1) : i_in;
-    wire [15:0] abs_q = q_in[15] ? (~q_in + 16'd1) : q_in;
-    wire [16:0] amplitude = {1'b0, abs_i} + {1'b0, abs_q};
-
-    // ---- Error: target − amplitude (signed 18-bit for headroom) ------------
-    wire signed [17:0] error = $signed({2'b00, target_amp}) -
-                                $signed({1'b0, amplitude});
-
     // ---- Integral gain accumulator (Q4.12 in bits [27:12]) ------------------
     // gain_acc[27:12] is the 16-bit gain word (Q4.12)
     // Default: gain = 1.0 = 0x1000 → gain_acc = 0x0100_0000
     reg [31:0] gain_acc;
-
-    always @(posedge clk or negedge resetn) begin
-        if (!resetn) begin
-            gain_acc <= 32'h0100_0000;   // initial gain = 1.0
-        end else if (valid_in && !bypass) begin
-            // gain_acc += error >> ki_shift
-            // error is 18-bit signed; shift right by ki_shift before accumulating
-            gain_acc <= gain_acc + ($signed(error) >>> ki_shift);
-            // Clamp to avoid negative or overflow
-            if (gain_acc[31])            // went negative
-                gain_acc <= 32'd0;
-        end
-    end
 
     assign gain_out = gain_acc[27:12];   // Q4.12 gain word
 
@@ -83,6 +61,36 @@ module bpsk_demod_agc (
     wire signed [15:0] q_scaled = (prod_q[31:27] == 5'b00000 || prod_q[31:27] == 5'b11111)
                                   ? prod_q[27:12]
                                   : (prod_q[31] ? 16'h8000 : 16'h7FFF);
+
+    // ---- Amplitude measured from OUTPUT for closed-loop AGC -----------------
+    // gain_acc converges until |i_scaled|+|q_scaled| = target_amp
+    wire [15:0] abs_i = i_scaled[15] ? (~i_scaled + 16'd1) : i_scaled;
+    wire [15:0] abs_q = q_scaled[15] ? (~q_scaled + 16'd1) : q_scaled;
+    wire [16:0] amplitude = {1'b0, abs_i} + {1'b0, abs_q};
+
+    // ---- Error: target − amplitude (signed 18-bit for headroom) ------------
+    wire signed [17:0] error = $signed({2'b00, target_amp}) -
+                                $signed({1'b0, amplitude});
+
+    // Sign-extend error to 32 bits and use signed arithmetic so the correction
+    // is properly negative when amplitude > target (Verilog zero-extends unsigned
+    // operands in mixed-sign expressions, which inverts the loop direction).
+    wire signed [31:0] error_s32 = {{14{error[17]}}, error};
+    wire signed [31:0] gain_correction = error_s32 >>> ki_shift;
+
+    reg [31:0] gain_acc_next;
+    always @(*) begin
+        gain_acc_next = $unsigned($signed(gain_acc) + gain_correction);
+        if (gain_acc_next[31]) gain_acc_next = 32'd0;  // clamp on updated value
+    end
+
+    always @(posedge clk or negedge resetn) begin
+        if (!resetn) begin
+            gain_acc <= 32'h0100_0000;   // initial gain = 1.0
+        end else if (valid_in && !bypass) begin
+            gain_acc <= gain_acc_next;
+        end
+    end
 
     always @(posedge clk or negedge resetn) begin
         if (!resetn) begin

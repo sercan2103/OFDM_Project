@@ -22,22 +22,22 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 11014
+INFO: [Synth 8-7075] Helper process launched with PID 36686
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2449.070 ; gain = 374.738 ; free physical = 11629 ; free virtual = 17978
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1677.841; parent = 1543.266; children = 134.575
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3456.504; parent = 2452.043; children = 1004.461
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2448.980 ; gain = 374.707 ; free physical = 15278 ; free virtual = 23618
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1774.077; parent = 1605.765; children = 168.312
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3464.105; parent = 2452.953; children = 1011.152
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'system_bpsk_demodulator_0_0' [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/synth/system_bpsk_demodulator_0_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'bpsk_demod_v1_0' [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/eee1/src/bpsk_demod_v1_0.v:61]
-INFO: [Synth 8-6157] synthesizing module 'bpsk_demod_core' [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/eee1/src/bpsk_demod_core.v:49]
-INFO: [Synth 8-6157] synthesizing module 'bpsk_demod_agc' [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/eee1/src/bpsk_demod_agc.v:28]
-INFO: [Synth 8-6155] done synthesizing module 'bpsk_demod_agc' (0#1) [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/eee1/src/bpsk_demod_agc.v:28]
-INFO: [Synth 8-6157] synthesizing module 'bpsk_demod_nco' [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/eee1/src/bpsk_demod_nco.v:18]
-INFO: [Synth 8-6155] done synthesizing module 'bpsk_demod_nco' (0#1) [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/eee1/src/bpsk_demod_nco.v:18]
-INFO: [Synth 8-6155] done synthesizing module 'bpsk_demod_core' (0#1) [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/eee1/src/bpsk_demod_core.v:49]
-INFO: [Synth 8-6155] done synthesizing module 'bpsk_demod_v1_0' (0#1) [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/eee1/src/bpsk_demod_v1_0.v:61]
+INFO: [Synth 8-6157] synthesizing module 'bpsk_demod_v1_0' [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/d7bd/src/bpsk_demod_v1_0.v:61]
+INFO: [Synth 8-6157] synthesizing module 'bpsk_demod_core' [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/d7bd/src/bpsk_demod_core.v:49]
+INFO: [Synth 8-6157] synthesizing module 'bpsk_demod_agc' [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/d7bd/src/bpsk_demod_agc.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'bpsk_demod_agc' (0#1) [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/d7bd/src/bpsk_demod_agc.v:28]
+INFO: [Synth 8-6157] synthesizing module 'bpsk_demod_nco' [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/d7bd/src/bpsk_demod_nco.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'bpsk_demod_nco' (0#1) [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/d7bd/src/bpsk_demod_nco.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'bpsk_demod_core' (0#1) [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/d7bd/src/bpsk_demod_core.v:49]
+INFO: [Synth 8-6155] done synthesizing module 'bpsk_demod_v1_0' (0#1) [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ipshared/d7bd/src/bpsk_demod_v1_0.v:61]
 INFO: [Synth 8-6155] done synthesizing module 'system_bpsk_demodulator_0_0' (0#1) [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/synth/system_bpsk_demodulator_0_0.v:53]
 WARNING: [Synth 8-7129] Port S_AXI_AWPROT[2] in module bpsk_demod_v1_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_AXI_AWPROT[1] in module bpsk_demod_v1_0 is either unconnected or has no load
@@ -80,126 +80,84 @@ WARNING: [Synth 8-7129] Port adc_data[34] in module bpsk_demod_v1_0 is either un
 WARNING: [Synth 8-7129] Port adc_data[33] in module bpsk_demod_v1_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port adc_data[32] in module bpsk_demod_v1_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2526.008 ; gain = 451.676 ; free physical = 11275 ; free virtual = 17647
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1677.841; parent = 1543.266; children = 134.575
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3530.473; parent = 2526.012; children = 1004.461
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2525.918 ; gain = 451.645 ; free physical = 15108 ; free virtual = 23452
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1774.077; parent = 1605.765; children = 168.312
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3537.074; parent = 2525.922; children = 1011.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2543.820 ; gain = 469.488 ; free physical = 11256 ; free virtual = 17626
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1677.841; parent = 1543.266; children = 134.575
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3548.285; parent = 2543.824; children = 1004.461
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2543.730 ; gain = 469.457 ; free physical = 15108 ; free virtual = 23452
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1774.077; parent = 1605.765; children = 168.312
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3554.887; parent = 2543.734; children = 1011.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2543.820 ; gain = 469.488 ; free physical = 11248 ; free virtual = 17618
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1677.841; parent = 1543.266; children = 134.575
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3548.285; parent = 2543.824; children = 1004.461
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2543.730 ; gain = 469.457 ; free physical = 15108 ; free virtual = 23452
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1774.077; parent = 1605.765; children = 168.312
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3554.887; parent = 2543.734; children = 1011.152
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2543.820 ; gain = 0.000 ; free physical = 11232 ; free virtual = 17602
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2543.730 ; gain = 0.000 ; free physical = 15108 ; free virtual = 23453
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc] for cell 'inst'
-WARNING: [Constraints 18-402] set_false_path: 'inst/snap_enable_i' is not a valid startpoint. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:29]
-Resolution: A valid start point is a main or generated clock pin or port, a clock pin of a sequential cell, or a primary input or inout port. Please validate that all the objects returned by your query belong to this list.
-WARNING: [Constraints 18-402] set_false_path: 'inst/snap_bypass_agc_i' is not a valid startpoint. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:30]
-Resolution: A valid start point is a main or generated clock pin or port, a clock pin of a sequential cell, or a primary input or inout port. Please validate that all the objects returned by your query belong to this list.
-WARNING: [Constraints 18-402] set_false_path: 'inst/snap_bypass_costas_i' is not a valid startpoint. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:30]
-Resolution: A valid start point is a main or generated clock pin or port, a clock pin of a sequential cell, or a primary input or inout port. Please validate that all the objects returned by your query belong to this list.
-WARNING: [Constraints 18-402] set_false_path: 'inst/snap_bypass_timing_i' is not a valid startpoint. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:30]
-Resolution: A valid start point is a main or generated clock pin or port, a clock pin of a sequential cell, or a primary input or inout port. Please validate that all the objects returned by your query belong to this list.
-WARNING: [Constraints 18-402] set_false_path: 'inst/snap_sps_i' is not a valid startpoint. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:31]
-Resolution: A valid start point is a main or generated clock pin or port, a clock pin of a sequential cell, or a primary input or inout port. Please validate that all the objects returned by your query belong to this list.
-WARNING: [Constraints 18-402] set_false_path: 'inst/snap_agc_ki_shift_i' is not a valid startpoint. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:32]
-Resolution: A valid start point is a main or generated clock pin or port, a clock pin of a sequential cell, or a primary input or inout port. Please validate that all the objects returned by your query belong to this list.
-WARNING: [Constraints 18-402] set_false_path: 'inst/snap_agc_target_i' is not a valid startpoint. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:32]
-Resolution: A valid start point is a main or generated clock pin or port, a clock pin of a sequential cell, or a primary input or inout port. Please validate that all the objects returned by your query belong to this list.
-WARNING: [Constraints 18-402] set_false_path: 'inst/snap_costas_ki_i' is not a valid startpoint. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:33]
-Resolution: A valid start point is a main or generated clock pin or port, a clock pin of a sequential cell, or a primary input or inout port. Please validate that all the objects returned by your query belong to this list.
-WARNING: [Constraints 18-402] set_false_path: 'inst/snap_costas_kp_i' is not a valid startpoint. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:33]
-Resolution: A valid start point is a main or generated clock pin or port, a clock pin of a sequential cell, or a primary input or inout port. Please validate that all the objects returned by your query belong to this list.
-WARNING: [Constraints 18-402] set_false_path: 'inst/snap_timing_ki_i' is not a valid startpoint. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:34]
-Resolution: A valid start point is a main or generated clock pin or port, a clock pin of a sequential cell, or a primary input or inout port. Please validate that all the objects returned by your query belong to this list.
-WARNING: [Constraints 18-402] set_false_path: 'inst/snap_timing_kp_i' is not a valid startpoint. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:34]
-Resolution: A valid start point is a main or generated clock pin or port, a clock pin of a sequential cell, or a primary input or inout port. Please validate that all the objects returned by your query belong to this list.
-WARNING: [Vivado 12-180] No cells matched 'get_cells -hierarchical -filter {NAME =~ *raw_carrier_locked*}'. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:38]
-CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-from [get_cells -hierarchical -filter {NAME =~ *raw_carrier_locked*}]'. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:38]
-Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
-WARNING: [Vivado 12-180] No cells matched 'get_cells -hierarchical -filter {NAME =~ *raw_agc_settled*}'. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:40]
-CRITICAL WARNING: [Vivado 12-4739] set_false_path:No valid object(s) found for '-from [get_cells -hierarchical -filter {NAME =~ *raw_agc_settled*}]'. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:40]
-Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
-WARNING: [Constraints 18-402] set_false_path: 'inst/agc_gain_ff1_i' is not a valid startpoint. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:44]
-Resolution: A valid start point is a main or generated clock pin or port, a clock pin of a sequential cell, or a primary input or inout port. Please validate that all the objects returned by your query belong to this list.
-WARNING: [Constraints 18-402] set_false_path: 'inst/phase_err_ff1_i' is not a valid startpoint. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:45]
-Resolution: A valid start point is a main or generated clock pin or port, a clock pin of a sequential cell, or a primary input or inout port. Please validate that all the objects returned by your query belong to this list.
-WARNING: [Constraints 18-402] set_false_path: 'inst/timing_err_ff1_i' is not a valid startpoint. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:46]
-Resolution: A valid start point is a main or generated clock pin or port, a clock pin of a sequential cell, or a primary input or inout port. Please validate that all the objects returned by your query belong to this list.
-WARNING: [Constraints 18-402] set_false_path: 'inst/bit_cnt_ff1_i' is not a valid startpoint. [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc:47]
-Resolution: A valid start point is a main or generated clock pin or port, a clock pin of a sequential cell, or a primary input or inout port. Please validate that all the objects returned by your query belong to this list.
-Finished Parsing XDC File [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc] for cell 'inst'
-Parsing XDC File [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.runs/system_bpsk_demodulator_0_0_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.runs/system_bpsk_demodulator_0_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2705.570 ; gain = 0.000 ; free physical = 11189 ; free virtual = 17573
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2712.480 ; gain = 0.000 ; free physical = 15066 ; free virtual = 23423
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2705.570 ; gain = 0.000 ; free physical = 11192 ; free virtual = 17575
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2712.480 ; gain = 0.000 ; free physical = 15066 ; free virtual = 23423
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2705.570 ; gain = 631.238 ; free physical = 11585 ; free virtual = 17979
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1677.841; parent = 1543.266; children = 134.575
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3678.020; parent = 2673.559; children = 1004.461
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2712.480 ; gain = 638.207 ; free physical = 15131 ; free virtual = 23491
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1774.077; parent = 1605.765; children = 168.312
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3691.621; parent = 2680.469; children = 1011.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2705.570 ; gain = 631.238 ; free physical = 11585 ; free virtual = 17979
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1677.841; parent = 1543.266; children = 134.575
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3678.020; parent = 2673.559; children = 1004.461
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2712.480 ; gain = 638.207 ; free physical = 15131 ; free virtual = 23489
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1774.077; parent = 1605.765; children = 168.312
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3691.621; parent = 2680.469; children = 1011.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.runs/system_bpsk_demodulator_0_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2705.570 ; gain = 631.238 ; free physical = 11585 ; free virtual = 17983
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1677.841; parent = 1543.266; children = 134.575
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3678.020; parent = 2673.559; children = 1004.461
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2712.480 ; gain = 638.207 ; free physical = 15131 ; free virtual = 23489
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1774.077; parent = 1605.765; children = 168.312
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3691.621; parent = 2680.469; children = 1011.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2705.570 ; gain = 631.238 ; free physical = 11599 ; free virtual = 17996
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1677.841; parent = 1543.266; children = 134.575
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3678.020; parent = 2673.559; children = 1004.461
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2712.480 ; gain = 638.207 ; free physical = 15139 ; free virtual = 23503
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1774.077; parent = 1605.765; children = 168.312
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3691.621; parent = 2680.469; children = 1011.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
+	   2 Input   32 Bit       Adders := 4     
 	   3 Input   32 Bit       Adders := 1     
-	   2 Input   32 Bit       Adders := 2     
 	   3 Input   18 Bit       Adders := 1     
 	   2 Input   17 Bit       Adders := 1     
-	   2 Input   16 Bit       Adders := 6     
+	   2 Input   16 Bit       Adders := 8     
 	   4 Input   16 Bit       Adders := 1     
-	   2 Input    9 Bit       Adders := 1     
+	   3 Input   16 Bit       Adders := 1     
 	   2 Input    8 Bit       Adders := 2     
 	   2 Input    7 Bit       Adders := 2     
 	   2 Input    6 Bit       Adders := 1     
 	   2 Input    3 Bit       Adders := 1     
 +---Registers : 
 	               40 Bit    Registers := 2     
-	               32 Bit    Registers := 6     
-	               16 Bit    Registers := 28    
-	                9 Bit    Registers := 1     
+	               32 Bit    Registers := 7     
+	               16 Bit    Registers := 30    
 	                8 Bit    Registers := 7     
 	                7 Bit    Registers := 1     
 	                6 Bit    Registers := 1     
@@ -210,16 +168,16 @@ Detailed RTL Component Info :
 +---ROMs : 
 	                    ROMs := 2     
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 1     
-	   2 Input   16 Bit        Muxes := 21    
+	   2 Input   32 Bit        Muxes := 4     
 	   3 Input   16 Bit        Muxes := 2     
+	   2 Input   16 Bit        Muxes := 23    
 	   9 Input   16 Bit        Muxes := 5     
-	   2 Input    8 Bit        Muxes := 6     
+	   2 Input    8 Bit        Muxes := 8     
 	   2 Input    7 Bit        Muxes := 1     
 	   2 Input    6 Bit        Muxes := 1     
 	   2 Input    3 Bit        Muxes := 1     
 	   3 Input    1 Bit        Muxes := 3     
-	   2 Input    1 Bit        Muxes := 11    
+	   2 Input    1 Bit        Muxes := 12    
 	   9 Input    1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -245,18 +203,17 @@ DSP Report: Generating DSP mix_qq, operation Mode is: A*B.
 DSP Report: operator mix_qq is absorbed into DSP mix_qq.
 DSP Report: Generating DSP mix_qi, operation Mode is: A*B.
 DSP Report: operator mix_qi is absorbed into DSP mix_qi.
+DSP Report: Generating DSP freq_int2, operation Mode is: A*B.
+DSP Report: operator freq_int2 is absorbed into DSP freq_int2.
 DSP Report: Generating DSP freq_word2, operation Mode is: A*B.
 DSP Report: operator freq_word2 is absorbed into DSP freq_word2.
-DSP Report: Generating DSP freq_int1, operation Mode is: C+A*B.
-DSP Report: operator freq_int1 is absorbed into DSP freq_int1.
-DSP Report: operator freq_int2 is absorbed into DSP freq_int1.
 DSP Report: Generating DSP mix_ii, operation Mode is: A*B.
 DSP Report: operator mix_ii is absorbed into DSP mix_ii.
 DSP Report: Generating DSP mix_iq, operation Mode is: A*B.
 DSP Report: operator mix_iq is absorbed into DSP mix_iq.
-DSP Report: Generating DSP timing_int1, operation Mode is: C+A*B.
-DSP Report: operator timing_int1 is absorbed into DSP timing_int1.
-DSP Report: operator timing_int2 is absorbed into DSP timing_int1.
+DSP Report: Generating DSP timing_int0, operation Mode is: C+A*B.
+DSP Report: operator timing_int0 is absorbed into DSP timing_int0.
+DSP Report: operator timing_int1 is absorbed into DSP timing_int0.
 DSP Report: Generating DSP timing_adj2, operation Mode is: A*B.
 DSP Report: operator timing_adj2 is absorbed into DSP timing_adj2.
 WARNING: [Synth 8-7129] Port S_AXI_AWPROT[2] in module bpsk_demod_v1_0 is either unconnected or has no load
@@ -300,9 +257,9 @@ WARNING: [Synth 8-7129] Port adc_data[34] in module bpsk_demod_v1_0 is either un
 WARNING: [Synth 8-7129] Port adc_data[33] in module bpsk_demod_v1_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port adc_data[32] in module bpsk_demod_v1_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2705.570 ; gain = 631.238 ; free physical = 11917 ; free virtual = 18348
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1677.841; parent = 1543.266; children = 138.483
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3678.020; parent = 2673.559; children = 1004.461
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2712.480 ; gain = 638.207 ; free physical = 15403 ; free virtual = 23781
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1780.395; parent = 1605.765; children = 182.044
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3691.621; parent = 2680.469; children = 1011.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -326,11 +283,11 @@ DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding R
 |bpsk_demod_core | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |bpsk_demod_core | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |bpsk_demod_core | A*B         | 17     | 16     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|bpsk_demod_core | C+A*B       | 17     | 16     | 32     | -      | 32     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|bpsk_demod_core | A*B         | 17     | 16     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |bpsk_demod_core | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |bpsk_demod_core | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |bpsk_demod_core | C+A*B       | 17     | 16     | 32     | -      | 32     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
-|bpsk_demod_core | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|bpsk_demod_core | A*B         | 17     | 16     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 +----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
@@ -341,25 +298,25 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 2705.570 ; gain = 631.238 ; free physical = 16821 ; free virtual = 23238
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1875.296; parent = 1715.922; children = 159.374
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3678.020; parent = 2673.559; children = 1004.461
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 2712.480 ; gain = 638.207 ; free physical = 16846 ; free virtual = 25221
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2015.428; parent = 1811.056; children = 204.372
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3691.621; parent = 2680.469; children = 1011.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2705.570 ; gain = 631.238 ; free physical = 17072 ; free virtual = 23493
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1908.017; parent = 1739.331; children = 168.686
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3678.020; parent = 2673.559; children = 1004.461
+Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 2712.480 ; gain = 638.207 ; free physical = 16924 ; free virtual = 25299
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2016.232; parent = 1811.860; children = 204.372
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3691.621; parent = 2680.469; children = 1011.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 2705.570 ; gain = 631.238 ; free physical = 17130 ; free virtual = 23549
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1913.290; parent = 1744.604; children = 168.686
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3678.020; parent = 2673.559; children = 1004.461
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 2712.480 ; gain = 638.207 ; free physical = 16893 ; free virtual = 25268
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2023.143; parent = 1818.771; children = 204.372
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3691.621; parent = 2680.469; children = 1011.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -377,49 +334,49 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2705.570 ; gain = 631.238 ; free physical = 18622 ; free virtual = 25036
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1958.821; parent = 1776.347; children = 182.475
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3678.020; parent = 2673.559; children = 1004.461
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2712.480 ; gain = 638.207 ; free physical = 16926 ; free virtual = 25301
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2023.420; parent = 1819.048; children = 204.372
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3691.621; parent = 2680.469; children = 1011.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2705.570 ; gain = 631.238 ; free physical = 18622 ; free virtual = 25036
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1958.821; parent = 1776.347; children = 182.475
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3678.020; parent = 2673.559; children = 1004.461
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2712.480 ; gain = 638.207 ; free physical = 16926 ; free virtual = 25301
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2023.436; parent = 1819.063; children = 204.372
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3691.621; parent = 2680.469; children = 1011.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2705.570 ; gain = 631.238 ; free physical = 18623 ; free virtual = 25036
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1959.017; parent = 1776.542; children = 182.475
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3678.020; parent = 2673.559; children = 1004.461
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2712.480 ; gain = 638.207 ; free physical = 16926 ; free virtual = 25301
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2024.127; parent = 1819.755; children = 204.372
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3691.621; parent = 2680.469; children = 1011.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2705.570 ; gain = 631.238 ; free physical = 18623 ; free virtual = 25036
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1959.048; parent = 1776.573; children = 182.475
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3678.020; parent = 2673.559; children = 1004.461
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2712.480 ; gain = 638.207 ; free physical = 16926 ; free virtual = 25301
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2024.189; parent = 1819.817; children = 204.372
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3691.621; parent = 2680.469; children = 1011.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2705.570 ; gain = 631.238 ; free physical = 18623 ; free virtual = 25037
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1959.048; parent = 1776.573; children = 182.475
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3678.020; parent = 2673.559; children = 1004.461
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2712.480 ; gain = 638.207 ; free physical = 16926 ; free virtual = 25301
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2024.189; parent = 1819.817; children = 204.372
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3691.621; parent = 2680.469; children = 1011.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2705.570 ; gain = 631.238 ; free physical = 18623 ; free virtual = 25037
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1959.048; parent = 1776.573; children = 182.475
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3678.020; parent = 2673.559; children = 1004.461
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2712.480 ; gain = 638.207 ; free physical = 16926 ; free virtual = 25301
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2024.189; parent = 1819.817; children = 204.372
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3691.621; parent = 2680.469; children = 1011.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -432,11 +389,11 @@ DSP Final Report (the ' indicates corresponding REG is set)
 |bpsk_demod_core | A*B         | 30     | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |bpsk_demod_core | A*B         | 30     | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |bpsk_demod_core | A*B         | 16     | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|bpsk_demod_core | Dynamic     | -      | -      | -      | -      | 32     | -    | -    | -    | -    | -     | 0    | 1    | 
+|bpsk_demod_core | A*B         | 16     | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |bpsk_demod_core | A*B         | 30     | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |bpsk_demod_core | A*B         | 30     | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |bpsk_demod_core | Dynamic     | -      | -      | -      | -      | 32     | -    | -    | -    | -    | -     | 0    | 1    | 
-|bpsk_demod_core | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|bpsk_demod_core | A*B         | 16     | 18     | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |bpsk_demod_agc  | A*B         | 16     | 18     | -      | -      | 36     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |bpsk_demod_agc  | A*B         | 16     | 18     | -      | -      | 36     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 +----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
@@ -452,47 +409,47 @@ Report Cell Usage:
 +------+--------+------+
 |      |Cell    |Count |
 +------+--------+------+
-|1     |CARRY4  |    89|
+|1     |CARRY4  |   122|
 |2     |DSP48E1 |    10|
-|4     |LUT1    |    85|
-|5     |LUT2    |   119|
-|6     |LUT3    |   135|
-|7     |LUT4    |   119|
-|8     |LUT5    |   127|
-|9     |LUT6    |   286|
+|4     |LUT1    |   111|
+|5     |LUT2    |   243|
+|6     |LUT3    |   154|
+|7     |LUT4    |   102|
+|8     |LUT5    |   123|
+|9     |LUT6    |   290|
 |10    |MUXF7   |    52|
 |11    |MUXF8   |    24|
-|12    |FDCE    |   396|
+|12    |FDCE    |   450|
 |13    |FDPE    |    13|
 |14    |FDRE    |   424|
 |15    |FDSE    |    18|
 +------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2705.570 ; gain = 631.238 ; free physical = 18623 ; free virtual = 25037
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1959.068; parent = 1776.594; children = 182.475
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3678.020; parent = 2673.559; children = 1004.461
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2712.480 ; gain = 638.207 ; free physical = 16926 ; free virtual = 25301
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2024.225; parent = 1819.853; children = 204.372
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3691.621; parent = 2680.469; children = 1011.152
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 41 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 2705.570 ; gain = 469.488 ; free physical = 18662 ; free virtual = 25076
-Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2705.570 ; gain = 631.238 ; free physical = 18662 ; free virtual = 25076
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2712.480 ; gain = 469.457 ; free physical = 16974 ; free virtual = 25349
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2712.480 ; gain = 638.207 ; free physical = 16974 ; free virtual = 25349
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2705.570 ; gain = 0.000 ; free physical = 18833 ; free virtual = 25247
-INFO: [Netlist 29-17] Analyzing 175 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2712.480 ; gain = 0.000 ; free physical = 17089 ; free virtual = 25464
+INFO: [Netlist 29-17] Analyzing 208 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2705.570 ; gain = 0.000 ; free physical = 20151 ; free virtual = 26565
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2712.480 ; gain = 0.000 ; free physical = 17059 ; free virtual = 25434
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: 48993ffa
+Synth Design complete, checksum: a5c85b92
 INFO: [Common 17-83] Releasing license: Synthesis
-33 Infos, 98 Warnings, 2 Critical Warnings and 0 Errors encountered.
+33 Infos, 81 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:37 ; elapsed = 00:00:35 . Memory (MB): peak = 2705.570 ; gain = 960.832 ; free physical = 20325 ; free virtual = 26739
+synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:28 . Memory (MB): peak = 2712.480 ; gain = 967.770 ; free physical = 17177 ; free virtual = 25553
 INFO: [Common 17-1381] The checkpoint '/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.runs/system_bpsk_demodulator_0_0_synth_1/system_bpsk_demodulator_0_0.dcp' has been generated.
-INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_bpsk_demodulator_0_0, cache-ID = 0dc28cbabea65310
 INFO: [Coretcl 2-1174] Renamed 4 cell refs.
 INFO: [Common 17-1381] The checkpoint '/home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.runs/system_bpsk_demodulator_0_0_synth_1/system_bpsk_demodulator_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_bpsk_demodulator_0_0_utilization_synth.rpt -pb system_bpsk_demodulator_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Mar 31 15:18:45 2026...
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 21 15:50:09 2026...

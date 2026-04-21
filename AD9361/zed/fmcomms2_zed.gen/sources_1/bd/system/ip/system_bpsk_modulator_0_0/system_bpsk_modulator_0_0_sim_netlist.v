@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-// Date        : Tue Mar 31 15:18:34 2026
+// Date        : Tue Apr 21 15:50:01 2026
 // Host        : kemal-EXCALIBUR-G770 running 64-bit Ubuntu 22.04.5 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_modulator_0_0/system_bpsk_modulator_0_0_sim_netlist.v
@@ -122,8 +122,6 @@ module system_bpsk_modulator_0_0
   wire S_AXI_WVALID;
   wire aclk;
   wire aresetn;
-  wire [1:0]NLW_inst_S_AXI_BRESP_UNCONNECTED;
-  wire [1:0]NLW_inst_S_AXI_RRESP_UNCONNECTED;
 
   assign S_AXI_BRESP[1] = \<const0> ;
   assign S_AXI_BRESP[0] = \<const0> ;
@@ -131,15 +129,13 @@ module system_bpsk_modulator_0_0
   assign S_AXI_RRESP[0] = \<const0> ;
   GND GND
        (.G(\<const0> ));
-  (* C_S_AXI_ADDR_WIDTH = "8" *) 
-  (* C_S_AXI_DATA_WIDTH = "32" *) 
   system_bpsk_modulator_0_0_bpsk_modulator_v1_0 inst
        (.M_AXIS_DAC_TDATA(M_AXIS_DAC_TDATA),
         .M_AXIS_DAC_TKEEP(M_AXIS_DAC_TKEEP),
         .M_AXIS_DAC_TLAST(M_AXIS_DAC_TLAST),
         .M_AXIS_DAC_TREADY(M_AXIS_DAC_TREADY),
         .M_AXIS_DAC_TVALID(M_AXIS_DAC_TVALID),
-        .S_AXIS_BITS_TDATA({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,S_AXIS_BITS_TDATA[0]}),
+        .S_AXIS_BITS_TDATA(S_AXIS_BITS_TDATA[0]),
         .S_AXIS_BITS_TREADY(S_AXIS_BITS_TREADY),
         .S_AXIS_BITS_TVALID(S_AXIS_BITS_TVALID),
         .S_AXIS_DMA_TDATA(S_AXIS_DMA_TDATA),
@@ -148,28 +144,24 @@ module system_bpsk_modulator_0_0
         .S_AXIS_DMA_TREADY(S_AXIS_DMA_TREADY),
         .S_AXIS_DMA_TVALID(S_AXIS_DMA_TVALID),
         .S_AXI_ACLK(S_AXI_ACLK),
-        .S_AXI_ARADDR({S_AXI_ARADDR[7:2],1'b0,1'b0}),
+        .S_AXI_ARADDR(S_AXI_ARADDR[7:2]),
         .S_AXI_ARESETN(S_AXI_ARESETN),
-        .S_AXI_ARPROT({1'b0,1'b0,1'b0}),
         .S_AXI_ARREADY(S_AXI_ARREADY),
         .S_AXI_ARVALID(S_AXI_ARVALID),
-        .S_AXI_AWADDR({S_AXI_AWADDR[7:2],1'b0,1'b0}),
-        .S_AXI_AWPROT({1'b0,1'b0,1'b0}),
+        .S_AXI_AWADDR(S_AXI_AWADDR[7:2]),
         .S_AXI_AWREADY(S_AXI_AWREADY),
         .S_AXI_AWVALID(S_AXI_AWVALID),
         .S_AXI_BREADY(S_AXI_BREADY),
-        .S_AXI_BRESP(NLW_inst_S_AXI_BRESP_UNCONNECTED[1:0]),
-        .S_AXI_BVALID(S_AXI_BVALID),
         .S_AXI_RDATA(S_AXI_RDATA),
         .S_AXI_RREADY(S_AXI_RREADY),
-        .S_AXI_RRESP(NLW_inst_S_AXI_RRESP_UNCONNECTED[1:0]),
         .S_AXI_RVALID(S_AXI_RVALID),
         .S_AXI_WDATA(S_AXI_WDATA),
         .S_AXI_WREADY(S_AXI_WREADY),
         .S_AXI_WSTRB(S_AXI_WSTRB),
         .S_AXI_WVALID(S_AXI_WVALID),
         .aclk(aclk),
-        .aresetn(aresetn));
+        .aresetn(aresetn),
+        .axi_bvalid_reg_0(S_AXI_BVALID));
 endmodule
 
 (* ORIG_REF_NAME = "bpsk_core" *) 
@@ -2494,88 +2486,79 @@ module system_bpsk_modulator_0_0_bpsk_core
         .R(\div_cnt[15]_i_1_n_0 ));
 endmodule
 
-(* C_S_AXI_ADDR_WIDTH = "8" *) (* C_S_AXI_DATA_WIDTH = "32" *) (* ORIG_REF_NAME = "bpsk_modulator_v1_0" *) 
+(* ORIG_REF_NAME = "bpsk_modulator_v1_0" *) 
 module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
-   (aclk,
-    aresetn,
-    S_AXI_ACLK,
-    S_AXI_ARESETN,
-    S_AXI_AWADDR,
-    S_AXI_AWPROT,
-    S_AXI_AWVALID,
+   (M_AXIS_DAC_TDATA,
+    M_AXIS_DAC_TVALID,
     S_AXI_AWREADY,
-    S_AXI_WDATA,
-    S_AXI_WSTRB,
-    S_AXI_WVALID,
     S_AXI_WREADY,
-    S_AXI_BRESP,
-    S_AXI_BVALID,
-    S_AXI_BREADY,
-    S_AXI_ARADDR,
-    S_AXI_ARPROT,
-    S_AXI_ARVALID,
     S_AXI_ARREADY,
     S_AXI_RDATA,
-    S_AXI_RRESP,
-    S_AXI_RVALID,
-    S_AXI_RREADY,
-    S_AXIS_BITS_TDATA,
-    S_AXIS_BITS_TVALID,
+    S_AXIS_DMA_TREADY,
+    M_AXIS_DAC_TLAST,
     S_AXIS_BITS_TREADY,
+    M_AXIS_DAC_TKEEP,
+    S_AXI_RVALID,
+    axi_bvalid_reg_0,
+    S_AXI_ACLK,
+    aclk,
+    S_AXI_WDATA,
+    S_AXI_AWADDR,
+    S_AXI_WSTRB,
+    M_AXIS_DAC_TREADY,
     S_AXIS_DMA_TDATA,
     S_AXIS_DMA_TVALID,
-    S_AXIS_DMA_TREADY,
+    aresetn,
     S_AXIS_DMA_TLAST,
     S_AXIS_DMA_TKEEP,
-    M_AXIS_DAC_TDATA,
-    M_AXIS_DAC_TVALID,
-    M_AXIS_DAC_TREADY,
-    M_AXIS_DAC_TLAST,
-    M_AXIS_DAC_TKEEP);
-  input aclk;
-  input aresetn;
-  input S_AXI_ACLK;
-  input S_AXI_ARESETN;
-  input [7:0]S_AXI_AWADDR;
-  input [2:0]S_AXI_AWPROT;
-  input S_AXI_AWVALID;
-  output S_AXI_AWREADY;
-  input [31:0]S_AXI_WDATA;
-  input [3:0]S_AXI_WSTRB;
-  input S_AXI_WVALID;
-  output S_AXI_WREADY;
-  output [1:0]S_AXI_BRESP;
-  output S_AXI_BVALID;
-  input S_AXI_BREADY;
-  input [7:0]S_AXI_ARADDR;
-  input [2:0]S_AXI_ARPROT;
-  input S_AXI_ARVALID;
-  output S_AXI_ARREADY;
-  output [31:0]S_AXI_RDATA;
-  output [1:0]S_AXI_RRESP;
-  output S_AXI_RVALID;
-  input S_AXI_RREADY;
-  input [7:0]S_AXIS_BITS_TDATA;
-  input S_AXIS_BITS_TVALID;
-  output S_AXIS_BITS_TREADY;
-  input [63:0]S_AXIS_DMA_TDATA;
-  input S_AXIS_DMA_TVALID;
-  output S_AXIS_DMA_TREADY;
-  input S_AXIS_DMA_TLAST;
-  input [7:0]S_AXIS_DMA_TKEEP;
+    S_AXI_ARESETN,
+    S_AXI_ARVALID,
+    S_AXI_RREADY,
+    S_AXI_WVALID,
+    S_AXI_AWVALID,
+    S_AXI_ARADDR,
+    S_AXIS_BITS_TDATA,
+    S_AXIS_BITS_TVALID,
+    S_AXI_BREADY);
   output [63:0]M_AXIS_DAC_TDATA;
   output M_AXIS_DAC_TVALID;
-  input M_AXIS_DAC_TREADY;
+  output S_AXI_AWREADY;
+  output S_AXI_WREADY;
+  output S_AXI_ARREADY;
+  output [31:0]S_AXI_RDATA;
+  output S_AXIS_DMA_TREADY;
   output M_AXIS_DAC_TLAST;
+  output S_AXIS_BITS_TREADY;
   output [7:0]M_AXIS_DAC_TKEEP;
+  output S_AXI_RVALID;
+  output axi_bvalid_reg_0;
+  input S_AXI_ACLK;
+  input aclk;
+  input [31:0]S_AXI_WDATA;
+  input [5:0]S_AXI_AWADDR;
+  input [3:0]S_AXI_WSTRB;
+  input M_AXIS_DAC_TREADY;
+  input [63:0]S_AXIS_DMA_TDATA;
+  input S_AXIS_DMA_TVALID;
+  input aresetn;
+  input S_AXIS_DMA_TLAST;
+  input [7:0]S_AXIS_DMA_TKEEP;
+  input S_AXI_ARESETN;
+  input S_AXI_ARVALID;
+  input S_AXI_RREADY;
+  input S_AXI_WVALID;
+  input S_AXI_AWVALID;
+  input [5:0]S_AXI_ARADDR;
+  input [0:0]S_AXIS_BITS_TDATA;
+  input S_AXIS_BITS_TVALID;
+  input S_AXI_BREADY;
 
-  wire \<const0> ;
   wire [63:0]M_AXIS_DAC_TDATA;
   wire [7:0]M_AXIS_DAC_TKEEP;
   wire M_AXIS_DAC_TLAST;
   wire M_AXIS_DAC_TREADY;
   wire M_AXIS_DAC_TVALID;
-  wire [7:0]S_AXIS_BITS_TDATA;
+  wire [0:0]S_AXIS_BITS_TDATA;
   wire S_AXIS_BITS_TREADY;
   wire S_AXIS_BITS_TVALID;
   wire [63:0]S_AXIS_DMA_TDATA;
@@ -2584,15 +2567,14 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
   wire S_AXIS_DMA_TREADY;
   wire S_AXIS_DMA_TVALID;
   wire S_AXI_ACLK;
-  wire [7:0]S_AXI_ARADDR;
+  wire [5:0]S_AXI_ARADDR;
   wire S_AXI_ARESETN;
   wire S_AXI_ARREADY;
   wire S_AXI_ARVALID;
-  wire [7:0]S_AXI_AWADDR;
+  wire [5:0]S_AXI_AWADDR;
   wire S_AXI_AWREADY;
   wire S_AXI_AWVALID;
   wire S_AXI_BREADY;
-  wire S_AXI_BVALID;
   wire [31:0]S_AXI_RDATA;
   wire S_AXI_RREADY;
   wire S_AXI_RVALID;
@@ -2612,6 +2594,7 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
   wire axi_awready0;
   wire axi_awready_i_1_n_0;
   wire axi_bvalid_i_1_n_0;
+  wire axi_bvalid_reg_0;
   wire \axi_rdata[0]_i_1_n_0 ;
   wire \axi_rdata[0]_i_2_n_0 ;
   wire \axi_rdata[0]_i_3_n_0 ;
@@ -2698,7 +2681,7 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
   wire axi_wready0;
   wire axireg_ch_sel;
   wire axireg_enable;
-  wire axireg_enable_reg_n_0;
+  wire axireg_enable_1;
   wire \axireg_i_neg[15]_i_1_n_0 ;
   wire \axireg_i_neg[7]_i_1_n_0 ;
   wire \axireg_i_pos[15]_i_1_n_0 ;
@@ -2709,9 +2692,8 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
   wire \axireg_pat_data[23]_i_1_n_0 ;
   wire \axireg_pat_data[31]_i_1_n_0 ;
   wire \axireg_pat_data[7]_i_1_n_0 ;
+  wire [1:0]axireg_src_sel;
   wire \axireg_src_sel[1]_i_2_n_0 ;
-  wire \axireg_src_sel_reg_n_0_[0] ;
-  wire \axireg_src_sel_reg_n_0_[1] ;
   wire [15:0]axireg_sym_div;
   wire \axireg_sym_div[15]_i_1_n_0 ;
   wire \axireg_sym_div[7]_i_1_n_0 ;
@@ -2726,9 +2708,9 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
   wire [7:0]data6;
   wire do_write;
   wire [2:0]p_0_in;
-  wire p_1_in;
+  wire [1:0]p_1_in;
   wire p_1_in0;
-  wire [1:0]p_1_in__0;
+  wire p_1_in_0;
   wire [15:0]p_2_in;
   wire snap_ch_sel;
   wire snap_enable;
@@ -2794,12 +2776,6 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
   wire wr_pulse_core;
   wire \wr_pulse_sync_reg_n_0_[0] ;
 
-  assign S_AXI_BRESP[1] = \<const0> ;
-  assign S_AXI_BRESP[0] = \<const0> ;
-  assign S_AXI_RRESP[1] = \<const0> ;
-  assign S_AXI_RRESP[0] = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
   (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT2 #(
     .INIT(4'hE)) 
@@ -2885,37 +2861,37 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
   FDRE \aw_addr_reg[2] 
        (.C(S_AXI_ACLK),
         .CE(axi_awready0),
-        .D(S_AXI_AWADDR[2]),
+        .D(S_AXI_AWADDR[0]),
         .Q(p_0_in[0]),
         .R(axi_awready_i_1_n_0));
   FDRE \aw_addr_reg[3] 
        (.C(S_AXI_ACLK),
         .CE(axi_awready0),
-        .D(S_AXI_AWADDR[3]),
+        .D(S_AXI_AWADDR[1]),
         .Q(p_0_in[1]),
         .R(axi_awready_i_1_n_0));
   FDRE \aw_addr_reg[4] 
        (.C(S_AXI_ACLK),
         .CE(axi_awready0),
-        .D(S_AXI_AWADDR[4]),
+        .D(S_AXI_AWADDR[2]),
         .Q(p_0_in[2]),
         .R(axi_awready_i_1_n_0));
   FDRE \aw_addr_reg[5] 
        (.C(S_AXI_ACLK),
         .CE(axi_awready0),
-        .D(S_AXI_AWADDR[5]),
+        .D(S_AXI_AWADDR[3]),
         .Q(\aw_addr_reg_n_0_[5] ),
         .R(axi_awready_i_1_n_0));
   FDRE \aw_addr_reg[6] 
        (.C(S_AXI_ACLK),
         .CE(axi_awready0),
-        .D(S_AXI_AWADDR[6]),
+        .D(S_AXI_AWADDR[4]),
         .Q(\aw_addr_reg_n_0_[6] ),
         .R(axi_awready_i_1_n_0));
   FDRE \aw_addr_reg[7] 
        (.C(S_AXI_ACLK),
         .CE(axi_awready0),
-        .D(S_AXI_AWADDR[7]),
+        .D(S_AXI_AWADDR[5]),
         .Q(\aw_addr_reg_n_0_[7] ),
         .R(axi_awready_i_1_n_0));
   LUT5 #(
@@ -2924,7 +2900,7 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
        (.I0(aw_done),
         .I1(S_AXI_AWVALID),
         .I2(S_AXI_ARESETN),
-        .I3(S_AXI_BVALID),
+        .I3(axi_bvalid_reg_0),
         .I4(S_AXI_BREADY),
         .O(aw_done_i_1_n_0));
   FDRE aw_done_reg
@@ -2968,22 +2944,22 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     axi_bvalid_i_1
        (.I0(w_done_reg_n_0),
         .I1(aw_done),
-        .I2(S_AXI_BVALID),
+        .I2(axi_bvalid_reg_0),
         .I3(S_AXI_BREADY),
         .O(axi_bvalid_i_1_n_0));
   FDRE axi_bvalid_reg
        (.C(S_AXI_ACLK),
         .CE(1'b1),
         .D(axi_bvalid_i_1_n_0),
-        .Q(S_AXI_BVALID),
+        .Q(axi_bvalid_reg_0),
         .R(axi_awready_i_1_n_0));
   LUT6 #(
     .INIT(64'hFFFFFFFFFFE200E2)) 
     \axi_rdata[0]_i_1 
        (.I0(\axi_rdata[0]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[4]),
+        .I1(S_AXI_ARADDR[2]),
         .I2(\axi_rdata[0]_i_3_n_0 ),
-        .I3(S_AXI_ARADDR[5]),
+        .I3(S_AXI_ARADDR[3]),
         .I4(\axi_rdata[3]_i_4_n_0 ),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[0]_i_1_n_0 ));
@@ -2992,183 +2968,183 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[0]_i_2 
        (.I0(data3[0]),
         .I1(axireg_sym_div[0]),
-        .I2(S_AXI_ARADDR[3]),
-        .I3(S_AXI_ARADDR[2]),
-        .I4(axireg_enable_reg_n_0),
+        .I2(S_AXI_ARADDR[1]),
+        .I3(S_AXI_ARADDR[0]),
+        .I4(axireg_enable),
         .O(\axi_rdata[0]_i_2_n_0 ));
   LUT5 #(
     .INIT(32'hA0A0CFC0)) 
     \axi_rdata[0]_i_3 
        (.I0(data6[0]),
         .I1(\sym_cnt_ff2_reg_n_0_[0] ),
-        .I2(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[1]),
         .I3(axireg_pat_data[0]),
-        .I4(S_AXI_ARADDR[2]),
+        .I4(S_AXI_ARADDR[0]),
         .O(\axi_rdata[0]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[10]_i_1 
        (.I0(\axi_rdata[10]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[10]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h00B8FFFF00B80000)) 
     \axi_rdata[10]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[10] ),
-        .I1(S_AXI_ARADDR[3]),
+        .I1(S_AXI_ARADDR[1]),
         .I2(axireg_pat_data[10]),
-        .I3(S_AXI_ARADDR[2]),
-        .I4(S_AXI_ARADDR[4]),
+        .I3(S_AXI_ARADDR[0]),
+        .I4(S_AXI_ARADDR[2]),
         .I5(\axi_rdata[10]_i_3_n_0 ),
         .O(\axi_rdata[10]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hA808)) 
     \axi_rdata[10]_i_3 
-       (.I0(S_AXI_ARADDR[3]),
+       (.I0(S_AXI_ARADDR[1]),
         .I1(axireg_sym_div[10]),
-        .I2(S_AXI_ARADDR[2]),
+        .I2(S_AXI_ARADDR[0]),
         .I3(data3[10]),
         .O(\axi_rdata[10]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[11]_i_1 
        (.I0(\axi_rdata[11]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[11]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h00B8FFFF00B80000)) 
     \axi_rdata[11]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[11] ),
-        .I1(S_AXI_ARADDR[3]),
+        .I1(S_AXI_ARADDR[1]),
         .I2(axireg_pat_data[11]),
-        .I3(S_AXI_ARADDR[2]),
-        .I4(S_AXI_ARADDR[4]),
+        .I3(S_AXI_ARADDR[0]),
+        .I4(S_AXI_ARADDR[2]),
         .I5(\axi_rdata[11]_i_3_n_0 ),
         .O(\axi_rdata[11]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hA808)) 
     \axi_rdata[11]_i_3 
-       (.I0(S_AXI_ARADDR[3]),
+       (.I0(S_AXI_ARADDR[1]),
         .I1(axireg_sym_div[11]),
-        .I2(S_AXI_ARADDR[2]),
+        .I2(S_AXI_ARADDR[0]),
         .I3(data3[11]),
         .O(\axi_rdata[11]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[12]_i_1 
        (.I0(\axi_rdata[12]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[12]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h00B8FFFF00B80000)) 
     \axi_rdata[12]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[12] ),
-        .I1(S_AXI_ARADDR[3]),
+        .I1(S_AXI_ARADDR[1]),
         .I2(axireg_pat_data[12]),
-        .I3(S_AXI_ARADDR[2]),
-        .I4(S_AXI_ARADDR[4]),
+        .I3(S_AXI_ARADDR[0]),
+        .I4(S_AXI_ARADDR[2]),
         .I5(\axi_rdata[12]_i_3_n_0 ),
         .O(\axi_rdata[12]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hA808)) 
     \axi_rdata[12]_i_3 
-       (.I0(S_AXI_ARADDR[3]),
+       (.I0(S_AXI_ARADDR[1]),
         .I1(axireg_sym_div[12]),
-        .I2(S_AXI_ARADDR[2]),
+        .I2(S_AXI_ARADDR[0]),
         .I3(data3[12]),
         .O(\axi_rdata[12]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[13]_i_1 
        (.I0(\axi_rdata[13]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[13]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h00B8FFFF00B80000)) 
     \axi_rdata[13]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[13] ),
-        .I1(S_AXI_ARADDR[3]),
+        .I1(S_AXI_ARADDR[1]),
         .I2(axireg_pat_data[13]),
-        .I3(S_AXI_ARADDR[2]),
-        .I4(S_AXI_ARADDR[4]),
+        .I3(S_AXI_ARADDR[0]),
+        .I4(S_AXI_ARADDR[2]),
         .I5(\axi_rdata[13]_i_3_n_0 ),
         .O(\axi_rdata[13]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hA808)) 
     \axi_rdata[13]_i_3 
-       (.I0(S_AXI_ARADDR[3]),
+       (.I0(S_AXI_ARADDR[1]),
         .I1(axireg_sym_div[13]),
-        .I2(S_AXI_ARADDR[2]),
+        .I2(S_AXI_ARADDR[0]),
         .I3(data3[13]),
         .O(\axi_rdata[13]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'h0000000000004540)) 
     \axi_rdata[14]_i_1 
-       (.I0(S_AXI_ARADDR[5]),
+       (.I0(S_AXI_ARADDR[3]),
         .I1(\axi_rdata[14]_i_2_n_0 ),
-        .I2(S_AXI_ARADDR[4]),
+        .I2(S_AXI_ARADDR[2]),
         .I3(\axi_rdata[14]_i_3_n_0 ),
-        .I4(S_AXI_ARADDR[6]),
-        .I5(S_AXI_ARADDR[7]),
+        .I4(S_AXI_ARADDR[4]),
+        .I5(S_AXI_ARADDR[5]),
         .O(\axi_rdata[14]_i_1_n_0 ));
   LUT4 #(
     .INIT(16'h00B8)) 
     \axi_rdata[14]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[14] ),
-        .I1(S_AXI_ARADDR[3]),
+        .I1(S_AXI_ARADDR[1]),
         .I2(axireg_pat_data[14]),
-        .I3(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[0]),
         .O(\axi_rdata[14]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hA808)) 
     \axi_rdata[14]_i_3 
-       (.I0(S_AXI_ARADDR[3]),
+       (.I0(S_AXI_ARADDR[1]),
         .I1(axireg_sym_div[14]),
-        .I2(S_AXI_ARADDR[2]),
+        .I2(S_AXI_ARADDR[0]),
         .I3(data3[14]),
         .O(\axi_rdata[14]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[15]_i_1 
        (.I0(\axi_rdata[15]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[15]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h00B8FFFF00B80000)) 
     \axi_rdata[15]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[15] ),
-        .I1(S_AXI_ARADDR[3]),
+        .I1(S_AXI_ARADDR[1]),
         .I2(axireg_pat_data[15]),
-        .I3(S_AXI_ARADDR[2]),
-        .I4(S_AXI_ARADDR[4]),
+        .I3(S_AXI_ARADDR[0]),
+        .I4(S_AXI_ARADDR[2]),
         .I5(\axi_rdata[15]_i_3_n_0 ),
         .O(\axi_rdata[15]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hA808)) 
     \axi_rdata[15]_i_3 
-       (.I0(S_AXI_ARADDR[3]),
+       (.I0(S_AXI_ARADDR[1]),
         .I1(axireg_sym_div[15]),
-        .I2(S_AXI_ARADDR[2]),
+        .I2(S_AXI_ARADDR[0]),
         .I3(data3[15]),
         .O(\axi_rdata[15]_i_3_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair21" *) 
@@ -3176,47 +3152,47 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     .INIT(16'hFFFE)) 
     \axi_rdata[16]_i_1 
        (.I0(\axi_rdata[16]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[6]),
-        .I3(S_AXI_ARADDR[7]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[4]),
+        .I3(S_AXI_ARADDR[5]),
         .O(\axi_rdata[16]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h0F000000A0C0A0C0)) 
     \axi_rdata[16]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[16] ),
         .I1(axireg_pat_data[16]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
         .I4(data3[16]),
-        .I5(S_AXI_ARADDR[2]),
+        .I5(S_AXI_ARADDR[0]),
         .O(\axi_rdata[16]_i_2_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT4 #(
     .INIT(16'h0004)) 
     \axi_rdata[17]_i_1 
-       (.I0(S_AXI_ARADDR[5]),
+       (.I0(S_AXI_ARADDR[3]),
         .I1(\axi_rdata[17]_i_2_n_0 ),
-        .I2(S_AXI_ARADDR[6]),
-        .I3(S_AXI_ARADDR[7]),
+        .I2(S_AXI_ARADDR[4]),
+        .I3(S_AXI_ARADDR[5]),
         .O(\axi_rdata[17]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h0F000000A0C0A0C0)) 
     \axi_rdata[17]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[17] ),
         .I1(axireg_pat_data[17]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
         .I4(data3[17]),
-        .I5(S_AXI_ARADDR[2]),
+        .I5(S_AXI_ARADDR[0]),
         .O(\axi_rdata[17]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[18]_i_1 
        (.I0(\axi_rdata[18]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[18]_i_1_n_0 ));
   LUT6 #(
@@ -3224,19 +3200,19 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[18]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[18] ),
         .I1(axireg_pat_data[18]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
         .I4(data3[18]),
-        .I5(S_AXI_ARADDR[2]),
+        .I5(S_AXI_ARADDR[0]),
         .O(\axi_rdata[18]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[19]_i_1 
        (.I0(\axi_rdata[19]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[19]_i_1_n_0 ));
   LUT6 #(
@@ -3244,18 +3220,18 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[19]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[19] ),
         .I1(axireg_pat_data[19]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
         .I4(data3[19]),
-        .I5(S_AXI_ARADDR[2]),
+        .I5(S_AXI_ARADDR[0]),
         .O(\axi_rdata[19]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFFE200E2)) 
     \axi_rdata[1]_i_1 
        (.I0(\axi_rdata[1]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[4]),
+        .I1(S_AXI_ARADDR[2]),
         .I2(\axi_rdata[1]_i_3_n_0 ),
-        .I3(S_AXI_ARADDR[5]),
+        .I3(S_AXI_ARADDR[3]),
         .I4(\axi_rdata[3]_i_4_n_0 ),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[1]_i_1_n_0 ));
@@ -3264,47 +3240,47 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[1]_i_2 
        (.I0(data3[1]),
         .I1(axireg_sym_div[1]),
-        .I2(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[1]),
         .I3(active_ff[1]),
-        .I4(S_AXI_ARADDR[2]),
-        .I5(\axireg_src_sel_reg_n_0_[0] ),
+        .I4(S_AXI_ARADDR[0]),
+        .I5(axireg_src_sel[0]),
         .O(\axi_rdata[1]_i_2_n_0 ));
   LUT5 #(
     .INIT(32'hA0A0CFC0)) 
     \axi_rdata[1]_i_3 
        (.I0(data6[1]),
         .I1(\sym_cnt_ff2_reg_n_0_[1] ),
-        .I2(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[1]),
         .I3(axireg_pat_data[1]),
-        .I4(S_AXI_ARADDR[2]),
+        .I4(S_AXI_ARADDR[0]),
         .O(\axi_rdata[1]_i_3_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT4 #(
     .INIT(16'h0004)) 
     \axi_rdata[20]_i_1 
-       (.I0(S_AXI_ARADDR[5]),
+       (.I0(S_AXI_ARADDR[3]),
         .I1(\axi_rdata[20]_i_2_n_0 ),
-        .I2(S_AXI_ARADDR[6]),
-        .I3(S_AXI_ARADDR[7]),
+        .I2(S_AXI_ARADDR[4]),
+        .I3(S_AXI_ARADDR[5]),
         .O(\axi_rdata[20]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h0F000000A0C0A0C0)) 
     \axi_rdata[20]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[20] ),
         .I1(axireg_pat_data[20]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
         .I4(data3[20]),
-        .I5(S_AXI_ARADDR[2]),
+        .I5(S_AXI_ARADDR[0]),
         .O(\axi_rdata[20]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[21]_i_1 
        (.I0(\axi_rdata[21]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[21]_i_1_n_0 ));
   LUT6 #(
@@ -3312,38 +3288,38 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[21]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[21] ),
         .I1(axireg_pat_data[21]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
         .I4(data3[21]),
-        .I5(S_AXI_ARADDR[2]),
+        .I5(S_AXI_ARADDR[0]),
         .O(\axi_rdata[21]_i_2_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT4 #(
     .INIT(16'h0004)) 
     \axi_rdata[22]_i_1 
-       (.I0(S_AXI_ARADDR[5]),
+       (.I0(S_AXI_ARADDR[3]),
         .I1(\axi_rdata[22]_i_2_n_0 ),
-        .I2(S_AXI_ARADDR[6]),
-        .I3(S_AXI_ARADDR[7]),
+        .I2(S_AXI_ARADDR[4]),
+        .I3(S_AXI_ARADDR[5]),
         .O(\axi_rdata[22]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h0F000000A0C0A0C0)) 
     \axi_rdata[22]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[22] ),
         .I1(axireg_pat_data[22]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
         .I4(data3[22]),
-        .I5(S_AXI_ARADDR[2]),
+        .I5(S_AXI_ARADDR[0]),
         .O(\axi_rdata[22]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[23]_i_1 
        (.I0(\axi_rdata[23]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[23]_i_1_n_0 ));
   LUT6 #(
@@ -3351,38 +3327,38 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[23]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[23] ),
         .I1(axireg_pat_data[23]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
         .I4(data3[23]),
-        .I5(S_AXI_ARADDR[2]),
+        .I5(S_AXI_ARADDR[0]),
         .O(\axi_rdata[23]_i_2_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT4 #(
     .INIT(16'h0004)) 
     \axi_rdata[24]_i_1 
-       (.I0(S_AXI_ARADDR[5]),
+       (.I0(S_AXI_ARADDR[3]),
         .I1(\axi_rdata[24]_i_2_n_0 ),
-        .I2(S_AXI_ARADDR[6]),
-        .I3(S_AXI_ARADDR[7]),
+        .I2(S_AXI_ARADDR[4]),
+        .I3(S_AXI_ARADDR[5]),
         .O(\axi_rdata[24]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h0F000000A0C0A0C0)) 
     \axi_rdata[24]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[24] ),
         .I1(axireg_pat_data[24]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
         .I4(data3[24]),
-        .I5(S_AXI_ARADDR[2]),
+        .I5(S_AXI_ARADDR[0]),
         .O(\axi_rdata[24]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[25]_i_1 
        (.I0(\axi_rdata[25]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[25]_i_1_n_0 ));
   LUT6 #(
@@ -3390,19 +3366,19 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[25]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[25] ),
         .I1(axireg_pat_data[25]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
         .I4(data3[25]),
-        .I5(S_AXI_ARADDR[2]),
+        .I5(S_AXI_ARADDR[0]),
         .O(\axi_rdata[25]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[26]_i_1 
        (.I0(\axi_rdata[26]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[26]_i_1_n_0 ));
   LUT6 #(
@@ -3410,19 +3386,19 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[26]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[26] ),
         .I1(axireg_pat_data[26]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
         .I4(data3[26]),
-        .I5(S_AXI_ARADDR[2]),
+        .I5(S_AXI_ARADDR[0]),
         .O(\axi_rdata[26]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[27]_i_1 
        (.I0(\axi_rdata[27]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[27]_i_1_n_0 ));
   LUT6 #(
@@ -3430,19 +3406,19 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[27]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[27] ),
         .I1(axireg_pat_data[27]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
         .I4(data3[27]),
-        .I5(S_AXI_ARADDR[2]),
+        .I5(S_AXI_ARADDR[0]),
         .O(\axi_rdata[27]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[28]_i_1 
        (.I0(\axi_rdata[28]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[28]_i_1_n_0 ));
   LUT6 #(
@@ -3450,37 +3426,37 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[28]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[28] ),
         .I1(axireg_pat_data[28]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
         .I4(data3[28]),
-        .I5(S_AXI_ARADDR[2]),
+        .I5(S_AXI_ARADDR[0]),
         .O(\axi_rdata[28]_i_2_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT4 #(
     .INIT(16'h0004)) 
     \axi_rdata[29]_i_1 
-       (.I0(S_AXI_ARADDR[5]),
+       (.I0(S_AXI_ARADDR[3]),
         .I1(\axi_rdata[29]_i_2_n_0 ),
-        .I2(S_AXI_ARADDR[6]),
-        .I3(S_AXI_ARADDR[7]),
+        .I2(S_AXI_ARADDR[4]),
+        .I3(S_AXI_ARADDR[5]),
         .O(\axi_rdata[29]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h0F000000A0C0A0C0)) 
     \axi_rdata[29]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[29] ),
         .I1(axireg_pat_data[29]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
         .I4(data3[29]),
-        .I5(S_AXI_ARADDR[2]),
+        .I5(S_AXI_ARADDR[0]),
         .O(\axi_rdata[29]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFFE200E2)) 
     \axi_rdata[2]_i_1 
        (.I0(\axi_rdata[2]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[4]),
+        .I1(S_AXI_ARADDR[2]),
         .I2(\axi_rdata[2]_i_3_n_0 ),
-        .I3(S_AXI_ARADDR[5]),
+        .I3(S_AXI_ARADDR[3]),
         .I4(\axi_rdata[3]_i_4_n_0 ),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[2]_i_1_n_0 ));
@@ -3489,27 +3465,27 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[2]_i_2 
        (.I0(data3[2]),
         .I1(axireg_sym_div[2]),
-        .I2(S_AXI_ARADDR[3]),
-        .I3(\axireg_src_sel_reg_n_0_[1] ),
-        .I4(S_AXI_ARADDR[2]),
+        .I2(S_AXI_ARADDR[1]),
+        .I3(axireg_src_sel[1]),
+        .I4(S_AXI_ARADDR[0]),
         .O(\axi_rdata[2]_i_2_n_0 ));
   LUT5 #(
     .INIT(32'hA0A0CFC0)) 
     \axi_rdata[2]_i_3 
        (.I0(data6[2]),
         .I1(\sym_cnt_ff2_reg_n_0_[2] ),
-        .I2(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[1]),
         .I3(axireg_pat_data[2]),
-        .I4(S_AXI_ARADDR[2]),
+        .I4(S_AXI_ARADDR[0]),
         .O(\axi_rdata[2]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[30]_i_1 
        (.I0(\axi_rdata[30]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[30]_i_1_n_0 ));
   LUT6 #(
@@ -3517,19 +3493,19 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[30]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[30] ),
         .I1(axireg_pat_data[30]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
         .I4(data3[30]),
-        .I5(S_AXI_ARADDR[2]),
+        .I5(S_AXI_ARADDR[0]),
         .O(\axi_rdata[30]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[31]_i_1 
        (.I0(\axi_rdata[31]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[31]_i_1_n_0 ));
   LUT6 #(
@@ -3537,24 +3513,24 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[31]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[31] ),
         .I1(axireg_pat_data[31]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
         .I4(data3[31]),
-        .I5(S_AXI_ARADDR[2]),
+        .I5(S_AXI_ARADDR[0]),
         .O(\axi_rdata[31]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'hE)) 
     \axi_rdata[31]_i_3 
-       (.I0(S_AXI_ARADDR[7]),
-        .I1(S_AXI_ARADDR[6]),
+       (.I0(S_AXI_ARADDR[5]),
+        .I1(S_AXI_ARADDR[4]),
         .O(\axi_rdata[31]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFFE200E2)) 
     \axi_rdata[3]_i_1 
        (.I0(\axi_rdata[3]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[4]),
+        .I1(S_AXI_ARADDR[2]),
         .I2(\axi_rdata[3]_i_3_n_0 ),
-        .I3(S_AXI_ARADDR[5]),
+        .I3(S_AXI_ARADDR[3]),
         .I4(\axi_rdata[3]_i_4_n_0 ),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[3]_i_1_n_0 ));
@@ -3563,73 +3539,73 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[3]_i_2 
        (.I0(data3[3]),
         .I1(axireg_sym_div[3]),
-        .I2(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[1]),
         .I3(axireg_ch_sel),
-        .I4(S_AXI_ARADDR[2]),
+        .I4(S_AXI_ARADDR[0]),
         .O(\axi_rdata[3]_i_2_n_0 ));
   LUT5 #(
     .INIT(32'hA0A0CFC0)) 
     \axi_rdata[3]_i_3 
        (.I0(data6[3]),
         .I1(\sym_cnt_ff2_reg_n_0_[3] ),
-        .I2(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[1]),
         .I3(axireg_pat_data[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I4(S_AXI_ARADDR[0]),
         .O(\axi_rdata[3]_i_3_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \axi_rdata[3]_i_4 
-       (.I0(S_AXI_ARADDR[2]),
-        .I1(S_AXI_ARADDR[3]),
-        .I2(S_AXI_ARADDR[4]),
+       (.I0(S_AXI_ARADDR[0]),
+        .I1(S_AXI_ARADDR[1]),
+        .I2(S_AXI_ARADDR[2]),
         .O(\axi_rdata[3]_i_4_n_0 ));
   LUT6 #(
     .INIT(64'h0000000000004540)) 
     \axi_rdata[4]_i_1 
-       (.I0(S_AXI_ARADDR[5]),
+       (.I0(S_AXI_ARADDR[3]),
         .I1(\axi_rdata[4]_i_2_n_0 ),
-        .I2(S_AXI_ARADDR[4]),
+        .I2(S_AXI_ARADDR[2]),
         .I3(\axi_rdata[4]_i_3_n_0 ),
-        .I4(S_AXI_ARADDR[6]),
-        .I5(S_AXI_ARADDR[7]),
+        .I4(S_AXI_ARADDR[4]),
+        .I5(S_AXI_ARADDR[5]),
         .O(\axi_rdata[4]_i_1_n_0 ));
   LUT5 #(
     .INIT(32'hA0A0CFC0)) 
     \axi_rdata[4]_i_2 
        (.I0(data6[4]),
         .I1(\sym_cnt_ff2_reg_n_0_[4] ),
-        .I2(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[1]),
         .I3(axireg_pat_data[4]),
-        .I4(S_AXI_ARADDR[2]),
+        .I4(S_AXI_ARADDR[0]),
         .O(\axi_rdata[4]_i_2_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT4 #(
     .INIT(16'hA808)) 
     \axi_rdata[4]_i_3 
-       (.I0(S_AXI_ARADDR[3]),
+       (.I0(S_AXI_ARADDR[1]),
         .I1(axireg_sym_div[4]),
-        .I2(S_AXI_ARADDR[2]),
+        .I2(S_AXI_ARADDR[0]),
         .I3(data3[4]),
         .O(\axi_rdata[4]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[5]_i_1 
        (.I0(\axi_rdata[5]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[5]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hB8B8B8888888B888)) 
     \axi_rdata[5]_i_2 
        (.I0(\axi_rdata[5]_i_3_n_0 ),
-        .I1(S_AXI_ARADDR[4]),
-        .I2(S_AXI_ARADDR[3]),
+        .I1(S_AXI_ARADDR[2]),
+        .I2(S_AXI_ARADDR[1]),
         .I3(axireg_sym_div[5]),
-        .I4(S_AXI_ARADDR[2]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(data3[5]),
         .O(\axi_rdata[5]_i_2_n_0 ));
   LUT5 #(
@@ -3637,28 +3613,28 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[5]_i_3 
        (.I0(data6[5]),
         .I1(\sym_cnt_ff2_reg_n_0_[5] ),
-        .I2(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[1]),
         .I3(axireg_pat_data[5]),
-        .I4(S_AXI_ARADDR[2]),
+        .I4(S_AXI_ARADDR[0]),
         .O(\axi_rdata[5]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[6]_i_1 
        (.I0(\axi_rdata[6]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[6]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hB8B8B8888888B888)) 
     \axi_rdata[6]_i_2 
        (.I0(\axi_rdata[6]_i_3_n_0 ),
-        .I1(S_AXI_ARADDR[4]),
-        .I2(S_AXI_ARADDR[3]),
+        .I1(S_AXI_ARADDR[2]),
+        .I2(S_AXI_ARADDR[1]),
         .I3(axireg_sym_div[6]),
-        .I4(S_AXI_ARADDR[2]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(data3[6]),
         .O(\axi_rdata[6]_i_2_n_0 ));
   LUT5 #(
@@ -3666,28 +3642,28 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[6]_i_3 
        (.I0(data6[6]),
         .I1(\sym_cnt_ff2_reg_n_0_[6] ),
-        .I2(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[1]),
         .I3(axireg_pat_data[6]),
-        .I4(S_AXI_ARADDR[2]),
+        .I4(S_AXI_ARADDR[0]),
         .O(\axi_rdata[6]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[7]_i_1 
        (.I0(\axi_rdata[7]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[7]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hB8B8B8888888B888)) 
     \axi_rdata[7]_i_2 
        (.I0(\axi_rdata[7]_i_3_n_0 ),
-        .I1(S_AXI_ARADDR[4]),
-        .I2(S_AXI_ARADDR[3]),
+        .I1(S_AXI_ARADDR[2]),
+        .I2(S_AXI_ARADDR[1]),
         .I3(axireg_sym_div[7]),
-        .I4(S_AXI_ARADDR[2]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(data3[7]),
         .O(\axi_rdata[7]_i_2_n_0 ));
   LUT5 #(
@@ -3695,62 +3671,62 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     \axi_rdata[7]_i_3 
        (.I0(data6[7]),
         .I1(\sym_cnt_ff2_reg_n_0_[7] ),
-        .I2(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[1]),
         .I3(axireg_pat_data[7]),
-        .I4(S_AXI_ARADDR[2]),
+        .I4(S_AXI_ARADDR[0]),
         .O(\axi_rdata[7]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'h0000000000004540)) 
     \axi_rdata[8]_i_1 
-       (.I0(S_AXI_ARADDR[5]),
+       (.I0(S_AXI_ARADDR[3]),
         .I1(\axi_rdata[8]_i_2_n_0 ),
-        .I2(S_AXI_ARADDR[4]),
+        .I2(S_AXI_ARADDR[2]),
         .I3(\axi_rdata[8]_i_3_n_0 ),
-        .I4(S_AXI_ARADDR[6]),
-        .I5(S_AXI_ARADDR[7]),
+        .I4(S_AXI_ARADDR[4]),
+        .I5(S_AXI_ARADDR[5]),
         .O(\axi_rdata[8]_i_1_n_0 ));
   LUT4 #(
     .INIT(16'h00B8)) 
     \axi_rdata[8]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[8] ),
-        .I1(S_AXI_ARADDR[3]),
+        .I1(S_AXI_ARADDR[1]),
         .I2(axireg_pat_data[8]),
-        .I3(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[0]),
         .O(\axi_rdata[8]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hA808)) 
     \axi_rdata[8]_i_3 
-       (.I0(S_AXI_ARADDR[3]),
+       (.I0(S_AXI_ARADDR[1]),
         .I1(axireg_sym_div[8]),
-        .I2(S_AXI_ARADDR[2]),
+        .I2(S_AXI_ARADDR[0]),
         .I3(data3[8]),
         .O(\axi_rdata[8]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFEEEEEEE2)) 
     \axi_rdata[9]_i_1 
        (.I0(\axi_rdata[9]_i_2_n_0 ),
-        .I1(S_AXI_ARADDR[5]),
-        .I2(S_AXI_ARADDR[4]),
-        .I3(S_AXI_ARADDR[3]),
-        .I4(S_AXI_ARADDR[2]),
+        .I1(S_AXI_ARADDR[3]),
+        .I2(S_AXI_ARADDR[2]),
+        .I3(S_AXI_ARADDR[1]),
+        .I4(S_AXI_ARADDR[0]),
         .I5(\axi_rdata[31]_i_3_n_0 ),
         .O(\axi_rdata[9]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h00B8FFFF00B80000)) 
     \axi_rdata[9]_i_2 
        (.I0(\sym_cnt_ff2_reg_n_0_[9] ),
-        .I1(S_AXI_ARADDR[3]),
+        .I1(S_AXI_ARADDR[1]),
         .I2(axireg_pat_data[9]),
-        .I3(S_AXI_ARADDR[2]),
-        .I4(S_AXI_ARADDR[4]),
+        .I3(S_AXI_ARADDR[0]),
+        .I4(S_AXI_ARADDR[2]),
         .I5(\axi_rdata[9]_i_3_n_0 ),
         .O(\axi_rdata[9]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hA808)) 
     \axi_rdata[9]_i_3 
-       (.I0(S_AXI_ARADDR[3]),
+       (.I0(S_AXI_ARADDR[1]),
         .I1(axireg_sym_div[9]),
-        .I2(S_AXI_ARADDR[2]),
+        .I2(S_AXI_ARADDR[0]),
         .I3(data3[9]),
         .O(\axi_rdata[9]_i_3_n_0 ));
   FDRE \axi_rdata_reg[0] 
@@ -3974,15 +3950,15 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
         .R(axi_awready_i_1_n_0));
   FDRE axireg_ch_sel_reg
        (.C(S_AXI_ACLK),
-        .CE(axireg_enable),
+        .CE(axireg_enable_1),
         .D(\w_data_reg_n_0_[3] ),
         .Q(axireg_ch_sel),
         .R(axi_awready_i_1_n_0));
   FDRE axireg_enable_reg
        (.C(S_AXI_ACLK),
-        .CE(axireg_enable),
+        .CE(axireg_enable_1),
         .D(\w_data_reg_n_0_[0] ),
-        .Q(axireg_enable_reg_n_0),
+        .Q(axireg_enable),
         .R(axi_awready_i_1_n_0));
   LUT5 #(
     .INIT(32'h08000000)) 
@@ -4000,7 +3976,7 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
         .I1(p_0_in[1]),
         .I2(p_0_in[2]),
         .I3(\axireg_i_pos[15]_i_2_n_0 ),
-        .I4(p_1_in),
+        .I4(p_1_in_0),
         .O(\axireg_i_neg[7]_i_1_n_0 ));
   FDSE \axireg_i_neg_reg[0] 
        (.C(S_AXI_ACLK),
@@ -4047,13 +4023,13 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
   FDRE \axireg_i_neg_reg[1] 
        (.C(S_AXI_ACLK),
         .CE(\axireg_i_neg[7]_i_1_n_0 ),
-        .D(p_1_in__0[0]),
+        .D(p_1_in[0]),
         .Q(data3[1]),
         .R(axi_awready_i_1_n_0));
   FDRE \axireg_i_neg_reg[2] 
        (.C(S_AXI_ACLK),
         .CE(\axireg_i_neg[7]_i_1_n_0 ),
-        .D(p_1_in__0[1]),
+        .D(p_1_in[1]),
         .Q(data3[2]),
         .R(axi_awready_i_1_n_0));
   FDRE \axireg_i_neg_reg[3] 
@@ -4111,7 +4087,7 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     .INIT(64'h0000000000001000)) 
     \axireg_i_pos[15]_i_2 
        (.I0(\aw_addr_reg_n_0_[7] ),
-        .I1(S_AXI_BVALID),
+        .I1(axi_bvalid_reg_0),
         .I2(aw_done),
         .I3(w_done_reg_n_0),
         .I4(\aw_addr_reg_n_0_[6] ),
@@ -4252,7 +4228,7 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
        (.I0(p_0_in[2]),
         .I1(\axireg_src_sel[1]_i_2_n_0 ),
         .I2(p_0_in[1]),
-        .I3(p_1_in),
+        .I3(p_1_in_0),
         .O(\axireg_pat_data[7]_i_1_n_0 ));
   FDRE \axireg_pat_data_reg[0] 
        (.C(S_AXI_ACLK),
@@ -4323,7 +4299,7 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
   FDSE \axireg_pat_data_reg[1] 
        (.C(S_AXI_ACLK),
         .CE(\axireg_pat_data[7]_i_1_n_0 ),
-        .D(p_1_in__0[0]),
+        .D(p_1_in[0]),
         .Q(axireg_pat_data[1]),
         .S(axi_awready_i_1_n_0));
   FDRE \axireg_pat_data_reg[20] 
@@ -4389,7 +4365,7 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
   FDRE \axireg_pat_data_reg[2] 
        (.C(S_AXI_ACLK),
         .CE(\axireg_pat_data[7]_i_1_n_0 ),
-        .D(p_1_in__0[1]),
+        .D(p_1_in[1]),
         .Q(axireg_pat_data[2]),
         .R(axi_awready_i_1_n_0));
   FDSE \axireg_pat_data_reg[30] 
@@ -4450,10 +4426,10 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
     .INIT(16'h0400)) 
     \axireg_src_sel[1]_i_1 
        (.I0(p_0_in[2]),
-        .I1(p_1_in),
+        .I1(p_1_in_0),
         .I2(p_0_in[1]),
         .I3(\axireg_src_sel[1]_i_2_n_0 ),
-        .O(axireg_enable));
+        .O(axireg_enable_1));
   LUT5 #(
     .INIT(32'h00000010)) 
     \axireg_src_sel[1]_i_2 
@@ -4465,15 +4441,15 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
         .O(\axireg_src_sel[1]_i_2_n_0 ));
   FDRE \axireg_src_sel_reg[0] 
        (.C(S_AXI_ACLK),
-        .CE(axireg_enable),
-        .D(p_1_in__0[0]),
-        .Q(\axireg_src_sel_reg_n_0_[0] ),
+        .CE(axireg_enable_1),
+        .D(p_1_in[0]),
+        .Q(axireg_src_sel[0]),
         .R(axi_awready_i_1_n_0));
   FDRE \axireg_src_sel_reg[1] 
        (.C(S_AXI_ACLK),
-        .CE(axireg_enable),
-        .D(p_1_in__0[1]),
-        .Q(\axireg_src_sel_reg_n_0_[1] ),
+        .CE(axireg_enable_1),
+        .D(p_1_in[1]),
+        .Q(axireg_src_sel[1]),
         .R(axi_awready_i_1_n_0));
   LUT4 #(
     .INIT(16'h0800)) 
@@ -4486,7 +4462,7 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
   LUT4 #(
     .INIT(16'h0800)) 
     \axireg_sym_div[7]_i_1 
-       (.I0(p_1_in),
+       (.I0(p_1_in_0),
         .I1(p_0_in[1]),
         .I2(p_0_in[2]),
         .I3(\axireg_src_sel[1]_i_2_n_0 ),
@@ -4536,13 +4512,13 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
   FDRE \axireg_sym_div_reg[1] 
        (.C(S_AXI_ACLK),
         .CE(\axireg_sym_div[7]_i_1_n_0 ),
-        .D(p_1_in__0[0]),
+        .D(p_1_in[0]),
         .Q(axireg_sym_div[1]),
         .R(axi_awready_i_1_n_0));
   FDRE \axireg_sym_div_reg[2] 
        (.C(S_AXI_ACLK),
         .CE(\axireg_sym_div[7]_i_1_n_0 ),
-        .D(p_1_in__0[1]),
+        .D(p_1_in[1]),
         .Q(axireg_sym_div[2]),
         .R(axi_awready_i_1_n_0));
   FDSE \axireg_sym_div_reg[3] 
@@ -5100,7 +5076,7 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
   FDRE snap_enable_reg
        (.C(S_AXI_ACLK),
         .CE(1'b1),
-        .D(axireg_enable_reg_n_0),
+        .D(axireg_enable),
         .Q(snap_enable),
         .R(axi_awready_i_1_n_0));
   FDSE \snap_i_neg_reg[0] 
@@ -5490,13 +5466,13 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
   FDRE \snap_src_sel_reg[0] 
        (.C(S_AXI_ACLK),
         .CE(1'b1),
-        .D(\axireg_src_sel_reg_n_0_[0] ),
+        .D(axireg_src_sel[0]),
         .Q(snap_src_sel[0]),
         .R(axi_awready_i_1_n_0));
   FDRE \snap_src_sel_reg[1] 
        (.C(S_AXI_ACLK),
         .CE(1'b1),
-        .D(\axireg_src_sel_reg_n_0_[1] ),
+        .D(axireg_src_sel[1]),
         .Q(snap_src_sel[1]),
         .R(axi_awready_i_1_n_0));
   FDRE \snap_sym_div_reg[0] 
@@ -6082,7 +6058,7 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
         .M_AXIS_DAC_TVALID(M_AXIS_DAC_TVALID),
         .Q(core_sym_div),
         .SS(u_bpsk_core_n_0),
-        .S_AXIS_BITS_TDATA(S_AXIS_BITS_TDATA[0]),
+        .S_AXIS_BITS_TDATA(S_AXIS_BITS_TDATA),
         .S_AXIS_BITS_TREADY(S_AXIS_BITS_TREADY),
         .S_AXIS_BITS_TVALID(S_AXIS_BITS_TVALID),
         .S_AXIS_DMA_TDATA(S_AXIS_DMA_TDATA),
@@ -6165,7 +6141,7 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
        (.C(S_AXI_ACLK),
         .CE(axi_wready0),
         .D(S_AXI_WDATA[1]),
-        .Q(p_1_in__0[0]),
+        .Q(p_1_in[0]),
         .R(axi_awready_i_1_n_0));
   FDRE \w_data_reg[20] 
        (.C(S_AXI_ACLK),
@@ -6231,7 +6207,7 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
        (.C(S_AXI_ACLK),
         .CE(axi_wready0),
         .D(S_AXI_WDATA[2]),
-        .Q(p_1_in__0[1]),
+        .Q(p_1_in[1]),
         .R(axi_awready_i_1_n_0));
   FDRE \w_data_reg[30] 
        (.C(S_AXI_ACLK),
@@ -6293,7 +6269,7 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
        (.I0(w_done_reg_n_0),
         .I1(S_AXI_WVALID),
         .I2(S_AXI_ARESETN),
-        .I3(S_AXI_BVALID),
+        .I3(axi_bvalid_reg_0),
         .I4(S_AXI_BREADY),
         .O(w_done_i_1_n_0));
   FDRE w_done_reg
@@ -6306,7 +6282,7 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
        (.C(S_AXI_ACLK),
         .CE(axi_wready0),
         .D(S_AXI_WSTRB[0]),
-        .Q(p_1_in),
+        .Q(p_1_in_0),
         .R(axi_awready_i_1_n_0));
   FDRE \w_strb_reg[1] 
        (.C(S_AXI_ACLK),
@@ -6330,7 +6306,7 @@ module system_bpsk_modulator_0_0_bpsk_modulator_v1_0
   LUT3 #(
     .INIT(8'h40)) 
     wr_pulse_axi_i_1
-       (.I0(S_AXI_BVALID),
+       (.I0(axi_bvalid_reg_0),
         .I1(aw_done),
         .I2(w_done_reg_n_0),
         .O(do_write));

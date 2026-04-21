@@ -2,12 +2,12 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Tue Mar 31 15:18:02 2026
-# Process ID: 10799
+# Start of session at: Tue Apr 21 15:49:34 2026
+# Process ID: 36556
 # Current directory: /home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.runs/system_bpsk_modulator_0_0_synth_1
 # Command line: vivado -log system_bpsk_modulator_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_bpsk_modulator_0_0.tcl
 # Log file: /home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.runs/system_bpsk_modulator_0_0_synth_1/system_bpsk_modulator_0_0.vds
 # Journal file: /home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.runs/system_bpsk_modulator_0_0_synth_1/vivado.jou
-# Running On: kemal-EXCALIBUR-G770, OS: Linux, CPU Frequency: 4100.000 MHz, CPU Physical cores: 6, Host memory: 33383 MB
+# Running On: kemal-EXCALIBUR-G770, OS: Linux, CPU Frequency: 4278.095 MHz, CPU Physical cores: 6, Host memory: 33383 MB
 #-----------------------------------------------------------
 source system_bpsk_modulator_0_0.tcl -notrace

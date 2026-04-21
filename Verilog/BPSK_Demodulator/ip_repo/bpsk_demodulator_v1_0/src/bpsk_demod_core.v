@@ -118,8 +118,7 @@ module bpsk_demod_core (
     // ---- NCO + complex mixer ------------------------------------------------
     // NCO phase correction: proportional term (17 bits for sign extension into 18)
     wire signed [15:0] phase_err_p;    // defined below after mixer
-    wire signed [17:0] phase_corr_nco = cfg_bypass_costas ? 18'sd0
-                                      : {{2{phase_err_p[15]}}, phase_err_p};
+    wire signed [17:0] phase_corr_nco = 18'sd0; // Proportional term handled in freq_word now
 
     wire signed [15:0] cos_nco, sin_nco;
 
@@ -164,9 +163,24 @@ module bpsk_demod_core (
     assign phase_err_p = i_mix[15] ? (~q_mix + 16'd1) : q_mix;
     assign phase_err_out = phase_err_p;
 
-    // ---- Costas PI loop filter  (updated once per symbol dump) --------------
-    // Updated in the timing recovery section below on each dump strobe.
-    // freq_int integrates; freq_word = freq_int + Kp * e
+    // ---- Costas PI loop filter (updated at sample rate) ---------------------
+    always @(posedge clk or negedge resetn) begin
+        if (!resetn) begin
+            freq_int  <= 32'd0;
+            freq_word <= 32'd0;
+        end else if (adc_valid_d1) begin
+            if (!cfg_bypass_costas) begin
+                // freq_word needs to be negative feedback! phase_err is > 0 when Q_mix tracks I_mix (phase is advanced) so we should DECREASE freq
+                freq_int <= freq_int -
+                            (($signed({1'b0, cfg_costas_ki}) * $signed(phase_err_p)) * 16);
+                freq_word <= freq_int -
+                             (($signed({1'b0, cfg_costas_kp}) * $signed(phase_err_p)) * 16);
+            end else begin
+                freq_int  <= 32'd0;
+                freq_word <= 32'd0;
+            end
+        end
+    end
 
     // ---- Carrier lock detector ----------------------------------------------
     // Locked when |phase_err| < 256 (small) for 128 consecutive symbol periods
@@ -196,26 +210,47 @@ module bpsk_demod_core (
 
     // ---- Integrate-and-dump counter -----------------------------------------
     // sps_eff = cfg_sps adjusted by timing loop (±1 count insert/delete)
-    reg signed [8:0]  timing_adj;         // signed timing correction (Q0 integer)
+    reg signed [15:0] timing_adj;         // signed timing correction
     reg [7:0]         sps_counter;
-    reg signed [7:0]  sps_delta;          // carry-forward fractional timing
+    reg signed [15:0] frac_timing;        // fractional timing accumulator
     reg [7:0]         sps_eff;
-
-    // Compute effective SPS with timing adjustment
-    always @(posedge clk or negedge resetn) begin
-        if (!resetn)
-            sps_eff <= 8'd8;
-        else if (!cfg_bypass_timing && timing_adj[8])
-            sps_eff <= (cfg_sps > 8'd2) ? cfg_sps - 8'd1 : cfg_sps;
-        else if (!cfg_bypass_timing && timing_adj[0])
-            sps_eff <= (cfg_sps < 8'd127) ? cfg_sps + 8'd1 : cfg_sps;
-        else
-            sps_eff <= cfg_sps;
-    end
 
     // Integrate accumulator
     reg signed [21:0] integrate_acc;
     wire               dump_strobe;
+
+    // Compute effective SPS with timing adjustment
+    always @(posedge clk or negedge resetn) begin
+        if (!resetn) begin
+            sps_eff     <= 8'd8;
+            frac_timing <= 16'd0;
+        end else if (adc_valid_d1 && cfg_enable) begin
+            if (dump_strobe) begin
+                if (!cfg_bypass_timing) begin
+                    // timing_adj is the combined PI output for frequency offset
+                    if (frac_timing > 16384) begin
+                        frac_timing <= frac_timing - 32768 + timing_adj;
+                        sps_eff     <= (cfg_sps > 8'd2) ? cfg_sps - 8'd1 : cfg_sps;
+                    end else if (frac_timing < -16384) begin
+                        frac_timing <= frac_timing + 32768 + timing_adj;
+                        sps_eff     <= (cfg_sps < 8'd127) ? cfg_sps + 8'd1 : cfg_sps;
+                    end else begin
+                        frac_timing <= frac_timing + timing_adj;
+                        sps_eff     <= cfg_sps;
+                    end
+                end else begin
+                    sps_eff     <= cfg_sps;
+                    frac_timing <= 16'd0;
+                end
+            end
+        end else if (!cfg_enable) begin
+            sps_eff <= cfg_sps;
+        end
+    end
+
+    // Dump strobe: one cycle before counter resets
+    assign dump_strobe = adc_valid_d1 && cfg_enable &&
+                         (sps_counter == sps_eff - 1);
 
     always @(posedge clk or negedge resetn) begin
         if (!resetn) begin
@@ -224,7 +259,7 @@ module bpsk_demod_core (
         end else if (adc_valid_d1 && cfg_enable) begin
             if (sps_counter == sps_eff - 1) begin
                 sps_counter   <= 8'd0;
-                integrate_acc <= 22'd0;
+                integrate_acc <= {{6{i_mix[15]}}, i_mix};
             end else begin
                 sps_counter   <= sps_counter + 8'd1;
                 integrate_acc <= integrate_acc + {{6{i_mix[15]}}, i_mix};
@@ -232,12 +267,7 @@ module bpsk_demod_core (
         end
     end
 
-    // Dump strobe: one cycle before counter resets
-    assign dump_strobe = adc_valid_d1 && cfg_enable &&
-                         (sps_counter == sps_eff - 1);
-
     // Dumped symbol value (I_dump): scaled sum ÷ SPS (take top 16 bits of 22-bit acc)
-    // For SPS=8: sum of 8 16-bit values → 19-bit result, take [20:5]
     wire signed [15:0] i_dump = integrate_acc[21:6];
 
     // ---- Mueller-Müller TED -------------------------------------------------
@@ -246,11 +276,13 @@ module bpsk_demod_core (
     reg                i_prev_sign;   // sign of previous dump (1 = negative)
 
     wire               i_curr_sign = i_dump[15];
-    // sign(x) represented as ±1: apply to other dump value
-    wire signed [15:0] mm_term_a = i_prev_sign ? (~i_dump + 16'd1)      : i_dump;
-    wire signed [15:0] mm_term_b = i_curr_sign ? (~i_dump_prev + 16'd1) : i_dump_prev;
-    wire signed [15:0] timing_err = mm_term_a - mm_term_b;   // M&M error
+    // sign(x): term A is scaled previous dump based on current sign
+    wire signed [15:0] mm_term_a = i_curr_sign ? (~i_dump_prev + 16'd1) : i_dump_prev;
+    // term B is scaled current dump based on previous sign
+    wire signed [15:0] mm_term_b = i_prev_sign ? (~i_dump + 16'd1)      : i_dump;
 
+    // Use error = a - b strictly
+            wire signed [15:0] timing_err = mm_term_a - mm_term_b;   // M&M error
     assign timing_err_out = timing_err;
 
     // Timing PI loop filter (updated each dump strobe)
@@ -261,9 +293,7 @@ module bpsk_demod_core (
             i_dump_prev  <= 16'd0;
             i_prev_sign  <= 1'b0;
             timing_int   <= 32'd0;
-            timing_adj   <= 9'd0;
-            freq_int     <= 32'd0;
-            freq_word    <= 32'd0;
+            timing_adj   <= 16'd0;
         end else if (dump_strobe) begin
             // Save current dump for M&M
             i_dump_prev <= i_dump;
@@ -271,20 +301,12 @@ module bpsk_demod_core (
 
             if (!cfg_bypass_timing) begin
                 // Timing integral
-                timing_int <= timing_int +
-                              ($signed({1'b0, cfg_timing_ki}) * $signed(timing_err)) >>> 8;
-                // Timing adjustment for next sps_eff (proportional + integral)
-                timing_adj <= (($signed({1'b0, cfg_timing_kp}) * $signed(timing_err)) >>> 8)
-                              + timing_int[8:0];
-            end
+                timing_int <= timing_int + // MUST BE NEGATIVE FEEDBACK
+                              ($signed({1'b0, cfg_timing_ki}) * $signed(timing_err)); // Base integral update
 
-            if (!cfg_bypass_costas) begin
-                // Costas PI: freq_int += Ki * phase_err
-                freq_int <= freq_int +
-                            ($signed({1'b0, cfg_costas_ki}) * $signed(phase_err_p)) >>> 8;
-                // freq_word = freq_int + Kp * phase_err
-                freq_word <= freq_int +
-                             (($signed({1'b0, cfg_costas_kp}) * $signed(phase_err_p)) >>> 8);
+                // Timing adjustment (proportional + integral)
+                timing_adj <= (($signed({1'b0, cfg_timing_kp}) * $signed(timing_err)) >>> 8)
+                              + $signed(timing_int[31:16]);
             end
         end
     end

@@ -10,5 +10,3 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/FMCOMM2andos/BP
 INFO: [VRFC 10-311] analyzing module lfsr
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/FMCOMM2andos/BPSK_ModDemod_test/tb/moddemod_tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module moddemod_tb
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/kemal/Desktop/FMCOMM2andos/BPSK_ModDemod_test/vivado/project/bpsk_moddemod_test.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl

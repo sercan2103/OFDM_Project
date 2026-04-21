@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 3
 set_msg_config  -id {Vivado 12-1790}  -string {{Evaluation} {features} {should} {NOT} {be} {used} {in} {production} {systems.}}  -new_severity {WARNING} 
 set_msg_config  -id {Designutils 20-3303}  -string {{HDPYFinalizeIO}}  -new_severity {INFO} 
 set_msg_config  -id {Place 30-73}  -string {{axi_spi}}  -new_severity {WARNING} 
@@ -172,8 +173,6 @@ set_property used_in_implementation false [get_files -all /home/kemal/Desktop/FM
 set_property used_in_implementation false [get_files -all /home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_axi_hp2_interconnect_0/bd_0/ip/ip_7/bd_c0fd_srn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_axi_hp2_interconnect_0/bd_0/ip/ip_8/bd_c0fd_m00s2a_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_axi_hp2_interconnect_0/ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_modulator_0_0/src/bpsk_modulator.xdc]
-set_property used_in_implementation false [get_files -all /home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_bpsk_demodulator_0_0/src/bpsk_demod.xdc]
 set_property used_in_implementation false [get_files -all /home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_axi_dmac_0_0/system_axi_dmac_0_0_constr.xdc]
 set_property used_in_implementation false [get_files -all /home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_axis_dwidth_converter_0_0/system_axis_dwidth_converter_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/kemal/Desktop/FMCOMM2andos/zed/fmcomms2_zed.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc]

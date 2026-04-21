@@ -170,7 +170,7 @@ module moddemod_tb;
         .cfg_bypass_timing  (1'b0),
         .cfg_sps            (SPS[7:0]),
         .cfg_agc_target     (16'h2000),
-        .cfg_agc_ki_shift   (4'd10),
+        .cfg_agc_ki_shift   (4'd4),
         .cfg_costas_kp      (16'h0040),
         .cfg_costas_ki      (16'h0008),
         .cfg_timing_kp      (16'h0020),
@@ -194,11 +194,14 @@ module moddemod_tb;
     reg tx_bits [0 : N_BUF-1];
     integer tx_ptr = 0;
 
-    // Record each TX bit the instant the modulator consumes it (sym_tick)
+    // Record each TX bit at the sym_tick that actually modulates it.
+    // axis_bit is the registered copy of the last accepted lfsr_bit — this is
+    // the value that drives i_hold (and hence the DAC output) for the current
+    // symbol, so it is the bit the demodulator will see.
     always @(posedge clk) begin
         if (mod_src_sel == 2'b10 && mod_axis_tready && mod_axis_tvalid) begin
             if (tx_ptr < N_BUF) begin
-                tx_bits[tx_ptr] <= lfsr_bit;
+                tx_bits[tx_ptr] <= u_mod.axis_bit;
                 tx_ptr          <= tx_ptr + 1;
             end
         end
@@ -210,14 +213,16 @@ module moddemod_tb;
     // Demodulator outputs MSB-first bytes. Bit 7 is the first received symbol.
     //   rx_bits[8*byte_k + j] = tdata[7-j]  for j = 0..7
 
-    reg rx_bits [0 : `N_TEST + 63];
-    integer rx_ptr = 0;
+    // Buffer big enough for warmup bits + Phase-2 bits + alignment headroom
+    reg rx_bits [0 : `N_WARMUP + `N_TEST + `MAX_OFFSET + 63];
+    integer rx_ptr   = 0;
+    integer rx_start = 0;   // set to rx_ptr at Phase-2 start (avoids reset race)
 
     always @(posedge clk) begin
         if (demod_valid) begin : unpack
             integer j;
             for (j = 0; j < 8; j = j + 1) begin
-                if (rx_ptr + j < `N_TEST + 64)
+                if (rx_ptr + j < `N_WARMUP + `N_TEST + `MAX_OFFSET + 64)
                     rx_bits[rx_ptr + j] <= demod_byte[7 - j];
             end
             rx_ptr <= rx_ptr + 8;
@@ -228,18 +233,27 @@ module moddemod_tb;
     // BER analysis task
     // =========================================================================
     // Returns ber_errors for a given alignment offset.
-    // offset = number of TX bits to skip before comparing with RX[0..N_TEST-1].
+    // Compares tx_bits[k+offset] with rx_bits[rx_start+k] for k=0..n_compare-1.
     task count_errors;
         input integer offset;
         input integer n_compare;
         output integer errors;
         integer k;
+        integer err_normal;
+        integer err_invert;
         begin
-            errors = 0;
+            err_normal = 0;
+            err_invert = 0;
             for (k = 0; k < n_compare; k = k + 1) begin
-                if (tx_bits[k + offset] !== rx_bits[k])
-                    errors = errors + 1;
+                if (tx_bits[k] !== rx_bits[rx_start + k + offset])
+                    err_normal = err_normal + 1;
+                if (tx_bits[k] !== ~rx_bits[rx_start + k + offset])
+                    err_invert = err_invert + 1;
             end
+            if (err_invert < err_normal)
+                errors = err_invert;
+            else
+                errors = err_normal;
         end
     endtask
 
@@ -277,8 +291,11 @@ module moddemod_tb;
         // Phase 2: LFSR BER test
         // =====================================================================
         $display("[%0t] Phase 2: LFSR BER test (%0d symbols)", $time, `N_TEST);
-        tx_ptr <= 0;
-        rx_ptr <= 0;
+        // Wait for the last warmup byte to flush through the demodulator pipeline.
+        // rx_ptr reaches N_WARMUP once all 64 warmup bytes have been output.
+        while (rx_ptr < `N_WARMUP) @(posedge clk);
+        rx_start = rx_ptr;   // = N_WARMUP, points just after all warmup bits
+        tx_ptr   = 0;        // safe: tx always-block gated on mod_src_sel==10
 
         @(posedge clk);
         mod_src_sel <= 2'b10;    // LFSR (AXI-Stream) mode
@@ -317,6 +334,22 @@ module moddemod_tb;
 
         ber = (1.0 * best_errors) / best_n;
 
+        $display("  tx_ptr=%0d  rx_ptr=%0d  rx_start=%0d", tx_ptr, rx_ptr, rx_start);
+
+        // Quick sanity: print first 32 TX bits and RX bits at best offset
+        begin : dbg_bits
+            integer bi;
+            $write("TX[0..31]: ");
+            for (bi = 0; bi < 32; bi = bi + 1) $write("%b", tx_bits[bi]);
+            $write("\n");
+            $write("RX[rs..rs+31]: ");
+            for (bi = 0; bi < 32; bi = bi + 1) $write("%b", rx_bits[rx_start + bi]);
+            $write("\n");
+            $write("RX@best  : ");
+            for (bi = 0; bi < 32; bi = bi + 1) $write("%b", rx_bits[rx_start + best_offset + bi]);
+            $write("\n");
+        end
+
         $display("");
         $display("============================================================");
         $display("  Best alignment offset : %0d symbols", best_offset);
@@ -338,7 +371,7 @@ module moddemod_tb;
             $display("  RESULT: DEGRADED – BER >= 1e-3 (check loop parameters)");
         $display("============================================================");
 
-        #1000;
+        #5000;
         $finish;
     end
 

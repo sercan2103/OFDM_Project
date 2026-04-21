@@ -1,0 +1,17 @@
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab -debug typical moddemod_tb -s moddemod_tb_sim 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.lfsr
+Compiling module work.bpsk_core
+Compiling module work.bpsk_demod_agc
+Compiling module work.bpsk_demod_nco
+Compiling module work.bpsk_demod_core
+Compiling module work.moddemod_tb
+Built simulation snapshot moddemod_tb_sim

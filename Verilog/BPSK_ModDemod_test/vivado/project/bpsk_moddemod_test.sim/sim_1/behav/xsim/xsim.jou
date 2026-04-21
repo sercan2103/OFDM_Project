@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# xsim v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Tue Apr 21 15:39:07 2026
+# Process ID: 34102
+# Current directory: /home/kemal/Desktop/FMCOMM2andos/BPSK_ModDemod_test/vivado/project/bpsk_moddemod_test.sim/sim_1/behav/xsim
+# Command line: xsim -log simulate.log -mode tcl -source {xsim.dir/moddemod_tb_behav/xsim_script.tcl}
+# Log file: /home/kemal/Desktop/FMCOMM2andos/BPSK_ModDemod_test/vivado/project/bpsk_moddemod_test.sim/sim_1/behav/xsim/simulate.log
+# Journal file: /home/kemal/Desktop/FMCOMM2andos/BPSK_ModDemod_test/vivado/project/bpsk_moddemod_test.sim/sim_1/behav/xsim/xsim.jou
+# Running On: kemal-EXCALIBUR-G770, OS: Linux, CPU Frequency: 2828.390 MHz, CPU Physical cores: 6, Host memory: 33383 MB
+#-----------------------------------------------------------
+source xsim.dir/moddemod_tb_behav/xsim_script.tcl
+source moddemod_tb.tcl

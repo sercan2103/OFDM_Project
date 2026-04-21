@@ -1,0 +1,645 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Wed Mar 25 19:27:28 2026
+# Process ID: 96661
+# Current directory: /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/vivado
+# Command line: vivado -mode tcl
+# Log file: /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/vivado/vivado.log
+# Journal file: /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/vivado/vivado.jou
+# Running On: kemal-EXCALIBUR-G770, OS: Linux, CPU Frequency: 2652.535 MHz, CPU Physical cores: 6, Host memory: 33383 MB
+#-----------------------------------------------------------
+cd vivado
+couldn't change working directory to "vivado": no such file or directory
+ll
+wrong # args: should be "llength list"
+ls
+WARNING: [Common 17-259] Unknown Tcl command 'ls' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+source create_project.tcl 
+# set script_dir [file dirname [file normalize [info script]]]
+# set project_root [file normalize "$script_dir/.."]
+# set project_name   "bpsk_modulator"
+# set project_dir    "$script_dir/project"
+# set part           "xc7z020clg484-1"
+# set top_module     "bpsk_modulator_v1_0"
+# set sim_top        "bpsk_tb"
+# puts "INFO: Creating project '$project_name' in $project_dir"
+INFO: Creating project 'bpsk_modulator' in /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/vivado/project
+# puts "INFO: Target device: $part"
+INFO: Target device: xc7z020clg484-1
+# if {[file exists $project_dir]} {
+#     puts "INFO: Removing existing project directory"
+#     file delete -force $project_dir
+# }
+# create_project $project_name $project_dir -part $part
+# set_property board_part em.avnet.com:zed:part0:1.4 [current_project]
+ERROR: [Board 49-71] The board_part definition was not found for em.avnet.com:zed:part0:1.4. The project's board_part property was not set, but the project's part property was set to xc7z020clg484-1. Valid board_part values can be retrieved with the 'get_board_parts' Tcl command. Check if board.repoPaths parameter is set and the board_part is installed from the tcl app store.
+  launch_runs synth_1 -jobs 4
+CRITICAL WARNING: [filemgmt 20-730] Could not find a top module in the fileset sources_1.
+Resolution: With the gui up, review the source files in the Sources window. Use Add Sources to add any needed sources. If the files are disabled, enable them. You can also select the file and choose Set Used In from the pop-up menu. Review if they are being used at the proper points of the flow.
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+ERROR: [Common 17-53] User Exception: Top module not set for synthesis run
+Ensure that a valid value is provided for 'top'. The current value for 'top' can be changed using the 'Top Module Name' field under 'Project Settings', or using the 'set_property top' Tcl command
+launch_runs synth_1 -jobs 4
+CRITICAL WARNING: [filemgmt 20-730] Could not find a top module in the fileset sources_1.
+Resolution: With the gui up, review the source files in the Sources window. Use Add Sources to add any needed sources. If the files are disabled, enable them. You can also select the file and choose Set Used In from the pop-up menu. Review if they are being used at the proper points of the flow.
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+ERROR: [Common 17-53] User Exception: Top module not set for synthesis run
+Ensure that a valid value is provided for 'top'. The current value for 'top' can be changed using the 'Top Module Name' field under 'Project Settings', or using the 'set_property top' Tcl command
+launch_runs synth_1 -jobs 4
+CRITICAL WARNING: [filemgmt 20-730] Could not find a top module in the fileset sources_1.
+Resolution: With the gui up, review the source files in the Sources window. Use Add Sources to add any needed sources. If the files are disabled, enable them. You can also select the file and choose Set Used In from the pop-up menu. Review if they are being used at the proper points of the flow.
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+ERROR: [Common 17-53] User Exception: Top module not set for synthesis run
+Ensure that a valid value is provided for 'top'. The current value for 'top' can be changed using the 'Top Module Name' field under 'Project Settings', or using the 'set_property top' Tcl command
+cd vivado
+couldn't change working directory to "vivado": no such file or directory
+ls
+WARNING: [Common 17-259] Unknown Tcl command 'ls' sending command to the OS shell for execution. It is recommended to use 'exec' to send the command to the OS shell.
+exec
+wrong # args: should be "exec ?switches? arg ?arg ...?"
+source create_project.tcl 
+# set script_dir   [file dirname [file normalize [info script]]]
+# set project_root [file normalize "$script_dir/.."]
+# set project_name "bpsk_modulator"
+# set project_dir  "$script_dir/project"
+# set part         "xc7z020clg484-1"
+# puts "INFO: Creating Vivado project '$project_name'"
+INFO: Creating Vivado project 'bpsk_modulator'
+# puts "INFO: Location : $project_dir"
+INFO: Location : /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/vivado/project
+# puts "INFO: Device   : $part"
+INFO: Device   : xc7z020clg484-1
+# if {[file exists $project_dir]} {
+#     puts "INFO: Removing existing project directory"
+#     file delete -force $project_dir
+# }
+INFO: Removing existing project directory
+# create_project $project_name $project_dir -part $part
+# if {[catch {set_property board_part em.avnet.com:zed:part0:1.4 [current_project]} err]} {
+#     puts "INFO: Board part not installed – continuing with device-only targeting."
+#     puts "      ($err)"
+# }
+INFO: Board part not installed – continuing with device-only targeting.
+      (ERROR: [Board 49-71] The board_part definition was not found for em.avnet.com:zed:part0:1.4. The project's board_part property was not set, but the project's part property was set to xc7z020clg484-1. Valid board_part values can be retrieved with the 'get_board_parts' Tcl command. Check if board.repoPaths parameter is set and the board_part is installed from the tcl app store.
+)
+# set src_dir "$project_root/src"
+# set src_files [list \
+#     "$src_dir/bpsk_core.v" \
+#     "$src_dir/bpsk_modulator_v1_0.v" \
+# ]
+# add_files -norecurse $src_files
+# set_property file_type Verilog [get_files $src_files]
+# set_property top bpsk_modulator_v1_0 [get_filesets sources_1]
+# update_compile_order -fileset sources_1
+# puts "INFO: Added [llength $src_files] source file(s)"
+INFO: Added 2 source file(s)
+# set tb_file "$project_root/tb/bpsk_tb.v"
+# add_files -fileset sim_1 -norecurse $tb_file
+# set_property file_type Verilog [get_files -of_objects [get_filesets sim_1] $tb_file]
+# set_property top bpsk_tb [get_filesets sim_1]
+# update_compile_order -fileset sim_1
+# puts "INFO: Added testbench: $tb_file"
+INFO: Added testbench: /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/tb/bpsk_tb.v
+# set xdc_file "$project_root/constraints/bpsk_modulator.xdc"
+# add_files -fileset constrs_1 -norecurse $xdc_file
+# set_property USED_IN {out_of_context} [get_files $xdc_file]
+# puts "INFO: Added constraints: $xdc_file"
+INFO: Added constraints: /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/constraints/bpsk_modulator.xdc
+# set_property -name {STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS} \
+#              -value {-mode out_of_context} \
+#              -objects [get_runs synth_1]
+# puts ""
+
+# puts "============================================================"
+============================================================
+# puts " Project created successfully."
+ Project created successfully.
+# puts ""
+
+# puts " Project file: $project_dir/$project_name.xpr"
+ Project file: /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/vivado/project/bpsk_modulator.xpr
+# puts ""
+
+# puts " Next steps:"
+ Next steps:
+# puts "   Run synthesis   : launch_runs synth_1 -jobs 4"
+   Run synthesis   : launch_runs synth_1 -jobs 4
+# puts "   Run simulation  : launch_simulation"
+   Run simulation  : launch_simulation
+# puts "   Package as IP   : source $script_dir/package_ip.tcl"
+   Package as IP   : source /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/vivado/package_ip.tcl
+# puts "============================================================"
+============================================================
+source create_project.tcl 
+# set script_dir   [file dirname [file normalize [info script]]]
+# set project_root [file normalize "$script_dir/.."]
+# set project_name "bpsk_modulator"
+# set project_dir  "$script_dir/project"
+# set part         "xc7z020clg484-1"
+# puts "INFO: Creating Vivado project '$project_name'"
+INFO: Creating Vivado project 'bpsk_modulator'
+# puts "INFO: Location : $project_dir"
+INFO: Location : /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/vivado/project
+# puts "INFO: Device   : $part"
+INFO: Device   : xc7z020clg484-1
+# if {[file exists $project_dir]} {
+#     puts "INFO: Removing existing project directory"
+#     file delete -force $project_dir
+# }
+INFO: Removing existing project directory
+# create_project $project_name $project_dir -part $part
+# if {[catch {set_property board_part em.avnet.com:zed:part0:1.4 [current_project]} err]} {
+#     puts "INFO: Board part not installed – continuing with device-only targeting."
+#     puts "      ($err)"
+# }
+INFO: Board part not installed – continuing with device-only targeting.
+      (ERROR: [Board 49-71] The board_part definition was not found for em.avnet.com:zed:part0:1.4. The project's board_part property was not set, but the project's part property was set to xc7z020clg484-1. Valid board_part values can be retrieved with the 'get_board_parts' Tcl command. Check if board.repoPaths parameter is set and the board_part is installed from the tcl app store.
+)
+# set src_dir "$project_root/src"
+# set src_files [list \
+#     "$src_dir/bpsk_core.v" \
+#     "$src_dir/bpsk_modulator_v1_0.v" \
+# ]
+# add_files -norecurse $src_files
+# set_property file_type Verilog [get_files $src_files]
+# update_compile_order -fileset sources_1
+# set_property top bpsk_modulator_v1_0 [get_filesets sources_1]
+# puts "INFO: Added [llength $src_files] source file(s)"
+INFO: Added 2 source file(s)
+# set tb_file "$project_root/tb/bpsk_tb.v"
+# add_files -fileset sim_1 -norecurse $tb_file
+# set_property file_type Verilog [get_files -of_objects [get_filesets sim_1] $tb_file]
+# set_property top bpsk_tb [get_filesets sim_1]
+# update_compile_order -fileset sim_1
+# puts "INFO: Added testbench: $tb_file"
+INFO: Added testbench: /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/tb/bpsk_tb.v
+# set xdc_file "$project_root/constraints/bpsk_modulator.xdc"
+# add_files -fileset constrs_1 -norecurse $xdc_file
+# set_property USED_IN {out_of_context} [get_files $xdc_file]
+# puts "INFO: Added constraints: $xdc_file"
+INFO: Added constraints: /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/constraints/bpsk_modulator.xdc
+# set_property -name {STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS} \
+#              -value {-mode out_of_context} \
+#              -objects [get_runs synth_1]
+# puts ""
+
+# puts "============================================================"
+============================================================
+# puts " Project created successfully."
+ Project created successfully.
+# puts ""
+
+# puts " Project file: $project_dir/$project_name.xpr"
+ Project file: /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/vivado/project/bpsk_modulator.xpr
+# puts ""
+
+# puts " Next steps:"
+ Next steps:
+# puts "   Run synthesis   : launch_runs synth_1 -jobs 4"
+   Run synthesis   : launch_runs synth_1 -jobs 4
+# puts "   Run simulation  : launch_simulation"
+   Run simulation  : launch_simulation
+# puts "   Package as IP   : source $script_dir/package_ip.tcl"
+   Package as IP   : source /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/vivado/package_ip.tcl
+# puts "============================================================"
+============================================================
+launch_runs synth_1 -jobs 4
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Wed Mar 25 19:43:54 2026] Launched synth_1...
+Run output will be captured here: /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/vivado/project/bpsk_modulator.runs/synth_1/runme.log
+wait_on_run synth_1
+[Wed Mar 25 19:44:23 2026] Waiting for synth_1 to finish...
+
+*** Running vivado
+    with args -log bpsk_modulator_v1_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source bpsk_modulator_v1_0.tcl
+
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source bpsk_modulator_v1_0.tcl -notrace
+Command: synth_design -top bpsk_modulator_v1_0 -part xc7z020clg484-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 99186
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 2111.715 ; gain = 382.738 ; free physical = 15705 ; free virtual = 24362
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1464.205; parent = 1281.877; children = 182.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3122.875; parent = 2111.719; children = 1011.156
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'bpsk_modulator_v1_0' [/home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/src/bpsk_modulator_v1_0.v:65]
+INFO: [Synth 8-6157] synthesizing module 'bpsk_core' [/home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/src/bpsk_core.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'bpsk_core' (0#1) [/home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/src/bpsk_core.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'bpsk_modulator_v1_0' (0#1) [/home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/src/bpsk_modulator_v1_0.v:65]
+WARNING: [Synth 8-3917] design bpsk_modulator_v1_0 has port S_AXI_BRESP[1] driven by constant 0
+WARNING: [Synth 8-3917] design bpsk_modulator_v1_0 has port S_AXI_BRESP[0] driven by constant 0
+WARNING: [Synth 8-3917] design bpsk_modulator_v1_0 has port S_AXI_RRESP[1] driven by constant 0
+WARNING: [Synth 8-3917] design bpsk_modulator_v1_0 has port S_AXI_RRESP[0] driven by constant 0
+WARNING: [Synth 8-7129] Port s_axis_bits_tdata[7] in module bpsk_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axis_bits_tdata[6] in module bpsk_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axis_bits_tdata[5] in module bpsk_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axis_bits_tdata[4] in module bpsk_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axis_bits_tdata[3] in module bpsk_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axis_bits_tdata[2] in module bpsk_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axis_bits_tdata[1] in module bpsk_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[2] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[1] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[0] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARADDR[1] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARADDR[0] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[2] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[1] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[0] in module bpsk_modulator_v1_0 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2181.684 ; gain = 452.707 ; free physical = 15633 ; free virtual = 24291
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1464.205; parent = 1281.877; children = 182.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3192.844; parent = 2181.688; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2199.496 ; gain = 470.520 ; free physical = 15633 ; free virtual = 24291
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1464.205; parent = 1281.877; children = 182.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3210.656; parent = 2199.500; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2207.500 ; gain = 478.523 ; free physical = 15633 ; free virtual = 24291
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1464.205; parent = 1281.877; children = 182.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3218.660; parent = 2207.504; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2224.414 ; gain = 495.438 ; free physical = 15629 ; free virtual = 24287
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1464.205; parent = 1281.877; children = 182.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3235.574; parent = 2224.418; children = 1011.156
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   16 Bit       Adders := 2     
+	   2 Input    5 Bit       Adders := 1     
++---Registers : 
+	               64 Bit    Registers := 1     
+	               40 Bit    Registers := 2     
+	               32 Bit    Registers := 5     
+	               16 Bit    Registers := 11    
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 5     
+	                1 Bit    Registers := 17    
++---Muxes : 
+	   2 Input   64 Bit        Muxes := 3     
+	   2 Input   32 Bit        Muxes := 3     
+	   5 Input   32 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 10    
+	   5 Input   16 Bit        Muxes := 3     
+	   2 Input    8 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 6     
+	   3 Input    1 Bit        Muxes := 1     
+	   5 Input    1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3917] design bpsk_modulator_v1_0 has port S_AXI_BRESP[1] driven by constant 0
+WARNING: [Synth 8-3917] design bpsk_modulator_v1_0 has port S_AXI_BRESP[0] driven by constant 0
+WARNING: [Synth 8-3917] design bpsk_modulator_v1_0 has port S_AXI_RRESP[1] driven by constant 0
+WARNING: [Synth 8-3917] design bpsk_modulator_v1_0 has port S_AXI_RRESP[0] driven by constant 0
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[2] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[1] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[0] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARADDR[1] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARADDR[0] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[2] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[1] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[0] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXIS_BITS_TDATA[7] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXIS_BITS_TDATA[6] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXIS_BITS_TDATA[5] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXIS_BITS_TDATA[4] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXIS_BITS_TDATA[3] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXIS_BITS_TDATA[2] in module bpsk_modulator_v1_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXIS_BITS_TDATA[1] in module bpsk_modulator_v1_0 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2374.617 ; gain = 645.641 ; free physical = 15416 ; free virtual = 24078
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1717.020; parent = 1534.723; children = 182.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3385.777; parent = 2374.621; children = 1011.156
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2374.617 ; gain = 645.641 ; free physical = 15416 ; free virtual = 24078
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1719.629; parent = 1537.332; children = 182.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3385.777; parent = 2374.621; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2374.617 ; gain = 645.641 ; free physical = 15416 ; free virtual = 24078
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1721.113; parent = 1538.816; children = 182.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3385.777; parent = 2374.621; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2374.617 ; gain = 645.641 ; free physical = 15450 ; free virtual = 24111
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1721.375; parent = 1539.078; children = 182.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3385.777; parent = 2374.621; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2374.617 ; gain = 645.641 ; free physical = 15450 ; free virtual = 24111
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1721.391; parent = 1539.094; children = 182.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3385.777; parent = 2374.621; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2374.617 ; gain = 645.641 ; free physical = 15450 ; free virtual = 24111
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1721.508; parent = 1539.211; children = 182.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3385.777; parent = 2374.621; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2374.617 ; gain = 645.641 ; free physical = 15450 ; free virtual = 24111
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1721.574; parent = 1539.277; children = 182.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3385.777; parent = 2374.621; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2374.617 ; gain = 645.641 ; free physical = 15450 ; free virtual = 24111
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1721.574; parent = 1539.277; children = 182.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3385.777; parent = 2374.621; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2374.617 ; gain = 645.641 ; free physical = 15450 ; free virtual = 24111
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1721.578; parent = 1539.281; children = 182.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3385.777; parent = 2374.621; children = 1011.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |    18|
+|2     |LUT1   |    35|
+|3     |LUT2   |    18|
+|4     |LUT3   |    38|
+|5     |LUT4   |    51|
+|6     |LUT5   |    20|
+|7     |LUT6   |    81|
+|8     |MUXF7  |     4|
+|9     |FDCE   |    52|
+|10    |FDPE   |    34|
+|11    |FDRE   |   388|
+|12    |FDSE   |    88|
++------+-------+------+
+
+Report Instance Areas: 
++------+--------------+----------+------+
+|      |Instance      |Module    |Cells |
++------+--------------+----------+------+
+|1     |top           |          |   827|
+|2     |  u_bpsk_core |bpsk_core |   295|
++------+--------------+----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2374.617 ; gain = 645.641 ; free physical = 15450 ; free virtual = 24111
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1721.609; parent = 1539.312; children = 182.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3385.777; parent = 2374.621; children = 1011.156
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 39 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2374.617 ; gain = 645.641 ; free physical = 15450 ; free virtual = 24111
+Synthesis Optimization Complete : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2374.625 ; gain = 645.641 ; free physical = 15450 ; free virtual = 24111
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2377.586 ; gain = 0.000 ; free physical = 15544 ; free virtual = 24206
+INFO: [Netlist 29-17] Analyzing 22 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2507.234 ; gain = 0.000 ; free physical = 15516 ; free virtual = 24178
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: 23f5c8
+INFO: [Common 17-83] Releasing license: Synthesis
+17 Infos, 39 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:12 . Memory (MB): peak = 2507.234 ; gain = 802.070 ; free physical = 15695 ; free virtual = 24357
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Common 17-1381] The checkpoint '/home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/vivado/project/bpsk_modulator.runs/synth_1/bpsk_modulator_v1_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file bpsk_modulator_v1_0_utilization_synth.rpt -pb bpsk_modulator_v1_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Mar 25 19:44:18 2026...
+[Wed Mar 25 19:44:23 2026] synth_1 finished
+source package_ip.tcl
+# set script_dir   [file dirname [file normalize [info script]]]
+# set project_root [file normalize "$script_dir/.."]
+# set ip_root      "$project_root/ip_repo/bpsk_modulator_v1_0"
+# puts "INFO: Packaging BPSK Modulator IP..."
+INFO: Packaging BPSK Modulator IP...
+# puts "INFO: Output directory: $ip_root"
+INFO: Output directory: /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/ip_repo/bpsk_modulator_v1_0
+# if {[file exists $ip_root]} {
+#     puts "INFO: Removing existing IP directory"
+#     file delete -force $ip_root
+# }
+# file mkdir $ip_root
+# ipx::package_project \
+#     -root_dir        $ip_root \
+#     -vendor          user.org \
+#     -library         user \
+#     -taxonomy        /UserIP \
+#     -import_files \
+#     -set_current     true
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXIS_DAC' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXIS_BITS' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXIS_DMA' of definition 'xilinx.com:interface:axis:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI_ARESETN' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI_ACLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI_ARESETN': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI_ACLK': Added interface parameter 'ASSOCIATED_BUSIF' with value 'S_AXI'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'M_AXIS_DAC'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI_ACLK': Added interface parameter 'ASSOCIATED_RESET' with value 'S_AXI_ARESETN'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-2181] Payment Required is not set for this core.
+INFO: [IP_Flow 19-2187] The Product Guide file is missing.
+# set core [ipx::current_core]
+# set_property name            bpsk_modulator          $core
+# set_property version         1.0                     $core
+# set_property display_name   "BPSK Modulator v1.0"    $core
+# set_property description \
+#     "BPSK modulator with AXI4-Lite control registers and 64-bit AXI4-Stream\
+#  I/Q output. Inserts into the Analog Devices FMCOMM2/AD9361 DAC data path\
+#  on the ZED board, replacing the DAC DMA stream to util_ad9361_dac_upack.\
+#  Supports internal test patterns, register patterns, or serial bit input." \
+#     $core
+# set_property vendor              user.org    $core
+# set_property vendor_display_name "User"      $core
+# set_property company_url         ""          $core
+# set_property supported_families  {zynq Production}  $core
+# puts "INFO: Auto-inferred bus interfaces:"
+INFO: Auto-inferred bus interfaces:
+# foreach bi [ipx::get_bus_interfaces -of_objects $core] {
+#     puts "       [get_property name $bi]  ([get_property interface_mode $bi])"
+# }
+       M_AXIS_DAC  (master)
+       S_AXIS_BITS  (slave)
+       S_AXIS_DMA  (slave)
+       S_AXI  (slave)
+       S_AXI_ARESETN  (slave)
+       aresetn  (slave)
+       S_AXI_ACLK  (slave)
+       aclk  (slave)
+# proc set_clock_assoc {clk_name busif_value core} {
+#     set clk_if [ipx::get_bus_interfaces $clk_name -of_objects $core]
+#     if {$clk_if eq ""} {
+#         puts "WARNING: clock interface '$clk_name' not found – skipping"
+#         return
+#     }
+#     set param [ipx::get_bus_parameters ASSOCIATED_BUSIF -of_objects $clk_if]
+#     if {$param eq ""} {
+#         ipx::add_bus_parameter ASSOCIATED_BUSIF $clk_if
+#         set param [ipx::get_bus_parameters ASSOCIATED_BUSIF -of_objects $clk_if]
+#     }
+#     set_property value $busif_value $param
+#     puts "INFO: clock '$clk_name' associated with: $busif_value"
+# }
+# set_clock_assoc S_AXI_ACLK "S_AXI"                              $core
+INFO: clock 'S_AXI_ACLK' associated with: S_AXI
+# set_clock_assoc aclk        "S_AXIS_BITS:S_AXIS_DMA:M_AXIS_DAC" $core
+INFO: clock 'aclk' associated with: S_AXIS_BITS:S_AXIS_DMA:M_AXIS_DAC
+# proc set_reset_polarity {rst_name polarity core} {
+#     set rst_if [ipx::get_bus_interfaces $rst_name -of_objects $core]
+#     if {$rst_if eq ""} {
+#         puts "WARNING: reset interface '$rst_name' not found – skipping"
+#         return
+#     }
+#     set param [ipx::get_bus_parameters POLARITY -of_objects $rst_if]
+#     if {$param eq ""} {
+#         ipx::add_bus_parameter POLARITY $rst_if
+#         set param [ipx::get_bus_parameters POLARITY -of_objects $rst_if]
+#     }
+#     set_property value $polarity $param
+#     puts "INFO: reset '$rst_name' polarity set to $polarity"
+# }
+# set_reset_polarity S_AXI_ARESETN ACTIVE_LOW $core
+INFO: reset 'S_AXI_ARESETN' polarity set to ACTIVE_LOW
+# set_reset_polarity aresetn        ACTIVE_LOW $core
+INFO: reset 'aresetn' polarity set to ACTIVE_LOW
+# set mmaps [ipx::get_memory_maps -of_objects $core]
+# if {[llength $mmaps] > 0} {
+#     puts "INFO: Memory maps found: [llength $mmaps]"
+#     foreach mm $mmaps {
+#         puts "       [get_property name $mm]"
+#     }
+# } else {
+#     puts "WARNING: No memory map inferred – AXI4-Lite register access may not appear in Address Editor"
+# }
+INFO: Memory maps found: 1
+       S_AXI
+# ipx::create_xgui_files $core
+# ipx::update_checksums   $core
+INFO: [IP_Flow 19-2181] Payment Required is not set for this core.
+INFO: [IP_Flow 19-2187] The Product Guide file is missing.
+INFO: [Ipptcl 7-1486] check_integrity: Integrity check passed.
+# set check_result [ipx::check_integrity $core]
+# if {$check_result == 0} {
+#     puts "INFO: IP integrity check PASSED"
+# } else {
+#     puts "WARNING: IP integrity check returned issues – review messages above"
+# }
+WARNING: IP integrity check returned issues – review messages above
+# ipx::save_core $core
+# puts ""
+
+# puts "============================================================"
+============================================================
+# puts " IP core packaged successfully."
+ IP core packaged successfully.
+# puts " Location: $ip_root"
+ Location: /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/ip_repo/bpsk_modulator_v1_0
+# puts ""
+
+# puts " To use in the FMCOMM2 ZED project:"
+ To use in the FMCOMM2 ZED project:
+# puts "   1. Tools → Settings → IP → Repository"
+   1. Tools → Settings → IP → Repository
+# puts "      Add: $project_root/ip_repo"
+      Add: /home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/ip_repo
+# puts "   2. Click Refresh IP Catalog"
+   2. Click Refresh IP Catalog
+# puts "   3. Find 'BPSK Modulator v1.0' in IP catalog → add to block design"
+   3. Find 'BPSK Modulator v1.0' in IP catalog → add to block design
+# puts "   4. See connection notes in bpsk_modulator_v1_0.v header"
+   4. See connection notes in bpsk_modulator_v1_0.v header
+# puts "============================================================"
+============================================================

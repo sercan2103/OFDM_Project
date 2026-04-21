@@ -1,0 +1,10 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Simulation",
+			"type": "shell",
+			"command": "source ./vivado/create_project.tcl; xsim moddemod_tb -runall"
+		}
+	]
+}

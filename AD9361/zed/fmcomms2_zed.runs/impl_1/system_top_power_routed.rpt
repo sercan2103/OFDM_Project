@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date             : Tue Mar 31 15:23:22 2026
+| Date             : Tue Apr 21 16:01:59 2026
 | Host             : kemal-EXCALIBUR-G770 running 64-bit Ubuntu 22.04.5 LTS
 | Command          : report_power -file system_top_power_routed.rpt -pb system_top_power_summary_routed.pb -rpx system_top_power_routed.rpx
 | Design           : system_top
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 3.087        |
+| Total On-Chip Power (W)  | 3.093        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 2.890        |
-| Device Static (W)        | 0.196        |
+| Dynamic (W)              | 2.896        |
+| Device Static (W)        | 0.197        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 49.4         |
-| Junction Temperature (C) | 60.6         |
+| Max Ambient (C)          | 49.3         |
+| Junction Temperature (C) | 60.7         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,23 +52,23 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.164 |       13 |       --- |             --- |
-| Slice Logic              |     0.170 |    45139 |       --- |             --- |
-|   LUT as Logic           |     0.130 |    14990 |     53200 |           28.18 |
-|   CARRY4                 |     0.021 |     1756 |     13300 |           13.20 |
-|   Register               |     0.015 |    22735 |    106400 |           21.37 |
-|   LUT as Shift Register  |     0.002 |      436 |     17400 |            2.51 |
+| Clocks                   |     0.167 |       13 |       --- |             --- |
+| Slice Logic              |     0.169 |    45356 |       --- |             --- |
+|   LUT as Logic           |     0.129 |    15099 |     53200 |           28.38 |
+|   CARRY4                 |     0.021 |     1789 |     13300 |           13.45 |
+|   Register               |     0.015 |    22764 |    106400 |           21.39 |
+|   LUT as Shift Register  |     0.002 |      434 |     17400 |            2.49 |
 |   LUT as Distributed RAM |     0.001 |      442 |     17400 |            2.54 |
 |   F7/F8 Muxes            |    <0.001 |      116 |     53200 |            0.22 |
-|   Others                 |     0.000 |     1368 |       --- |             --- |
-| Signals                  |     0.202 |    33367 |       --- |             --- |
+|   Others                 |     0.000 |     1369 |       --- |             --- |
+| Signals                  |     0.206 |    33469 |       --- |             --- |
 | Block RAM                |     0.018 |        7 |       140 |            5.00 |
 | MMCM                     |     0.220 |        2 |         4 |           50.00 |
 | DSPs                     |     0.085 |       47 |       220 |           21.36 |
 | I/O                      |     0.486 |      124 |       200 |           62.00 |
 | PS7                      |     1.546 |        1 |       --- |             --- |
-| Static Power             |     0.196 |          |           |                 |
-| Total                    |     3.087 |          |           |                 |
+| Static Power             |     0.197 |          |           |                 |
+| Total                    |     3.093 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -78,7 +78,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.676 |       0.647 |      0.029 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.681 |       0.652 |      0.029 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.167 |       0.145 |      0.022 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.023 |       0.022 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.147 |       0.146 |      0.001 |       NA    | Unspecified | NA         |
@@ -164,7 +164,7 @@ Table of Contents
 +-----------------------------+-----------+
 | Name                        | Power (W) |
 +-----------------------------+-----------+
-| system_top                  |     2.890 |
+| system_top                  |     2.896 |
 |   gpio_bd_IOBUF[0]_inst     |     0.001 |
 |   gpio_bd_IOBUF[10]_inst    |     0.002 |
 |   gpio_bd_IOBUF[11]_inst    |     0.001 |
@@ -214,28 +214,27 @@ Table of Contents
 |   gpio_status_IOBUF[6]_inst |     0.001 |
 |   gpio_status_IOBUF[7]_inst |     0.001 |
 |   gpio_sync_IOBUF_inst      |     0.001 |
-|   i_system_wrapper          |     2.771 |
-|     system_i                |     2.771 |
-|       axi_ad9361            |     0.848 |
+|   i_system_wrapper          |     2.777 |
+|     system_i                |     2.777 |
+|       axi_ad9361            |     0.852 |
 |       axi_ad9361_adc_dma    |     0.007 |
 |       axi_ad9361_dac_dma    |     0.007 |
 |       axi_ad9361_dac_fifo   |     0.002 |
 |       axi_cpu_interconnect  |     0.005 |
 |       axi_dmac_0            |     0.008 |
-|       axi_hdmi_clkgen       |     0.101 |
+|       axi_hdmi_clkgen       |     0.102 |
 |       axi_hdmi_core         |     0.029 |
 |       axi_hdmi_dma          |     0.009 |
-|       axi_hp0_interconnect  |     0.011 |
+|       axi_hp0_interconnect  |     0.010 |
 |       axi_hp1_interconnect  |     0.008 |
 |       axi_hp2_interconnect  |     0.010 |
 |       axi_i2s_adi           |     0.002 |
 |       axi_iic_fmc           |     0.002 |
 |       axi_iic_main          |     0.002 |
-|       axi_spdif_tx_core     |     0.001 |
 |       axi_sysid_0           |     0.001 |
-|       bpsk_demodulator_0    |     0.030 |
+|       bpsk_demodulator_0    |     0.033 |
 |       bpsk_modulator_0      |     0.006 |
-|       sys_audio_clkgen      |     0.120 |
+|       sys_audio_clkgen      |     0.121 |
 |       sys_ps7               |     1.552 |
 |       util_ad9361_adc_fifo  |     0.004 |
 |       util_ad9361_adc_pack  |     0.002 |

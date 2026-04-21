@@ -2,9 +2,9 @@
 2020.2
 Oct 14 2022
 05:07:14
-/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_agc.v,1774523234,verilog,,/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_core.v,,bpsk_demod_agc,,,,,,,,
-/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_core.v,1774523307,verilog,,/home/kemal/Desktop/FMCOMM2andos/BPSK_ModDemod_test/tb/moddemod_tb.v,,bpsk_demod_core,,,,,,,,
-/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_nco.v,1774523201,verilog,,/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_agc.v,,bpsk_demod_nco,,,,,,,,
+/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_agc.v,1776696637,verilog,,/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_nco.v,,bpsk_demod_agc,,,,,,,,
+/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_core.v,1776428092,verilog,,/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_agc.v,,bpsk_demod_core,,,,,,,,
+/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_nco.v,1774523201,verilog,,/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_core.v,,bpsk_demod_nco,,,,,,,,
 /home/kemal/Desktop/FMCOMM2andos/BPSK_ModDemod_test/src/lfsr.v,1774614269,verilog,,/home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/src/bpsk_core.v,,lfsr,,,,,,,,
-/home/kemal/Desktop/FMCOMM2andos/BPSK_ModDemod_test/tb/moddemod_tb.v,1774614386,verilog,,,,moddemod_tb,,,,,,,,
-/home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/src/bpsk_core.v,1774455419,verilog,,/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_nco.v,,bpsk_core,,,,,,,,
+/home/kemal/Desktop/FMCOMM2andos/BPSK_ModDemod_test/tb/moddemod_tb.v,1776703783,verilog,,/home/kemal/Desktop/FMCOMM2andos/BPSK_ModDemod_test/src/lfsr.v,,moddemod_tb,,,,,,,,
+/home/kemal/Desktop/FMCOMM2andos/BPSK_Modulator/src/bpsk_core.v,1774455419,verilog,,/home/kemal/Desktop/FMCOMM2andos/BPSK_Demodulator/src/bpsk_demod_core.v,,bpsk_core,,,,,,,,

@@ -1,0 +1,32 @@
+Time resolution is 1 ps
+=== BPSK Modulator Testbench ===
+
+--- TC1: Power-on status ---
+IP_VERSION = 0x00010000  (expect 0x00010000)
+PASS: IP version correct
+STATUS = 0x00000001  (expect READY=1, ACTIVE=0)
+PASS: STATUS correct after reset
+
+--- TC6: DMA bypass (ENABLE=0) ---
+PASS: DMA bypass working (data = 0xabcd12345678ef01)
+
+--- TC2: SRC_SEL=00 alternating pattern ---
+  sym[0]: I0=0x7fff Q0=0x0000 I1=0x0000 Q1=0x0000 tvalid=1
+  sym[1]: I0=0x8001 Q0=0x0000 I1=0x0000 Q1=0x0000 tvalid=1
+  sym[2]: I0=0x7fff Q0=0x0000 I1=0x0000 Q1=0x0000 tvalid=1
+  sym[3]: I0=0x8001 Q0=0x0000 I1=0x0000 Q1=0x0000 tvalid=1
+  sym[4]: I0=0x7fff Q0=0x0000 I1=0x0000 Q1=0x0000 tvalid=1
+  sym[5]: I0=0x8001 Q0=0x0000 I1=0x0000 Q1=0x0000 tvalid=1
+  sym[6]: I0=0x7fff Q0=0x0000 I1=0x0000 Q1=0x0000 tvalid=1
+  sym[7]: I0=0x8001 Q0=0x0000 I1=0x0000 Q1=0x0000 tvalid=1
+PASS: Q channels are zero
+PASS: I1 is zero (CH_SEL=0)
+
+--- TC5: CH_SEL=1 (BPSK on both TX channels) ---
+PASS: I0=I1=0x7fff (CH_SEL=1 replication OK)
+
+--- TC9: Custom amplitude (I_POS=0x4000, I_NEG=0xC000) ---
+  I0 = 0xc000  (expect 0x4000 or 0xC000)
+PASS: Custom amplitude applied
+
+--- TC3: SRC_SEL=01 register pattern (0xA5A5_A5A5) ---

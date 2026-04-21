@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.706092",
-   "Default View_TopLeft":"3324,531",
+   "Default View_TopLeft":"2461,1241",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
@@ -96,10 +96,10 @@ preplace inst util_ad9361_dac_upack -pg 1 -lvl 10 -x 4990 -y 550 -defaultsOSRD
 preplace inst axi_ad9361_dac_dma -pg 1 -lvl 7 -x 2995 -y 1990 -defaultsOSRD
 preplace inst axi_hp1_interconnect -pg 1 -lvl 8 -x 3790 -y 2340 -defaultsOSRD
 preplace inst axi_hp2_interconnect -pg 1 -lvl 8 -x 3790 -y 2200 -defaultsOSRD
-preplace inst bpsk_modulator_0 -pg 1 -lvl 8 -x 3790 -y 2020 -defaultsOSRD
-preplace inst bpsk_demodulator_0 -pg 1 -lvl 7 -x 2995 -y 340 -defaultsOSRD
 preplace inst axi_dmac_0 -pg 1 -lvl 9 -x 4280 -y 310 -defaultsOSRD
 preplace inst axis_dwidth_converter_0 -pg 1 -lvl 8 -x 3790 -y 310 -defaultsOSRD
+preplace inst bpsk_demodulator_0 -pg 1 -lvl 7 -x 2995 -y 340 -defaultsOSRD
+preplace inst bpsk_modulator_0 -pg 1 -lvl 8 -x 3790 -y 2020 -defaultsOSRD
 preplace netloc GND_1_dout 1 7 1 3630 740n
 preplace netloc axi_ad9361_adc_data_i0 1 4 4 1230 470 1610J 10 NJ 10 3340
 preplace netloc axi_ad9361_adc_data_i1 1 4 4 1180 20 NJ 20 NJ 20 3400
@@ -146,6 +146,7 @@ preplace netloc axi_ad9361_tx_data_out_p 1 7 5 3480J 1150 NJ 1150 N 1150 NJ 1150
 preplace netloc axi_ad9361_tx_frame_out_n 1 7 5 3440J 1130 NJ 1130 N 1130 NJ 1130 5850J
 preplace netloc axi_ad9361_tx_frame_out_p 1 7 5 3460J 1140 NJ 1140 N 1140 NJ 1140 5840J
 preplace netloc axi_ad9361_txnrx 1 7 5 NJ 1220 NJ 1220 N 1220 NJ 1220 NJ
+preplace netloc axi_dmac_0_irq 1 7 3 3640 160 NJ 160 4560
 preplace netloc axi_hdmi_clkgen_clk_0 1 7 3 3180 2860 NJ 2860 4570
 preplace netloc axi_hdmi_core_hdmi_16_data 1 10 2 NJ 2840 NJ
 preplace netloc axi_hdmi_core_hdmi_16_data_e 1 10 2 NJ 2820 NJ
@@ -231,7 +232,6 @@ preplace netloc util_ad9361_divclk_reset_peripheral_reset 1 4 6 NJ 1030 1760 105
 preplace netloc util_ad9361_divclk_sel_Res 1 2 1 NJ 1070
 preplace netloc util_ad9361_divclk_sel_concat_dout 1 1 1 40 1070n
 preplace netloc util_ad9361_tdd_sync_sync_out 1 6 6 2690 180 NJ 180 NJ 180 N 180 NJ 180 5810
-preplace netloc axi_dmac_0_irq 1 7 3 3640 160 NJ 160 4560
 preplace netloc S00_AXI_1 1 5 6 1890 1210 2360J 150 NJ 150 NJ 150 N 150 5320
 preplace netloc axi_ad9361_adc_dma_m_dest_axi 1 7 1 3480 2190n
 preplace netloc axi_ad9361_dac_dma_m_axis 1 7 1 N 1980
@@ -249,6 +249,8 @@ preplace netloc axi_cpu_interconnect_M09_AXI 1 6 1 2660 2140n
 preplace netloc axi_cpu_interconnect_M10_AXI 1 6 1 2650 1940n
 preplace netloc axi_cpu_interconnect_M11_AXI 1 6 2 2640 1880 3510
 preplace netloc axi_cpu_interconnect_M12_AXI 1 6 1 2470 280n
+preplace netloc axi_cpu_interconnect_M13_AXI 1 6 3 2460 220 N 220 3930
+preplace netloc axi_dmac_0_m_dest_axi 1 9 1 4580 290n
 preplace netloc axi_hdmi_dma_m_axis 1 7 3 N 2630 NJ 2630 4600
 preplace netloc axi_hdmi_dma_m_src_axi 1 7 1 3250 2610n
 preplace netloc axi_hp0_interconnect_M00_AXI 1 8 2 N 2780 4480
@@ -260,6 +262,8 @@ preplace netloc axi_i2s_adi_i2s 1 8 4 NJ 3180 4610 3170 NJ 3170 5820J
 preplace netloc axi_iic_fmc_IIC 1 10 2 5340J 2860 NJ
 preplace netloc axi_iic_main_IIC 1 8 2 N 2500 N
 preplace netloc axi_spdif_tx_core_dma_req 1 8 2 N 3450 4440
+preplace netloc axis_dwidth_converter_0_M_AXIS 1 8 1 3930 270n
+preplace netloc bpsk_demodulator_0_M_AXIS_BITS 1 7 1 3420 290n
 preplace netloc bpsk_modulator_0_M_AXIS_DAC 1 8 2 3950 510 4560
 preplace netloc sys_ps7_DDR 1 10 2 NJ 3340 NJ
 preplace netloc sys_ps7_DMA0_ACK 1 7 4 3640 4020 NJ 4020 N 4020 5270
@@ -267,10 +271,6 @@ preplace netloc sys_ps7_DMA1_ACK 1 7 4 3620 4030 NJ 4030 N 4030 5260
 preplace netloc sys_ps7_DMA2_ACK 1 7 4 3610 4040 NJ 4040 N 4040 5250
 preplace netloc sys_ps7_FIXED_IO 1 10 2 NJ 3360 NJ
 preplace netloc util_ad9361_adc_pack_packed_fifo_wr 1 6 1 2300 220n
-preplace netloc bpsk_demodulator_0_M_AXIS_BITS 1 7 1 3420 290n
-preplace netloc axis_dwidth_converter_0_M_AXIS 1 8 1 3930 270n
-preplace netloc axi_dmac_0_m_dest_axi 1 9 1 4580 290n
-preplace netloc axi_cpu_interconnect_M13_AXI 1 6 3 2460 220 N 220 3930
 levelinfo -pg 1 -225 -65 220 560 930 1430 2100 2995 3790 4280 4990 5615 5870
 pagesize -pg 1 -db -bbox -sgen -410 0 6060 5890
 "

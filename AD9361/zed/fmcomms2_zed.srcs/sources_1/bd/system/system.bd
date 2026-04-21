@@ -63,10 +63,10 @@
       "axi_ad9361_dac_dma": "",
       "axi_hp1_interconnect": "",
       "axi_hp2_interconnect": "",
-      "bpsk_modulator_0": "",
-      "bpsk_demodulator_0": "",
       "axi_dmac_0": "",
-      "axis_dwidth_converter_0": ""
+      "axis_dwidth_converter_0": "",
+      "bpsk_demodulator_0": "",
+      "bpsk_modulator_0": ""
     },
     "interface_ports": {
       "ddr": {
@@ -4629,32 +4629,6 @@
           }
         }
       },
-      "bpsk_modulator_0": {
-        "vlnv": "user.org:user:bpsk_modulator:1.0",
-        "xci_name": "system_bpsk_modulator_0_0",
-        "xci_path": "ip/system_bpsk_modulator_0_0/system_bpsk_modulator_0_0.xci",
-        "inst_hier_path": "bpsk_modulator_0",
-        "interface_ports": {
-          "S_AXI": {
-            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
-            "mode": "Slave",
-            "memory_map_ref": "S_AXI"
-          }
-        }
-      },
-      "bpsk_demodulator_0": {
-        "vlnv": "user.org:user:bpsk_demodulator:1.0",
-        "xci_name": "system_bpsk_demodulator_0_0",
-        "xci_path": "ip/system_bpsk_demodulator_0_0/system_bpsk_demodulator_0_0.xci",
-        "inst_hier_path": "bpsk_demodulator_0",
-        "interface_ports": {
-          "S_AXI": {
-            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
-            "mode": "Slave",
-            "memory_map_ref": "S_AXI"
-          }
-        }
-      },
       "axi_dmac_0": {
         "vlnv": "analog.com:user:axi_dmac:1.0",
         "xci_name": "system_axi_dmac_0_0",
@@ -4700,6 +4674,32 @@
         "xci_name": "system_axis_dwidth_converter_0_0",
         "xci_path": "ip/system_axis_dwidth_converter_0_0/system_axis_dwidth_converter_0_0.xci",
         "inst_hier_path": "axis_dwidth_converter_0"
+      },
+      "bpsk_demodulator_0": {
+        "vlnv": "user.org:user:bpsk_demodulator:1.0",
+        "xci_name": "system_bpsk_demodulator_0_0",
+        "xci_path": "ip/system_bpsk_demodulator_0_0/system_bpsk_demodulator_0_0.xci",
+        "inst_hier_path": "bpsk_demodulator_0",
+        "interface_ports": {
+          "S_AXI": {
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "mode": "Slave",
+            "memory_map_ref": "S_AXI"
+          }
+        }
+      },
+      "bpsk_modulator_0": {
+        "vlnv": "user.org:user:bpsk_modulator:1.0",
+        "xci_name": "system_bpsk_modulator_0_0",
+        "xci_path": "ip/system_bpsk_modulator_0_0/system_bpsk_modulator_0_0.xci",
+        "inst_hier_path": "bpsk_modulator_0",
+        "interface_ports": {
+          "S_AXI": {
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "mode": "Slave",
+            "memory_map_ref": "S_AXI"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -5496,14 +5496,14 @@
           "axi_hp2_interconnect/aclk",
           "sys_ps7/S_AXI_HP2_ACLK",
           "axi_ad9361_dac_dma/m_src_axi_aclk",
-          "bpsk_modulator_0/S_AXI_ACLK",
-          "bpsk_demodulator_0/S_AXI_ACLK",
           "axi_dmac_0/s_axi_aclk",
           "sys_ps7/S_AXI_HP3_ACLK",
           "axi_cpu_interconnect/M11_ACLK",
           "axi_cpu_interconnect/M12_ACLK",
           "axi_cpu_interconnect/M13_ACLK",
-          "axi_dmac_0/m_dest_axi_aclk"
+          "axi_dmac_0/m_dest_axi_aclk",
+          "bpsk_demodulator_0/S_AXI_ACLK",
+          "bpsk_modulator_0/S_AXI_ACLK"
         ]
       },
       "sys_cpu_reset": {
@@ -5550,16 +5550,16 @@
           "axi_ad9361_dac_dma/s_axi_aresetn",
           "axi_hp1_interconnect/aresetn",
           "axi_hp2_interconnect/aresetn",
-          "bpsk_modulator_0/aresetn",
-          "bpsk_modulator_0/S_AXI_ARESETN",
-          "bpsk_demodulator_0/aresetn",
-          "bpsk_demodulator_0/S_AXI_ARESETN",
           "axi_dmac_0/s_axi_aresetn",
           "axi_cpu_interconnect/M11_ARESETN",
           "axi_cpu_interconnect/M12_ARESETN",
           "axi_cpu_interconnect/M13_ARESETN",
           "axi_dmac_0/m_dest_axi_aresetn",
-          "axis_dwidth_converter_0/aresetn"
+          "axis_dwidth_converter_0/aresetn",
+          "bpsk_demodulator_0/aresetn",
+          "bpsk_demodulator_0/S_AXI_ARESETN",
+          "bpsk_modulator_0/aresetn",
+          "bpsk_modulator_0/S_AXI_ARESETN"
         ]
       },
       "sys_i2c_mixer_downstream_scl_O": {
@@ -5821,10 +5821,10 @@
           "axi_ad9361_dac_fifo/din_clk",
           "util_ad9361_dac_upack/clk",
           "axi_ad9361_dac_dma/m_axis_aclk",
-          "bpsk_modulator_0/aclk",
-          "bpsk_demodulator_0/aclk",
           "axi_dmac_0/s_axis_aclk",
-          "axis_dwidth_converter_0/aclk"
+          "axis_dwidth_converter_0/aclk",
+          "bpsk_demodulator_0/aclk",
+          "bpsk_modulator_0/aclk"
         ]
       },
       "util_ad9361_divclk_reset_peripheral_aresetn": {

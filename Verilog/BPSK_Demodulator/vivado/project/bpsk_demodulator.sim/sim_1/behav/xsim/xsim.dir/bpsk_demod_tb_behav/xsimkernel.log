@@ -2,3 +2,6 @@ Running: xsim.dir/bpsk_demod_tb_behav/xsimk -simmode gui -wdb bpsk_demod_tb_beha
 Design successfully loaded
 Design Loading Memory Usage: 29284 KB (Peak: 29796 KB)
 Design Loading CPU Usage: 10 ms
+Simulation completed
+Simulation Memory Usage: 115380 KB (Peak: 168552 KB)
+Simulation CPU Usage: 20 ms
