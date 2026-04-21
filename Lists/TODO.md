@@ -14,7 +14,8 @@ MATLAB Tx-Rx codes will be tested on AWGN and Multipath Channels. Performance cu
 Adalm-Pluto Reciver
 
   Kemal Sercan İlhan
-  /nAD9361 BPSK data loopback will be done
+  
+AD9361 BPSK data loopback will be done
 
 
 # Project To-Do List
