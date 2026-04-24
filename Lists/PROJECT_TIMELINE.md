@@ -75,3 +75,10 @@
   
 ## 17th April 2026
 - The incompatibility issue encountered in the sync_short and power_trigger MATLAB code has been resolved and the code has been replaced. New test data has been loaded.
+
+## 24th April 2026
+-BER simulation on BPSK loopback HDL decreased to 0% in a no-AWGN channel.
+
+-Reintegrated the fixed HDL into the AD9361 reference project.
+
+-Still observed very high BER in the RF loopback test and attempted to identify the cause.
