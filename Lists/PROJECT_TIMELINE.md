@@ -82,3 +82,9 @@
 -Reintegrated the fixed HDL into the AD9361 reference project.
 
 -Still observed very high BER in the RF loopback test and attempted to identify the cause.
+
+## 22th May 2026
+
+-Tried OFDM RF loopback for different type of modulation and coding rates. 
+
+-Ploted the BER curves for the RF loopback with additional AWGN effect.
