@@ -1,0 +1,147 @@
+
+=============================================
+  Stage 3 -- Multi-MCS RF loopback BER test
+  8 rates: BPSK/QPSK/16QAM/64QAM, 1/2..3/4
+=============================================
+
+[ad9361] init...
+ad9361_init : AD936x Rev 2 successfully initialized
+[ad9361] init OK
+[ad9361] setting 40 MSPS chain...
+       actual RX=40000000 Hz  TX=40000000 Hz
+[ad9361] l_clk ~80000305 Hz (want ~80 MHz)
+[ad9361] 0x017 ENSM bits[3:0]=0xA (want 0xA=FDD)
+[ad9361] running DC + I/Q calibrations...
+  BBDC_CAL:    WARN
+  RFDC_CAL:    OK
+  RX_QUAD_CAL: WARN
+  TX_QUAD_CAL: OK
+[ad9361] RX quadrature tracking enabled
+
+===========================================
+  BIST chip data-port loopback verify
+  (no RF, no cable -- purely digital path)
+  20 pkts per MCS, no AWGN
+===========================================
+[bist] alignment at MCS 0...
+[align] pol=0 sel=0 ... no decode
+[align] pol=0 sel=1 ... GOOD  rate=0x0B len=100
+[bist] aligned: pol=0 skip=1
+  MCS | Rate     | Mod   | CR  | 20-pkt result
+  ----|----------|-------|-----|---------------
+   0  |  6 Mbps | BPSK  | 1/2  | PASS (20/20)
+   1  |  9 Mbps | BPSK  | 3/4  | PASS (20/20)
+   2  | 12 Mbps | QPSK  | 1/2  | PASS (20/20)
+   3  | 18 Mbps | QPSK  | 3/4  | PASS (20/20)
+   4  | 24 Mbps | 16QAM | 1/2  | PASS (20/20)
+   5  | 36 Mbps | 16QAM | 3/4  | FAIL (0/20)
+   6  | 48 Mbps | 64QAM | 2/3  | FAIL (0/20)
+   7  | 54 Mbps | 64QAM | 3/4  | FAIL (0/20)
+[bist] loopback disabled, RF mode restored
+
+[align] RF cable alignment at MCS 0 (BPSK 1/2)...
+[align] pol=0 sel=0 ... GOOD  rate=0x0B len=100
+
+  *** RF ALIGNED *** polarity=0 skip_target=0
+
+=============================================
+  Multi-MCS BER vs SNR sweep  (RF loopback)
+  8 rates  x  12 SNR points  x  1000 pkts
+  Estimated total runtime: ~40 minutes
+=============================================
+
+[MCS 0]  6 Mbps BPSK  1/2 -- verifying decode (5 pkts)... OK (5/5 decoded)
+
+-----------------------------------------------------------
+  MCS 0   6 Mbps  BPSK  1/2  (rate=0x0B)
+  SNR range: 3 dB to 45 dB  (shift 8..15)
+  Pkts/point: 1000   Est. time: ~200 s
+  shift | SNR(dB) | OK pkts | Failed | PER(%) | eff.BER(ppm)
+  ------|---------|---------|--------|--------|-------------
+  8 | 3 dB | 429 | 571 | 57.1 | 571000
+  9 | 9 dB | 998 | 2 | 0.2 | 2000
+  10 | 15 dB | 1000 | 0 | 0.0 | 0
+  11 | 21 dB | 1000 | 0 | 0.0 | 0
+  12 | 27 dB | 1000 | 0 | 0.0 | 0
+  13 | 33 dB | 1000 | 0 | 0.0 | 0
+  14 | 39 dB | 1000 | 0 | 0.0 | 0
+  15 | 45 dB | 1000 | 0 | 0.0 | 0
+  AWGN disabled.
+
+[MCS 1]  9 Mbps BPSK  3/4 -- verifying decode (5 pkts)... OK (5/5 decoded)
+
+-----------------------------------------------------------
+  MCS 1   9 Mbps  BPSK  3/4  (rate=0x0F)
+  SNR range: 3 dB to 45 dB  (shift 8..15)
+  Pkts/point: 1000   Est. time: ~200 s
+  shift | SNR(dB) | OK pkts | Failed | PER(%) | eff.BER(ppm)
+  ------|---------|---------|--------|--------|-------------
+  8 | 3 dB | 232 | 768 | 76.8 | 768000
+  9 | 9 dB | 997 | 3 | 0.3 | 3000
+  10 | 15 dB | 1000 | 0 | 0.0 | 0
+  11 | 21 dB | 1000 | 0 | 0.0 | 0
+  12 | 27 dB | 1000 | 0 | 0.0 | 0
+  13 | 33 dB | 1000 | 0 | 0.0 | 0
+  14 | 39 dB | 1000 | 0 | 0.0 | 0
+  15 | 45 dB | 1000 | 0 | 0.0 | 0
+  AWGN disabled.
+
+[MCS 2] 12 Mbps QPSK  1/2 -- verifying decode (5 pkts)... OK (5/5 decoded)
+
+-----------------------------------------------------------
+  MCS 2  12 Mbps  QPSK  1/2  (rate=0x0A)
+  SNR range: 3 dB to 45 dB  (shift 8..15)
+  Pkts/point: 1000   Est. time: ~200 s
+  shift | SNR(dB) | OK pkts | Failed | PER(%) | eff.BER(ppm)
+  ------|---------|---------|--------|--------|-------------
+  8 | 3 dB | 30 | 970 | 97.0 | 970000
+  9 | 9 dB | 586 | 414 | 41.4 | 414000
+  10 | 15 dB | 791 | 209 | 20.9 | 209000
+  11 | 21 dB | 918 | 82 | 8.2 | 82000
+  12 | 27 dB | 960 | 40 | 4.0 | 40000
+  13 | 33 dB | 939 | 61 | 6.1 | 61000
+  14 | 39 dB | 966 | 34 | 3.4 | 34000
+  15 | 45 dB | 958 | 42 | 4.2 | 42000
+  AWGN disabled.
+
+[MCS 3] 18 Mbps QPSK  3/4 -- verifying decode (5 pkts)... FAIL (0/5 decoded)
+  WARNING: skipping SNR sweep for MCS 3.
+  Higher-order modulations need higher SNR --
+  if all MCS fail, check gains and cable.
+
+[MCS 4] 24 Mbps 16QAM 1/2 -- verifying decode (5 pkts)... FAIL (0/5 decoded)
+  WARNING: skipping SNR sweep for MCS 4.
+  Higher-order modulations need higher SNR --
+  if all MCS fail, check gains and cable.
+
+[MCS 5] 36 Mbps 16QAM 3/4 -- verifying decode (5 pkts)... FAIL (0/5 decoded)
+  WARNING: skipping SNR sweep for MCS 5.
+  Higher-order modulations need higher SNR --
+  if all MCS fail, check gains and cable.
+
+[MCS 6] 48 Mbps 64QAM 2/3 -- verifying decode (5 pkts)... FAIL (0/5 decoded)
+  WARNING: skipping SNR sweep for MCS 6.
+  Higher-order modulations need higher SNR --
+  if all MCS fail, check gains and cable.
+
+[MCS 7] 54 Mbps 64QAM 3/4 -- verifying decode (5 pkts)... FAIL (0/5 decoded)
+  WARNING: skipping SNR sweep for MCS 7.
+  Higher-order modulations need higher SNR --
+  if all MCS fail, check gains and cable.
+
+=============================================
+  SUMMARY -- Waterfall threshold (first shift with PER < 5%)
+  (SNR calibrated: BPSK 1/2 threshold ~ shift=8 = +3 dB)
+  MCS | Rate      | Mod   | CR  | thresh.shift | est.SNR
+  ----|-----------|-------|-----|--------------|--------
+   0  |  6 Mbps | BPSK  | 1/2  |     9        | 9 dB
+   1  |  9 Mbps | BPSK  | 3/4  |     9        | 9 dB
+   2  | 12 Mbps | QPSK  | 1/2  |     12        | 27 dB
+   3  | 18 Mbps | QPSK  | 3/4  |     N/A      | --
+   4  | 24 Mbps | 16QAM | 1/2  |     N/A      | --
+   5  | 36 Mbps | 16QAM | 3/4  |     N/A      | --
+   6  | 48 Mbps | 64QAM | 2/3  |     N/A      | --
+   7  | 54 Mbps | 64QAM | 3/4  |     N/A      | --
+=============================================
+  Multi-MCS test complete.
+
