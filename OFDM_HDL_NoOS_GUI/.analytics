@@ -1,0 +1,157 @@
+timestamp=[2026-05-06 16:55:15], mode=WORKBENCH_START, duration=0:00:06.318, duration_ms=6318, data={}
+timestamp=[2026-05-06 16:55:15], mode=WORKBENCH_UI_INIT, duration=0:00:00.433, duration_ms=433, data={editors_count=0, platform_editors_count=0, projects_count=0, platform_projects_count=0, active_platform_editor=false, projects=}
+timestamp=[2026-05-06 16:55:16], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.953, duration_ms=953, data={}
+timestamp=[2026-05-06 16:59:37], mode=PLATFORM_CREATION, duration=0:00:02.480, duration_ms=2480, data={platform_source=dsa, os=standalone, processor=ps7_cortexa9, platform=null}
+timestamp=[2026-05-06 17:00:16], mode=PLATFORM_GENERATION, duration=0:00:06.994, duration_ms=6994, data={name=stage2b4_platform}
+timestamp=[2026-05-06 17:01:29], mode=APP_CREATION, duration=0:00:05.256, duration_ms=5256, data={name=stage2b4_app, project_type=sdk, os=standalone, processor=cortex-a9, runtime=C/C++, platform=stage2b4_platform, application_type=application}
+timestamp=[2026-05-06 17:06:28], mode=BUILD, duration=0:00:00.227, duration_ms=227, data={name=stage2b4_app, configuration=Debug, clean_build=false}
+timestamp=[2026-05-06 17:49:04], mode=BUILD, duration=0:00:00.231, duration_ms=231, data={name=stage2b4_app, configuration=Debug, clean_build=false}
+timestamp=[2026-05-06 17:51:46], mode=BUILD, duration=0:00:00.171, duration_ms=171, data={name=stage2b4_app, configuration=Debug, clean_build=true}
+timestamp=[2026-05-06 17:51:47], mode=BUILD, duration=0:00:00.232, duration_ms=232, data={name=stage2b4_app, configuration=Debug, clean_build=false}
+timestamp=[2026-05-06 17:53:18], mode=PLATFORM_GENERATION, duration=0:00:04.942, duration_ms=4942, data={name=stage2b4_platform}
+timestamp=[2026-05-06 17:53:18], mode=BUILD, duration=0:00:00.171, duration_ms=171, data={name=stage2b4_app, configuration=Debug, clean_build=true}
+timestamp=[2026-05-06 17:53:25], mode=PLATFORM_GENERATION, duration=0:00:06.243, duration_ms=6243, data={name=stage2b4_platform}
+timestamp=[2026-05-06 17:53:25], mode=BUILD, duration=0:00:00.171, duration_ms=171, data={name=stage2b4_app, configuration=Debug, clean_build=true}
+timestamp=[2026-05-06 17:53:28], mode=BUILD, duration=0:00:01.477, duration_ms=1477, data={name=stage2b4_app, configuration=Debug, clean_build=false}
+timestamp=[2026-05-07 20:31:45], mode=WORKBENCH_START, duration=0:00:07.766, duration_ms=7766, data={}
+timestamp=[2026-05-07 20:31:46], mode=WORKBENCH_UI_INIT, duration=0:00:00.781, duration_ms=781, data={editors_count=3, platform_editors_count=1, projects_count=4, platform_projects_count=1, active_platform_editor=true, projects=RemoteSystemsTempFiles,stage2b4_app,stage2b4_app_system,stage2b4_platform}
+timestamp=[2026-05-07 20:31:47], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:01.352, duration_ms=1352, data={}
+timestamp=[2026-05-07 20:32:47], mode=PLATFORM_GENERATION, duration=0:00:05.026, duration_ms=5026, data={name=stage2b4_platform}
+timestamp=[2026-05-07 20:32:47], mode=BUILD, duration=0:00:00.173, duration_ms=173, data={name=stage2b4_app, configuration=Debug, clean_build=true}
+timestamp=[2026-05-07 20:33:39], mode=PLATFORM_GENERATION, duration=0:00:04.429, duration_ms=4429, data={name=stage2b4_platform}
+timestamp=[2026-05-07 20:33:39], mode=BUILD, duration=0:00:00.173, duration_ms=173, data={name=stage2b4_app, configuration=Debug, clean_build=true}
+timestamp=[2026-05-07 20:34:26], mode=PLATFORM_GENERATION, duration=0:00:07.599, duration_ms=7599, data={name=stage2b4_platform}
+timestamp=[2026-05-07 20:34:29], mode=BUILD, duration=0:00:01.888, duration_ms=1888, data={name=stage2b4_app, configuration=Debug, clean_build=false}
+timestamp=[2026-05-07 20:42:29], mode=BUILD, duration=0:00:00.174, duration_ms=174, data={name=stage2b4_app, configuration=Debug, clean_build=false}
+timestamp=[2026-05-07 20:42:33], mode=BUILD, duration=0:00:00.172, duration_ms=172, data={name=stage2b4_app, configuration=Debug, clean_build=false}
+timestamp=[2026-05-07 20:47:01], mode=PLATFORM_GENERATION, duration=0:00:04.983, duration_ms=4983, data={name=stage2b4_platform}
+timestamp=[2026-05-07 20:47:01], mode=BUILD, duration=0:00:00.169, duration_ms=169, data={name=stage2b4_app, configuration=Debug, clean_build=true}
+timestamp=[2026-05-07 20:47:19], mode=PLATFORM_GENERATION, duration=0:00:06.343, duration_ms=6343, data={name=stage2b4_platform}
+timestamp=[2026-05-07 20:47:22], mode=BUILD, duration=0:00:01.475, duration_ms=1475, data={name=stage2b4_app, configuration=Debug, clean_build=false}
+timestamp=[2026-05-07 20:58:42], mode=PLATFORM_GENERATION, duration=0:00:05.089, duration_ms=5089, data={name=stage2b4_platform}
+timestamp=[2026-05-07 20:58:42], mode=BUILD, duration=0:00:00.172, duration_ms=172, data={name=stage2b4_app, configuration=Debug, clean_build=true}
+timestamp=[2026-05-07 21:00:13], mode=PLATFORM_GENERATION, duration=0:00:06.545, duration_ms=6545, data={name=stage2b4_platform}
+timestamp=[2026-05-07 21:00:16], mode=BUILD, duration=0:00:01.475, duration_ms=1475, data={name=stage2b4_app, configuration=Debug, clean_build=false}
+timestamp=[2026-05-18 18:07:14], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.570, duration_ms=570, data={}
+timestamp=[2026-05-18 18:07:15], mode=WORKBENCH_START, duration=0:00:07.758, duration_ms=7758, data={}
+timestamp=[2026-05-18 18:07:15], mode=WORKBENCH_UI_INIT, duration=0:00:00.081, duration_ms=81, data={editors_count=4, platform_editors_count=1, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,stage2b4_app,stage2b4_app_system,stage2b4_platform}
+timestamp=[2026-05-20 14:59:24], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.631, duration_ms=631, data={}
+timestamp=[2026-05-20 14:59:24], mode=WORKBENCH_START, duration=0:00:08.363, duration_ms=8363, data={}
+timestamp=[2026-05-20 14:59:24], mode=WORKBENCH_UI_INIT, duration=0:00:00.125, duration_ms=125, data={editors_count=4, platform_editors_count=1, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,stage2b4_app,stage2b4_app_system,stage2b4_platform}
+timestamp=[2026-05-20 15:23:05], mode=PLATFORM_GENERATION, duration=0:00:06.437, duration_ms=6437, data={name=stage2b4_platform}
+timestamp=[2026-05-20 15:23:05], mode=BUILD, duration=0:00:00.172, duration_ms=172, data={name=stage2b4_app, configuration=Debug, clean_build=true}
+timestamp=[2026-05-20 15:23:15], mode=PLATFORM_GENERATION, duration=0:00:07.351, duration_ms=7351, data={name=stage2b4_platform}
+timestamp=[2026-05-20 15:23:18], mode=BUILD, duration=0:00:01.681, duration_ms=1681, data={name=stage2b4_app, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 15:23:25], mode=BUILD, duration=0:00:05.888, duration_ms=5888, data={name=stage2b4_app_system, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 15:23:59], mode=PLATFORM_GENERATION, duration=0:00:04.932, duration_ms=4932, data={name=stage2b4_platform}
+timestamp=[2026-05-20 15:23:59], mode=BUILD, duration=0:00:00.173, duration_ms=173, data={name=stage2b4_app, configuration=Debug, clean_build=true}
+timestamp=[2026-05-20 15:23:59], mode=BUILD, duration=0:00:00.166, duration_ms=166, data={name=stage2b4_app_system, configuration=Debug, clean_build=true}
+timestamp=[2026-05-20 15:24:33], mode=PLATFORM_GENERATION, duration=0:00:06.290, duration_ms=6290, data={name=stage2b4_platform}
+timestamp=[2026-05-20 15:24:36], mode=BUILD, duration=0:00:01.420, duration_ms=1420, data={name=stage2b4_app, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 15:24:42], mode=BUILD, duration=0:00:05.828, duration_ms=5828, data={name=stage2b4_app_system, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 15:26:12], mode=PLATFORM_GENERATION, duration=0:00:04.930, duration_ms=4930, data={name=stage2b4_platform}
+timestamp=[2026-05-20 15:26:12], mode=BUILD, duration=0:00:00.167, duration_ms=167, data={name=stage2b4_app, configuration=Debug, clean_build=true}
+timestamp=[2026-05-20 15:26:21], mode=PLATFORM_GENERATION, duration=0:00:06.355, duration_ms=6355, data={name=stage2b4_platform}
+timestamp=[2026-05-20 15:26:24], mode=BUILD, duration=0:00:01.425, duration_ms=1425, data={name=stage2b4_app, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 15:32:47], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.588, duration_ms=588, data={}
+timestamp=[2026-05-20 15:32:47], mode=WORKBENCH_START, duration=0:00:04.612, duration_ms=4612, data={}
+timestamp=[2026-05-20 15:32:47], mode=WORKBENCH_UI_INIT, duration=0:00:00.185, duration_ms=185, data={editors_count=4, platform_editors_count=1, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,stage2b4_app,stage2b4_app_system,stage2b4_platform}
+timestamp=[2026-05-20 17:01:45], mode=PLATFORM_GENERATION, duration=0:00:07.304, duration_ms=7304, data={name=stage2b4_platform}
+timestamp=[2026-05-20 17:02:20], mode=PLATFORM_GENERATION, duration=0:00:04.987, duration_ms=4987, data={name=stage2b4_platform}
+timestamp=[2026-05-20 17:02:20], mode=BUILD, duration=0:00:00.175, duration_ms=175, data={name=stage2b4_app, configuration=Debug, clean_build=true}
+timestamp=[2026-05-20 17:08:14], mode=PLATFORM_CREATION, duration=0:00:07.304, duration_ms=7304, data={platform_source=dsa, os=standalone, processor=ps7_cortexa9, platform=null}
+timestamp=[2026-05-20 17:10:56], mode=APP_CREATION, duration=0:00:04.798, duration_ms=4798, data={name=stage3_mcs_app1, project_type=sdk, os=standalone, processor=cortex-a9, runtime=C/C++, platform=stage3_mcs_platform, application_type=application}
+timestamp=[2026-05-20 17:17:32], mode=PLATFORM_GENERATION, duration=0:00:08.816, duration_ms=8816, data={name=stage3_mcs_platform}
+timestamp=[2026-05-20 17:17:34], mode=BUILD, duration=0:00:00.230, duration_ms=230, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 17:23:27], mode=BUILD, duration=0:00:00.227, duration_ms=227, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 17:26:35], mode=BUILD, duration=0:00:00.173, duration_ms=173, data={name=stage3_mcs_app1, configuration=Debug, clean_build=true}
+timestamp=[2026-05-20 17:26:35], mode=BUILD, duration=0:00:00.225, duration_ms=225, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 17:26:39], mode=BUILD, duration=0:00:00.227, duration_ms=227, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 17:32:33], mode=BUILD, duration=0:00:00.173, duration_ms=173, data={name=stage3_mcs_app1, configuration=Debug, clean_build=true}
+timestamp=[2026-05-20 17:32:34], mode=BUILD, duration=0:00:01.279, duration_ms=1279, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 17:34:51], mode=BUILD, duration=0:00:00.175, duration_ms=175, data={name=stage3_mcs_app1, configuration=Debug, clean_build=true}
+timestamp=[2026-05-20 17:34:52], mode=BUILD, duration=0:00:01.578, duration_ms=1578, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 18:06:25], mode=PLATFORM_GENERATION, duration=0:00:05.156, duration_ms=5156, data={name=stage3_mcs_platform}
+timestamp=[2026-05-20 18:06:25], mode=BUILD, duration=0:00:00.175, duration_ms=175, data={name=stage3_mcs_app1, configuration=Debug, clean_build=true}
+timestamp=[2026-05-20 18:06:37], mode=PLATFORM_GENERATION, duration=0:00:08.962, duration_ms=8962, data={name=stage3_mcs_platform}
+timestamp=[2026-05-20 18:06:41], mode=BUILD, duration=0:00:01.377, duration_ms=1377, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 18:12:52], mode=PLATFORM_GENERATION, duration=0:00:05.145, duration_ms=5145, data={name=stage3_mcs_platform}
+timestamp=[2026-05-20 18:12:52], mode=BUILD, duration=0:00:00.174, duration_ms=174, data={name=stage3_mcs_app1, configuration=Debug, clean_build=true}
+timestamp=[2026-05-20 18:13:02], mode=PLATFORM_GENERATION, duration=0:00:08.812, duration_ms=8812, data={name=stage3_mcs_platform}
+timestamp=[2026-05-20 18:13:06], mode=BUILD, duration=0:00:01.437, duration_ms=1437, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 18:16:08], mode=BUILD, duration=0:00:00.176, duration_ms=176, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 18:16:15], mode=BUILD, duration=0:00:00.176, duration_ms=176, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 18:22:37], mode=BUILD, duration=0:00:00.327, duration_ms=327, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 18:22:43], mode=BUILD, duration=0:00:00.225, duration_ms=225, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-20 18:45:18], mode=BUILD, duration=0:00:00.328, duration_ms=328, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-26 16:24:02], mode=WORKBENCH_START, duration=0:00:06.914, duration_ms=6914, data={}
+timestamp=[2026-05-26 16:24:03], mode=WORKBENCH_UI_INIT, duration=0:00:00.661, duration_ms=661, data={editors_count=8, platform_editors_count=2, projects_count=7, platform_projects_count=2, active_platform_editor=false, projects=RemoteSystemsTempFiles,stage2b4_app,stage2b4_app_system,stage2b4_platform,stage3_mcs_app1,stage3_mcs_app1_system,stage3_mcs_platform}
+timestamp=[2026-05-26 16:24:03], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:01.098, duration_ms=1098, data={}
+timestamp=[2026-05-26 16:29:35], mode=PLATFORM_GENERATION, duration=0:00:08.441, duration_ms=8441, data={name=stage2b4_platform}
+timestamp=[2026-05-26 16:29:35], mode=BUILD, duration=0:00:00.171, duration_ms=171, data={name=stage2b4_app, configuration=Debug, clean_build=true}
+timestamp=[2026-05-26 16:29:38], mode=BUILD, duration=0:00:01.634, duration_ms=1634, data={name=stage2b4_app, configuration=Debug, clean_build=false}
+timestamp=[2026-05-26 16:31:56], mode=PLATFORM_GENERATION, duration=0:00:06.547, duration_ms=6547, data={name=stage3_mcs_platform}
+timestamp=[2026-05-26 16:31:58], mode=BUILD, duration=0:00:00.569, duration_ms=569, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-26 16:50:55], mode=PLATFORM_GENERATION, duration=0:00:04.992, duration_ms=4992, data={name=stage3_mcs_platform}
+timestamp=[2026-05-26 16:50:55], mode=BUILD, duration=0:00:00.169, duration_ms=169, data={name=stage3_mcs_app1, configuration=Debug, clean_build=true}
+timestamp=[2026-05-26 16:51:42], mode=PLATFORM_GENERATION, duration=0:00:08.665, duration_ms=8665, data={name=stage3_mcs_platform}
+timestamp=[2026-05-26 16:51:44], mode=BUILD, duration=0:00:01.427, duration_ms=1427, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-26 17:18:15], mode=PLATFORM_GENERATION, duration=0:00:04.994, duration_ms=4994, data={name=stage3_mcs_platform}
+timestamp=[2026-05-26 17:18:15], mode=BUILD, duration=0:00:00.169, duration_ms=169, data={name=stage3_mcs_app1, configuration=Debug, clean_build=true}
+timestamp=[2026-05-26 17:18:27], mode=PLATFORM_GENERATION, duration=0:00:08.714, duration_ms=8714, data={name=stage3_mcs_platform}
+timestamp=[2026-05-26 17:18:30], mode=BUILD, duration=0:00:01.372, duration_ms=1372, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-27 12:31:12], mode=WORKBENCH_START, duration=0:00:07.853, duration_ms=7853, data={}
+timestamp=[2026-05-27 12:31:12], mode=WORKBENCH_UI_INIT, duration=0:00:00.908, duration_ms=908, data={editors_count=8, platform_editors_count=2, projects_count=7, platform_projects_count=2, active_platform_editor=false, projects=RemoteSystemsTempFiles,stage2b4_app,stage2b4_app_system,stage2b4_platform,stage3_mcs_app1,stage3_mcs_app1_system,stage3_mcs_platform}
+timestamp=[2026-05-27 12:31:13], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:01.653, duration_ms=1653, data={}
+timestamp=[2026-05-27 12:31:37], mode=PLATFORM_GENERATION, duration=0:00:06.664, duration_ms=6664, data={name=stage3_mcs_platform}
+timestamp=[2026-05-27 12:31:37], mode=BUILD, duration=0:00:00.172, duration_ms=172, data={name=stage3_mcs_app1, configuration=Debug, clean_build=true}
+timestamp=[2026-05-27 12:31:58], mode=PLATFORM_GENERATION, duration=0:00:04.539, duration_ms=4539, data={name=stage3_mcs_platform}
+timestamp=[2026-05-27 12:31:58], mode=BUILD, duration=0:00:00.167, duration_ms=167, data={name=stage3_mcs_app1, configuration=Debug, clean_build=true}
+timestamp=[2026-05-27 12:32:14], mode=PLATFORM_GENERATION, duration=0:00:09.664, duration_ms=9664, data={name=stage3_mcs_platform}
+timestamp=[2026-05-27 12:32:17], mode=BUILD, duration=0:00:01.523, duration_ms=1523, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-29 15:46:47], mode=WORKBENCH_START, duration=0:00:08.024, duration_ms=8024, data={}
+timestamp=[2026-05-29 15:46:48], mode=WORKBENCH_UI_INIT, duration=0:00:00.845, duration_ms=845, data={editors_count=8, platform_editors_count=2, projects_count=7, platform_projects_count=2, active_platform_editor=false, projects=RemoteSystemsTempFiles,stage2b4_app,stage2b4_app_system,stage2b4_platform,stage3_mcs_app1,stage3_mcs_app1_system,stage3_mcs_platform}
+timestamp=[2026-05-29 15:46:49], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:01.858, duration_ms=1858, data={}
+timestamp=[2026-05-29 16:16:04], mode=PLATFORM_GENERATION, duration=0:00:06.701, duration_ms=6701, data={name=stage3_mcs_platform}
+timestamp=[2026-05-29 16:16:05], mode=BUILD, duration=0:00:00.170, duration_ms=170, data={name=stage3_mcs_app1, configuration=Debug, clean_build=true}
+timestamp=[2026-05-29 16:16:18], mode=PLATFORM_GENERATION, duration=0:00:04.481, duration_ms=4481, data={name=stage3_mcs_platform}
+timestamp=[2026-05-29 16:16:18], mode=BUILD, duration=0:00:00.166, duration_ms=166, data={name=stage3_mcs_app1, configuration=Debug, clean_build=true}
+timestamp=[2026-05-29 16:16:32], mode=PLATFORM_GENERATION, duration=0:00:09.812, duration_ms=9812, data={name=stage3_mcs_platform}
+timestamp=[2026-05-29 16:16:34], mode=BUILD, duration=0:00:01.524, duration_ms=1524, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-29 16:22:35], mode=PLATFORM_GENERATION, duration=0:00:05.042, duration_ms=5042, data={name=stage3_mcs_platform}
+timestamp=[2026-05-29 16:22:35], mode=BUILD, duration=0:00:00.167, duration_ms=167, data={name=stage3_mcs_app1, configuration=Debug, clean_build=true}
+timestamp=[2026-05-29 16:28:56], mode=PLATFORM_GENERATION, duration=0:00:08.772, duration_ms=8772, data={name=stage3_mcs_platform}
+timestamp=[2026-05-29 16:28:59], mode=BUILD, duration=0:00:01.421, duration_ms=1421, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 00:44:11], mode=PLATFORM_GENERATION, duration=0:00:11.217, duration_ms=11217, data={name=stage3_mcs_platform}
+timestamp=[2026-05-30 00:44:14], mode=BUILD, duration=0:00:00.831, duration_ms=831, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 00:47:38], mode=BUILD, duration=0:00:00.644, duration_ms=644, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 15:58:15], mode=WORKBENCH_START, duration=0:00:09.503, duration_ms=9503, data={}
+timestamp=[2026-05-30 15:58:16], mode=WORKBENCH_UI_INIT, duration=0:00:01.206, duration_ms=1206, data={editors_count=8, platform_editors_count=2, projects_count=7, platform_projects_count=2, active_platform_editor=false, projects=RemoteSystemsTempFiles,stage2b4_app,stage2b4_app_system,stage2b4_platform,stage3_mcs_app1,stage3_mcs_app1_system,stage3_mcs_platform}
+timestamp=[2026-05-30 15:58:17], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:01.958, duration_ms=1958, data={}
+timestamp=[2026-05-30 18:35:42], mode=PLATFORM_GENERATION, duration=0:00:15.809, duration_ms=15809, data={name=stage3_mcs_platform}
+timestamp=[2026-05-30 18:35:44], mode=BUILD, duration=0:00:00.745, duration_ms=745, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 18:35:55], mode=BUILD, duration=0:00:05.939, duration_ms=5939, data={name=stage3_mcs_app1_system, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 19:23:21], mode=PLATFORM_GENERATION, duration=0:00:06.654, duration_ms=6654, data={name=stage3_mcs_platform}
+timestamp=[2026-05-30 19:23:24], mode=BUILD, duration=0:00:01.429, duration_ms=1429, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 19:23:35], mode=BUILD, duration=0:00:05.883, duration_ms=5883, data={name=stage3_mcs_app1_system, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 19:43:52], mode=BUILD, duration=0:00:00.278, duration_ms=278, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 19:43:57], mode=BUILD, duration=0:00:00.275, duration_ms=275, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 19:55:46], mode=BUILD, duration=0:00:00.377, duration_ms=377, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 19:55:52], mode=BUILD, duration=0:00:05.883, duration_ms=5883, data={name=stage3_mcs_app1_system, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 20:31:34], mode=BUILD, duration=0:00:00.175, duration_ms=175, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 20:31:40], mode=BUILD, duration=0:00:05.832, duration_ms=5832, data={name=stage3_mcs_app1_system, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 20:38:29], mode=BUILD, duration=0:00:00.173, duration_ms=173, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 20:38:35], mode=BUILD, duration=0:00:05.834, duration_ms=5834, data={name=stage3_mcs_app1_system, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 21:27:01], mode=PLATFORM_GENERATION, duration=0:00:06.607, duration_ms=6607, data={name=stage3_mcs_platform}
+timestamp=[2026-05-30 21:27:03], mode=BUILD, duration=0:00:00.576, duration_ms=576, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 21:46:11], mode=BUILD, duration=0:00:00.176, duration_ms=176, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-05-30 21:48:23], mode=BUILD, duration=0:00:00.226, duration_ms=226, data={name=stage3_mcs_app1, configuration=Debug, clean_build=false}
+timestamp=[2026-06-03 21:47:23], mode=WORKBENCH_START, duration=0:00:07.649, duration_ms=7649, data={}
+timestamp=[2026-06-03 21:47:24], mode=WORKBENCH_UI_INIT, duration=0:00:00.723, duration_ms=723, data={editors_count=8, platform_editors_count=2, projects_count=7, platform_projects_count=2, active_platform_editor=false, projects=RemoteSystemsTempFiles,stage2b4_app,stage2b4_app_system,stage2b4_platform,stage3_mcs_app1,stage3_mcs_app1_system,stage3_mcs_platform}
+timestamp=[2026-06-03 21:47:25], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:01.441, duration_ms=1441, data={}
+timestamp=[2026-06-04 17:36:52], mode=WORKBENCH_START, duration=0:00:08.960, duration_ms=8960, data={}
+timestamp=[2026-06-04 17:36:53], mode=WORKBENCH_UI_INIT, duration=0:00:01.032, duration_ms=1032, data={editors_count=8, platform_editors_count=2, projects_count=7, platform_projects_count=2, active_platform_editor=false, projects=RemoteSystemsTempFiles,stage2b4_app,stage2b4_app_system,stage2b4_platform,stage3_mcs_app1,stage3_mcs_app1_system,stage3_mcs_platform}
+timestamp=[2026-06-04 17:36:54], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:02.070, duration_ms=2070, data={}
+timestamp=[2026-06-05 13:45:56], mode=WORKBENCH_START, duration=0:00:08.442, duration_ms=8442, data={}
+timestamp=[2026-06-05 13:45:57], mode=WORKBENCH_UI_INIT, duration=0:00:01.021, duration_ms=1021, data={editors_count=8, platform_editors_count=2, projects_count=7, platform_projects_count=2, active_platform_editor=false, projects=RemoteSystemsTempFiles,stage2b4_app,stage2b4_app_system,stage2b4_platform,stage3_mcs_app1,stage3_mcs_app1_system,stage3_mcs_platform}
+timestamp=[2026-06-05 13:45:58], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:01.880, duration_ms=1880, data={}

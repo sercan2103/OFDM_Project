@@ -1,0 +1,88 @@
+# ─── Vivado generated / temporary files ──────────────────────────────────────
+
+# Project cache (fully regenerable)
+*.cache/
+.Xil/
+
+# Vivado run outputs (synthesis, implementation, simulation results)
+*.runs/
+*.sim/
+
+# Vivado journal and log files
+vivado.jou
+vivado.log
+vivado_*.backup.jou
+vivado_*.backup.log
+
+# Vivado HLS
+*.ap_proj/
+solution*/
+*.zip
+
+# Bitstream and hardware handoff
+*.bit
+*.bin
+*.ltx
+*.xsa
+*.hdf
+
+# Webtalk / usage statistics
+.Xil/
+webtalk*.log
+webtalk*.jou
+usage_statistics_webtalk*.html
+usage_statistics_webtalk*.xml
+
+# Hardware manager
+*.hw/
+
+# ─── IP generated output products ─────────────────────────────────────────────
+# The .gen/ directory contains large auto-generated IP output products.
+# Vivado can re-generate these from the .xci files in .srcs/.
+# Uncomment the line below to exclude them (reduces repo size significantly).
+# *.gen/
+
+# ─── OS / editor artefacts ────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# ─── v2 per-stage build trees ─────────────────────────────────────────────────
+# Each stage's build.tcl creates a self-contained stageN/ Vivado project
+# under v2/boards/zed_fmcs3/. Fully regenerable -- don't track.
+v2/boards/zed_fmcs3/stage*/
+v2/ip/synth_check_proj/
+
+# ─── Cloned dependencies (not tracked here, see README) ──────────────────────
+adi-hdl/
+adi-no-os/
+openwifi-hw/
+
+# ─── Old simulation/exploration project (lives on `main`, not here) ──────────
+# This branch is v2-only. The simulation TB, IP_user_files and IP gen
+# trees from the prior project are NOT carried on this branch.
+ofdmTxRx.cache/
+ofdmTxRx.gen/
+ofdmTxRx.hw/
+ofdmTxRx.ip_user_files/
+ofdmTxRx.runs/
+ofdmTxRx.sim/
+ofdmTxRx.srcs/
+ofdmTxRx.xpr
+openofdm_transceiver_tb_behav.wcfg
+
+# ─── Per-user / per-machine working artefacts ────────────────────────────────
+# Local Vitis workspaces, scratch CSVs, build outputs from ad-hoc scripts.
+build/
+sw/
+Users/
+*.csv
+
+# ─── Keep these ───────────────────────────────────────────────────────────────
+# Source Verilog/VHDL, IP configs (.xci), coefficient files (.coe),
+# memory init files (.mem), project file (.xpr), and waveform configs (.wcfg)
+# under v2/ are all tracked — do NOT add them above.

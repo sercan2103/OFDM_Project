@@ -1,0 +1,98 @@
+16:29:37 **** Incremental Build of configuration Debug for project stage2b4_app ****
+make all 
+make --no-print-directory pre-build
+a9-linaro-pre-build-step
+ 
+make --no-print-directory main-build
+Building file: ../src/noos/ad9361.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src/noos -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src -c -fmessage-length=0 -MT"src/noos/ad9361.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_platform/export/stage2b4_platform/sw/stage2b4_platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/noos/ad9361.d" -MT"src/noos/ad9361.o" -o "src/noos/ad9361.o" "../src/noos/ad9361.c"
+Finished building: ../src/noos/ad9361.c
+ 
+Building file: ../src/noos/ad9361_api.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src/noos -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src -c -fmessage-length=0 -MT"src/noos/ad9361_api.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_platform/export/stage2b4_platform/sw/stage2b4_platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/noos/ad9361_api.d" -MT"src/noos/ad9361_api.o" -o "src/noos/ad9361_api.o" "../src/noos/ad9361_api.c"
+Finished building: ../src/noos/ad9361_api.c
+ 
+Building file: ../src/noos/ad9361_conv.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src/noos -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src -c -fmessage-length=0 -MT"src/noos/ad9361_conv.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_platform/export/stage2b4_platform/sw/stage2b4_platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/noos/ad9361_conv.d" -MT"src/noos/ad9361_conv.o" -o "src/noos/ad9361_conv.o" "../src/noos/ad9361_conv.c"
+Finished building: ../src/noos/ad9361_conv.c
+ 
+Building file: ../src/noos/ad9361_util.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src/noos -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src -c -fmessage-length=0 -MT"src/noos/ad9361_util.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_platform/export/stage2b4_platform/sw/stage2b4_platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/noos/ad9361_util.d" -MT"src/noos/ad9361_util.o" -o "src/noos/ad9361_util.o" "../src/noos/ad9361_util.c"
+Finished building: ../src/noos/ad9361_util.c
+ 
+Building file: ../src/noos/no_os_alloc.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src/noos -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src -c -fmessage-length=0 -MT"src/noos/no_os_alloc.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_platform/export/stage2b4_platform/sw/stage2b4_platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/noos/no_os_alloc.d" -MT"src/noos/no_os_alloc.o" -o "src/noos/no_os_alloc.o" "../src/noos/no_os_alloc.c"
+Finished building: ../src/noos/no_os_alloc.c
+ 
+Building file: ../src/noos/no_os_gpio.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src/noos -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src -c -fmessage-length=0 -MT"src/noos/no_os_gpio.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_platform/export/stage2b4_platform/sw/stage2b4_platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/noos/no_os_gpio.d" -MT"src/noos/no_os_gpio.o" -o "src/noos/no_os_gpio.o" "../src/noos/no_os_gpio.c"
+Finished building: ../src/noos/no_os_gpio.c
+ 
+Building file: ../src/noos/no_os_list.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src/noos -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src -c -fmessage-length=0 -MT"src/noos/no_os_list.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_platform/export/stage2b4_platform/sw/stage2b4_platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/noos/no_os_list.d" -MT"src/noos/no_os_list.o" -o "src/noos/no_os_list.o" "../src/noos/no_os_list.c"
+Finished building: ../src/noos/no_os_list.c
+ 
+Building file: ../src/noos/no_os_mutex.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src/noos -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src -c -fmessage-length=0 -MT"src/noos/no_os_mutex.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_platform/export/stage2b4_platform/sw/stage2b4_platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/noos/no_os_mutex.d" -MT"src/noos/no_os_mutex.o" -o "src/noos/no_os_mutex.o" "../src/noos/no_os_mutex.c"
+Finished building: ../src/noos/no_os_mutex.c
+ 
+Building file: ../src/noos/no_os_spi.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src/noos -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src -c -fmessage-length=0 -MT"src/noos/no_os_spi.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_platform/export/stage2b4_platform/sw/stage2b4_platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/noos/no_os_spi.d" -MT"src/noos/no_os_spi.o" -o "src/noos/no_os_spi.o" "../src/noos/no_os_spi.c"
+Finished building: ../src/noos/no_os_spi.c
+ 
+Building file: ../src/noos/no_os_util.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src/noos -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src -c -fmessage-length=0 -MT"src/noos/no_os_util.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_platform/export/stage2b4_platform/sw/stage2b4_platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/noos/no_os_util.d" -MT"src/noos/no_os_util.o" -o "src/noos/no_os_util.o" "../src/noos/no_os_util.c"
+Finished building: ../src/noos/no_os_util.c
+ 
+Building file: ../src/noos/xilinx_axi_io.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src/noos -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src -c -fmessage-length=0 -MT"src/noos/xilinx_axi_io.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_platform/export/stage2b4_platform/sw/stage2b4_platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/noos/xilinx_axi_io.d" -MT"src/noos/xilinx_axi_io.o" -o "src/noos/xilinx_axi_io.o" "../src/noos/xilinx_axi_io.c"
+Finished building: ../src/noos/xilinx_axi_io.c
+ 
+Building file: ../src/noos/xilinx_delay.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src/noos -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src -c -fmessage-length=0 -MT"src/noos/xilinx_delay.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_platform/export/stage2b4_platform/sw/stage2b4_platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/noos/xilinx_delay.d" -MT"src/noos/xilinx_delay.o" -o "src/noos/xilinx_delay.o" "../src/noos/xilinx_delay.c"
+Finished building: ../src/noos/xilinx_delay.c
+ 
+Building file: ../src/noos/xilinx_gpio.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src/noos -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src -c -fmessage-length=0 -MT"src/noos/xilinx_gpio.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_platform/export/stage2b4_platform/sw/stage2b4_platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/noos/xilinx_gpio.d" -MT"src/noos/xilinx_gpio.o" -o "src/noos/xilinx_gpio.o" "../src/noos/xilinx_gpio.c"
+Finished building: ../src/noos/xilinx_gpio.c
+ 
+Building file: ../src/noos/xilinx_spi.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src/noos -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src -c -fmessage-length=0 -MT"src/noos/xilinx_spi.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_platform/export/stage2b4_platform/sw/stage2b4_platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/noos/xilinx_spi.d" -MT"src/noos/xilinx_spi.o" -o "src/noos/xilinx_spi.o" "../src/noos/xilinx_spi.c"
+../src/noos/xilinx_spi.c:59:2: warning: #warning SPI delays are not supported on the xilinx platform [-Wcpp]
+   59 | #warning SPI delays are not supported on the xilinx platform
+      |  ^~~~~~~
+Finished building: ../src/noos/xilinx_spi.c
+ 
+Building file: ../src/main.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src/noos -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_app/src -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_platform/export/stage2b4_platform/sw/stage2b4_platform/standalone_domain/bspinclude/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: stage2b4_app.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L/home/kemal/Desktop/OFDMPROJECTCURRENT/stage2b4_platform/export/stage2b4_platform/sw/stage2b4_platform/standalone_domain/bsplib/lib -o "stage2b4_app.elf" ./src/noos/ad9361.o ./src/noos/ad9361_api.o ./src/noos/ad9361_conv.o ./src/noos/ad9361_util.o ./src/noos/no_os_alloc.o ./src/noos/no_os_gpio.o ./src/noos/no_os_list.o ./src/noos/no_os_mutex.o ./src/noos/no_os_spi.o ./src/noos/no_os_util.o ./src/noos/xilinx_axi_io.o ./src/noos/xilinx_delay.o ./src/noos/xilinx_gpio.o ./src/noos/xilinx_spi.o  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: stage2b4_app.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size stage2b4_app.elf  |tee "stage2b4_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 230562	   3502	  22720	 256784	  3eb10	stage2b4_app.elf
+Finished building: stage2b4_app.elf.size
+ 
+
+16:29:38 Build Finished (took 1s.621ms)
+

@@ -1,0 +1,14 @@
+Fri Jun  5 13:45:59 2026: Server was asked to start on port: '45389'
+Fri Jun  5 13:45:59 2026: Server is using token UUID: 'f1764a06-8ff2-4047-a02f-6342d2b46d42'
+Fri Jun  5 13:45:59 2026: Attempting to start server on port '45389'
+Fri Jun  5 13:45:59 2026: XRC main fifo: created main fifo '/tmp/xrcmainf1764a06-8ff2-4047-a02f-6342d2b46d42', fd read = 11
+Fri Jun  5 13:45:59 2026: Running Rule Check Server
+Fri Jun  5 13:45:59 2026: Version 1.6.1
+Fri Jun  5 13:46:01 2026: Rule Check Server: Accepted socket connection from client
+Fri Jun  5 13:46:01 2026: EXCHANGE_TOKEN received, server token: f1764a06-8ff2-4047-a02f-6342d2b46d42, passed token: f1764a06-8ff2-4047-a02f-6342d2b46d42
+Fri Jun  5 17:05:19 2026: STOP_SERVER received, server token: f1764a06-8ff2-4047-a02f-6342d2b46d42, passed token: f1764a06-8ff2-4047-a02f-6342d2b46d42
+Fri Jun  5 17:05:19 2026: Socket received request to stop server.
+Fri Jun  5 17:05:19 2026: SERVER: destructor for server bound to port 45389
+Fri Jun  5 17:05:19 2026: XRC main fifo: Good unlink of /tmp/xrcmainf1764a06-8ff2-4047-a02f-6342d2b46d42
+Fri Jun  5 17:05:19 2026: Server exiting with status 0.
+Fri Jun  5 17:05:19 2026: Closing log file.
